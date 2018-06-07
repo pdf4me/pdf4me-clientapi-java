@@ -3,6 +3,7 @@ package jUnit;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +24,15 @@ import test.TestFiles;
 
 public class MergeClientTest {
 
-	private Check check = new Check();
-	private TestFiles testFiles = new TestFiles();
-	
-	private Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
-	private MergeClient mergeClient = new MergeClient(pdf4meTestSetup.getPdf4meClient());
-	
+	private static Check check = new Check();
+	private static TestFiles testFiles = new TestFiles();
+
+	private static Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
+	private static MergeClient mergeClient = new MergeClient(pdf4meTestSetup.getPdf4meClient());
+
 	@Rule
-    public ExpectedException thrown = ExpectedException.none();
-	
+	public ExpectedException thrown = ExpectedException.none();
+
 	public Merge createMerge() {
 
 		// setup merge object
@@ -61,32 +62,47 @@ public class MergeClientTest {
 	@Test
 	public void testMergeThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The merge parameter cannot be null.");
-		
+		thrown.expectMessage("The merge parameter cannot be null.");
+
 		// request
 		Merge merge = null;
-		MergeRes res = mergeClient.merge(merge);
+		mergeClient.merge(merge);
 
 	}
 
 	@Test()
 	public void testMergeDocumentsThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The merge documents cannot be null.");
-		
+		thrown.expectMessage("The merge documents cannot be null.");
+
 		// request
 		Merge merge = createMerge();
 		merge.setDocuments(null);
 
-		MergeRes res = mergeClient.merge(merge);
+		mergeClient.merge(merge);
+
+	}
+
+	@Test()
+	public void testMergeDocumentsNumberThrowsNullPointerException() {
+		thrown.expect(Pdf4meClientException.class);
+		thrown.expectMessage("The merge documents must contain at least two documents.");
+
+		// request
+		Merge merge = createMerge();
+		List<Document> documents = new ArrayList<Document>();
+		documents.add(new Document());
+		merge.setDocuments(documents);
+
+		mergeClient.merge(merge);
 
 	}
 
 	@Test
 	public void testMergeDocument1ThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The merge documents cannot be null.");
-		
+		thrown.expectMessage("The merge documents must contain at least two documents.");
+
 		// request
 		Merge merge = createMerge();
 		List<Document> documents = new ArrayList<Document>();
@@ -95,15 +111,15 @@ public class MergeClientTest {
 		MergeAction mergeAction = new MergeAction();
 		merge.setMergeAction(mergeAction);
 
-		MergeRes res = mergeClient.merge(merge);
+		mergeClient.merge(merge);
 
 	}
 
 	@Test
 	public void testMergeDocument2ThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The merge documents cannot be null.");
-		
+		thrown.expectMessage("The merge documents must contain at least two documents.");
+
 		// request
 		Merge merge = new Merge();
 		List<Document> documents = new ArrayList<Document>();
@@ -115,49 +131,70 @@ public class MergeClientTest {
 		MergeAction mergeAction = new MergeAction();
 		merge.setMergeAction(mergeAction);
 
-		MergeRes res = mergeClient.merge(merge);
+		mergeClient.merge(merge);
+
+	}
+
+	@Test
+	public void testMergeDocumentThrowsNullPointerException() {
+		thrown.expect(Pdf4meClientException.class);
+		thrown.expectMessage("The merge documents cannot be null nor can the document.docData.");
+
+		// request
+		Merge merge = new Merge();
+		List<Document> documents = new ArrayList<Document>();
+		Document doc1 = new Document();
+		doc1.setDocData(testFiles.getPdfBytes());
+		documents.add(doc1);
+		documents.add(null);
+		merge.setDocuments(documents);
+
+		MergeAction mergeAction = new MergeAction();
+		merge.setMergeAction(mergeAction);
+
+		mergeClient.merge(merge);
 
 	}
 
 	@Test
 	public void testMergeDocumentData1ThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The merge documents cannot be null.");
-        
-     // request
-        Merge merge = createMerge();
-        merge.getDocuments().get(0).setDocData(null);
+		thrown.expectMessage("The merge documents cannot be null nor can the document.docData.");
 
-		MergeRes res = mergeClient.merge(merge);
+		// request
+		Merge merge = createMerge();
+		merge.getDocuments().get(0).setDocData(null);
+
+		mergeClient.merge(merge);
 
 	}
 
 	@Test
 	public void testMergeDocumentData2ThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The merge documents cannot be null.");
-		
-		// request
-        Merge merge = createMerge();
-        merge.getDocuments().get(1).setDocData(null);
+		thrown.expectMessage("The merge documents cannot be null nor can the document.docData.");
 
-		MergeRes res = mergeClient.merge(merge);
+		// request
+		Merge merge = createMerge();
+		merge.getDocuments().get(1).setDocData(null);
+
+		mergeClient.merge(merge);
 
 	}
 
 	@Test
 	public void testMergeMergeActionThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The mergeAction cannot be null.");
-		
+		thrown.expectMessage("The mergeAction cannot be null.");
+
 		// request
 		Merge merge = createMerge();
 		merge.setMergeAction(null);
 
-		MergeRes res = mergeClient.merge(merge);
+		mergeClient.merge(merge);
 
 	}
-	
+
 	@Test
 	public void testMergeNoNullResponse() {
 
@@ -175,7 +212,7 @@ public class MergeClientTest {
 	public void testMergeDocLength() {
 
 		// request
-		Merge merge = createMerge();		
+		Merge merge = createMerge();
 		MergeRes res = mergeClient.merge(merge);
 
 		int mergeLength = res.getDocument().getDocData().length;
@@ -191,8 +228,8 @@ public class MergeClientTest {
 	public void testMerge2PdfsNoNullResponse() {
 
 		// request
-		byte[] file1 = testFiles.getPdfBytes();
-		byte[] file2 = testFiles.getPdfBytesLong();
+		File file1 = testFiles.getPdfFile();
+		File file2 = testFiles.getPdfFileLong();
 
 		byte[] res = mergeClient.merge2Pdfs(file1, file2);
 
@@ -204,8 +241,8 @@ public class MergeClientTest {
 	public void testMerge2PdfsDocLength() {
 
 		// request
-		byte[] file1 = testFiles.getPdfBytes();
-		byte[] file2 = testFiles.getPdfBytesLong();
+		File file1 = testFiles.getPdfFile();
+		File file2 = testFiles.getPdfFileLong();
 
 		byte[] res = mergeClient.merge2Pdfs(file1, file2);
 
@@ -217,5 +254,5 @@ public class MergeClientTest {
 		assertTrue(check.belowNotZero(mergeLength, originals));
 		assertTrue(check.above(mergeLength, shorterDoc));
 	}
-	
+
 }

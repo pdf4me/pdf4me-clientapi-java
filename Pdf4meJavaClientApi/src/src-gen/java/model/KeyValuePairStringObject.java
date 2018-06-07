@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * KeyValuePairStringObject
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class KeyValuePairStringObject {
   @SerializedName("key")
   private String key = null;

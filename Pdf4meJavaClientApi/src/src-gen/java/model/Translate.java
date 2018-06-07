@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Translate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class Translate {
   @SerializedName("offsetX")
   private Integer offsetX = null;
@@ -43,7 +43,7 @@ public class Translate {
    * Get offsetX
    * @return offsetX
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getOffsetX() {
     return offsetX;
   }
@@ -61,7 +61,7 @@ public class Translate {
    * Get offsetY
    * @return offsetY
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getOffsetY() {
     return offsetY;
   }

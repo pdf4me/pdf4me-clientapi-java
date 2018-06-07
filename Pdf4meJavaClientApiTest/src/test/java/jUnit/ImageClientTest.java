@@ -3,6 +3,8 @@ package jUnit;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -14,22 +16,22 @@ import model.CreateImages;
 import model.CreateImagesRes;
 import model.Document;
 import model.ImageAction;
-import model.PageSelection;
 import model.ImageAction.ImageExtensionEnum;
+import model.PageSelection;
 import test.Check;
 import test.Pdf4meTestSetup;
 import test.TestFiles;
 
 public class ImageClientTest {
-	
-	private Check check = new Check();
-	private TestFiles testFiles = new TestFiles();
-	
-	private Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
-	private ImageClient imageClient = new ImageClient(pdf4meTestSetup.getPdf4meClient());
-	
+
+	private static Check check = new Check();
+	private static TestFiles testFiles = new TestFiles();
+
+	private static Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
+	private static ImageClient imageClient = new ImageClient(pdf4meTestSetup.getPdf4meClient());
+
 	@Rule
-    public ExpectedException thrown = ExpectedException.none();
+	public ExpectedException thrown = ExpectedException.none();
 
 	int width = 250;
 	String imagePageNr = "1";
@@ -62,61 +64,62 @@ public class ImageClientTest {
 	@Test
 	public void testCreateImagesThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The createImages parameter cannot be null.");
-		
+		thrown.expectMessage("The createImages parameter cannot be null.");
+
 		// request
 		CreateImages createImages = null;
-		CreateImagesRes res = imageClient.createImages(createImages);
+
+		imageClient.createImages(createImages);
 	}
-	
+
 	@Test
 	public void testCreateImagesDocumentThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The createImages document cannot be null.");
-        
+		thrown.expectMessage("The createImages document cannot be null.");
+
 		// request
 		CreateImages createImages = createCreateImages();
 		createImages.setDocument(null);
-		
-		CreateImagesRes res = imageClient.createImages(createImages);
+
+		imageClient.createImages(createImages);
 	}
-	
+
 	@Test
 	public void testCreateImagesDocumentDataThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The createImages document cannot be null.");
-        
+		thrown.expectMessage("The createImages document cannot be null.");
+
 		// request
 		CreateImages createImages = createCreateImages();
 		createImages.getDocument().setDocData(null);
-		
-		CreateImagesRes res = imageClient.createImages(createImages);
+
+		imageClient.createImages(createImages);
 	}
-	
+
 	@Test
 	public void testCreateImagesImageActionThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The ImageAction cannot be null.");
-        
+		thrown.expectMessage("The ImageAction cannot be null.");
+
 		// request
 		CreateImages createImages = createCreateImages();
 		createImages.setImageAction(null);
-		
-		CreateImagesRes res = imageClient.createImages(createImages);
+
+		imageClient.createImages(createImages);
 	}
-	
+
 	@Test
 	public void testCreateImagesImageActionPageSelectionThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The pageSelection of the imageAction cannot be null.");
-        
+		thrown.expectMessage("The pageSelection of the imageAction cannot be null.");
+
 		// request
 		CreateImages createImages = createCreateImages();
 		createImages.getImageAction().setPageSelection(null);
-		
-		CreateImagesRes res = imageClient.createImages(createImages);
+
+		imageClient.createImages(createImages);
 	}
-	
+
 	@Test
 	public void testCreateImagesNoNullResponse() {
 
@@ -132,7 +135,7 @@ public class ImageClientTest {
 		assertNotNull(res.getDocument().getPages().get(0).getThumbnail());
 
 	}
-	
+
 	@Test
 	public void testCreateImagesDocLength() {
 
@@ -148,7 +151,7 @@ public class ImageClientTest {
 	@Test
 	public void testCreateThumbnailNoNullResponse() {
 
-		byte[] file = testFiles.getPdfBytes();
+		File file = testFiles.getPdfFile();
 
 		// request
 		byte[] res = imageClient.createThumbnail(width, imagePageNr, imageFormat, file);
@@ -157,12 +160,12 @@ public class ImageClientTest {
 		assertNotNull(res);
 
 	}
-	
+
 	@Test
 	public void testCreateThumbnailDocLength() {
 
-		byte[] file = testFiles.getPdfBytes();
-		
+		File file = testFiles.getPdfFile();
+
 		// request
 		byte[] res = imageClient.createThumbnail(width, imagePageNr, imageFormat, file);
 

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.KeyValuePairStringString;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * SplitAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class SplitAction {
   @SerializedName("splitAfterPage")
   private Integer splitAfterPage = null;
@@ -38,6 +39,9 @@ public class SplitAction {
 
   @SerializedName("recurringSplitAfterPage")
   private Integer recurringSplitAfterPage = null;
+
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
 
   public SplitAction splitAfterPage(Integer splitAfterPage) {
     this.splitAfterPage = splitAfterPage;
@@ -101,6 +105,32 @@ public class SplitAction {
     this.recurringSplitAfterPage = recurringSplitAfterPage;
   }
 
+  public SplitAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public SplitAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -113,12 +143,13 @@ public class SplitAction {
     SplitAction splitAction = (SplitAction) o;
     return Objects.equals(this.splitAfterPage, splitAction.splitAfterPage) &&
         Objects.equals(this.splitSequence, splitAction.splitSequence) &&
-        Objects.equals(this.recurringSplitAfterPage, splitAction.recurringSplitAfterPage);
+        Objects.equals(this.recurringSplitAfterPage, splitAction.recurringSplitAfterPage) &&
+        Objects.equals(this.customProperties, splitAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(splitAfterPage, splitSequence, recurringSplitAfterPage);
+    return Objects.hash(splitAfterPage, splitSequence, recurringSplitAfterPage, customProperties);
   }
 
 
@@ -130,6 +161,7 @@ public class SplitAction {
     sb.append("    splitAfterPage: ").append(toIndentedString(splitAfterPage)).append("\n");
     sb.append("    splitSequence: ").append(toIndentedString(splitSequence)).append("\n");
     sb.append("    recurringSplitAfterPage: ").append(toIndentedString(recurringSplitAfterPage)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * JobConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class JobConfig {
   @SerializedName("jobConfigId")
   private UUID jobConfigId = null;
@@ -75,7 +75,7 @@ public class JobConfig {
    * Get jobConfigId
    * @return jobConfigId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public UUID getJobConfigId() {
     return jobConfigId;
   }
@@ -93,7 +93,7 @@ public class JobConfig {
    * Get enabled
    * @return enabled
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Boolean isEnabled() {
     return enabled;
   }
@@ -183,7 +183,7 @@ public class JobConfig {
    * Get userId
    * @return userId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public UUID getUserId() {
     return userId;
   }

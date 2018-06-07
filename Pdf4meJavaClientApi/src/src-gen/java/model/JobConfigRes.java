@@ -27,7 +27,7 @@ import java.util.UUID;
 /**
  * JobConfigRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class JobConfigRes {
   @SerializedName("jobConfigId")
   private UUID jobConfigId = null;
@@ -41,7 +41,7 @@ public class JobConfigRes {
    * Get jobConfigId
    * @return jobConfigId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public UUID getJobConfigId() {
     return jobConfigId;
   }

@@ -6,24 +6,26 @@ import java.util.Date;
 import org.threeten.bp.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-import de.undercouch.bson4jackson.BsonFactory;
-
-public class BsonConverter {
+public class JsonConverter {
 
 	/**
-	 * Takes an arbitrary object and returns the corresponding bson in form of a byte array.
+	 * Takes an arbitrary object and returns the corresponding json in form of a
+	 * byte array.
+	 * 
 	 * @param input
-	 * @return byte array
+	 *            object to be dumped to a json
+	 * @return byte array representation of the generated json
 	 */
-	public byte[] toBson(Object input) {
+	public byte[] toJson(Object input) {
 
 		try {
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-			ObjectMapper mapper = getBsonMapper();
+			ObjectMapper mapper = getJsonMapper();
 
 			mapper.writeValue(outputStream, input);
 			return outputStream.toByteArray();
@@ -34,15 +36,20 @@ public class BsonConverter {
 		}
 		return null;
 	}
+
 	/**
+	 * Takes the byte array representation of a json and returns an instance of type
+	 * type (function argument).
 	 * 
-	 * @param output: bson byte array to be transformed into an object
-	 * @param type: of wished output
+	 * @param output:
+	 *            json byte array to be transformed into an object
+	 * @param type:
+	 *            of wished output
 	 * @return
 	 */
-	public Object fromBson(byte[] output, Class<?> type) {
+	public Object fromJson(byte[] output, Class<?> type) {
 		try {
-			ObjectMapper mapper = getBsonMapper();
+			ObjectMapper mapper = getJsonMapper();
 			Object result = mapper.readValue(output, type);
 
 			return result;
@@ -53,9 +60,14 @@ public class BsonConverter {
 		return null;
 	}
 
-	private ObjectMapper getBsonMapper() {
+	/**
+	 * Constructs a customized JsonMapper.
+	 * 
+	 * @return customized jsonMapper
+	 */
+	private ObjectMapper getJsonMapper() {
 
-		ObjectMapper mapperExplicit = new ObjectMapper(new BsonFactory());
+		ObjectMapper mapperExplicit = new ObjectMapper(new JsonFactory());
 		mapperExplicit.setSerializationInclusion(Include.NON_NULL);
 		mapperExplicit.disable(SerializationFeature.FLUSH_AFTER_WRITE_VALUE);
 		mapperExplicit.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);

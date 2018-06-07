@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Transform
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class Transform {
   @SerializedName("a")
   private Integer a = null;
@@ -55,7 +55,7 @@ public class Transform {
    * Get a
    * @return a
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getA() {
     return a;
   }
@@ -73,7 +73,7 @@ public class Transform {
    * Get b
    * @return b
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getB() {
     return b;
   }
@@ -91,7 +91,7 @@ public class Transform {
    * Get c
    * @return c
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getC() {
     return c;
   }
@@ -109,7 +109,7 @@ public class Transform {
    * Get d
    * @return d
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getD() {
     return d;
   }
@@ -127,7 +127,7 @@ public class Transform {
    * Get x
    * @return x
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getX() {
     return x;
   }
@@ -145,7 +145,7 @@ public class Transform {
    * Get y
    * @return y
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getY() {
     return y;
   }

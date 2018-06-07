@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Rotate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class Rotate {
   @SerializedName("angle")
   private Double angle = null;
@@ -46,7 +46,7 @@ public class Rotate {
    * Get angle
    * @return angle
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Double getAngle() {
     return angle;
   }
@@ -64,7 +64,7 @@ public class Rotate {
    * Get originX
    * @return originX
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getOriginX() {
     return originX;
   }
@@ -82,7 +82,7 @@ public class Rotate {
    * Get originY
    * @return originY
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getOriginY() {
     return originY;
   }

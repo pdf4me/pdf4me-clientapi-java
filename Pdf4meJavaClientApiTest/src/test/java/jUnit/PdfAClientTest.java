@@ -3,6 +3,8 @@ package jUnit;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -20,16 +22,16 @@ import test.Pdf4meTestSetup;
 import test.TestFiles;
 
 public class PdfAClientTest {
-	
-	private Check check = new Check();
-	private TestFiles testFiles = new TestFiles();
-	
-	private Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
-	private PdfAClient pdfAClient = new PdfAClient(pdf4meTestSetup.getPdf4meClient());
-	
+
+	private static Check check = new Check();
+	private static TestFiles testFiles = new TestFiles();
+
+	private static Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
+	private static PdfAClient pdfAClient = new PdfAClient(pdf4meTestSetup.getPdf4meClient());
+
 	@Rule
-    public ExpectedException thrown = ExpectedException.none();
-	
+	public ExpectedException thrown = ExpectedException.none();
+
 	public CreatePdfA createPdfA() {
 
 		// setup createPdfA object
@@ -52,59 +54,60 @@ public class PdfAClientTest {
 	@Test
 	public void testPdfAThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The createPdfA parameter cannot be null.");
-        
+		thrown.expectMessage("The createPdfA parameter cannot be null.");
+
 		// request
 		CreatePdfA createPdfA = null;
-		CreatePdfARes res = pdfAClient.pdfA(createPdfA);
+
+		pdfAClient.pdfA(createPdfA);
 	}
 
 	@Test
 	public void testPdfADocumentThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The createPdfA document cannot be null.");
-        
+		thrown.expectMessage("The createPdfA document cannot be null.");
+
 		// request
 		CreatePdfA createPdfA = createPdfA();
 		createPdfA.setDocument(null);
 
-		CreatePdfARes res = pdfAClient.pdfA(createPdfA);
+		pdfAClient.pdfA(createPdfA);
 	}
 
 	@Test
 	public void testPdfADocumentDataThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The createPdfA document cannot be null.");
-        
+		thrown.expectMessage("The createPdfA document cannot be null.");
+
 		// request
 		CreatePdfA createPdfA = createPdfA();
 		createPdfA.getDocument().setDocData(null);
 
-		CreatePdfARes res = pdfAClient.pdfA(createPdfA);
+		pdfAClient.pdfA(createPdfA);
 	}
 
 	@Test
 	public void testCreatePdfAPdfAActionThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The pdfAAction cannot be null.");
-        
+		thrown.expectMessage("The pdfAAction cannot be null.");
+
 		// request
 		CreatePdfA createPdfA = createPdfA();
 		createPdfA.setPdfAAction(null);
 
-		CreatePdfARes res = pdfAClient.pdfA(createPdfA);
+		pdfAClient.pdfA(createPdfA);
 	}
 
 	@Test
 	public void testCreatePdfAPdfAActionComplianceThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The compliance parameter of pdfAAction cannot be null.");
-        
+		thrown.expectMessage("The compliance parameter of pdfAAction cannot be null.");
+
 		// request
 		CreatePdfA createPdfA = createPdfA();
 		createPdfA.getPdfAAction().setCompliance(null);
 
-		CreatePdfARes res = pdfAClient.pdfA(createPdfA);
+		pdfAClient.pdfA(createPdfA);
 	}
 
 	@Test
@@ -120,7 +123,7 @@ public class PdfAClientTest {
 		assertNotNull(res.getDocument().getDocData());
 
 	}
-	
+
 	@Test
 	public void testPdfADocLength() {
 
@@ -135,20 +138,20 @@ public class PdfAClientTest {
 		assertTrue(check.belowNotZero(pdfALength, originalLength));
 
 	}
-	
+
 	@Test
 	public void testCreatePdfANoNullResponse() {
 
 		// request
-		byte[] file = testFiles.getPdfBytesLong();
+		File file = testFiles.getPdfFileLong();
 		byte[] res = pdfAClient.createPdfA(file);
 
 		// validation
 		assertNotNull(res);
-		
+
 		// request file and compliance level
-		file = testFiles.getPdfBytesLong();
-		res = pdfAClient.createPdfA(file, ComplianceEnum.PDFA2U);
+		file = testFiles.getPdfFileLong();
+		res = pdfAClient.createPdfA(ComplianceEnum.PDFA2U, file);
 
 		// validation
 		assertNotNull(res);
@@ -158,7 +161,7 @@ public class PdfAClientTest {
 	public void testCreatePdfADocLength() {
 
 		// request file only
-		byte[] file = testFiles.getPdfBytesLong();
+		File file = testFiles.getPdfFileLong();
 		byte[] res = pdfAClient.createPdfA(file);
 
 		int originalLength = testFiles.pdfLengthLong();
@@ -166,10 +169,10 @@ public class PdfAClientTest {
 
 		// validation
 		assertTrue(check.belowNotZero(pdfALength, originalLength));
-		
+
 		// request file and compliance level
-		file = testFiles.getPdfBytesLong();
-		res = pdfAClient.createPdfA(file, ComplianceEnum.PDFA2U);
+		file = testFiles.getPdfFileLong();
+		res = pdfAClient.createPdfA(ComplianceEnum.PDFA2U, file);
 
 		originalLength = testFiles.pdfLengthLong();
 		pdfALength = res.length;

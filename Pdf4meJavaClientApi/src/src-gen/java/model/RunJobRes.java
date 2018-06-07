@@ -32,7 +32,7 @@ import java.util.UUID;
  * Run Job
  */
 @ApiModel(description = "Run Job")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class RunJobRes {
   @SerializedName("jobId")
   private UUID jobId = null;
@@ -52,7 +52,7 @@ public class RunJobRes {
    * Get jobId
    * @return jobId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public UUID getJobId() {
     return jobId;
   }

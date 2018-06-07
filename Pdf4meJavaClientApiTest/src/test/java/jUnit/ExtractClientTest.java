@@ -3,6 +3,7 @@ package jUnit;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,15 +25,15 @@ import test.TestFiles;
 
 public class ExtractClientTest {
 
-	private Check check = new Check();
-	private TestFiles testFiles = new TestFiles();
-	
-	private Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
-	private ExtractClient extractClient = new ExtractClient(pdf4meTestSetup.getPdf4meClient());
-	
+	private static Check check = new Check();
+	private static TestFiles testFiles = new TestFiles();
+
+	private static Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
+	private static ExtractClient extractClient = new ExtractClient(pdf4meTestSetup.getPdf4meClient());
+
 	@Rule
-    public ExpectedException thrown = ExpectedException.none();
-	
+	public ExpectedException thrown = ExpectedException.none();
+
 	List<Integer> pageNrs = Arrays.asList(1, 4);
 
 	public Extract createExtract() {
@@ -57,74 +58,74 @@ public class ExtractClientTest {
 	@Test
 	public void testExtractThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The extract parameter cannot be null.");
-		
+		thrown.expectMessage("The extract parameter cannot be null.");
+
 		// request
 		Extract extract = null;
-		ExtractRes res = extractClient.extract(extract);
+
+		extractClient.extract(extract);
 	}
 
 	@Test
 	public void testExtractDocumentThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The extract document cannot be null.");
-		
+		thrown.expectMessage("The extract document cannot be null.");
+
 		// request
 		Extract extract = createExtract();
 		extract.setDocument(null);
 
-		ExtractRes res = extractClient.extract(extract);
+		extractClient.extract(extract);
 	}
 
 	@Test
 	public void testExtractDocumentDataThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The extract document cannot be null.");
-		
+		thrown.expectMessage("The extract document cannot be null.");
+
 		// request
 		Extract extract = createExtract();
 		extract.getDocument().setDocData(null);
 
-		ExtractRes res = extractClient.extract(extract);
+		extractClient.extract(extract);
 	}
 
 	@Test
 	public void testExtractExtractActionThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The extractAction cannot be null.");
-		
+		thrown.expectMessage("The extractAction cannot be null.");
+
 		// request
 		Extract extract = createExtract();
 		extract.setExtractAction(null);
 
-		ExtractRes res = extractClient.extract(extract);
+		extractClient.extract(extract);
 	}
 
 	@Test
 	public void testExtractExtractActionExtractPagesNullThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The extractPages of extractAction cannot be null or empty.");
-        
+		thrown.expectMessage("The extractPages of extractAction cannot be null or empty.");
+
 		// request
 		Extract extract = createExtract();
 		extract.getExtractAction().setExtractPages(null);
 
-		ExtractRes res = extractClient.extract(extract);
+		extractClient.extract(extract);
 	}
-
 
 	@Test
 	public void testExtractExtractActionExtractPagesEmptyThrowsNullPointerException() {
 		thrown.expect(Pdf4meClientException.class);
-        thrown.expectMessage("The extractPages of extractAction cannot be null or empty.");
-        
+		thrown.expectMessage("The extractPages of extractAction cannot be null or empty.");
+
 		// request
 		Extract extract = createExtract();
 		extract.getExtractAction().setExtractPages(new ArrayList<Integer>());
 
-		ExtractRes res = extractClient.extract(extract);
+		extractClient.extract(extract);
 	}
-	
+
 	@Test
 	public void testExtractNoNullResponse() {
 
@@ -158,8 +159,8 @@ public class ExtractClientTest {
 	public void testExtractPagesNoNullResponse() {
 
 		// request
-		byte[] file = testFiles.getPdfBytesLong();
-		byte[] res = extractClient.extractPages(pageNrs, file);
+		File file = testFiles.getPdfFileLong();
+		byte[] res = extractClient.extractPages("1,4", file);
 
 		// validation
 		assertNotNull(res);
@@ -169,8 +170,8 @@ public class ExtractClientTest {
 	public void testExtractPagesDocLength() {
 
 		// request
-		byte[] file = testFiles.getPdfBytesLong();
-		byte[] res = extractClient.extractPages(pageNrs, file);
+		File file = testFiles.getPdfFileLong();
+		byte[] res = extractClient.extractPages("1,4", file);
 
 		int originalLength = testFiles.pdfLengthLong();
 		int shortendPdfLength = res.length;
@@ -179,5 +180,4 @@ public class ExtractClientTest {
 		assertTrue(check.belowNotZero(shortendPdfLength, originalLength));
 	}
 
-	
 }

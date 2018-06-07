@@ -22,18 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import model.Image;
+import model.KeyValuePairStringString;
 import model.Text;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Define Stamp to place on Document
  */
 @ApiModel(description = "Define Stamp to place on Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class StampAction {
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("pageSequence")
   private String pageSequence = null;
 
@@ -268,23 +268,8 @@ public class StampAction {
   @SerializedName("image")
   private Image image = null;
 
-  public StampAction name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
 
   public StampAction pageSequence(String pageSequence) {
     this.pageSequence = pageSequence;
@@ -538,6 +523,32 @@ public class StampAction {
     this.image = image;
   }
 
+  public StampAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public StampAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -548,8 +559,7 @@ public class StampAction {
       return false;
     }
     StampAction stampAction = (StampAction) o;
-    return Objects.equals(this.name, stampAction.name) &&
-        Objects.equals(this.pageSequence, stampAction.pageSequence) &&
+    return Objects.equals(this.pageSequence, stampAction.pageSequence) &&
         Objects.equals(this.relativePosX, stampAction.relativePosX) &&
         Objects.equals(this.relativePosY, stampAction.relativePosY) &&
         Objects.equals(this.sizeX, stampAction.sizeX) &&
@@ -562,12 +572,13 @@ public class StampAction {
         Objects.equals(this.alignY, stampAction.alignY) &&
         Objects.equals(this.stampType, stampAction.stampType) &&
         Objects.equals(this.text, stampAction.text) &&
-        Objects.equals(this.image, stampAction.image);
+        Objects.equals(this.image, stampAction.image) &&
+        Objects.equals(this.customProperties, stampAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, pageSequence, relativePosX, relativePosY, sizeX, sizeY, rotate, autoorientation, alpha, scale, alignX, alignY, stampType, text, image);
+    return Objects.hash(pageSequence, relativePosX, relativePosY, sizeX, sizeY, rotate, autoorientation, alpha, scale, alignX, alignY, stampType, text, image, customProperties);
   }
 
 
@@ -576,7 +587,6 @@ public class StampAction {
     StringBuilder sb = new StringBuilder();
     sb.append("class StampAction {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageSequence: ").append(toIndentedString(pageSequence)).append("\n");
     sb.append("    relativePosX: ").append(toIndentedString(relativePosX)).append("\n");
     sb.append("    relativePosY: ").append(toIndentedString(relativePosY)).append("\n");
@@ -591,6 +601,7 @@ public class StampAction {
     sb.append("    stampType: ").append(toIndentedString(stampType)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

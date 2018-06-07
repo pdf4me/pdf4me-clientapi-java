@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import model.CustomCMSConfig;
+import model.KeyValuePairStringString;
 import model.PageSelection;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * ImageAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class ImageAction {
   @SerializedName("pageSelection")
   private PageSelection pageSelection = null;
@@ -192,7 +193,7 @@ public class ImageAction {
     
     LCMS("lcms"),
     
-    CUSTOMCMS("customCMS");
+    CUSTOMCMSCONFIG("customCMSConfig");
 
     private String value;
 
@@ -306,9 +307,9 @@ public class ImageAction {
    */
   @JsonAdapter(FillOrderEnum.Adapter.class)
   public enum FillOrderEnum {
-    MSB("mSB"),
+    MOSTSIGNIFICANTBIT("mostSignificantBit"),
     
-    LSB("lSB");
+    LEASTSIGNIFICANTBIT("leastSignificantBit");
 
     private String value;
 
@@ -359,17 +360,15 @@ public class ImageAction {
    */
   @JsonAdapter(ImageExtensionEnum.Adapter.class)
   public enum ImageExtensionEnum {
-    UNKNOWN("unknown"),
+    JPG("jpg"),
+    
+    JPEG("jpeg"),
     
     BMP("bmp"),
     
     GIF("gif"),
     
     JB2("jb2"),
-    
-    JPG("jpg"),
-    
-    JPEG("jpeg"),
     
     JP2("jp2"),
     
@@ -429,13 +428,13 @@ public class ImageAction {
    */
   @JsonAdapter(ColorSpaceEnum.Adapter.class)
   public enum ColorSpaceEnum {
-    GRAY("gray"),
-    
-    GRAYA("grayA"),
-    
     RGB("rGB"),
     
     RGBA("rGBA"),
+    
+    GRAY("gray"),
+    
+    GRAYA("grayA"),
     
     CMYK("cMYK"),
     
@@ -449,9 +448,7 @@ public class ImageAction {
     
     CMYK_KONLY("cMYK_Konly"),
     
-    CMYKA("cMYKA"),
-    
-    OTHER("other");
+    CMYKA("cMYKA");
 
     private String value;
 
@@ -499,13 +496,13 @@ public class ImageAction {
    */
   @JsonAdapter(CompressionEnum.Adapter.class)
   public enum CompressionEnum {
-    RAW("raw"),
+    LZW("lZW"),
     
     JPEG("jPEG"),
     
     FLATE("flate"),
     
-    LZW("lZW"),
+    RAW("raw"),
     
     GROUP3("group3"),
     
@@ -517,11 +514,7 @@ public class ImageAction {
     
     JPEG2000("jPEG2000"),
     
-    TIFFJPEG("tIFFJPEG"),
-    
-    UNKNOWN("unknown"),
-    
-    DEFAULT("default");
+    TIFFJPEG("tIFFJPEG");
 
     private String value;
 
@@ -563,6 +556,9 @@ public class ImageAction {
 
   @SerializedName("compression")
   private CompressionEnum compression = null;
+
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
 
   public ImageAction pageSelection(PageSelection pageSelection) {
     this.pageSelection = pageSelection;
@@ -968,6 +964,32 @@ public class ImageAction {
     this.compression = compression;
   }
 
+  public ImageAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public ImageAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -999,12 +1021,13 @@ public class ImageAction {
         Objects.equals(this.filterRatio, imageAction.filterRatio) &&
         Objects.equals(this.imageExtension, imageAction.imageExtension) &&
         Objects.equals(this.colorSpace, imageAction.colorSpace) &&
-        Objects.equals(this.compression, imageAction.compression);
+        Objects.equals(this.compression, imageAction.compression) &&
+        Objects.equals(this.customProperties, imageAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSelection, center, fitPage, bitsPerPixel, bilevelThreshold, widthPixel, heightPixel, widthPoint, heightPoint, renderOptions, rotateMode, preserveAspectRatio, imageQuality, cmsEngine, customCMSConfig, dithering, dpi, fillOrder, filterRatio, imageExtension, colorSpace, compression);
+    return Objects.hash(pageSelection, center, fitPage, bitsPerPixel, bilevelThreshold, widthPixel, heightPixel, widthPoint, heightPoint, renderOptions, rotateMode, preserveAspectRatio, imageQuality, cmsEngine, customCMSConfig, dithering, dpi, fillOrder, filterRatio, imageExtension, colorSpace, compression, customProperties);
   }
 
 
@@ -1035,6 +1058,7 @@ public class ImageAction {
     sb.append("    imageExtension: ").append(toIndentedString(imageExtension)).append("\n");
     sb.append("    colorSpace: ").append(toIndentedString(colorSpace)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

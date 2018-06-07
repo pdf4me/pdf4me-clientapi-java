@@ -30,7 +30,7 @@ import java.io.IOException;
  * Stamp Request with core data to stamp
  */
 @ApiModel(description = "Stamp Request with core data to stamp")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class Stamp {
   @SerializedName("document")
   private Document document = null;

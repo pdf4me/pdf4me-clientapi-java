@@ -13,27 +13,23 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 
 public class DateDeserializer extends JsonDeserializer<Date> {
 
-
 	@Override
-	public
-	Date deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+	public Date deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 
 		try {
 			// parsed string
 			String timestamp = jp.getText();
 
 			// parsing the timestamp to a Date
-			DateFormat df = new java.text.SimpleDateFormat("EEE MMM dd kk:mm:ss zzzz yyyy", Locale.ENGLISH);
+			DateFormat df = new java.text.SimpleDateFormat("YYYY-MM-dd'T'HH:mm:ss.SSSSSSSX", Locale.ENGLISH);
 			Date date = df.parse(timestamp);
-			
+
 			return date;
-			
+
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return null;
-		
 	}
 }

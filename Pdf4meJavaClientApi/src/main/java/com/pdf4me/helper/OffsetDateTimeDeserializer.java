@@ -19,18 +19,15 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 public class OffsetDateTimeDeserializer extends JsonDeserializer<OffsetDateTime> {
 
 	@Override
-	public
-	OffsetDateTime deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-		// overview
-		// Bson represents objects of type OffsetDateTime as a number corresponding to the milliseconds passed since 1970.
-		// The jsonParser converts this number to the following format: "EEE MMM dd kk:mm:ss zzzz yyyy".
+	public OffsetDateTime deserialize(JsonParser jp, DeserializationContext ctxt)
+			throws IOException, JsonProcessingException {
 
 		try {
-			// parsed string
+			// parsed string e.g. 2018-06-05T08:53:29.9103599+00:00
 			String timestamp = jp.getText();
 
 			// parsing the timestamp to a Date
-			DateFormat df = new java.text.SimpleDateFormat("EEE MMM dd kk:mm:ss zzzz yyyy", Locale.ENGLISH);
+			DateFormat df = new java.text.SimpleDateFormat("YYYY-MM-dd'T'HH:mm:ss.SSSSSSSX", Locale.ENGLISH);
 			Date date = df.parse(timestamp);
 
 			// extracting the properties needed to build a OffsetDateTime object
@@ -53,7 +50,7 @@ public class OffsetDateTimeDeserializer extends JsonDeserializer<OffsetDateTime>
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 
 		return null;
 	}

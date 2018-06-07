@@ -21,12 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.KeyValuePairStringString;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * OcrAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class OcrAction {
   @SerializedName("stapel")
   private String stapel = null;
@@ -105,6 +108,9 @@ public class OcrAction {
   @SerializedName("outputType")
   private OutputTypeEnum outputType = null;
 
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
+
   public OcrAction stapel(String stapel) {
     this.stapel = stapel;
     return this;
@@ -177,6 +183,32 @@ public class OcrAction {
     this.outputType = outputType;
   }
 
+  public OcrAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public OcrAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -190,12 +222,13 @@ public class OcrAction {
     return Objects.equals(this.stapel, ocrAction.stapel) &&
         Objects.equals(this.businesssCardReco, ocrAction.businesssCardReco) &&
         Objects.equals(this.fullTextSearch, ocrAction.fullTextSearch) &&
-        Objects.equals(this.outputType, ocrAction.outputType);
+        Objects.equals(this.outputType, ocrAction.outputType) &&
+        Objects.equals(this.customProperties, ocrAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stapel, businesssCardReco, fullTextSearch, outputType);
+    return Objects.hash(stapel, businesssCardReco, fullTextSearch, outputType, customProperties);
   }
 
 
@@ -208,6 +241,7 @@ public class OcrAction {
     sb.append("    businesssCardReco: ").append(toIndentedString(businesssCardReco)).append("\n");
     sb.append("    fullTextSearch: ").append(toIndentedString(fullTextSearch)).append("\n");
     sb.append("    outputType: ").append(toIndentedString(outputType)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

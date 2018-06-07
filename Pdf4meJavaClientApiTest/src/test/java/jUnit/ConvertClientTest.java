@@ -3,6 +3,8 @@ package jUnit;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -20,11 +22,11 @@ import test.TestFiles;
 
 public class ConvertClientTest {
 
-	private Check check = new Check();
-	private TestFiles testFiles = new TestFiles();
+	private static Check check = new Check();
+	private static TestFiles testFiles = new TestFiles();
 
-	private Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
-	private ConvertClient convertClient = new ConvertClient(pdf4meTestSetup.getPdf4meClient());
+	private static Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
+	private static ConvertClient convertClient = new ConvertClient(pdf4meTestSetup.getPdf4meClient());
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
@@ -54,7 +56,8 @@ public class ConvertClientTest {
 
 		// request
 		ConvertToPdf convertToPdf = null;
-		ConvertToPdfRes res = convertClient.convertToPdf(convertToPdf);
+
+		convertClient.convertToPdf(convertToPdf);
 	}
 
 	@Test
@@ -66,7 +69,7 @@ public class ConvertClientTest {
 		ConvertToPdf convertToPdf = createConvertToPdf(testFiles.getTextFileBytes(), testFiles.getTextFileName());
 		convertToPdf.setDocument(null);
 
-		ConvertToPdfRes res = convertClient.convertToPdf(convertToPdf);
+		convertClient.convertToPdf(convertToPdf);
 	}
 
 	@Test
@@ -78,7 +81,20 @@ public class ConvertClientTest {
 		ConvertToPdf convertToPdf = createConvertToPdf(testFiles.getTextFileBytes(), testFiles.getTextFileName());
 		convertToPdf.getDocument().setDocData(null);
 
-		ConvertToPdfRes res = convertClient.convertToPdf(convertToPdf);
+		convertClient.convertToPdf(convertToPdf);
+	}
+
+	@Test
+	public void testConvertToPdfDocumentNameThrowsNullPointerException() {
+		thrown.expect(Pdf4meClientException.class);
+		thrown.expectMessage(
+				"The name field of convertToPdf's document cannot be null (name must incl. file extension).");
+
+		// request
+		ConvertToPdf convertToPdf = createConvertToPdf(testFiles.getTextFileBytes(), testFiles.getTextFileName());
+		convertToPdf.getDocument().setName(null);
+
+		convertClient.convertToPdf(convertToPdf);
 	}
 
 	@Test
@@ -90,7 +106,7 @@ public class ConvertClientTest {
 		ConvertToPdf convertToPdf = createConvertToPdf(testFiles.getTextFileBytes(), testFiles.getTextFileName());
 		convertToPdf.setConvertToPdfAction(null);
 
-		ConvertToPdfRes res = convertClient.convertToPdf(convertToPdf);
+		convertClient.convertToPdf(convertToPdf);
 	}
 
 	@Test
@@ -125,9 +141,9 @@ public class ConvertClientTest {
 	public void testConvertFileToPdfTextNoNullResponse() {
 
 		// request
-		byte[] textFile = testFiles.getTextFileBytes();
+		File textFile = testFiles.getTextFileFile();
 		String textFileName = testFiles.getTextFileName();
-		byte[] res = convertClient.convertFileToPdf(textFile, textFileName);
+		byte[] res = convertClient.convertFileToPdf(textFileName, textFile);
 
 		// validation
 		assertNotNull(res);
@@ -137,9 +153,9 @@ public class ConvertClientTest {
 	public void testConvertFileToPdfTextDocLength() {
 
 		// request
-		byte[] textFile = testFiles.getTextFileBytes();
+		File textFile = testFiles.getTextFileFile();
 		String textFileName = testFiles.getTextFileName();
-		byte[] res = convertClient.convertFileToPdf(textFile, textFileName);
+		byte[] res = convertClient.convertFileToPdf(textFileName, textFile);
 
 		int originalLength = testFiles.textFileLength();
 		int pdfLength = res.length;
@@ -163,7 +179,6 @@ public class ConvertClientTest {
 		assertNotNull(res.getDocument().getDocData());
 
 	}
-
 
 	@Test
 	public void testConvertToPdfWordDocDocLength() {
@@ -196,7 +211,6 @@ public class ConvertClientTest {
 
 	}
 
-
 	@Test
 	public void testConvertToPdfExcelDocLength() {
 
@@ -227,7 +241,6 @@ public class ConvertClientTest {
 		assertNotNull(res.getDocument().getDocData());
 
 	}
-
 
 	@Test
 	public void testConvertToPdfEmlDocLength() {
@@ -260,7 +273,6 @@ public class ConvertClientTest {
 
 	}
 
-
 	@Test
 	public void testConvertToPdfMsgDocLength() {
 
@@ -292,7 +304,6 @@ public class ConvertClientTest {
 
 	}
 
-
 	@Test
 	public void testConvertToPdfJPGDocLength() {
 
@@ -321,7 +332,7 @@ public class ConvertClientTest {
 		assertNotNull(res.getDocument());
 		assertNotNull(res.getDocument().getDocData());
 	}
-	
+
 	@Test
 	public void testConvertToPdfZipDocLength() {
 

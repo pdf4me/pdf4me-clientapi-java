@@ -48,7 +48,7 @@ byte[] mergedPdf = mergeClient.merge2Pdfs(file1, file2);
 
 ## Documentation
 
-Please visit our [documentation](https://dev-dev.pdf4me.com/) for more information about all the functionalities provided and on how to use pdf4me.
+Please visit our [documentation]() for more information about all the functionalities provided and on how to use pdf4me.
 
 
 ## Recommendation

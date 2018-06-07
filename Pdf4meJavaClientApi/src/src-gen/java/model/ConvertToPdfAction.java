@@ -21,33 +21,184 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.KeyValuePairStringString;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class ConvertToPdfAction {
-  @SerializedName("options")
-  private String options = null;
+  /**
+   * Gets or Sets pdfConformance
+   */
+  @JsonAdapter(PdfConformanceEnum.Adapter.class)
+  public enum PdfConformanceEnum {
+    PDF17("pdf17"),
+    
+    PDFA1("pdfA1"),
+    
+    PDFA2("pdfA2"),
+    
+    PDFA3("pdfA3");
 
-  public ConvertToPdfAction options(String options) {
-    this.options = options;
+    private String value;
+
+    PdfConformanceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PdfConformanceEnum fromValue(String text) {
+      for (PdfConformanceEnum b : PdfConformanceEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PdfConformanceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PdfConformanceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PdfConformanceEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PdfConformanceEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("pdfConformance")
+  private PdfConformanceEnum pdfConformance = null;
+
+  /**
+   * Gets or Sets conversionMode
+   */
+  @JsonAdapter(ConversionModeEnum.Adapter.class)
+  public enum ConversionModeEnum {
+    FAST("fast"),
+    
+    DETAILED("detailed");
+
+    private String value;
+
+    ConversionModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ConversionModeEnum fromValue(String text) {
+      for (ConversionModeEnum b : ConversionModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ConversionModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ConversionModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ConversionModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ConversionModeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("conversionMode")
+  private ConversionModeEnum conversionMode = null;
+
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
+
+  public ConvertToPdfAction pdfConformance(PdfConformanceEnum pdfConformance) {
+    this.pdfConformance = pdfConformance;
     return this;
   }
 
    /**
-   * 
-   * @return options
+   * Get pdfConformance
+   * @return pdfConformance
   **/
   @ApiModelProperty(value = "")
-  public String getOptions() {
-    return options;
+  public PdfConformanceEnum getPdfConformance() {
+    return pdfConformance;
   }
 
-  public void setOptions(String options) {
-    this.options = options;
+  public void setPdfConformance(PdfConformanceEnum pdfConformance) {
+    this.pdfConformance = pdfConformance;
+  }
+
+  public ConvertToPdfAction conversionMode(ConversionModeEnum conversionMode) {
+    this.conversionMode = conversionMode;
+    return this;
+  }
+
+   /**
+   * Get conversionMode
+   * @return conversionMode
+  **/
+  @ApiModelProperty(value = "")
+  public ConversionModeEnum getConversionMode() {
+    return conversionMode;
+  }
+
+  public void setConversionMode(ConversionModeEnum conversionMode) {
+    this.conversionMode = conversionMode;
+  }
+
+  public ConvertToPdfAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public ConvertToPdfAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
   }
 
 
@@ -60,12 +211,14 @@ public class ConvertToPdfAction {
       return false;
     }
     ConvertToPdfAction convertToPdfAction = (ConvertToPdfAction) o;
-    return Objects.equals(this.options, convertToPdfAction.options);
+    return Objects.equals(this.pdfConformance, convertToPdfAction.pdfConformance) &&
+        Objects.equals(this.conversionMode, convertToPdfAction.conversionMode) &&
+        Objects.equals(this.customProperties, convertToPdfAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(options);
+    return Objects.hash(pdfConformance, conversionMode, customProperties);
   }
 
 
@@ -74,7 +227,9 @@ public class ConvertToPdfAction {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertToPdfAction {\n");
     
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    pdfConformance: ").append(toIndentedString(pdfConformance)).append("\n");
+    sb.append("    conversionMode: ").append(toIndentedString(conversionMode)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

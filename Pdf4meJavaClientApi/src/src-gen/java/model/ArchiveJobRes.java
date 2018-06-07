@@ -27,7 +27,7 @@ import java.util.UUID;
 /**
  * ArchiveJobRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class ArchiveJobRes {
   @SerializedName("jobId")
   private UUID jobId = null;
@@ -44,7 +44,7 @@ public class ArchiveJobRes {
    * Get jobId
    * @return jobId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public UUID getJobId() {
     return jobId;
   }
@@ -62,7 +62,7 @@ public class ArchiveJobRes {
    * Get createdSuccessfully
    * @return createdSuccessfully
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Boolean isCreatedSuccessfully() {
     return createdSuccessfully;
   }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Get Thumbnails
  */
 @ApiModel(description = "Get Thumbnails")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class CreateImagesRes {
   @SerializedName("document")
   private Document document = null;

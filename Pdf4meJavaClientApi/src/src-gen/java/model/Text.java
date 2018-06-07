@@ -23,17 +23,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import model.Color;
 import model.Rotate;
-import model.Span;
 import model.Transform;
 import model.Translate;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Text
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class Text {
   @SerializedName("format")
   private Boolean format = null;
@@ -158,9 +155,6 @@ public class Text {
 
   @SerializedName("transform")
   private Transform transform = null;
-
-  @SerializedName("spanList")
-  private List<Span> spanList = null;
 
   public Text format(Boolean format) {
     this.format = format;
@@ -342,32 +336,6 @@ public class Text {
     this.transform = transform;
   }
 
-  public Text spanList(List<Span> spanList) {
-    this.spanList = spanList;
-    return this;
-  }
-
-  public Text addSpanListItem(Span spanListItem) {
-    if (this.spanList == null) {
-      this.spanList = new ArrayList<Span>();
-    }
-    this.spanList.add(spanListItem);
-    return this;
-  }
-
-   /**
-   * Get spanList
-   * @return spanList
-  **/
-  @ApiModelProperty(value = "")
-  public List<Span> getSpanList() {
-    return spanList;
-  }
-
-  public void setSpanList(List<Span> spanList) {
-    this.spanList = spanList;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -387,13 +355,12 @@ public class Text {
         Objects.equals(this.mode, text.mode) &&
         Objects.equals(this.rotate, text.rotate) &&
         Objects.equals(this.translate, text.translate) &&
-        Objects.equals(this.transform, text.transform) &&
-        Objects.equals(this.spanList, text.spanList);
+        Objects.equals(this.transform, text.transform);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, size, font, color, fontEncoding, value, mode, rotate, translate, transform, spanList);
+    return Objects.hash(format, size, font, color, fontEncoding, value, mode, rotate, translate, transform);
   }
 
 
@@ -412,7 +379,6 @@ public class Text {
     sb.append("    rotate: ").append(toIndentedString(rotate)).append("\n");
     sb.append("    translate: ").append(toIndentedString(translate)).append("\n");
     sb.append("    transform: ").append(toIndentedString(transform)).append("\n");
-    sb.append("    spanList: ").append(toIndentedString(spanList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

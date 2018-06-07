@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * OptimizeAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class OptimizeAction {
   /**
    * With this property one of the predefined optimization profiles can be set. If a profile is set then all the properties  listed in TPDFOptimizationProfile(table Profile Settings) are set to their respective values.Properties not  listed in this table are left unchanged.  One way of quickly arriving at a specific setting is to first set the Profile and then adapt the configuration by  setting some of the individual properties.
@@ -489,6 +489,9 @@ public class OptimizeAction {
 
   @SerializedName("flattenSignatureFields")
   private Boolean flattenSignatureFields = null;
+
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
 
   public OptimizeAction profile(ProfileEnum profile) {
     this.profile = profile;
@@ -1016,6 +1019,32 @@ public class OptimizeAction {
     this.flattenSignatureFields = flattenSignatureFields;
   }
 
+  public OptimizeAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public OptimizeAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1052,12 +1081,13 @@ public class OptimizeAction {
         Objects.equals(this.thresholdDPI, optimizeAction.thresholdDPI) &&
         Objects.equals(this.strip, optimizeAction.strip) &&
         Objects.equals(this.infoEntries, optimizeAction.infoEntries) &&
-        Objects.equals(this.flattenSignatureFields, optimizeAction.flattenSignatureFields);
+        Objects.equals(this.flattenSignatureFields, optimizeAction.flattenSignatureFields) &&
+        Objects.equals(this.customProperties, optimizeAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profile, useProfile, removeRedundantObjects, subsetFonts, optimizeResources, forceCompressionTypes, forceRecompression, reduceColorComplexity, mergeEmbeddedFonts, bitonalCompressions, bitonalResolutionDPI, bitonalThresholdDPI, clipImages, continuousCompressions, linearize, imageQuality, indexedCompressions, ditheringMode, colorResolutionDPI, colorThresholdDPI, monochromeResolutionDPI, monochromeThresholdDPI, resolutionDPI, thresholdDPI, strip, infoEntries, flattenSignatureFields);
+    return Objects.hash(profile, useProfile, removeRedundantObjects, subsetFonts, optimizeResources, forceCompressionTypes, forceRecompression, reduceColorComplexity, mergeEmbeddedFonts, bitonalCompressions, bitonalResolutionDPI, bitonalThresholdDPI, clipImages, continuousCompressions, linearize, imageQuality, indexedCompressions, ditheringMode, colorResolutionDPI, colorThresholdDPI, monochromeResolutionDPI, monochromeThresholdDPI, resolutionDPI, thresholdDPI, strip, infoEntries, flattenSignatureFields, customProperties);
   }
 
 
@@ -1093,6 +1123,7 @@ public class OptimizeAction {
     sb.append("    strip: ").append(toIndentedString(strip)).append("\n");
     sb.append("    infoEntries: ").append(toIndentedString(infoEntries)).append("\n");
     sb.append("    flattenSignatureFields: ").append(toIndentedString(flattenSignatureFields)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

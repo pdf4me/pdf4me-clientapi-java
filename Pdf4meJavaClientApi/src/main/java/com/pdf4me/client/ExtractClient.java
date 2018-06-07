@@ -1,14 +1,15 @@
 package com.pdf4me.client;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.pdf4me.helper.Pdf4meBackendException;
 import com.pdf4me.helper.Pdf4meClientException;
 import com.pdf4me.helper.ResponseChecker;
+import com.pdf4me.helper.Tuple;
 
-import model.Document;
 import model.Extract;
-import model.ExtractAction;
 import model.ExtractRes;
 
 public class ExtractClient {
@@ -20,20 +21,23 @@ public class ExtractClient {
 	}
 
 	/**
-	 * The predefined extract is carried out.
+	 * The predefined extraction is carried out.
+	 * 
 	 * @param extract
-	 * @return ExtractRes
+	 *            extraction configuration
+	 * @return ExtractRes, contains extracted pages in form of a PDF
 	 */
 	public ExtractRes extract(Extract extract) {
 
 		// check validity of arguments
 		checkSplitObjectValidity(extract);
 		// execute
-		ExtractRes res = (ExtractRes) pdf4meClient.customHttp.post(extract, ExtractRes.class, "Extract/Extract");
+		ExtractRes res = (ExtractRes) pdf4meClient.customHttp.postUniversalObject(extract, ExtractRes.class,
+				"Extract/Extract");
 		// check response for errors
-		if(res == null) {
+		if (res == null) {
 			throw new Pdf4meBackendException("Server Error");
-		}else {
+		} else {
 			ResponseChecker.checkDocumentForErrors(res.getDocument());
 		}
 		return res;
@@ -41,43 +45,45 @@ public class ExtractClient {
 
 	/**
 	 * The chosen pages will be extracted from the given PDF and form a new PDF.
-	 * @param pageNrs to be extracted, the Integer 1 corresponds to the first page
+	 * 
+	 * @param pageNrs
+	 *            the page numbers which will be extracted, number 1 corresponds to
+	 *            the first page.
 	 * @param file
-	 * @return new PDF containing the extracted pages
+	 *            to extract the pages from
+	 * @return bytes of resulting file, can be directly written to file on disk
 	 */
-	public byte[] extractPages(List<Integer> pageNrs, byte[] file) {
+	public byte[] extractPages(String pageNrs, File file) {
 
-		// setup extract object
-		Extract extract = new Extract();
+		// prepare multipart parameters
+		List<Tuple<String, String>> params = new ArrayList<Tuple<String, String>>();
+		params.add(new Tuple("pageNrs", pageNrs));
 
-		// document
-		Document document = new Document();
-		document.setDocData(file);
-		extract.setDocument(document);
+		List<Tuple<String, File>> uploadFiles = new ArrayList<Tuple<String, File>>();
+		uploadFiles.add(new Tuple("file", file));
 
-		// action
-		ExtractAction extractAction = new ExtractAction();
-		extractAction.setExtractPages(pageNrs);
-		extract.setExtractAction(extractAction);
-
-		ExtractRes res = extract(extract);
-
-		// extract the resulting document
-		return res.getDocument().getDocData();
+		return pdf4meClient.customHttp.postWrapper(params, uploadFiles, "/Extract/ExtractPages");
 	}
 
+	/**
+	 * Checks whether the extract object contains the essential information to be
+	 * processed by the server.
+	 * 
+	 * @param extract
+	 *            object to be checked (validity)
+	 */
 	private void checkSplitObjectValidity(Extract extract) {
 
 		// check provided arguments
-		if(extract == null) {
+		if (extract == null) {
 			throw new Pdf4meClientException("The extract parameter cannot be null.");
-		}else if(extract.getDocument() == null || extract.getDocument().getDocData() == null) {
+		} else if (extract.getDocument() == null || extract.getDocument().getDocData() == null) {
 			throw new Pdf4meClientException("The extract document cannot be null.");
-		}else if(extract.getExtractAction() == null) {
+		} else if (extract.getExtractAction() == null) {
 			throw new Pdf4meClientException("The extractAction cannot be null.");
-		}else if(extract.getExtractAction().getExtractPages() == null || extract.getExtractAction().getExtractPages().isEmpty()) {
+		} else if (extract.getExtractAction().getExtractPages() == null
+				|| extract.getExtractAction().getExtractPages().isEmpty()) {
 			throw new Pdf4meClientException("The extractPages of extractAction cannot be null or empty.");
 		}
 	}
-
 }

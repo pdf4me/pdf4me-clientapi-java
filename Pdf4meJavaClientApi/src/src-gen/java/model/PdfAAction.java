@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.KeyValuePairStringString;
 import model.PdfFont;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import java.util.List;
  * The CreatePdfA accepts files from many different applications and automatically   converts them into PDF/A. The level of conformity can be set to level A, U, or B. ICC color profiles for   device-dependent color profiles and font types are embedded in the document.There is an option to provide   the entire character set for fonts (no subsetting) to facilitate editing at a later stage. Missing fonts   are reproduced as close to the original as possible via font recognition. Metadata can be generated   automatically or added from external sources. The tool also detects and automatically repairs problems   typical of the PDF format.A digital signature can be applied and a conformity check carried out at the   end of the process.
  */
 @ApiModel(description = "The CreatePdfA accepts files from many different applications and automatically   converts them into PDF/A. The level of conformity can be set to level A, U, or B. ICC color profiles for   device-dependent color profiles and font types are embedded in the document.There is an option to provide   the entire character set for fonts (no subsetting) to facilitate editing at a later stage. Missing fonts   are reproduced as close to the original as possible via font recognition. Metadata can be generated   automatically or added from external sources. The tool also detects and automatically repairs problems   typical of the PDF format.A digital signature can be applied and a conformity check carried out at the   end of the process.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class PdfAAction {
   @SerializedName("fontsToSubset")
   private List<PdfFont> fontsToSubset = null;
@@ -156,6 +157,9 @@ public class PdfAAction {
   @SerializedName("linearize")
   private Boolean linearize = null;
 
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
+
   public PdfAAction fontsToSubset(List<PdfFont> fontsToSubset) {
     this.fontsToSubset = fontsToSubset;
     return this;
@@ -272,6 +276,32 @@ public class PdfAAction {
     this.linearize = linearize;
   }
 
+  public PdfAAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public PdfAAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -287,12 +317,13 @@ public class PdfAAction {
         Objects.equals(this.allowDowngrade, pdfAAction.allowDowngrade) &&
         Objects.equals(this.allowUpgrade, pdfAAction.allowUpgrade) &&
         Objects.equals(this.outputIntentProfile, pdfAAction.outputIntentProfile) &&
-        Objects.equals(this.linearize, pdfAAction.linearize);
+        Objects.equals(this.linearize, pdfAAction.linearize) &&
+        Objects.equals(this.customProperties, pdfAAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fontsToSubset, compliance, allowDowngrade, allowUpgrade, outputIntentProfile, linearize);
+    return Objects.hash(fontsToSubset, compliance, allowDowngrade, allowUpgrade, outputIntentProfile, linearize, customProperties);
   }
 
 
@@ -307,6 +338,7 @@ public class PdfAAction {
     sb.append("    allowUpgrade: ").append(toIndentedString(allowUpgrade)).append("\n");
     sb.append("    outputIntentProfile: ").append(toIndentedString(outputIntentProfile)).append("\n");
     sb.append("    linearize: ").append(toIndentedString(linearize)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

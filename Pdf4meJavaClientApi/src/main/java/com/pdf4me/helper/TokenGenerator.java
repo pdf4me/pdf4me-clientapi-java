@@ -1,11 +1,5 @@
 package com.pdf4me.helper;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -20,130 +14,102 @@ import com.microsoft.aad.adal4j.ClientCredential;
 
 public class TokenGenerator {
 
-	private static String propertyFile = "config.properties";
-	
-	private static String tenant = "devynooxlive.onmicrosoft.com";
-	
+	private String authString = "https://login.microsoftonline.com/" + "devynooxlive.onmicrosoft.com";
 
-	public static String getToken(String clientId, String secret) {
+	private String clientId;
+	private String secret;
+	private String token = null;
 
-		String authString = "https://login.microsoftonline.com/" + tenant;
+	private ExecutorService service;
+
+	// slack: time before expiration, when already a new token is acquired
+	private int slack = 60; // 1min
+
+	public TokenGenerator(String clientId, String secret) {
+		this.clientId = clientId;
+		this.secret = secret;
+	}
+
+	/**
+	 * Loads or aquires the authorization token.
+	 * 
+	 * @return authorization token string
+	 */
+	public String getToken() {
+		if (validToken()) {
+			return token;
+		} else {
+			return getNewToken();
+		}
+	}
+
+	/**
+	 * Checks whether the stored token has not expired yet.
+	 * 
+	 * @return whether the stored token is still valid
+	 */
+	private Boolean validToken() {
+
+		// check existence of token
+		if (token == null) {
+			return false;
+		}
+
+		// check expiration of token
+		String tokenBody = token.split("\\.")[1];
+		// decode base64
+		byte[] valueDecoded = Base64.decode(tokenBody);
+		String bodyString = new String(valueDecoded);
+		// convert to json
+		JSONObject json = new JSONObject(bodyString);
+		// extract expiration time
+		int exp = ((Integer) json.get("exp"));
+		Long expiration = new Long(exp);
+		expiration *= 1000;
+		// check validity
+		if (expiration - slack < System.currentTimeMillis()) {
+			return false;
+		}
+
+		// return token
+		return true;
+	}
+
+	/**
+	 * Acquires a new token using the clientID and secret.
+	 * 
+	 * @return newly generated token
+	 */
+	private String getNewToken() {
 
 		try {
 
-			// check validity of cached token
-			String cachedToken = getCachedToken();
+			ClientCredential asyKey = new ClientCredential(clientId, secret);
+			this.service = Executors.newFixedThreadPool(1);
+			AuthenticationContext authenticationContext = new AuthenticationContext(authString, false, service);
+			AuthenticationCallback ac = new AuthenticationCallback() {
 
-			if(cachedToken != "") {
-				return cachedToken;
-			}else {
+				@Override
+				public void onSuccess(AuthenticationResult result) {
+					// TODO Auto-generated method stub
+					// System.out.println("Token Generation Succeeded");
+				}
 
-				ClientCredential asyKey = new ClientCredential(clientId, secret);
-				ExecutorService service = Executors.newFixedThreadPool(1);
-				AuthenticationContext authenticationContext = new AuthenticationContext(authString, false, service);
-				AuthenticationCallback ac = new AuthenticationCallback() {
+				@Override
+				public void onFailure(Throwable exc) {
+					// TODO Auto-generated method stub
+					// System.out.println("Token Generation Failed");
+				}
+			};
 
-					@Override
-					public void onSuccess(AuthenticationResult result) {
-						// TODO Auto-generated method stub
-						//System.out.println("Success");
-					}
-
-					@Override
-					public void onFailure(Throwable exc) {
-						// TODO Auto-generated method stub
-						System.out.println("Token Generation Failed");
-					}
-				};
-				
-				Future<AuthenticationResult> res = authenticationContext.acquireToken(clientId, asyKey, ac);
-				String token = res.get().getAccessToken();
-				service.shutdown();
-				
-				// cache token for next use
-				cacheToken(token);
-				
-				return token;
-			}
+			Future<AuthenticationResult> res = authenticationContext.acquireToken(clientId, asyKey, ac);
+			token = res.get().getAccessToken();
+			this.service.shutdown();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			this.service.shutdown();
 			e.printStackTrace();
 		}
-		return "";
-	}
-
-	private static String getCachedToken() {
-
-		try { 
-			
-			Properties prop = new Properties();
-			// check existence of property file
-			InputStream input = new FileInputStream(propertyFile);
-
-			// load the property file
-			prop.load(input);
-
-			// check existence of key "token"
-			if(!prop.containsKey("token")){
-				return "";
-			}
-			
-			// read token
-			String token = prop.getProperty("token");
-
-			// check expiration of token
-			String tokenBody = token.split("\\.")[1];
-			// decode base64
-			byte[] valueDecoded = Base64.decode(tokenBody);
-			String bodyString = new String(valueDecoded);
-			// convert to json
-			JSONObject json = new JSONObject(bodyString);
-			// extract expiration time
-			int exp = ((Integer) json.get("exp"));
-			Long expiration = new Long(exp);
-			expiration *= 1000;
-			// check validity
-			if(expiration < System.currentTimeMillis()) {
-				return "";
-			}
-
-			// return token
-			return token;
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			// property file does not exist
-			return "";
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return "";
-	}
-
-	private static void cacheToken(String token) {
-
-		try {
-
-			FileInputStream in = new FileInputStream(propertyFile);
-			Properties props = new Properties();
-			props.load(in);
-			in.close();
-
-			FileOutputStream out = new FileOutputStream(propertyFile);
-			props.setProperty("token", token);
-			props.store(out, null);
-			out.close();
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Cannot find the file config.properties, please make sure it is present in the project folder.");
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		return token;
 	}
 }

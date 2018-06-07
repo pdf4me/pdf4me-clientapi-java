@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.KeyValuePairStringString;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +29,13 @@ import java.util.List;
 /**
  * ExtractAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T13:33:59.770+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
 public class ExtractAction {
   @SerializedName("extractPages")
   private List<Integer> extractPages = null;
+
+  @SerializedName("customProperties")
+  private List<KeyValuePairStringString> customProperties = null;
 
   public ExtractAction extractPages(List<Integer> extractPages) {
     this.extractPages = extractPages;
@@ -59,6 +63,32 @@ public class ExtractAction {
     this.extractPages = extractPages;
   }
 
+  public ExtractAction customProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+    return this;
+  }
+
+  public ExtractAction addCustomPropertiesItem(KeyValuePairStringString customPropertiesItem) {
+    if (this.customProperties == null) {
+      this.customProperties = new ArrayList<KeyValuePairStringString>();
+    }
+    this.customProperties.add(customPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get customProperties
+   * @return customProperties
+  **/
+  @ApiModelProperty(value = "")
+  public List<KeyValuePairStringString> getCustomProperties() {
+    return customProperties;
+  }
+
+  public void setCustomProperties(List<KeyValuePairStringString> customProperties) {
+    this.customProperties = customProperties;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -69,12 +99,13 @@ public class ExtractAction {
       return false;
     }
     ExtractAction extractAction = (ExtractAction) o;
-    return Objects.equals(this.extractPages, extractAction.extractPages);
+    return Objects.equals(this.extractPages, extractAction.extractPages) &&
+        Objects.equals(this.customProperties, extractAction.customProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(extractPages);
+    return Objects.hash(extractPages, customProperties);
   }
 
 
@@ -84,6 +115,7 @@ public class ExtractAction {
     sb.append("class ExtractAction {\n");
     
     sb.append("    extractPages: ").append(toIndentedString(extractPages)).append("\n");
+    sb.append("    customProperties: ").append(toIndentedString(customProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

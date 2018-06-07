@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.util.List;
 
 import org.junit.Rule;
@@ -23,11 +24,11 @@ import test.TestFiles;
 
 public class SplitClientTest {
 
-	private Check check = new Check();
-	private TestFiles testFiles = new TestFiles();
+	private static Check check = new Check();
+	private static TestFiles testFiles = new TestFiles();
 
-	private Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
-	private SplitClient splitClient = new SplitClient(pdf4meTestSetup.getPdf4meClient());
+	private static Pdf4meTestSetup pdf4meTestSetup = new Pdf4meTestSetup();
+	private static SplitClient splitClient = new SplitClient(pdf4meTestSetup.getPdf4meClient());
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
@@ -60,7 +61,8 @@ public class SplitClientTest {
 
 		// request
 		Split split = null;
-		SplitRes res = splitClient.split(split);
+
+		splitClient.split(split);
 
 	}
 
@@ -73,7 +75,7 @@ public class SplitClientTest {
 		Split split = createSplit();
 		split.setDocument(null);
 
-		SplitRes res = splitClient.split(split);
+		splitClient.split(split);
 
 	}
 
@@ -86,7 +88,7 @@ public class SplitClientTest {
 		Split split = createSplit();
 		split.getDocument().setDocData(null);
 
-		SplitRes res = splitClient.split(split);
+		splitClient.split(split);
 
 	}
 
@@ -99,7 +101,7 @@ public class SplitClientTest {
 		Split split = createSplit();
 		split.setSplitAction(null);
 
-		SplitRes res = splitClient.split(split);
+		splitClient.split(split);
 
 	}
 
@@ -112,20 +114,21 @@ public class SplitClientTest {
 		Split split = createSplit();
 		split.getSplitAction().setSplitAfterPage(null);
 
-		SplitRes res = splitClient.split(split);
+		splitClient.split(split);
 
 	}
 
 	@Test
 	public void testSplitSplitActionSplitAfterPageEmptyThrowsIllegalArgumentException() {
 		thrown.expect(Pdf4meClientException.class);
-		thrown.expectMessage("The splitAfterPage of splitAction cannot be zero. The first page of a PDF corresponds to page number one.");
+		thrown.expectMessage(
+				"The splitAfterPage of splitAction cannot be zero. The first page of a PDF corresponds to page number one.");
 
 		// request
 		Split split = createSplit();
 		split.getSplitAction().setSplitAfterPage(0);
 
-		SplitRes res = splitClient.split(split);
+		splitClient.split(split);
 
 	}
 
@@ -177,7 +180,7 @@ public class SplitClientTest {
 	public void testSplitByPageNrNoNullResponse() {
 
 		// request
-		byte[] file = testFiles.getPdfBytesLong();
+		File file = testFiles.getPdfFileLong();
 
 		List<byte[]> res = splitClient.splitByPageNr(pageNr, file);
 
@@ -189,7 +192,7 @@ public class SplitClientTest {
 	public void testSplitByPageNrDocLength() {
 
 		// request
-		byte[] file = testFiles.getPdfBytesLong();
+		File file = testFiles.getPdfFileLong();
 
 		List<byte[]> res = splitClient.splitByPageNr(pageNr, file);
 
