@@ -11,7 +11,7 @@
 	<!-- Project Name, Description and URL -->
 	<name>Pdf4me</name>
 	<description>The Pdf4me Client API is a maven library which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS api provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDFs.</description>
-	<url>http://www.pdf4me.com/</url>
+	<url>https://dev-dev.pdf4me.com</url>
 
 	<!-- License Information -->
 	<licenses>
