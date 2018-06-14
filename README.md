@@ -50,7 +50,22 @@ byte[] mergedPdf = mergeClient.merge2Pdfs(file1, file2);
 
 Please visit our [documentation]() for more information about all the functionalities provided and on how to use pdf4me.
 
-
 ## Recommendation
 
 It's recommended to create an instance of `Pdf4meClient` per thread in a multithreaded environment to avoid any potential issues.
+
+## Contribution
+
+Contributions are very welcome. Please have a look at the instructions below for a smooth project setup.
+
+1. Fork pdf4me
+2. Clone your copy of pdf4me
+3. Start your IDE, e.g., Eclipse
+4. Import the two projects: In Eclipse: click on *File* in the menu -> *Import...* -> Choose the *Maven* folder -> *Existing Maven Projects*
+> - import Pdf4meJavaClientApi
+> - import Pdf4meJavaClientApiTest
+5. You are ready to go
+
+#### Running the Test Cases
+In order for the test cases to run, a config.properties file containing the clientId and secret must be stored in the Pdf4meJavaClientApiTest folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer (clientId, secret) pair for testing the code of your pull request.
+The test cases are found in Pdf4meJavaClientApiTest/src/test/java/jUnit.
