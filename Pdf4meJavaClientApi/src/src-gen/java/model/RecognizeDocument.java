@@ -21,16 +21,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import model.Document;
 import model.Notification;
 import model.OcrAction;
-import java.io.IOException;
 
 /**
  * Stamp Request with core data to stamp
  */
 @ApiModel(description = "Stamp Request with core data to stamp")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class RecognizeDocument {
   @SerializedName("document")
   private Document document = null;

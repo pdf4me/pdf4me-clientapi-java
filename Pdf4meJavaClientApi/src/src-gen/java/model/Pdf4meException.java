@@ -27,7 +27,7 @@ import java.io.IOException;
  * Pdf4me Exception gives more information of what is the error.
  */
 @ApiModel(description = "Pdf4me Exception gives more information of what is the error.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class Pdf4meException {
   @SerializedName("errorMessage")
   private String errorMessage = null;

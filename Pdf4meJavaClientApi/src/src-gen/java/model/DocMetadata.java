@@ -22,11 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * DocMetadata
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class DocMetadata {
   @SerializedName("title")
   private String title = null;
@@ -54,6 +55,9 @@ public class DocMetadata {
 
   @SerializedName("uploadedFileSize")
   private Long uploadedFileSize = null;
+
+  @SerializedName("documentId")
+  private UUID documentId = null;
 
   public DocMetadata title(String title) {
     this.title = title;
@@ -217,6 +221,24 @@ public class DocMetadata {
     this.uploadedFileSize = uploadedFileSize;
   }
 
+  public DocMetadata documentId(UUID documentId) {
+    this.documentId = documentId;
+    return this;
+  }
+
+   /**
+   * Get documentId
+   * @return documentId
+  **/
+  @ApiModelProperty(value = "")
+  public UUID getDocumentId() {
+    return documentId;
+  }
+
+  public void setDocumentId(UUID documentId) {
+    this.documentId = documentId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -235,12 +257,13 @@ public class DocMetadata {
         Objects.equals(this.pdfCompliance, docMetadata.pdfCompliance) &&
         Objects.equals(this.isSigned, docMetadata.isSigned) &&
         Objects.equals(this.uploadedMimeType, docMetadata.uploadedMimeType) &&
-        Objects.equals(this.uploadedFileSize, docMetadata.uploadedFileSize);
+        Objects.equals(this.uploadedFileSize, docMetadata.uploadedFileSize) &&
+        Objects.equals(this.documentId, docMetadata.documentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, subject, pageCount, size, isEncrypted, pdfCompliance, isSigned, uploadedMimeType, uploadedFileSize);
+    return Objects.hash(title, subject, pageCount, size, isEncrypted, pdfCompliance, isSigned, uploadedMimeType, uploadedFileSize, documentId);
   }
 
 
@@ -258,6 +281,7 @@ public class DocMetadata {
     sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
     sb.append("    uploadedMimeType: ").append(toIndentedString(uploadedMimeType)).append("\n");
     sb.append("    uploadedFileSize: ").append(toIndentedString(uploadedFileSize)).append("\n");
+    sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

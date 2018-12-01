@@ -21,20 +21,20 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.Document;
-import model.MergeAction;
-import model.Notification;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Document;
+import model.MergeAction;
+import model.Notification;
 
 /**
  * Merge
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class Merge {
   @SerializedName("documents")
-  private List<Document> documents = null;
+  private List<Document> documents = new ArrayList<Document>();
 
   @SerializedName("mergeAction")
   private MergeAction mergeAction = null;
@@ -48,9 +48,6 @@ public class Merge {
   }
 
   public Merge addDocumentsItem(Document documentsItem) {
-    if (this.documents == null) {
-      this.documents = new ArrayList<Document>();
-    }
     this.documents.add(documentsItem);
     return this;
   }
@@ -59,7 +56,7 @@ public class Merge {
    * Get documents
    * @return documents
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Document> getDocuments() {
     return documents;
   }

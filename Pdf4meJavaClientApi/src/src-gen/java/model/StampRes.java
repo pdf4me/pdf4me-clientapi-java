@@ -21,17 +21,42 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.Document;
 import java.io.IOException;
+import model.DocMetadata;
+import model.Document;
 
 /**
  * Stamp Request with core data to stamp
  */
 @ApiModel(description = "Stamp Request with core data to stamp")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class StampRes {
+  @SerializedName("traceId")
+  private String traceId = null;
+
   @SerializedName("document")
   private Document document = null;
+
+  @SerializedName("inDocMetadata")
+  private DocMetadata inDocMetadata = null;
+
+  public StampRes traceId(String traceId) {
+    this.traceId = traceId;
+    return this;
+  }
+
+   /**
+   * Get traceId
+   * @return traceId
+  **/
+  @ApiModelProperty(value = "")
+  public String getTraceId() {
+    return traceId;
+  }
+
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
+  }
 
   public StampRes document(Document document) {
     this.document = document;
@@ -51,6 +76,24 @@ public class StampRes {
     this.document = document;
   }
 
+  public StampRes inDocMetadata(DocMetadata inDocMetadata) {
+    this.inDocMetadata = inDocMetadata;
+    return this;
+  }
+
+   /**
+   * Get inDocMetadata
+   * @return inDocMetadata
+  **/
+  @ApiModelProperty(value = "")
+  public DocMetadata getInDocMetadata() {
+    return inDocMetadata;
+  }
+
+  public void setInDocMetadata(DocMetadata inDocMetadata) {
+    this.inDocMetadata = inDocMetadata;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +104,14 @@ public class StampRes {
       return false;
     }
     StampRes stampRes = (StampRes) o;
-    return Objects.equals(this.document, stampRes.document);
+    return Objects.equals(this.traceId, stampRes.traceId) &&
+        Objects.equals(this.document, stampRes.document) &&
+        Objects.equals(this.inDocMetadata, stampRes.inDocMetadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document);
+    return Objects.hash(traceId, document, inDocMetadata);
   }
 
 
@@ -75,7 +120,9 @@ public class StampRes {
     StringBuilder sb = new StringBuilder();
     sb.append("class StampRes {\n");
     
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
+    sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

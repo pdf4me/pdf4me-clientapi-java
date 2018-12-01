@@ -23,24 +23,22 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.DocMetadata;
-import model.Document;
 
 /**
- * Stamp Request with core data to stamp
+ * CheckAvailabilityRes
  */
-@ApiModel(description = "Stamp Request with core data to stamp")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
-public class OptimizeRes {
+public class CheckAvailabilityRes {
   @SerializedName("traceId")
   private String traceId = null;
-
-  @SerializedName("document")
-  private Document document = null;
 
   @SerializedName("inDocMetadata")
   private DocMetadata inDocMetadata = null;
 
-  public OptimizeRes traceId(String traceId) {
+  @SerializedName("Status")
+  private Boolean status = null;
+
+  public CheckAvailabilityRes traceId(String traceId) {
     this.traceId = traceId;
     return this;
   }
@@ -58,25 +56,7 @@ public class OptimizeRes {
     this.traceId = traceId;
   }
 
-  public OptimizeRes document(Document document) {
-    this.document = document;
-    return this;
-  }
-
-   /**
-   * Stamped Document
-   * @return document
-  **/
-  @ApiModelProperty(value = "Stamped Document")
-  public Document getDocument() {
-    return document;
-  }
-
-  public void setDocument(Document document) {
-    this.document = document;
-  }
-
-  public OptimizeRes inDocMetadata(DocMetadata inDocMetadata) {
+  public CheckAvailabilityRes inDocMetadata(DocMetadata inDocMetadata) {
     this.inDocMetadata = inDocMetadata;
     return this;
   }
@@ -94,6 +74,24 @@ public class OptimizeRes {
     this.inDocMetadata = inDocMetadata;
   }
 
+  public CheckAvailabilityRes status(Boolean status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isStatus() {
+    return status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,26 +101,26 @@ public class OptimizeRes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OptimizeRes optimizeRes = (OptimizeRes) o;
-    return Objects.equals(this.traceId, optimizeRes.traceId) &&
-        Objects.equals(this.document, optimizeRes.document) &&
-        Objects.equals(this.inDocMetadata, optimizeRes.inDocMetadata);
+    CheckAvailabilityRes checkAvailabilityRes = (CheckAvailabilityRes) o;
+    return Objects.equals(this.traceId, checkAvailabilityRes.traceId) &&
+        Objects.equals(this.inDocMetadata, checkAvailabilityRes.inDocMetadata) &&
+        Objects.equals(this.status, checkAvailabilityRes.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(traceId, document, inDocMetadata);
+    return Objects.hash(traceId, inDocMetadata, status);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OptimizeRes {\n");
+    sb.append("class CheckAvailabilityRes {\n");
     
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
-    sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

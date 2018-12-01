@@ -21,18 +21,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.KeyValuePairStringString;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.KeyValuePairStringString;
 
 /**
  * ExtractAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class ExtractAction {
   @SerializedName("extractPages")
-  private List<Integer> extractPages = null;
+  private List<Integer> extractPages = new ArrayList<Integer>();
 
   @SerializedName("customProperties")
   private List<KeyValuePairStringString> customProperties = null;
@@ -43,9 +43,6 @@ public class ExtractAction {
   }
 
   public ExtractAction addExtractPagesItem(Integer extractPagesItem) {
-    if (this.extractPages == null) {
-      this.extractPages = new ArrayList<Integer>();
-    }
     this.extractPages.add(extractPagesItem);
     return this;
   }
@@ -54,7 +51,7 @@ public class ExtractAction {
    * Get extractPages
    * @return extractPages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Integer> getExtractPages() {
     return extractPages;
   }

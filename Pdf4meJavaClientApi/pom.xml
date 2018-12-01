@@ -6,7 +6,7 @@
 	<!-- Coordinates -->
 	<groupId>com.pdf4me</groupId>
 	<artifactId>pdf4me</artifactId>
-	<version>0.8.3</version>
+	<version>0.9.0</version>
 
 	<!-- Project Name, Description and URL -->
 	<name>Pdf4me</name>

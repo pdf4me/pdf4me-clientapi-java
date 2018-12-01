@@ -21,43 +21,25 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import model.ConvertToPdfAction;
 import model.Document;
 import model.Notification;
-import java.io.IOException;
 
 /**
  * Convert any document to a PDF
  */
 @ApiModel(description = "Convert any document to a PDF")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class ConvertToPdf {
-  @SerializedName("notification")
-  private Notification notification = null;
-
   @SerializedName("document")
   private Document document = null;
 
   @SerializedName("convertToPdfAction")
   private ConvertToPdfAction convertToPdfAction = null;
 
-  public ConvertToPdf notification(Notification notification) {
-    this.notification = notification;
-    return this;
-  }
-
-   /**
-   * Set Notification
-   * @return notification
-  **/
-  @ApiModelProperty(value = "Set Notification")
-  public Notification getNotification() {
-    return notification;
-  }
-
-  public void setNotification(Notification notification) {
-    this.notification = notification;
-  }
+  @SerializedName("notification")
+  private Notification notification = null;
 
   public ConvertToPdf document(Document document) {
     this.document = document;
@@ -68,7 +50,7 @@ public class ConvertToPdf {
    * Document containing the data
    * @return document
   **/
-  @ApiModelProperty(value = "Document containing the data")
+  @ApiModelProperty(required = true, value = "Document containing the data")
   public Document getDocument() {
     return document;
   }
@@ -95,6 +77,24 @@ public class ConvertToPdf {
     this.convertToPdfAction = convertToPdfAction;
   }
 
+  public ConvertToPdf notification(Notification notification) {
+    this.notification = notification;
+    return this;
+  }
+
+   /**
+   * Set Notification
+   * @return notification
+  **/
+  @ApiModelProperty(value = "Set Notification")
+  public Notification getNotification() {
+    return notification;
+  }
+
+  public void setNotification(Notification notification) {
+    this.notification = notification;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,14 +105,14 @@ public class ConvertToPdf {
       return false;
     }
     ConvertToPdf convertToPdf = (ConvertToPdf) o;
-    return Objects.equals(this.notification, convertToPdf.notification) &&
-        Objects.equals(this.document, convertToPdf.document) &&
-        Objects.equals(this.convertToPdfAction, convertToPdf.convertToPdfAction);
+    return Objects.equals(this.document, convertToPdf.document) &&
+        Objects.equals(this.convertToPdfAction, convertToPdf.convertToPdfAction) &&
+        Objects.equals(this.notification, convertToPdf.notification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(notification, document, convertToPdfAction);
+    return Objects.hash(document, convertToPdfAction, notification);
   }
 
 
@@ -121,9 +121,9 @@ public class ConvertToPdf {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertToPdf {\n");
     
-    sb.append("    notification: ").append(toIndentedString(notification)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    convertToPdfAction: ").append(toIndentedString(convertToPdfAction)).append("\n");
+    sb.append("    notification: ").append(toIndentedString(notification)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,15 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.KeyValuePairStringString;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.KeyValuePairStringString;
 
 /**
  * OptimizeAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class OptimizeAction {
   /**
    * With this property one of the predefined optimization profiles can be set. If a profile is set then all the properties  listed in TPDFOptimizationProfile(table Profile Settings) are set to their respective values.Properties not  listed in this table are left unchanged.  One way of quickly arriving at a specific setting is to first set the Profile and then adapt the configuration by  setting some of the individual properties.
@@ -520,7 +520,7 @@ public class OptimizeAction {
    * Get useProfile
    * @return useProfile
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public Boolean isUseProfile() {
     return useProfile;
   }

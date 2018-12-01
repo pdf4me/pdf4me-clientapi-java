@@ -21,16 +21,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import model.Document;
 import model.Notification;
 import model.OptimizeAction;
-import java.io.IOException;
 
 /**
  * Stamp Request with core data to stamp
  */
 @ApiModel(description = "Stamp Request with core data to stamp")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class Optimize {
   @SerializedName("document")
   private Document document = null;
@@ -50,7 +50,7 @@ public class Optimize {
    * Give the document to change or use JobId/DocumentId to reference an uploaded document.
    * @return document
   **/
-  @ApiModelProperty(value = "Give the document to change or use JobId/DocumentId to reference an uploaded document.")
+  @ApiModelProperty(required = true, value = "Give the document to change or use JobId/DocumentId to reference an uploaded document.")
   public Document getDocument() {
     return document;
   }
@@ -68,7 +68,7 @@ public class Optimize {
    * Give an image stamp
    * @return optimizeAction
   **/
-  @ApiModelProperty(value = "Give an image stamp")
+  @ApiModelProperty(required = true, value = "Give an image stamp")
   public OptimizeAction getOptimizeAction() {
     return optimizeAction;
   }

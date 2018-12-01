@@ -21,19 +21,22 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.Document;
-import model.Notification;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import model.Document;
+import model.Notification;
 
 /**
  * Run Job
  */
 @ApiModel(description = "Run Job")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class RunJobRes {
+  @SerializedName("traceId")
+  private String traceId = null;
+
   @SerializedName("jobId")
   private UUID jobId = null;
 
@@ -42,6 +45,24 @@ public class RunJobRes {
 
   @SerializedName("notification")
   private Notification notification = null;
+
+  public RunJobRes traceId(String traceId) {
+    this.traceId = traceId;
+    return this;
+  }
+
+   /**
+   * Get traceId
+   * @return traceId
+  **/
+  @ApiModelProperty(value = "")
+  public String getTraceId() {
+    return traceId;
+  }
+
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
+  }
 
   public RunJobRes jobId(UUID jobId) {
     this.jobId = jobId;
@@ -52,7 +73,7 @@ public class RunJobRes {
    * Get jobId
    * @return jobId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public UUID getJobId() {
     return jobId;
   }
@@ -115,14 +136,15 @@ public class RunJobRes {
       return false;
     }
     RunJobRes runJobRes = (RunJobRes) o;
-    return Objects.equals(this.jobId, runJobRes.jobId) &&
+    return Objects.equals(this.traceId, runJobRes.traceId) &&
+        Objects.equals(this.jobId, runJobRes.jobId) &&
         Objects.equals(this.documents, runJobRes.documents) &&
         Objects.equals(this.notification, runJobRes.notification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobId, documents, notification);
+    return Objects.hash(traceId, jobId, documents, notification);
   }
 
 
@@ -131,6 +153,7 @@ public class RunJobRes {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunJobRes {\n");
     
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("    notification: ").append(toIndentedString(notification)).append("\n");

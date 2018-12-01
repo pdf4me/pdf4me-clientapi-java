@@ -21,18 +21,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.Image;
-import model.KeyValuePairStringString;
-import model.Text;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Image;
+import model.KeyValuePairStringString;
+import model.Text;
 
 /**
  * Define Stamp to place on Document
  */
 @ApiModel(description = "Define Stamp to place on Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class StampAction {
   @SerializedName("pageSequence")
   private String pageSequence = null;
@@ -406,7 +406,7 @@ public class StampAction {
    * The opacity of the stamp as a whole. 1.0 for fully opaque, 0.0 for fully transparent.  Default: 1.0  The PDF/A-1 standard does not allow transparency.Therefore, for PDF/A-1 conforming input files you must  not set alpha to a value other than 1.0
    * @return alpha
   **/
-  @ApiModelProperty(value = "The opacity of the stamp as a whole. 1.0 for fully opaque, 0.0 for fully transparent.  Default: 1.0  The PDF/A-1 standard does not allow transparency.Therefore, for PDF/A-1 conforming input files you must  not set alpha to a value other than 1.0")
+  @ApiModelProperty(required = true, value = "The opacity of the stamp as a whole. 1.0 for fully opaque, 0.0 for fully transparent.  Default: 1.0  The PDF/A-1 standard does not allow transparency.Therefore, for PDF/A-1 conforming input files you must  not set alpha to a value other than 1.0")
   public Double getAlpha() {
     return alpha;
   }

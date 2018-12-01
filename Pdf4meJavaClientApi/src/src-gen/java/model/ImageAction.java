@@ -21,17 +21,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.CustomCMSConfig;
-import model.KeyValuePairStringString;
-import model.PageSelection;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.CustomCMSConfig;
+import model.KeyValuePairStringString;
+import model.PageSelection;
 
 /**
  * ImageAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class ImageAction {
   @SerializedName("pageSelection")
   private PageSelection pageSelection = null;
@@ -569,7 +569,7 @@ public class ImageAction {
    * Set the Pages wo apply the convertion.    {default: PageSelection.All}
    * @return pageSelection
   **/
-  @ApiModelProperty(value = "Set the Pages wo apply the convertion.    {default: PageSelection.All}")
+  @ApiModelProperty(required = true, value = "Set the Pages wo apply the convertion.    {default: PageSelection.All}")
   public PageSelection getPageSelection() {
     return pageSelection;
   }

@@ -21,17 +21,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.UUID;
 import model.ActionFlow;
 import model.ExecutionTrigger;
 import model.StorageFolder;
-import java.io.IOException;
-import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * JobConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class JobConfig {
   @SerializedName("jobConfigId")
   private UUID jobConfigId = null;
@@ -54,6 +54,9 @@ public class JobConfig {
   @SerializedName("userId")
   private UUID userId = null;
 
+  @SerializedName("tenantId")
+  private UUID tenantId = null;
+
   @SerializedName("sourceFolder")
   private StorageFolder sourceFolder = null;
 
@@ -75,7 +78,7 @@ public class JobConfig {
    * Get jobConfigId
    * @return jobConfigId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public UUID getJobConfigId() {
     return jobConfigId;
   }
@@ -93,7 +96,7 @@ public class JobConfig {
    * Get enabled
    * @return enabled
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public Boolean isEnabled() {
     return enabled;
   }
@@ -183,13 +186,31 @@ public class JobConfig {
    * Get userId
    * @return userId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public UUID getUserId() {
     return userId;
   }
 
   public void setUserId(UUID userId) {
     this.userId = userId;
+  }
+
+  public JobConfig tenantId(UUID tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+   /**
+   * Get tenantId
+   * @return tenantId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public UUID getTenantId() {
+    return tenantId;
+  }
+
+  public void setTenantId(UUID tenantId) {
+    this.tenantId = tenantId;
   }
 
   public JobConfig sourceFolder(StorageFolder sourceFolder) {
@@ -281,6 +302,7 @@ public class JobConfig {
         Objects.equals(this.modDate, jobConfig.modDate) &&
         Objects.equals(this.name, jobConfig.name) &&
         Objects.equals(this.userId, jobConfig.userId) &&
+        Objects.equals(this.tenantId, jobConfig.tenantId) &&
         Objects.equals(this.sourceFolder, jobConfig.sourceFolder) &&
         Objects.equals(this.executionTrigger, jobConfig.executionTrigger) &&
         Objects.equals(this.actionFlow, jobConfig.actionFlow) &&
@@ -289,7 +311,7 @@ public class JobConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobConfigId, enabled, active, creationDate, modDate, name, userId, sourceFolder, executionTrigger, actionFlow, targetFolder);
+    return Objects.hash(jobConfigId, enabled, active, creationDate, modDate, name, userId, tenantId, sourceFolder, executionTrigger, actionFlow, targetFolder);
   }
 
 
@@ -305,6 +327,7 @@ public class JobConfig {
     sb.append("    modDate: ").append(toIndentedString(modDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    sourceFolder: ").append(toIndentedString(sourceFolder)).append("\n");
     sb.append("    executionTrigger: ").append(toIndentedString(executionTrigger)).append("\n");
     sb.append("    actionFlow: ").append(toIndentedString(actionFlow)).append("\n");

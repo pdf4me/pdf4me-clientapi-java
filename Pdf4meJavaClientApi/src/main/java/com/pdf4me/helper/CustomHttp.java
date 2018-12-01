@@ -21,10 +21,11 @@ public class CustomHttp {
 
 	private CloseableHttpClient client = HttpClients.createDefault();
 	private JsonConverter jsonConverter = new JsonConverter();
-	private TokenGenerator tokenGenerator;
-
-	public CustomHttp(String clientId, String secret) {
-		this.tokenGenerator = new TokenGenerator(clientId, secret);
+//	private TokenGenerator tokenGenerator;
+    private String basicToken ;
+	public CustomHttp(String basicToken) {
+	//	this.tokenGenerator = new TokenGenerator(basicToken);
+		this.basicToken = basicToken;
 	}
 
 	/**
@@ -146,11 +147,12 @@ public class CustomHttp {
 	private HttpPost postSetup(String methodName) {
 
 		// generate token
-		String token = tokenGenerator.getToken();
+		//String token = tokenGenerator.getToken();
 
 		// httpPost setup
 		HttpPost httpPost = new HttpPost("https://api-dev.pdf4me.com/" + methodName);
-		httpPost.addHeader("Authorization", "Bearer " + token);
+		//httpPost.addHeader("Authorization", "Bearer " + token);
+		httpPost.addHeader("Authorization", "Basic " + this.basicToken);
 		httpPost.addHeader("Accept", "application/json");
 
 		return httpPost;

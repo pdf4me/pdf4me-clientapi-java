@@ -3,6 +3,7 @@ package com.pdf4me.client;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import com.pdf4me.helper.CustomHttp;
@@ -18,15 +19,16 @@ public class Pdf4meClient {
 	 * @param clientId
 	 * @param secret
 	 */
-	public Pdf4meClient(String clientId, String secret) {
+	public Pdf4meClient(String tokenType, String token) {
 
-		if (clientId == null || clientId == "") {
-			throw new Pdf4meClientException("Please provide a valid clientId.");
-		} else if (secret == null || secret == "") {
-			throw new Pdf4meClientException("Please provide a valid secret.");
-		}
+		if (token == null || token == "") {
+			throw new Pdf4meClientException("Please provide a valid token.");
+		} 
+//		else if (secret == null || secret == "") {
+//			throw new Pdf4meClientException("Please provide a valid secret.");
+//		}
 
-		customHttp = new CustomHttp(clientId, secret);
+		customHttp = new CustomHttp(token);
 	}
 
 	/**
@@ -41,28 +43,30 @@ public class Pdf4meClient {
 
 		try {
 			// read clientId, secret and tenant from the property file
-			FileInputStream in = new FileInputStream(pathToConfigFile);
+			InputStream in = getClass().getClassLoader().getResourceAsStream(pathToConfigFile);
+			//FileInputStream in = new FileInputStream(pathToConfigFile);
 			Properties props = new Properties();
 			props.load(in);
 
-			String clientId = props.getProperty("clientId");
-			String secret = props.getProperty("secret");
+			String basicToken = props.getProperty("basic_token");
+			//String secret = props.getProperty("");
 
-			if (clientId == null) {
+			if (basicToken == null) {
 				throw new Pdf4meClientException(
-						"Please store your clientId in the 'config.properies' file on the following path: "
+						"Please store your basic?token in the 'config.properies' file on the following path: "
 								+ pathToConfigFile + "."
-								+ " Or else provide your clientId and secret in the Pdf4meClient constructor.");
-			} else if (secret == null) {
-				throw new Pdf4meClientException(
-						"Please provide your secret in the 'config.properies' file on the following path: "
-								+ pathToConfigFile + "."
-								+ " Or else provide your clientId and secret in the Pdf4meClient constructor.");
+								+ " Or else provide your basicToken  in the Pdf4meClient constructor.");
 			}
+//			 else if (secret == null) {
+//				throw new Pdf4meClientException(
+//						"Please provide your secret in the 'config.properies' file on the following path: "
+//								+ pathToConfigFile + "."
+//								+ " Or else provide your clientId and secret in the Pdf4meClient constructor.");
+//			}
 
 			in.close();
 
-			customHttp = new CustomHttp(clientId, secret);
+			customHttp = new CustomHttp(basicToken);
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

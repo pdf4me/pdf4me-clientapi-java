@@ -21,17 +21,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.KeyValuePairStringString;
-import model.PdfFont;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.KeyValuePairStringString;
+import model.PdfFont;
 
 /**
  * The CreatePdfA accepts files from many different applications and automatically   converts them into PDF/A. The level of conformity can be set to level A, U, or B. ICC color profiles for   device-dependent color profiles and font types are embedded in the document.There is an option to provide   the entire character set for fonts (no subsetting) to facilitate editing at a later stage. Missing fonts   are reproduced as close to the original as possible via font recognition. Metadata can be generated   automatically or added from external sources. The tool also detects and automatically repairs problems   typical of the PDF format.A digital signature can be applied and a conformity check carried out at the   end of the process.
  */
 @ApiModel(description = "The CreatePdfA accepts files from many different applications and automatically   converts them into PDF/A. The level of conformity can be set to level A, U, or B. ICC color profiles for   device-dependent color profiles and font types are embedded in the document.There is an option to provide   the entire character set for fonts (no subsetting) to facilitate editing at a later stage. Missing fonts   are reproduced as close to the original as possible via font recognition. Metadata can be generated   automatically or added from external sources. The tool also detects and automatically repairs problems   typical of the PDF format.A digital signature can be applied and a conformity check carried out at the   end of the process.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class PdfAAction {
   @SerializedName("fontsToSubset")
   private List<PdfFont> fontsToSubset = null;

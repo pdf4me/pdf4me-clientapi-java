@@ -21,16 +21,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import model.Document;
 import model.Notification;
 import model.PdfAAction;
-import java.io.IOException;
 
 /**
  * PDF-A Request to create PDF-A compatible document.
  */
 @ApiModel(description = "PDF-A Request to create PDF-A compatible document.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class CreatePdfA {
   @SerializedName("document")
   private Document document = null;
@@ -50,7 +50,7 @@ public class CreatePdfA {
    * Document containing the data
    * @return document
   **/
-  @ApiModelProperty(value = "Document containing the data")
+  @ApiModelProperty(required = true, value = "Document containing the data")
   public Document getDocument() {
     return document;
   }
@@ -68,7 +68,7 @@ public class CreatePdfA {
    * PdfAAction configuration
    * @return pdfAAction
   **/
-  @ApiModelProperty(value = "PdfAAction configuration")
+  @ApiModelProperty(required = true, value = "PdfAAction configuration")
   public PdfAAction getPdfAAction() {
     return pdfAAction;
   }

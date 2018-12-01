@@ -21,19 +21,40 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import model.Document;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Document;
 
 /**
  * Stamp Request with core data to stamp
  */
 @ApiModel(description = "Stamp Request with core data to stamp")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-04T10:27:16.545+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-01T18:17:38.351+01:00")
 public class ProduceDocumentsRes {
+  @SerializedName("traceId")
+  private String traceId = null;
+
   @SerializedName("documents")
   private List<Document> documents = null;
+
+  public ProduceDocumentsRes traceId(String traceId) {
+    this.traceId = traceId;
+    return this;
+  }
+
+   /**
+   * Get traceId
+   * @return traceId
+  **/
+  @ApiModelProperty(value = "")
+  public String getTraceId() {
+    return traceId;
+  }
+
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
+  }
 
   public ProduceDocumentsRes documents(List<Document> documents) {
     this.documents = documents;
@@ -71,12 +92,13 @@ public class ProduceDocumentsRes {
       return false;
     }
     ProduceDocumentsRes produceDocumentsRes = (ProduceDocumentsRes) o;
-    return Objects.equals(this.documents, produceDocumentsRes.documents);
+    return Objects.equals(this.traceId, produceDocumentsRes.traceId) &&
+        Objects.equals(this.documents, produceDocumentsRes.documents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documents);
+    return Objects.hash(traceId, documents);
   }
 
 
@@ -85,6 +107,7 @@ public class ProduceDocumentsRes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProduceDocumentsRes {\n");
     
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("}");
     return sb.toString();
