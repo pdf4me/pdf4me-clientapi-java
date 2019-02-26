@@ -19,7 +19,7 @@ public class Pdf4meClient {
 	 * @param clientId
 	 * @param secret
 	 */
-	public Pdf4meClient(String tokenType, String token) {
+	public Pdf4meClient(String baseUrl, String token) {
 
 		if (token == null || token == "") {
 			throw new Pdf4meClientException("Please provide a valid token.");
@@ -28,7 +28,7 @@ public class Pdf4meClient {
 //			throw new Pdf4meClientException("Please provide a valid secret.");
 //		}
 
-		customHttp = new CustomHttp(token);
+		customHttp = new CustomHttp(baseUrl, token);
 	}
 
 	/**
@@ -49,6 +49,7 @@ public class Pdf4meClient {
 			props.load(in);
 
 			String basicToken = props.getProperty("basic_token");
+			String baseUrl = props.getProperty("base_url");
 			//String secret = props.getProperty("");
 
 			if (basicToken == null) {
@@ -66,7 +67,7 @@ public class Pdf4meClient {
 
 			in.close();
 
-			customHttp = new CustomHttp(basicToken);
+			customHttp = new CustomHttp(baseUrl, basicToken);
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

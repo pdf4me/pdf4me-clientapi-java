@@ -23,8 +23,11 @@ public class CustomHttp {
 	private JsonConverter jsonConverter = new JsonConverter();
 //	private TokenGenerator tokenGenerator;
     private String basicToken ;
-	public CustomHttp(String basicToken) {
+    private String baseUrl ;
+    
+	public CustomHttp(String baseUrl, String basicToken) {
 	//	this.tokenGenerator = new TokenGenerator(basicToken);
+		this.baseUrl = baseUrl;
 		this.basicToken = basicToken;
 	}
 
@@ -112,7 +115,7 @@ public class CustomHttp {
 			// set files to be uploaded
 			for (Tuple<String, File> entry : fileUploads) {
 				multipartEntityBuilder.addBinaryBody(entry.getLeft(), entry.getRight(),
-						ContentType.create("application/octet-stream"), "pdf.pdf");
+						ContentType.create("application/octet-stream"), entry.getRight().getName());
 			}
 
 			// send request
@@ -150,7 +153,14 @@ public class CustomHttp {
 		//String token = tokenGenerator.getToken();
 
 		// httpPost setup
-		HttpPost httpPost = new HttpPost("https://api-dev.pdf4me.com/" + methodName);
+		String lastChar = baseUrl.substring(baseUrl.length()-1);
+		baseUrl = lastChar == "/" ? baseUrl : baseUrl + "/";
+		
+		String firstChar = methodName.substring(0);
+		methodName = firstChar == "/" ? methodName.substring(1) : methodName;
+		
+		
+		HttpPost httpPost = new HttpPost(baseUrl + methodName);
 		//httpPost.addHeader("Authorization", "Bearer " + token);
 		httpPost.addHeader("Authorization", "Basic " + this.basicToken);
 		httpPost.addHeader("Accept", "application/json");
