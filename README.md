@@ -21,7 +21,7 @@ Feature | Description
 
 ## How to add our plugin to your project
 
-Use your favourite build tools to build your project. The depenency information for the various building tools can be found [here](http://search.maven.org/#artifactdetails%7Ccom.pdf4me%7Cpdf4me%7C0.8.0%7Cjar).
+Use your favourite build tools to build your project. The depenency information for the various building tools can be found [here](http://search.maven.org/#artifactdetails%7Ccom.pdf4me%7Cpdf4me).
 
 ## Getting Started
 
