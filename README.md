@@ -10,14 +10,14 @@ The Pdf4me Client API is a maven library which connects to its highly scalable S
 
 Feature | Description 
 ------------ | ------------- 
-**Optimize** | PDF's can often be optimized by removing structural redundancy. This leads to much smaller PDF's.
-**Merge** | Multiple PDF's can be merged into single optimized PDFs.
-**Split** | A PDF can be splitted into multiple PDF's.
-**Extract** | From a PDF extract multiple pages into a new document.
-**Images** | Extract images from your document, can be any type of document.
-**Create Pdf/A** | Create a archive conform PDF/A including xmp Metadata.
-**Convert to PDF** | Convert your documents from any format to a proper PDF document.
-**Stamp** | Stamp your document with text or images.
+[**Optimize**](https://developer.pdf4me.com/docs/api/basic-functionality/optimize/) | PDF's can often be optimized by removing structural redundancy. This leads to much smaller PDF's
+[**Merge**](https://developer.pdf4me.com/docs/api/basic-functionality/merge-pdfs/) | Multiple PDF's can be merged into single optimized PDFs.
+[**Split**](https://developer.pdf4me.com/docs/api/basic-functionality/split-pdf/) | A PDF can be splitted into multiple PDF's.
+[**Convert to PDF**](https://developer.pdf4me.com/docs/api/basic-functionality/convert-to-pdf/) | Convert your documents from any format to a proper PDF document.
+[**Extract**](https://developer.pdf4me.com/docs/api/basic-functionality/extract-pdf/) | From a PDF extract multiple pages into a new document.
+[**Images**](https://developer.pdf4me.com/docs/api/basic-functionality/create-image/) | Extract images from your document, can be any type of document.
+[**Create Pdf/A**](https://developer.pdf4me.com/docs/api/basic-functionality/pdfa/) | Create a archive conform PDF/A including xmp Metadata.
+[**Stamp**](https://developer.pdf4me.com/docs/api/basic-functionality/stamp/) | Stamp your document with text or images.
 
 ## How to add our plugin to your project
 
@@ -25,9 +25,10 @@ Use your favourite build tools to build your project. The depenency information 
 
 ## Getting Started
 
-To get started get an Api-Key and Password from our developers page [dev@pdf4me](https://dev-dev.pdf4me.com).
+To get started get a Token by dropping us an [email](mailto:support-dev@pdf4me.com) or registering in our [portal](https://portal.pdf4me.com/).
 
-The Api-Key/Password is required to Authenticate with OAuth2. The Pdf4me Client Api provides you already with the necessary implementation. You need only to get an instance for the Pdf4meClient as shown in the sample below.
+The Token is required for Basic Authentication. The Pdf4me Client Api provides you already with the necessary implementation. You need only to get an instance for the Pdf4meClient as shown in the sample below.
+
 
 ```java
 // Either you store them in the config.properties file with keys clientId and secret
@@ -69,3 +70,6 @@ Contributions are very welcome. Please have a look at the instructions below for
 #### Running the Test Cases
 In order for the test cases to run, a config.properties file containing the clientId and secret must be stored in the Pdf4meJavaClientApiTest folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer (clientId, secret) pair for testing the code of your pull request.
 The test cases are found in Pdf4meJavaClientApiTest/src/test/java/jUnit.
+
+#### PDF4me Consumer
+Those who are looking for PDF4me online tool can find it at [PDF4me.com](https://pdf4me.com/)
