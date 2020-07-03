@@ -10,15 +10,15 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 
 /**
  * ValueType
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ValueType {
 
   @Override
@@ -37,12 +37,11 @@ public class ValueType {
     return Objects.hash();
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueType {\n");
-    
+
     sb.append("}");
     return sb.toString();
   }
@@ -59,4 +58,3 @@ public class ValueType {
   }
 
 }
-

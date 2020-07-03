@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * OcrAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class OcrAction {
   @SerializedName("stapel")
   private String stapel = null;
@@ -43,25 +44,25 @@ public class OcrAction {
   @JsonAdapter(OutputTypeEnum.Adapter.class)
   public enum OutputTypeEnum {
     UNDEF("undef"),
-    
+
     TXT("txt"),
-    
+
     DOCX("docx"),
-    
+
     XLSX("xlsx"),
-    
+
     PPTX("pptx"),
-    
+
     PDFSEARCHABLE("pdfSearchable"),
-    
+
     XML("xml"),
-    
+
     RTF("rtf"),
-    
+
     RTT("rtt"),
-    
+
     VCF("vcf"),
-    
+
     JSON("json");
 
     private String value;
@@ -105,15 +106,19 @@ public class OcrAction {
   @SerializedName("outputType")
   private OutputTypeEnum outputType = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public OcrAction stapel(String stapel) {
     this.stapel = stapel;
     return this;
   }
 
-   /**
+  /**
    * Get stapel
+   * 
    * @return stapel
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStapel() {
     return stapel;
@@ -128,10 +133,11 @@ public class OcrAction {
     return this;
   }
 
-   /**
+  /**
    * Get businesssCardReco
+   * 
    * @return businesssCardReco
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isBusinesssCardReco() {
     return businesssCardReco;
@@ -146,10 +152,11 @@ public class OcrAction {
     return this;
   }
 
-   /**
+  /**
    * Get fullTextSearch
+   * 
    * @return fullTextSearch
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isFullTextSearch() {
     return fullTextSearch;
@@ -164,10 +171,11 @@ public class OcrAction {
     return this;
   }
 
-   /**
+  /**
    * Get outputType
+   * 
    * @return outputType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OutputTypeEnum getOutputType() {
     return outputType;
@@ -177,6 +185,24 @@ public class OcrAction {
     this.outputType = outputType;
   }
 
+  public OcrAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,27 +213,27 @@ public class OcrAction {
       return false;
     }
     OcrAction ocrAction = (OcrAction) o;
-    return Objects.equals(this.stapel, ocrAction.stapel) &&
-        Objects.equals(this.businesssCardReco, ocrAction.businesssCardReco) &&
-        Objects.equals(this.fullTextSearch, ocrAction.fullTextSearch) &&
-        Objects.equals(this.outputType, ocrAction.outputType);
+    return Objects.equals(this.stapel, ocrAction.stapel)
+        && Objects.equals(this.businesssCardReco, ocrAction.businesssCardReco)
+        && Objects.equals(this.fullTextSearch, ocrAction.fullTextSearch)
+        && Objects.equals(this.outputType, ocrAction.outputType) && Objects.equals(this.actionId, ocrAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stapel, businesssCardReco, fullTextSearch, outputType);
+    return Objects.hash(stapel, businesssCardReco, fullTextSearch, outputType, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OcrAction {\n");
-    
+
     sb.append("    stapel: ").append(toIndentedString(stapel)).append("\n");
     sb.append("    businesssCardReco: ").append(toIndentedString(businesssCardReco)).append("\n");
     sb.append("    fullTextSearch: ").append(toIndentedString(fullTextSearch)).append("\n");
     sb.append("    outputType: ").append(toIndentedString(outputType)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -224,4 +250,3 @@ public class OcrAction {
   }
 
 }
-

@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * DocLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class DocLog {
   @SerializedName("messageType")
   private String messageType = null;
@@ -44,13 +44,13 @@ public class DocLog {
   @JsonAdapter(DocLogLevelEnum.Adapter.class)
   public enum DocLogLevelEnum {
     VERBOSE("verbose"),
-    
+
     INFO("info"),
-    
+
     WARNING("warning"),
-    
+
     ERROR("error"),
-    
+
     TIMING("timing");
 
     private String value;
@@ -102,10 +102,11 @@ public class DocLog {
     return this;
   }
 
-   /**
+  /**
    * Get messageType
+   * 
    * @return messageType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getMessageType() {
     return messageType;
@@ -120,10 +121,11 @@ public class DocLog {
     return this;
   }
 
-   /**
+  /**
    * Get message
+   * 
    * @return message
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getMessage() {
     return message;
@@ -138,10 +140,11 @@ public class DocLog {
     return this;
   }
 
-   /**
+  /**
    * Get timestamp
+   * 
    * @return timestamp
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getTimestamp() {
     return timestamp;
@@ -156,10 +159,11 @@ public class DocLog {
     return this;
   }
 
-   /**
+  /**
    * Get docLogLevel
+   * 
    * @return docLogLevel
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocLogLevelEnum getDocLogLevel() {
     return docLogLevel;
@@ -174,10 +178,11 @@ public class DocLog {
     return this;
   }
 
-   /**
+  /**
    * Get durationMilliseconds
+   * 
    * @return durationMilliseconds
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDurationMilliseconds() {
     return durationMilliseconds;
@@ -186,7 +191,6 @@ public class DocLog {
   public void setDurationMilliseconds(Long durationMilliseconds) {
     this.durationMilliseconds = durationMilliseconds;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -197,11 +201,9 @@ public class DocLog {
       return false;
     }
     DocLog docLog = (DocLog) o;
-    return Objects.equals(this.messageType, docLog.messageType) &&
-        Objects.equals(this.message, docLog.message) &&
-        Objects.equals(this.timestamp, docLog.timestamp) &&
-        Objects.equals(this.docLogLevel, docLog.docLogLevel) &&
-        Objects.equals(this.durationMilliseconds, docLog.durationMilliseconds);
+    return Objects.equals(this.messageType, docLog.messageType) && Objects.equals(this.message, docLog.message)
+        && Objects.equals(this.timestamp, docLog.timestamp) && Objects.equals(this.docLogLevel, docLog.docLogLevel)
+        && Objects.equals(this.durationMilliseconds, docLog.durationMilliseconds);
   }
 
   @Override
@@ -209,12 +211,11 @@ public class DocLog {
     return Objects.hash(messageType, message, timestamp, docLogLevel, durationMilliseconds);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocLog {\n");
-    
+
     sb.append("    messageType: ").append(toIndentedString(messageType)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
@@ -236,4 +237,3 @@ public class DocLog {
   }
 
 }
-

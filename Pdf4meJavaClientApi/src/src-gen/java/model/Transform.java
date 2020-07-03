@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Transform
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Transform {
   @SerializedName("a")
   private Integer a = null;
@@ -51,10 +51,11 @@ public class Transform {
     return this;
   }
 
-   /**
+  /**
    * Get a
+   * 
    * @return a
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getA() {
     return a;
@@ -69,10 +70,11 @@ public class Transform {
     return this;
   }
 
-   /**
+  /**
    * Get b
+   * 
    * @return b
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getB() {
     return b;
@@ -87,10 +89,11 @@ public class Transform {
     return this;
   }
 
-   /**
+  /**
    * Get c
+   * 
    * @return c
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getC() {
     return c;
@@ -105,10 +108,11 @@ public class Transform {
     return this;
   }
 
-   /**
+  /**
    * Get d
+   * 
    * @return d
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getD() {
     return d;
@@ -123,10 +127,11 @@ public class Transform {
     return this;
   }
 
-   /**
+  /**
    * Get x
+   * 
    * @return x
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getX() {
     return x;
@@ -141,10 +146,11 @@ public class Transform {
     return this;
   }
 
-   /**
+  /**
    * Get y
+   * 
    * @return y
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getY() {
     return y;
@@ -153,7 +159,6 @@ public class Transform {
   public void setY(Integer y) {
     this.y = y;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -164,12 +169,9 @@ public class Transform {
       return false;
     }
     Transform transform = (Transform) o;
-    return Objects.equals(this.a, transform.a) &&
-        Objects.equals(this.b, transform.b) &&
-        Objects.equals(this.c, transform.c) &&
-        Objects.equals(this.d, transform.d) &&
-        Objects.equals(this.x, transform.x) &&
-        Objects.equals(this.y, transform.y);
+    return Objects.equals(this.a, transform.a) && Objects.equals(this.b, transform.b)
+        && Objects.equals(this.c, transform.c) && Objects.equals(this.d, transform.d)
+        && Objects.equals(this.x, transform.x) && Objects.equals(this.y, transform.y);
   }
 
   @Override
@@ -177,12 +179,11 @@ public class Transform {
     return Objects.hash(a, b, c, d, x, y);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Transform {\n");
-    
+
     sb.append("    a: ").append(toIndentedString(a)).append("\n");
     sb.append("    b: ").append(toIndentedString(b)).append("\n");
     sb.append("    c: ").append(toIndentedString(c)).append("\n");
@@ -205,4 +206,3 @@ public class Transform {
   }
 
 }
-

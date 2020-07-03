@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,8 +30,118 @@ import model.Translate;
 /**
  * Text
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Text {
+  @SerializedName("positionX")
+  private Integer positionX = null;
+
+  @SerializedName("positionY")
+  private Integer positionY = null;
+
+  /**
+   * Gets or Sets alignX
+   */
+  @JsonAdapter(AlignXEnum.Adapter.class)
+  public enum AlignXEnum {
+    LEFT("left"),
+
+    CENTER("center"),
+
+    RIGHT("right");
+
+    private String value;
+
+    AlignXEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AlignXEnum fromValue(String text) {
+      for (AlignXEnum b : AlignXEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AlignXEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AlignXEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AlignXEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AlignXEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("alignX")
+  private AlignXEnum alignX = null;
+
+  /**
+   * Gets or Sets alignY
+   */
+  @JsonAdapter(AlignYEnum.Adapter.class)
+  public enum AlignYEnum {
+    TOP("top"),
+
+    MIDDLE("middle"),
+
+    BOTTOM("bottom");
+
+    private String value;
+
+    AlignYEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AlignYEnum fromValue(String text) {
+      for (AlignYEnum b : AlignYEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AlignYEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AlignYEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AlignYEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AlignYEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("alignY")
+  private AlignYEnum alignY = null;
+
   @SerializedName("format")
   private Boolean format = null;
 
@@ -50,7 +160,7 @@ public class Text {
   @JsonAdapter(FontEncodingEnum.Adapter.class)
   public enum FontEncodingEnum {
     UNICODE("unicode"),
-    
+
     WINANSI("winAnsi");
 
     private String value;
@@ -103,7 +213,7 @@ public class Text {
   @JsonAdapter(ModeEnum.Adapter.class)
   public enum ModeEnum {
     FILL("fill"),
-    
+
     STROKE("stroke");
 
     private String value;
@@ -156,15 +266,98 @@ public class Text {
   @SerializedName("transform")
   private Transform transform = null;
 
+  @SerializedName("underline")
+  private Boolean underline = null;
+
+  @SerializedName("lineWidth")
+  private Double lineWidth = null;
+
+  public Text positionX(Integer positionX) {
+    this.positionX = positionX;
+    return this;
+  }
+
+  /**
+   * Get positionX
+   * 
+   * @return positionX
+   **/
+  @ApiModelProperty(value = "")
+  public Integer getPositionX() {
+    return positionX;
+  }
+
+  public void setPositionX(Integer positionX) {
+    this.positionX = positionX;
+  }
+
+  public Text positionY(Integer positionY) {
+    this.positionY = positionY;
+    return this;
+  }
+
+  /**
+   * Get positionY
+   * 
+   * @return positionY
+   **/
+  @ApiModelProperty(value = "")
+  public Integer getPositionY() {
+    return positionY;
+  }
+
+  public void setPositionY(Integer positionY) {
+    this.positionY = positionY;
+  }
+
+  public Text alignX(AlignXEnum alignX) {
+    this.alignX = alignX;
+    return this;
+  }
+
+  /**
+   * Get alignX
+   * 
+   * @return alignX
+   **/
+  @ApiModelProperty(value = "")
+  public AlignXEnum getAlignX() {
+    return alignX;
+  }
+
+  public void setAlignX(AlignXEnum alignX) {
+    this.alignX = alignX;
+  }
+
+  public Text alignY(AlignYEnum alignY) {
+    this.alignY = alignY;
+    return this;
+  }
+
+  /**
+   * Get alignY
+   * 
+   * @return alignY
+   **/
+  @ApiModelProperty(value = "")
+  public AlignYEnum getAlignY() {
+    return alignY;
+  }
+
+  public void setAlignY(AlignYEnum alignY) {
+    this.alignY = alignY;
+  }
+
   public Text format(Boolean format) {
     this.format = format;
     return this;
   }
 
-   /**
+  /**
    * Get format
+   * 
    * @return format
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isFormat() {
     return format;
@@ -179,10 +372,13 @@ public class Text {
     return this;
   }
 
-   /**
-   * The font size in points, e.g. 12. If set to 0, the size is chosen such that text fits stamp size (not allowed if operator is within transformation operator).
+  /**
+   * The font size in points, e.g. 12. If set to 0, the size is chosen such that
+   * text fits stamp size (not allowed if operator is within transformation
+   * operator).
+   * 
    * @return size
-  **/
+   **/
   @ApiModelProperty(value = "The font size in points, e.g. 12. If set to 0, the size is chosen such that text fits stamp size (not allowed if operator is within transformation operator).")
   public Integer getSize() {
     return size;
@@ -197,10 +393,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get font
+   * 
    * @return font
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFont() {
     return font;
@@ -215,10 +412,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get color
+   * 
    * @return color
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Color getColor() {
     return color;
@@ -233,10 +431,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get fontEncoding
+   * 
    * @return fontEncoding
-  **/
+   **/
   @ApiModelProperty(value = "")
   public FontEncodingEnum getFontEncoding() {
     return fontEncoding;
@@ -251,10 +450,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get value
+   * 
    * @return value
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public String getValue() {
     return value;
@@ -269,10 +469,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get mode
+   * 
    * @return mode
-  **/
+   **/
   @ApiModelProperty(value = "")
   public ModeEnum getMode() {
     return mode;
@@ -287,10 +488,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get rotate
+   * 
    * @return rotate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RotateConfig getRotate() {
     return rotate;
@@ -305,10 +507,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get translate
+   * 
    * @return translate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Translate getTranslate() {
     return translate;
@@ -323,10 +526,11 @@ public class Text {
     return this;
   }
 
-   /**
+  /**
    * Get transform
+   * 
    * @return transform
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Transform getTransform() {
     return transform;
@@ -336,6 +540,43 @@ public class Text {
     this.transform = transform;
   }
 
+  public Text underline(Boolean underline) {
+    this.underline = underline;
+    return this;
+  }
+
+  /**
+   * Get underline
+   * 
+   * @return underline
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean isUnderline() {
+    return underline;
+  }
+
+  public void setUnderline(Boolean underline) {
+    this.underline = underline;
+  }
+
+  public Text lineWidth(Double lineWidth) {
+    this.lineWidth = lineWidth;
+    return this;
+  }
+
+  /**
+   * Get lineWidth
+   * 
+   * @return lineWidth
+   **/
+  @ApiModelProperty(value = "")
+  public Double getLineWidth() {
+    return lineWidth;
+  }
+
+  public void setLineWidth(Double lineWidth) {
+    this.lineWidth = lineWidth;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -346,29 +587,31 @@ public class Text {
       return false;
     }
     Text text = (Text) o;
-    return Objects.equals(this.format, text.format) &&
-        Objects.equals(this.size, text.size) &&
-        Objects.equals(this.font, text.font) &&
-        Objects.equals(this.color, text.color) &&
-        Objects.equals(this.fontEncoding, text.fontEncoding) &&
-        Objects.equals(this.value, text.value) &&
-        Objects.equals(this.mode, text.mode) &&
-        Objects.equals(this.rotate, text.rotate) &&
-        Objects.equals(this.translate, text.translate) &&
-        Objects.equals(this.transform, text.transform);
+    return Objects.equals(this.positionX, text.positionX) && Objects.equals(this.positionY, text.positionY)
+        && Objects.equals(this.alignX, text.alignX) && Objects.equals(this.alignY, text.alignY)
+        && Objects.equals(this.format, text.format) && Objects.equals(this.size, text.size)
+        && Objects.equals(this.font, text.font) && Objects.equals(this.color, text.color)
+        && Objects.equals(this.fontEncoding, text.fontEncoding) && Objects.equals(this.value, text.value)
+        && Objects.equals(this.mode, text.mode) && Objects.equals(this.rotate, text.rotate)
+        && Objects.equals(this.translate, text.translate) && Objects.equals(this.transform, text.transform)
+        && Objects.equals(this.underline, text.underline) && Objects.equals(this.lineWidth, text.lineWidth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, size, font, color, fontEncoding, value, mode, rotate, translate, transform);
+    return Objects.hash(positionX, positionY, alignX, alignY, format, size, font, color, fontEncoding, value, mode,
+        rotate, translate, transform, underline, lineWidth);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Text {\n");
-    
+
+    sb.append("    positionX: ").append(toIndentedString(positionX)).append("\n");
+    sb.append("    positionY: ").append(toIndentedString(positionY)).append("\n");
+    sb.append("    alignX: ").append(toIndentedString(alignX)).append("\n");
+    sb.append("    alignY: ").append(toIndentedString(alignY)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    font: ").append(toIndentedString(font)).append("\n");
@@ -379,6 +622,8 @@ public class Text {
     sb.append("    rotate: ").append(toIndentedString(rotate)).append("\n");
     sb.append("    translate: ").append(toIndentedString(translate)).append("\n");
     sb.append("    transform: ").append(toIndentedString(transform)).append("\n");
+    sb.append("    underline: ").append(toIndentedString(underline)).append("\n");
+    sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -395,4 +640,3 @@ public class Text {
   }
 
 }
-

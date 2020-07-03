@@ -20,6 +20,7 @@
 */.classpath
 */.settings/
 */.project
+.metadata
 
 # maven Package
 */target/
@@ -35,3 +36,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/pdf4me-clientapi-java/v16/.suo

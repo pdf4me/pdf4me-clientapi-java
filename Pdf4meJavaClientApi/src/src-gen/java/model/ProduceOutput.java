@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ProduceOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ProduceOutput {
   /**
    * Gets or Sets fileType
@@ -34,9 +34,9 @@ public class ProduceOutput {
   @JsonAdapter(FileTypeEnum.Adapter.class)
   public enum FileTypeEnum {
     UNDEF("undef"),
-    
+
     PDF("pdf"),
-    
+
     ZIP("zip");
 
     private String value;
@@ -85,10 +85,11 @@ public class ProduceOutput {
     return this;
   }
 
-   /**
+  /**
    * Get fileType
+   * 
    * @return fileType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public FileTypeEnum getFileType() {
     return fileType;
@@ -97,7 +98,6 @@ public class ProduceOutput {
   public void setFileType(FileTypeEnum fileType) {
     this.fileType = fileType;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -116,12 +116,11 @@ public class ProduceOutput {
     return Objects.hash(fileType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProduceOutput {\n");
-    
+
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -139,4 +138,3 @@ public class ProduceOutput {
   }
 
 }
-

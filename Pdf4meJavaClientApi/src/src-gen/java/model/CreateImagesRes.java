@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,12 +24,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.DocMetadata;
 import model.Document;
+import model.SubscriptionUsage;
 
 /**
  * Get Thumbnails
  */
 @ApiModel(description = "Get Thumbnails")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class CreateImagesRes {
   @SerializedName("document")
   private Document document = null;
@@ -43,15 +44,19 @@ public class CreateImagesRes {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public CreateImagesRes document(Document document) {
     this.document = document;
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public Document getDocument() {
     return document;
@@ -66,10 +71,11 @@ public class CreateImagesRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadata
+   * 
    * @return inDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getInDocMetadata() {
     return inDocMetadata;
@@ -84,10 +90,11 @@ public class CreateImagesRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -102,10 +109,11 @@ public class CreateImagesRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -115,6 +123,24 @@ public class CreateImagesRes {
     this.jobId = jobId;
   }
 
+  public CreateImagesRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -125,27 +151,27 @@ public class CreateImagesRes {
       return false;
     }
     CreateImagesRes createImagesRes = (CreateImagesRes) o;
-    return Objects.equals(this.document, createImagesRes.document) &&
-        Objects.equals(this.inDocMetadata, createImagesRes.inDocMetadata) &&
-        Objects.equals(this.traceId, createImagesRes.traceId) &&
-        Objects.equals(this.jobId, createImagesRes.jobId);
+    return Objects.equals(this.document, createImagesRes.document)
+        && Objects.equals(this.inDocMetadata, createImagesRes.inDocMetadata)
+        && Objects.equals(this.traceId, createImagesRes.traceId) && Objects.equals(this.jobId, createImagesRes.jobId)
+        && Objects.equals(this.subscriptionUsage, createImagesRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, inDocMetadata, traceId, jobId);
+    return Objects.hash(document, inDocMetadata, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateImagesRes {\n");
-    
+
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -162,4 +188,3 @@ public class CreateImagesRes {
   }
 
 }
-

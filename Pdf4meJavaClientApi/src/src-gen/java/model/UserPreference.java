@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,52 +24,53 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ZapierUserSubscribe
+ * UserPreference
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
-public class ZapierUserSubscribe {
-  @SerializedName("target_url")
-  private String targetUrl = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
+public class UserPreference {
+  @SerializedName("prefKey")
+  private String prefKey = null;
 
-  @SerializedName("event")
-  private String event = null;
+  @SerializedName("preferenceData")
+  private String preferenceData = null;
 
-  public ZapierUserSubscribe targetUrl(String targetUrl) {
-    this.targetUrl = targetUrl;
+  public UserPreference prefKey(String prefKey) {
+    this.prefKey = prefKey;
     return this;
   }
 
-   /**
-   * Get targetUrl
-   * @return targetUrl
-  **/
+  /**
+   * Get prefKey
+   * 
+   * @return prefKey
+   **/
   @ApiModelProperty(value = "")
-  public String getTargetUrl() {
-    return targetUrl;
+  public String getPrefKey() {
+    return prefKey;
   }
 
-  public void setTargetUrl(String targetUrl) {
-    this.targetUrl = targetUrl;
+  public void setPrefKey(String prefKey) {
+    this.prefKey = prefKey;
   }
 
-  public ZapierUserSubscribe event(String event) {
-    this.event = event;
+  public UserPreference preferenceData(String preferenceData) {
+    this.preferenceData = preferenceData;
     return this;
   }
 
-   /**
-   * Get event
-   * @return event
-  **/
+  /**
+   * Get preferenceData
+   * 
+   * @return preferenceData
+   **/
   @ApiModelProperty(value = "")
-  public String getEvent() {
-    return event;
+  public String getPreferenceData() {
+    return preferenceData;
   }
 
-  public void setEvent(String event) {
-    this.event = event;
+  public void setPreferenceData(String preferenceData) {
+    this.preferenceData = preferenceData;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -79,24 +80,23 @@ public class ZapierUserSubscribe {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ZapierUserSubscribe zapierUserSubscribe = (ZapierUserSubscribe) o;
-    return Objects.equals(this.targetUrl, zapierUserSubscribe.targetUrl) &&
-        Objects.equals(this.event, zapierUserSubscribe.event);
+    UserPreference userPreference = (UserPreference) o;
+    return Objects.equals(this.prefKey, userPreference.prefKey)
+        && Objects.equals(this.preferenceData, userPreference.preferenceData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(targetUrl, event);
+    return Objects.hash(prefKey, preferenceData);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ZapierUserSubscribe {\n");
-    
-    sb.append("    targetUrl: ").append(toIndentedString(targetUrl)).append("\n");
-    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("class UserPreference {\n");
+
+    sb.append("    prefKey: ").append(toIndentedString(prefKey)).append("\n");
+    sb.append("    preferenceData: ").append(toIndentedString(preferenceData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -113,4 +113,3 @@ public class ZapierUserSubscribe {
   }
 
 }
-

@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import java.io.IOException;
  * Pdf4me Exception gives more information of what is the error.
  */
 @ApiModel(description = "Pdf4me Exception gives more information of what is the error.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Pdf4meException {
   @SerializedName("errorMessage")
   private String errorMessage = null;
@@ -40,10 +40,11 @@ public class Pdf4meException {
     return this;
   }
 
-   /**
+  /**
    * Human Readable Message of the error
+   * 
    * @return errorMessage
-  **/
+   **/
   @ApiModelProperty(value = "Human Readable Message of the error")
   public String getErrorMessage() {
     return errorMessage;
@@ -58,10 +59,11 @@ public class Pdf4meException {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -70,7 +72,6 @@ public class Pdf4meException {
   public void setTraceId(String traceId) {
     this.traceId = traceId;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,8 +82,8 @@ public class Pdf4meException {
       return false;
     }
     Pdf4meException pdf4meException = (Pdf4meException) o;
-    return Objects.equals(this.errorMessage, pdf4meException.errorMessage) &&
-        Objects.equals(this.traceId, pdf4meException.traceId);
+    return Objects.equals(this.errorMessage, pdf4meException.errorMessage)
+        && Objects.equals(this.traceId, pdf4meException.traceId);
   }
 
   @Override
@@ -90,12 +91,11 @@ public class Pdf4meException {
     return Objects.hash(errorMessage, traceId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pdf4meException {\n");
-    
+
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("}");
@@ -114,4 +114,3 @@ public class Pdf4meException {
   }
 
 }
-

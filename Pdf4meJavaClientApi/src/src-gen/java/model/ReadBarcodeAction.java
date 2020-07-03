@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,11 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * ReadBarcodeAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ReadBarcodeAction {
   /**
    * Gets or Sets barcodeTypes
@@ -36,67 +37,67 @@ public class ReadBarcodeAction {
   @JsonAdapter(BarcodeTypesEnum.Adapter.class)
   public enum BarcodeTypesEnum {
     ALL("all"),
-    
+
     UNKNOWN("unknown"),
-    
+
     CODE11("code11"),
-    
+
     CODE39("code39"),
-    
+
     CODE93("code93"),
-    
+
     CODE128("code128"),
-    
+
     CODABAR("codabar"),
-    
+
     INTER2OF5("inter2of5"),
-    
+
     PATCHCODE("patchCode"),
-    
+
     EAN8("ean8"),
-    
+
     UPCE("upce"),
-    
+
     EAN13("ean13"),
-    
+
     UPCA("upca"),
-    
+
     PLUS2("plus2"),
-    
+
     PLUS5("plus5"),
-    
+
     PDF417("pdf417"),
-    
+
     DATAMATRIX("dataMatrix"),
-    
+
     QRCODE("qrCode"),
-    
+
     POSTNET("postnet"),
-    
+
     PLANET("planet"),
-    
+
     RM4SCC("rm4SCC"),
-    
+
     AUSTRALIAPOST("australiaPost"),
-    
+
     INTELLIGENTMAIL("intelligentMail"),
-    
+
     CODE39EXTENDED("code39Extended"),
-    
+
     MICROQRCODE("microQRCode"),
-    
+
     ALL_2D("all_2D"),
-    
+
     PHARMACODE("pharmaCode"),
-    
+
     UCC128("ucc128"),
-    
+
     RSS14("rss14"),
-    
+
     RSSLIMITED("rssLimited"),
-    
+
     RSSEXPANDED("rssExpanded"),
-    
+
     ALL_1D("all_1D");
 
     private String value;
@@ -146,15 +147,15 @@ public class ReadBarcodeAction {
   @JsonAdapter(BarcodeOrientationEnum.Adapter.class)
   public enum BarcodeOrientationEnum {
     UNKNOWN("unknown"),
-    
+
     LEFTTORIGHT("leftToRight"),
-    
+
     RIGHTTOLEFT("rightToLeft"),
-    
+
     TOPTOBOTTOM("topToBottom"),
-    
+
     BOTTOMTOTOP("bottomToTop"),
-    
+
     ALL("all");
 
     private String value;
@@ -210,11 +211,11 @@ public class ReadBarcodeAction {
   @JsonAdapter(QuietZoneSizeEnum.Adapter.class)
   public enum QuietZoneSizeEnum {
     EXTRASMALL("extraSmall"),
-    
+
     SMALL("small"),
-    
+
     NORMAL("normal"),
-    
+
     LARGE("large");
 
     private String value;
@@ -264,7 +265,7 @@ public class ReadBarcodeAction {
   @JsonAdapter(PdfReadingTypeEnum.Adapter.class)
   public enum PdfReadingTypeEnum {
     RENDER("render"),
-    
+
     IMAGES("images");
 
     private String value;
@@ -317,11 +318,11 @@ public class ReadBarcodeAction {
   @JsonAdapter(ThresholdModeEnum.Adapter.class)
   public enum ThresholdModeEnum {
     AUTOMATIC("automatic"),
-    
+
     FIXED("fixed"),
-    
+
     MULTIPLE("multiple"),
-    
+
     ADAPTIVE("adaptive");
 
     private String value;
@@ -401,6 +402,9 @@ public class ReadBarcodeAction {
   @SerializedName("imageInvert")
   private Integer imageInvert = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public ReadBarcodeAction barcodeTypes(List<BarcodeTypesEnum> barcodeTypes) {
     this.barcodeTypes = barcodeTypes;
     return this;
@@ -414,10 +418,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeTypes
+   * 
    * @return barcodeTypes
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<BarcodeTypesEnum> getBarcodeTypes() {
     return barcodeTypes;
@@ -440,10 +445,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeOrientation
+   * 
    * @return barcodeOrientation
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<BarcodeOrientationEnum> getBarcodeOrientation() {
     return barcodeOrientation;
@@ -458,10 +464,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get barcodesToRead
+   * 
    * @return barcodesToRead
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBarcodesToRead() {
     return barcodesToRead;
@@ -476,10 +483,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get scanInterval
+   * 
    * @return scanInterval
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getScanInterval() {
     return scanInterval;
@@ -494,10 +502,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get quietZoneSize
+   * 
    * @return quietZoneSize
-  **/
+   **/
   @ApiModelProperty(value = "")
   public QuietZoneSizeEnum getQuietZoneSize() {
     return quietZoneSize;
@@ -512,10 +521,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get pdfReadingType
+   * 
    * @return pdfReadingType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public PdfReadingTypeEnum getPdfReadingType() {
     return pdfReadingType;
@@ -530,10 +540,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get pdfRenderDPI
+   * 
    * @return pdfRenderDPI
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getPdfRenderDPI() {
     return pdfRenderDPI;
@@ -548,10 +559,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get thresholdMode
+   * 
    * @return thresholdMode
-  **/
+   **/
   @ApiModelProperty(value = "")
   public ThresholdModeEnum getThresholdMode() {
     return thresholdMode;
@@ -566,10 +578,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get thresholdCount
+   * 
    * @return thresholdCount
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getThresholdCount() {
     return thresholdCount;
@@ -584,10 +597,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get thresholdStep
+   * 
    * @return thresholdStep
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getThresholdStep() {
     return thresholdStep;
@@ -602,10 +616,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get scanPage
+   * 
    * @return scanPage
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getScanPage() {
     return scanPage;
@@ -620,10 +635,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get i2of5Checksum
+   * 
    * @return i2of5Checksum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isI2of5Checksum() {
     return i2of5Checksum;
@@ -638,10 +654,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get code11Checksum
+   * 
    * @return code11Checksum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isCode11Checksum() {
     return code11Checksum;
@@ -656,10 +673,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get code39Checksum
+   * 
    * @return code39Checksum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isCode39Checksum() {
     return code39Checksum;
@@ -674,10 +692,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get code93Checksum
+   * 
    * @return code93Checksum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isCode93Checksum() {
     return code93Checksum;
@@ -692,10 +711,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get imageDespeckle
+   * 
    * @return imageDespeckle
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getImageDespeckle() {
     return imageDespeckle;
@@ -710,10 +730,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get imageErode
+   * 
    * @return imageErode
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getImageErode() {
     return imageErode;
@@ -728,10 +749,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get imageDilate
+   * 
    * @return imageDilate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getImageDilate() {
     return imageDilate;
@@ -746,10 +768,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get imageSharp
+   * 
    * @return imageSharp
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getImageSharp() {
     return imageSharp;
@@ -764,10 +787,11 @@ public class ReadBarcodeAction {
     return this;
   }
 
-   /**
+  /**
    * Get imageInvert
+   * 
    * @return imageInvert
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getImageInvert() {
     return imageInvert;
@@ -777,6 +801,24 @@ public class ReadBarcodeAction {
     this.imageInvert = imageInvert;
   }
 
+  public ReadBarcodeAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -787,39 +829,41 @@ public class ReadBarcodeAction {
       return false;
     }
     ReadBarcodeAction readBarcodeAction = (ReadBarcodeAction) o;
-    return Objects.equals(this.barcodeTypes, readBarcodeAction.barcodeTypes) &&
-        Objects.equals(this.barcodeOrientation, readBarcodeAction.barcodeOrientation) &&
-        Objects.equals(this.barcodesToRead, readBarcodeAction.barcodesToRead) &&
-        Objects.equals(this.scanInterval, readBarcodeAction.scanInterval) &&
-        Objects.equals(this.quietZoneSize, readBarcodeAction.quietZoneSize) &&
-        Objects.equals(this.pdfReadingType, readBarcodeAction.pdfReadingType) &&
-        Objects.equals(this.pdfRenderDPI, readBarcodeAction.pdfRenderDPI) &&
-        Objects.equals(this.thresholdMode, readBarcodeAction.thresholdMode) &&
-        Objects.equals(this.thresholdCount, readBarcodeAction.thresholdCount) &&
-        Objects.equals(this.thresholdStep, readBarcodeAction.thresholdStep) &&
-        Objects.equals(this.scanPage, readBarcodeAction.scanPage) &&
-        Objects.equals(this.i2of5Checksum, readBarcodeAction.i2of5Checksum) &&
-        Objects.equals(this.code11Checksum, readBarcodeAction.code11Checksum) &&
-        Objects.equals(this.code39Checksum, readBarcodeAction.code39Checksum) &&
-        Objects.equals(this.code93Checksum, readBarcodeAction.code93Checksum) &&
-        Objects.equals(this.imageDespeckle, readBarcodeAction.imageDespeckle) &&
-        Objects.equals(this.imageErode, readBarcodeAction.imageErode) &&
-        Objects.equals(this.imageDilate, readBarcodeAction.imageDilate) &&
-        Objects.equals(this.imageSharp, readBarcodeAction.imageSharp) &&
-        Objects.equals(this.imageInvert, readBarcodeAction.imageInvert);
+    return Objects.equals(this.barcodeTypes, readBarcodeAction.barcodeTypes)
+        && Objects.equals(this.barcodeOrientation, readBarcodeAction.barcodeOrientation)
+        && Objects.equals(this.barcodesToRead, readBarcodeAction.barcodesToRead)
+        && Objects.equals(this.scanInterval, readBarcodeAction.scanInterval)
+        && Objects.equals(this.quietZoneSize, readBarcodeAction.quietZoneSize)
+        && Objects.equals(this.pdfReadingType, readBarcodeAction.pdfReadingType)
+        && Objects.equals(this.pdfRenderDPI, readBarcodeAction.pdfRenderDPI)
+        && Objects.equals(this.thresholdMode, readBarcodeAction.thresholdMode)
+        && Objects.equals(this.thresholdCount, readBarcodeAction.thresholdCount)
+        && Objects.equals(this.thresholdStep, readBarcodeAction.thresholdStep)
+        && Objects.equals(this.scanPage, readBarcodeAction.scanPage)
+        && Objects.equals(this.i2of5Checksum, readBarcodeAction.i2of5Checksum)
+        && Objects.equals(this.code11Checksum, readBarcodeAction.code11Checksum)
+        && Objects.equals(this.code39Checksum, readBarcodeAction.code39Checksum)
+        && Objects.equals(this.code93Checksum, readBarcodeAction.code93Checksum)
+        && Objects.equals(this.imageDespeckle, readBarcodeAction.imageDespeckle)
+        && Objects.equals(this.imageErode, readBarcodeAction.imageErode)
+        && Objects.equals(this.imageDilate, readBarcodeAction.imageDilate)
+        && Objects.equals(this.imageSharp, readBarcodeAction.imageSharp)
+        && Objects.equals(this.imageInvert, readBarcodeAction.imageInvert)
+        && Objects.equals(this.actionId, readBarcodeAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcodeTypes, barcodeOrientation, barcodesToRead, scanInterval, quietZoneSize, pdfReadingType, pdfRenderDPI, thresholdMode, thresholdCount, thresholdStep, scanPage, i2of5Checksum, code11Checksum, code39Checksum, code93Checksum, imageDespeckle, imageErode, imageDilate, imageSharp, imageInvert);
+    return Objects.hash(barcodeTypes, barcodeOrientation, barcodesToRead, scanInterval, quietZoneSize, pdfReadingType,
+        pdfRenderDPI, thresholdMode, thresholdCount, thresholdStep, scanPage, i2of5Checksum, code11Checksum,
+        code39Checksum, code93Checksum, imageDespeckle, imageErode, imageDilate, imageSharp, imageInvert, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReadBarcodeAction {\n");
-    
+
     sb.append("    barcodeTypes: ").append(toIndentedString(barcodeTypes)).append("\n");
     sb.append("    barcodeOrientation: ").append(toIndentedString(barcodeOrientation)).append("\n");
     sb.append("    barcodesToRead: ").append(toIndentedString(barcodesToRead)).append("\n");
@@ -840,6 +884,7 @@ public class ReadBarcodeAction {
     sb.append("    imageDilate: ").append(toIndentedString(imageDilate)).append("\n");
     sb.append("    imageSharp: ").append(toIndentedString(imageSharp)).append("\n");
     sb.append("    imageInvert: ").append(toIndentedString(imageInvert)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -856,4 +901,3 @@ public class ReadBarcodeAction {
   }
 
 }
-

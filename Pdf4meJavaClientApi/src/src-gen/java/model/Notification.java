@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Notification
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Notification {
   @SerializedName("getNotification")
   private Boolean getNotification = null;
@@ -47,10 +47,11 @@ public class Notification {
     return this;
   }
 
-   /**
+  /**
    * Run execution in asynchronous way, get notified over Online WebHook
+   * 
    * @return getNotification
-  **/
+   **/
   @ApiModelProperty(value = "Run execution in asynchronous way, get notified over Online WebHook")
   public Boolean isGetNotification() {
     return getNotification;
@@ -65,10 +66,11 @@ public class Notification {
     return this;
   }
 
-   /**
+  /**
    * Will be used for Online WebHook
+   * 
    * @return connectionId
-  **/
+   **/
   @ApiModelProperty(value = "Will be used for Online WebHook")
   public String getConnectionId() {
     return connectionId;
@@ -83,10 +85,11 @@ public class Notification {
     return this;
   }
 
-   /**
+  /**
    * Get appAsyncProcType
+   * 
    * @return appAsyncProcType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getAppAsyncProcType() {
     return appAsyncProcType;
@@ -109,10 +112,11 @@ public class Notification {
     return this;
   }
 
-   /**
+  /**
    * Get integrations
+   * 
    * @return integrations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getIntegrations() {
     return integrations;
@@ -121,7 +125,6 @@ public class Notification {
   public void setIntegrations(List<String> integrations) {
     this.integrations = integrations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,10 +135,10 @@ public class Notification {
       return false;
     }
     Notification notification = (Notification) o;
-    return Objects.equals(this.getNotification, notification.getNotification) &&
-        Objects.equals(this.connectionId, notification.connectionId) &&
-        Objects.equals(this.appAsyncProcType, notification.appAsyncProcType) &&
-        Objects.equals(this.integrations, notification.integrations);
+    return Objects.equals(this.getNotification, notification.getNotification)
+        && Objects.equals(this.connectionId, notification.connectionId)
+        && Objects.equals(this.appAsyncProcType, notification.appAsyncProcType)
+        && Objects.equals(this.integrations, notification.integrations);
   }
 
   @Override
@@ -143,12 +146,11 @@ public class Notification {
     return Objects.hash(getNotification, connectionId, appAsyncProcType, integrations);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Notification {\n");
-    
+
     sb.append("    getNotification: ").append(toIndentedString(getNotification)).append("\n");
     sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    appAsyncProcType: ").append(toIndentedString(appAsyncProcType)).append("\n");
@@ -169,4 +171,3 @@ public class Notification {
   }
 
 }
-

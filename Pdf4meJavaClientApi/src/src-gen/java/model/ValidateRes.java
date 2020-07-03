@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,11 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.DocMetadata;
 import model.PdfValidation;
+import model.SubscriptionUsage;
 
 /**
  * ValidateRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ValidateRes {
   @SerializedName("pdfValidation")
   private PdfValidation pdfValidation = null;
@@ -42,15 +43,19 @@ public class ValidateRes {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public ValidateRes pdfValidation(PdfValidation pdfValidation) {
     this.pdfValidation = pdfValidation;
     return this;
   }
 
-   /**
+  /**
    * Get pdfValidation
+   * 
    * @return pdfValidation
-  **/
+   **/
   @ApiModelProperty(value = "")
   public PdfValidation getPdfValidation() {
     return pdfValidation;
@@ -65,10 +70,11 @@ public class ValidateRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadata
+   * 
    * @return inDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getInDocMetadata() {
     return inDocMetadata;
@@ -83,10 +89,11 @@ public class ValidateRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -101,10 +108,11 @@ public class ValidateRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -114,6 +122,24 @@ public class ValidateRes {
     this.jobId = jobId;
   }
 
+  public ValidateRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,27 +150,27 @@ public class ValidateRes {
       return false;
     }
     ValidateRes validateRes = (ValidateRes) o;
-    return Objects.equals(this.pdfValidation, validateRes.pdfValidation) &&
-        Objects.equals(this.inDocMetadata, validateRes.inDocMetadata) &&
-        Objects.equals(this.traceId, validateRes.traceId) &&
-        Objects.equals(this.jobId, validateRes.jobId);
+    return Objects.equals(this.pdfValidation, validateRes.pdfValidation)
+        && Objects.equals(this.inDocMetadata, validateRes.inDocMetadata)
+        && Objects.equals(this.traceId, validateRes.traceId) && Objects.equals(this.jobId, validateRes.jobId)
+        && Objects.equals(this.subscriptionUsage, validateRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pdfValidation, inDocMetadata, traceId, jobId);
+    return Objects.hash(pdfValidation, inDocMetadata, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateRes {\n");
-    
+
     sb.append("    pdfValidation: ").append(toIndentedString(pdfValidation)).append("\n");
     sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -161,4 +187,3 @@ public class ValidateRes {
   }
 
 }
-

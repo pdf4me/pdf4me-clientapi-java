@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.UUID;
 import model.Image;
 import model.Text;
 
@@ -29,7 +30,7 @@ import model.Text;
  * Define Stamp to place on Document
  */
 @ApiModel(description = "Define Stamp to place on Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class StampAction {
   @SerializedName("pageSequence")
   private String pageSequence = null;
@@ -56,7 +57,9 @@ public class StampAction {
   private Double alpha = null;
 
   /**
-   * Modify scale of stamp. Allowed values for ‹scale_set› are:   - relToA4: Scale the stamp relative to the page size. For example, make stamp half as large on a A5 and  twice as large on a A3 page as specified.
+   * Modify scale of stamp. Allowed values for ‹scale_set› are: - relToA4: Scale
+   * the stamp relative to the page size. For example, make stamp half as large on
+   * a A5 and twice as large on a A3 page as specified.
    */
   @JsonAdapter(ScaleEnum.Adapter.class)
   public enum ScaleEnum {
@@ -109,9 +112,9 @@ public class StampAction {
   @JsonAdapter(AlignXEnum.Adapter.class)
   public enum AlignXEnum {
     LEFT("left"),
-    
+
     CENTER("center"),
-    
+
     RIGHT("right");
 
     private String value;
@@ -161,9 +164,9 @@ public class StampAction {
   @JsonAdapter(AlignYEnum.Adapter.class)
   public enum AlignYEnum {
     TOP("top"),
-    
+
     MIDDLE("middle"),
-    
+
     BOTTOM("bottom");
 
     private String value;
@@ -213,9 +216,9 @@ public class StampAction {
   @JsonAdapter(StampTypeEnum.Adapter.class)
   public enum StampTypeEnum {
     ANNOTATION("annotation"),
-    
+
     FOREGROUND("foreground"),
-    
+
     BACKGROUND("background");
 
     private String value;
@@ -265,15 +268,19 @@ public class StampAction {
   @SerializedName("image")
   private Image image = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public StampAction pageSequence(String pageSequence) {
     this.pageSequence = pageSequence;
     return this;
   }
 
-   /**
+  /**
    * Get pageSequence
+   * 
    * @return pageSequence
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getPageSequence() {
     return pageSequence;
@@ -288,10 +295,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get relativePosX
+   * 
    * @return relativePosX
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getRelativePosX() {
     return relativePosX;
@@ -306,10 +314,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get relativePosY
+   * 
    * @return relativePosY
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getRelativePosY() {
     return relativePosY;
@@ -324,10 +333,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get sizeX
+   * 
    * @return sizeX
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getSizeX() {
     return sizeX;
@@ -342,10 +352,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get sizeY
+   * 
    * @return sizeY
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getSizeY() {
     return sizeY;
@@ -360,10 +371,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get rotate
+   * 
    * @return rotate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getRotate() {
     return rotate;
@@ -378,10 +390,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get autoorientation
+   * 
    * @return autoorientation
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isAutoorientation() {
     return autoorientation;
@@ -396,10 +409,14 @@ public class StampAction {
     return this;
   }
 
-   /**
-   * The opacity of the stamp as a whole. 1.0 for fully opaque, 0.0 for fully transparent.  Default: 1.0  The PDF/A-1 standard does not allow transparency.Therefore, for PDF/A-1 conforming input files you must  not set alpha to a value other than 1.0
+  /**
+   * The opacity of the stamp as a whole. 1.0 for fully opaque, 0.0 for fully
+   * transparent. Default: 1.0 The PDF/A-1 standard does not allow
+   * transparency.Therefore, for PDF/A-1 conforming input files you must not set
+   * alpha to a value other than 1.0
+   * 
    * @return alpha
-  **/
+   **/
   @ApiModelProperty(required = true, value = "The opacity of the stamp as a whole. 1.0 for fully opaque, 0.0 for fully transparent.  Default: 1.0  The PDF/A-1 standard does not allow transparency.Therefore, for PDF/A-1 conforming input files you must  not set alpha to a value other than 1.0")
   public Double getAlpha() {
     return alpha;
@@ -414,10 +431,13 @@ public class StampAction {
     return this;
   }
 
-   /**
-   * Modify scale of stamp. Allowed values for ‹scale_set› are:   - relToA4: Scale the stamp relative to the page size. For example, make stamp half as large on a A5 and  twice as large on a A3 page as specified.
+  /**
+   * Modify scale of stamp. Allowed values for ‹scale_set› are: - relToA4: Scale
+   * the stamp relative to the page size. For example, make stamp half as large on
+   * a A5 and twice as large on a A3 page as specified.
+   * 
    * @return scale
-  **/
+   **/
   @ApiModelProperty(value = "Modify scale of stamp. Allowed values for ‹scale_set› are:   - relToA4: Scale the stamp relative to the page size. For example, make stamp half as large on a A5 and  twice as large on a A3 page as specified.")
   public ScaleEnum getScale() {
     return scale;
@@ -432,10 +452,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get alignX
+   * 
    * @return alignX
-  **/
+   **/
   @ApiModelProperty(value = "")
   public AlignXEnum getAlignX() {
     return alignX;
@@ -450,10 +471,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get alignY
+   * 
    * @return alignY
-  **/
+   **/
   @ApiModelProperty(value = "")
   public AlignYEnum getAlignY() {
     return alignY;
@@ -468,10 +490,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get stampType
+   * 
    * @return stampType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public StampTypeEnum getStampType() {
     return stampType;
@@ -486,10 +509,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get text
+   * 
    * @return text
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Text getText() {
     return text;
@@ -504,10 +528,11 @@ public class StampAction {
     return this;
   }
 
-   /**
+  /**
    * Get image
+   * 
    * @return image
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Image getImage() {
     return image;
@@ -517,6 +542,24 @@ public class StampAction {
     this.image = image;
   }
 
+  public StampAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -527,33 +570,28 @@ public class StampAction {
       return false;
     }
     StampAction stampAction = (StampAction) o;
-    return Objects.equals(this.pageSequence, stampAction.pageSequence) &&
-        Objects.equals(this.relativePosX, stampAction.relativePosX) &&
-        Objects.equals(this.relativePosY, stampAction.relativePosY) &&
-        Objects.equals(this.sizeX, stampAction.sizeX) &&
-        Objects.equals(this.sizeY, stampAction.sizeY) &&
-        Objects.equals(this.rotate, stampAction.rotate) &&
-        Objects.equals(this.autoorientation, stampAction.autoorientation) &&
-        Objects.equals(this.alpha, stampAction.alpha) &&
-        Objects.equals(this.scale, stampAction.scale) &&
-        Objects.equals(this.alignX, stampAction.alignX) &&
-        Objects.equals(this.alignY, stampAction.alignY) &&
-        Objects.equals(this.stampType, stampAction.stampType) &&
-        Objects.equals(this.text, stampAction.text) &&
-        Objects.equals(this.image, stampAction.image);
+    return Objects.equals(this.pageSequence, stampAction.pageSequence)
+        && Objects.equals(this.relativePosX, stampAction.relativePosX)
+        && Objects.equals(this.relativePosY, stampAction.relativePosY) && Objects.equals(this.sizeX, stampAction.sizeX)
+        && Objects.equals(this.sizeY, stampAction.sizeY) && Objects.equals(this.rotate, stampAction.rotate)
+        && Objects.equals(this.autoorientation, stampAction.autoorientation)
+        && Objects.equals(this.alpha, stampAction.alpha) && Objects.equals(this.scale, stampAction.scale)
+        && Objects.equals(this.alignX, stampAction.alignX) && Objects.equals(this.alignY, stampAction.alignY)
+        && Objects.equals(this.stampType, stampAction.stampType) && Objects.equals(this.text, stampAction.text)
+        && Objects.equals(this.image, stampAction.image) && Objects.equals(this.actionId, stampAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSequence, relativePosX, relativePosY, sizeX, sizeY, rotate, autoorientation, alpha, scale, alignX, alignY, stampType, text, image);
+    return Objects.hash(pageSequence, relativePosX, relativePosY, sizeX, sizeY, rotate, autoorientation, alpha, scale,
+        alignX, alignY, stampType, text, image, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StampAction {\n");
-    
+
     sb.append("    pageSequence: ").append(toIndentedString(pageSequence)).append("\n");
     sb.append("    relativePosX: ").append(toIndentedString(relativePosX)).append("\n");
     sb.append("    relativePosY: ").append(toIndentedString(relativePosY)).append("\n");
@@ -568,6 +606,7 @@ public class StampAction {
     sb.append("    stampType: ").append(toIndentedString(stampType)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -584,4 +623,3 @@ public class StampAction {
   }
 
 }
-

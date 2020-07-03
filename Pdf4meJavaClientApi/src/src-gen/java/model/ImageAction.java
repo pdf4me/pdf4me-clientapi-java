@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,13 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import model.CustomCMSConfig;
 import model.PageSelection;
 
 /**
  * ImageAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ImageAction {
   @SerializedName("pageSelection")
   private PageSelection pageSelection = null;
@@ -65,19 +66,19 @@ public class ImageAction {
   @JsonAdapter(RenderOptionsEnum.Adapter.class)
   public enum RenderOptionsEnum {
     NOANTIALIASING("noAntialiasing"),
-    
+
     NOINTERPOLATION("noInterpolation"),
-    
+
     NOLOWPASSFILTER("noLowPassFilter"),
-    
+
     NOHINTING("noHinting"),
-    
+
     PRINTINGMODE("printingMode"),
-    
+
     NOBPC("noBPC"),
-    
+
     FITPATHS("fitPaths"),
-    
+
     USEBOXFILTER("useBoxFilter");
 
     private String value;
@@ -122,16 +123,18 @@ public class ImageAction {
   private List<RenderOptionsEnum> renderOptions = null;
 
   /**
-   * Set the rotation mode of the page.    Attribute: Set the rotation to the viewing rotation attribute of the PDF page, i.e. rendering the  page with the same rotation as it is displayed in a PDF viewer.    {default: Attribute}
+   * Set the rotation mode of the page. Attribute: Set the rotation to the viewing
+   * rotation attribute of the PDF page, i.e. rendering the page with the same
+   * rotation as it is displayed in a PDF viewer. {default: Attribute}
    */
   @JsonAdapter(RotateModeEnum.Adapter.class)
   public enum RotateModeEnum {
     NONE("none"),
-    
+
     ATTRIBUTE("attribute"),
-    
+
     PORTRAIT("portrait"),
-    
+
     LANDSCAPE("landscape");
 
     private String value;
@@ -182,16 +185,16 @@ public class ImageAction {
   private Integer imageQuality = null;
 
   /**
-   * Set the Color Management System (CMS) Engine.     {default: 80}
+   * Set the Color Management System (CMS) Engine. {default: 80}
    */
   @JsonAdapter(CmsEngineEnum.Adapter.class)
   public enum CmsEngineEnum {
     NONE("none"),
-    
+
     NEUGEBAUER("neugebauer"),
-    
+
     LCMS("lcms"),
-    
+
     CUSTOMCMSCONFIG("customCMSConfig");
 
     private String value;
@@ -239,22 +242,25 @@ public class ImageAction {
   private CustomCMSConfig customCMSConfig = null;
 
   /**
-   * Set the dithering algorithm.Dithering refers to the procedure of simulating colors or grayscales.This is mainly  useful for low color depth (e.g.black and white or indexed) images.  The supported values for TPDFDithering are listed in the corresponding enumeration.  {default: DitherFloydSteinberg}
+   * Set the dithering algorithm.Dithering refers to the procedure of simulating
+   * colors or grayscales.This is mainly useful for low color depth (e.g.black and
+   * white or indexed) images. The supported values for TPDFDithering are listed
+   * in the corresponding enumeration. {default: DitherFloydSteinberg}
    */
   @JsonAdapter(DitheringEnum.Adapter.class)
   public enum DitheringEnum {
     NONE("none"),
-    
+
     FLOYDSTEINBERG("floydSteinberg"),
-    
+
     HALFTONE("halftone"),
-    
+
     PATTERN("pattern"),
-    
+
     G3OPTIMIZED("g3Optimized"),
-    
+
     G4OPTIMIZED("g4Optimized"),
-    
+
     ATKINSON("atkinson");
 
     private String value;
@@ -302,12 +308,13 @@ public class ImageAction {
   private Integer dpi = null;
 
   /**
-   * Set the bit fill order.  MSB (Most significant bit) or LSB (Least significant bit) first.    {default: MostSignificantBit}
+   * Set the bit fill order. MSB (Most significant bit) or LSB (Least significant
+   * bit) first. {default: MostSignificantBit}
    */
   @JsonAdapter(FillOrderEnum.Adapter.class)
   public enum FillOrderEnum {
     MOSTSIGNIFICANTBIT("mostSignificantBit"),
-    
+
     LEASTSIGNIFICANTBIT("leastSignificantBit");
 
     private String value;
@@ -360,25 +367,25 @@ public class ImageAction {
   @JsonAdapter(ImageExtensionEnum.Adapter.class)
   public enum ImageExtensionEnum {
     JPG("jpg"),
-    
+
     JPEG("jpeg"),
-    
+
     BMP("bmp"),
-    
+
     GIF("gif"),
-    
+
     JB2("jb2"),
-    
+
     JP2("jp2"),
-    
+
     JPF("jpf"),
-    
+
     JPX("jpx"),
-    
+
     PNG("png"),
-    
+
     TIF("tif"),
-    
+
     TIFF("tiff");
 
     private String value;
@@ -423,30 +430,32 @@ public class ImageAction {
   private ImageExtensionEnum imageExtension = null;
 
   /**
-   * Set color space of the output image, see enumeration TPDFColorSpace.  For black white bi-tonal images, a gray color space must be selected    {default: ColorRGB}
+   * Set color space of the output image, see enumeration TPDFColorSpace. For
+   * black white bi-tonal images, a gray color space must be selected {default:
+   * ColorRGB}
    */
   @JsonAdapter(ColorSpaceEnum.Adapter.class)
   public enum ColorSpaceEnum {
     RGB("rGB"),
-    
+
     RGBA("rGBA"),
-    
+
     GRAY("gray"),
-    
+
     GRAYA("grayA"),
-    
+
     CMYK("cMYK"),
-    
+
     YCBCR("yCbCr"),
-    
+
     YCBCRK("yCbCrK"),
-    
+
     PALETTE("palette"),
-    
+
     LAB("lAB"),
-    
+
     CMYK_KONLY("cMYK_Konly"),
-    
+
     CMYKA("cMYKA");
 
     private String value;
@@ -491,28 +500,31 @@ public class ImageAction {
   private ColorSpaceEnum colorSpace = null;
 
   /**
-   * Get or set the compression type of TIFF images. For any other image format, the compression is automatically  defined by the file extension(the file name).  The supported values for TPDFCompression are listed in the corresponding enumeration.                {default: ComprLZW}
+   * Get or set the compression type of TIFF images. For any other image format,
+   * the compression is automatically defined by the file extension(the file
+   * name). The supported values for TPDFCompression are listed in the
+   * corresponding enumeration. {default: ComprLZW}
    */
   @JsonAdapter(CompressionEnum.Adapter.class)
   public enum CompressionEnum {
     LZW("lZW"),
-    
+
     JPEG("jPEG"),
-    
+
     FLATE("flate"),
-    
+
     RAW("raw"),
-    
+
     GROUP3("group3"),
-    
+
     GROUP3_2D("group3_2D"),
-    
+
     GROUP4("group4"),
-    
+
     JBIG2("jBIG2"),
-    
+
     JPEG2000("jPEG2000"),
-    
+
     TIFFJPEG("tIFFJPEG");
 
     private String value;
@@ -556,15 +568,19 @@ public class ImageAction {
   @SerializedName("compression")
   private CompressionEnum compression = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public ImageAction pageSelection(PageSelection pageSelection) {
     this.pageSelection = pageSelection;
     return this;
   }
 
-   /**
-   * Set the Pages wo apply the convertion.    {default: PageSelection.All}
+  /**
+   * Set the Pages wo apply the convertion. {default: PageSelection.All}
+   * 
    * @return pageSelection
-  **/
+   **/
   @ApiModelProperty(required = true, value = "Set the Pages wo apply the convertion.    {default: PageSelection.All}")
   public PageSelection getPageSelection() {
     return pageSelection;
@@ -579,10 +595,13 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set or get the center mode. When set to True, the document is horizontally and vertically centered on the page.  When set to False, the document is printed to the upper left corner of the page.    {default: false}
+  /**
+   * Set or get the center mode. When set to True, the document is horizontally
+   * and vertically centered on the page. When set to False, the document is
+   * printed to the upper left corner of the page. {default: false}
+   * 
    * @return center
-  **/
+   **/
   @ApiModelProperty(value = "Set or get the center mode. When set to True, the document is horizontally and vertically centered on the page.  When set to False, the document is printed to the upper left corner of the page.    {default: false}")
   public Boolean isCenter() {
     return center;
@@ -597,10 +616,13 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * set the fit page mode. If set to True, the page is scaled to fit the image (in either width or height). If set to  False, the page is rendered with its true size.  {default: true}
+  /**
+   * set the fit page mode. If set to True, the page is scaled to fit the image
+   * (in either width or height). If set to False, the page is rendered with its
+   * true size. {default: true}
+   * 
    * @return fitPage
-  **/
+   **/
   @ApiModelProperty(value = "set the fit page mode. If set to True, the page is scaled to fit the image (in either width or height). If set to  False, the page is rendered with its true size.  {default: true}")
   public Boolean isFitPage() {
     return fitPage;
@@ -615,10 +637,12 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Get or set the color depth. Bi-tonal: 1, gray scale: 8, RGB true color: 24, CMYK: 32.    {default: 24}
+  /**
+   * Get or set the color depth. Bi-tonal: 1, gray scale: 8, RGB true color: 24,
+   * CMYK: 32. {default: 24}
+   * 
    * @return bitsPerPixel
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the color depth. Bi-tonal: 1, gray scale: 8, RGB true color: 24, CMYK: 32.    {default: 24}")
   public Integer getBitsPerPixel() {
     return bitsPerPixel;
@@ -633,10 +657,12 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the threshold for converting from gray to bi-tonal when Dithering is eDitherNone. Value must be in  the range of 0 to 255.    {default: 181}
+  /**
+   * Set the threshold for converting from gray to bi-tonal when Dithering is
+   * eDitherNone. Value must be in the range of 0 to 255. {default: 181}
+   * 
    * @return bilevelThreshold
-  **/
+   **/
   @ApiModelProperty(value = "Set the threshold for converting from gray to bi-tonal when Dithering is eDitherNone. Value must be in  the range of 0 to 255.    {default: 181}")
   public Integer getBilevelThreshold() {
     return bilevelThreshold;
@@ -651,10 +677,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
+  /**
    * Get widthPixel
+   * 
    * @return widthPixel
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getWidthPixel() {
     return widthPixel;
@@ -669,10 +696,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
+  /**
    * Get heightPixel
+   * 
    * @return heightPixel
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getHeightPixel() {
     return heightPixel;
@@ -687,10 +715,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
+  /**
    * Get widthPoint
+   * 
    * @return widthPoint
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getWidthPoint() {
     return widthPoint;
@@ -705,10 +734,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
+  /**
    * Get heightPoint
+   * 
    * @return heightPoint
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getHeightPoint() {
     return heightPoint;
@@ -731,10 +761,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
+  /**
    * Set a specific rendering option.
+   * 
    * @return renderOptions
-  **/
+   **/
   @ApiModelProperty(value = "Set a specific rendering option.")
   public List<RenderOptionsEnum> getRenderOptions() {
     return renderOptions;
@@ -749,10 +780,13 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the rotation mode of the page.    Attribute: Set the rotation to the viewing rotation attribute of the PDF page, i.e. rendering the  page with the same rotation as it is displayed in a PDF viewer.    {default: Attribute}
+  /**
+   * Set the rotation mode of the page. Attribute: Set the rotation to the viewing
+   * rotation attribute of the PDF page, i.e. rendering the page with the same
+   * rotation as it is displayed in a PDF viewer. {default: Attribute}
+   * 
    * @return rotateMode
-  **/
+   **/
   @ApiModelProperty(value = "Set the rotation mode of the page.    Attribute: Set the rotation to the viewing rotation attribute of the PDF page, i.e. rendering the  page with the same rotation as it is displayed in a PDF viewer.    {default: Attribute}")
   public RotateModeEnum getRotateMode() {
     return rotateMode;
@@ -767,10 +801,13 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * If True a uniform up- or down-scaling is applied, i.e. the output image has the same ratio of width to height as the  input file and its size will fit into the defined dimensions, given by SetBitmapDimensions.    {default: true}
+  /**
+   * If True a uniform up- or down-scaling is applied, i.e. the output image has
+   * the same ratio of width to height as the input file and its size will fit
+   * into the defined dimensions, given by SetBitmapDimensions. {default: true}
+   * 
    * @return preserveAspectRatio
-  **/
+   **/
   @ApiModelProperty(value = "If True a uniform up- or down-scaling is applied, i.e. the output image has the same ratio of width to height as the  input file and its size will fit into the defined dimensions, given by SetBitmapDimensions.    {default: true}")
   public Boolean isPreserveAspectRatio() {
     return preserveAspectRatio;
@@ -785,10 +822,14 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the quality index of lossy compression types. This value ranges from 1 to 100 and is applied to JPEG and  JPEG2000 compression.For JPEG2000, a quality index of 100 means lossless compression.JPEG compression is  always lossy.    {default: 80}
+  /**
+   * Set the quality index of lossy compression types. This value ranges from 1 to
+   * 100 and is applied to JPEG and JPEG2000 compression.For JPEG2000, a quality
+   * index of 100 means lossless compression.JPEG compression is always lossy.
+   * {default: 80}
+   * 
    * @return imageQuality
-  **/
+   **/
   @ApiModelProperty(value = "Set the quality index of lossy compression types. This value ranges from 1 to 100 and is applied to JPEG and  JPEG2000 compression.For JPEG2000, a quality index of 100 means lossless compression.JPEG compression is  always lossy.    {default: 80}")
   public Integer getImageQuality() {
     return imageQuality;
@@ -803,10 +844,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the Color Management System (CMS) Engine.     {default: 80}
+  /**
+   * Set the Color Management System (CMS) Engine. {default: 80}
+   * 
    * @return cmsEngine
-  **/
+   **/
   @ApiModelProperty(value = "Set the Color Management System (CMS) Engine.     {default: 80}")
   public CmsEngineEnum getCmsEngine() {
     return cmsEngine;
@@ -821,10 +863,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the Color Management System (CMS) Engine.     {default: 80}
+  /**
+   * Set the Color Management System (CMS) Engine. {default: 80}
+   * 
    * @return customCMSConfig
-  **/
+   **/
   @ApiModelProperty(value = "Set the Color Management System (CMS) Engine.     {default: 80}")
   public CustomCMSConfig getCustomCMSConfig() {
     return customCMSConfig;
@@ -839,10 +882,14 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the dithering algorithm.Dithering refers to the procedure of simulating colors or grayscales.This is mainly  useful for low color depth (e.g.black and white or indexed) images.  The supported values for TPDFDithering are listed in the corresponding enumeration.  {default: DitherFloydSteinberg}
+  /**
+   * Set the dithering algorithm.Dithering refers to the procedure of simulating
+   * colors or grayscales.This is mainly useful for low color depth (e.g.black and
+   * white or indexed) images. The supported values for TPDFDithering are listed
+   * in the corresponding enumeration. {default: DitherFloydSteinberg}
+   * 
    * @return dithering
-  **/
+   **/
   @ApiModelProperty(value = "Set the dithering algorithm.Dithering refers to the procedure of simulating colors or grayscales.This is mainly  useful for low color depth (e.g.black and white or indexed) images.  The supported values for TPDFDithering are listed in the corresponding enumeration.  {default: DitherFloydSteinberg}")
   public DitheringEnum getDithering() {
     return dithering;
@@ -857,10 +904,14 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * &lt;p&gt;              Get or set the resolution of the image in DPI (dots per inch).              Set Both the resolutions for the x- and y-axis are set to the same value.              &lt;/p&gt;  &lt;p&gt;              Setting DPI is redundant to setting the specialized properties XDPI and YDPI.              &lt;/p&gt;  {default: 150}
+  /**
+   * &lt;p&gt; Get or set the resolution of the image in DPI (dots per inch). Set
+   * Both the resolutions for the x- and y-axis are set to the same value.
+   * &lt;/p&gt; &lt;p&gt; Setting DPI is redundant to setting the specialized
+   * properties XDPI and YDPI. &lt;/p&gt; {default: 150}
+   * 
    * @return dpi
-  **/
+   **/
   @ApiModelProperty(value = "<p>              Get or set the resolution of the image in DPI (dots per inch).              Set Both the resolutions for the x- and y-axis are set to the same value.              </p>  <p>              Setting DPI is redundant to setting the specialized properties XDPI and YDPI.              </p>  {default: 150}")
   public Integer getDpi() {
     return dpi;
@@ -875,10 +926,12 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set the bit fill order.  MSB (Most significant bit) or LSB (Least significant bit) first.    {default: MostSignificantBit}
+  /**
+   * Set the bit fill order. MSB (Most significant bit) or LSB (Least significant
+   * bit) first. {default: MostSignificantBit}
+   * 
    * @return fillOrder
-  **/
+   **/
   @ApiModelProperty(value = "Set the bit fill order.  MSB (Most significant bit) or LSB (Least significant bit) first.    {default: MostSignificantBit}")
   public FillOrderEnum getFillOrder() {
     return fillOrder;
@@ -893,10 +946,20 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * &lt;p&gt;              This property is used to enable and parameterize super-sampling, a technique to initially render the image at a              higher resolution and then sample it down to the target resolution.As a result of that process the final image              appears smoother, i.e.anti-aliased.              &lt;/p&gt;  &lt;p&gt;              Applying super-sampling improves the image quality when rendering at low target resolutions(72 DPI or less); the              higher the target resolution the less the visual impact.              This property requires memory and CPU time quadratically to the ratio, therefore only small values, such as 2 or 3              should be used.              &lt;/p&gt;  &lt;p&gt;              If a too high value (in combination with the original image size) is set, it is ignored.              &lt;/p&gt;  {default: 1}
+  /**
+   * &lt;p&gt; This property is used to enable and parameterize super-sampling, a
+   * technique to initially render the image at a higher resolution and then
+   * sample it down to the target resolution.As a result of that process the final
+   * image appears smoother, i.e.anti-aliased. &lt;/p&gt; &lt;p&gt; Applying
+   * super-sampling improves the image quality when rendering at low target
+   * resolutions(72 DPI or less); the higher the target resolution the less the
+   * visual impact. This property requires memory and CPU time quadratically to
+   * the ratio, therefore only small values, such as 2 or 3 should be used.
+   * &lt;/p&gt; &lt;p&gt; If a too high value (in combination with the original
+   * image size) is set, it is ignored. &lt;/p&gt; {default: 1}
+   * 
    * @return filterRatio
-  **/
+   **/
   @ApiModelProperty(value = "<p>              This property is used to enable and parameterize super-sampling, a technique to initially render the image at a              higher resolution and then sample it down to the target resolution.As a result of that process the final image              appears smoother, i.e.anti-aliased.              </p>  <p>              Applying super-sampling improves the image quality when rendering at low target resolutions(72 DPI or less); the              higher the target resolution the less the visual impact.              This property requires memory and CPU time quadratically to the ratio, therefore only small values, such as 2 or 3              should be used.              </p>  <p>              If a too high value (in combination with the original image size) is set, it is ignored.              </p>  {default: 1}")
   public Integer getFilterRatio() {
     return filterRatio;
@@ -911,10 +974,11 @@ public class ImageAction {
     return this;
   }
 
-   /**
+  /**
    * Set output Type for image file.
+   * 
    * @return imageExtension
-  **/
+   **/
   @ApiModelProperty(value = "Set output Type for image file.")
   public ImageExtensionEnum getImageExtension() {
     return imageExtension;
@@ -929,10 +993,13 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Set color space of the output image, see enumeration TPDFColorSpace.  For black white bi-tonal images, a gray color space must be selected    {default: ColorRGB}
+  /**
+   * Set color space of the output image, see enumeration TPDFColorSpace. For
+   * black white bi-tonal images, a gray color space must be selected {default:
+   * ColorRGB}
+   * 
    * @return colorSpace
-  **/
+   **/
   @ApiModelProperty(value = "Set color space of the output image, see enumeration TPDFColorSpace.  For black white bi-tonal images, a gray color space must be selected    {default: ColorRGB}")
   public ColorSpaceEnum getColorSpace() {
     return colorSpace;
@@ -947,10 +1014,14 @@ public class ImageAction {
     return this;
   }
 
-   /**
-   * Get or set the compression type of TIFF images. For any other image format, the compression is automatically  defined by the file extension(the file name).  The supported values for TPDFCompression are listed in the corresponding enumeration.                {default: ComprLZW}
+  /**
+   * Get or set the compression type of TIFF images. For any other image format,
+   * the compression is automatically defined by the file extension(the file
+   * name). The supported values for TPDFCompression are listed in the
+   * corresponding enumeration. {default: ComprLZW}
+   * 
    * @return compression
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the compression type of TIFF images. For any other image format, the compression is automatically  defined by the file extension(the file name).  The supported values for TPDFCompression are listed in the corresponding enumeration.                {default: ComprLZW}")
   public CompressionEnum getCompression() {
     return compression;
@@ -960,6 +1031,24 @@ public class ImageAction {
     this.compression = compression;
   }
 
+  public ImageAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -970,41 +1059,41 @@ public class ImageAction {
       return false;
     }
     ImageAction imageAction = (ImageAction) o;
-    return Objects.equals(this.pageSelection, imageAction.pageSelection) &&
-        Objects.equals(this.center, imageAction.center) &&
-        Objects.equals(this.fitPage, imageAction.fitPage) &&
-        Objects.equals(this.bitsPerPixel, imageAction.bitsPerPixel) &&
-        Objects.equals(this.bilevelThreshold, imageAction.bilevelThreshold) &&
-        Objects.equals(this.widthPixel, imageAction.widthPixel) &&
-        Objects.equals(this.heightPixel, imageAction.heightPixel) &&
-        Objects.equals(this.widthPoint, imageAction.widthPoint) &&
-        Objects.equals(this.heightPoint, imageAction.heightPoint) &&
-        Objects.equals(this.renderOptions, imageAction.renderOptions) &&
-        Objects.equals(this.rotateMode, imageAction.rotateMode) &&
-        Objects.equals(this.preserveAspectRatio, imageAction.preserveAspectRatio) &&
-        Objects.equals(this.imageQuality, imageAction.imageQuality) &&
-        Objects.equals(this.cmsEngine, imageAction.cmsEngine) &&
-        Objects.equals(this.customCMSConfig, imageAction.customCMSConfig) &&
-        Objects.equals(this.dithering, imageAction.dithering) &&
-        Objects.equals(this.dpi, imageAction.dpi) &&
-        Objects.equals(this.fillOrder, imageAction.fillOrder) &&
-        Objects.equals(this.filterRatio, imageAction.filterRatio) &&
-        Objects.equals(this.imageExtension, imageAction.imageExtension) &&
-        Objects.equals(this.colorSpace, imageAction.colorSpace) &&
-        Objects.equals(this.compression, imageAction.compression);
+    return Objects.equals(this.pageSelection, imageAction.pageSelection)
+        && Objects.equals(this.center, imageAction.center) && Objects.equals(this.fitPage, imageAction.fitPage)
+        && Objects.equals(this.bitsPerPixel, imageAction.bitsPerPixel)
+        && Objects.equals(this.bilevelThreshold, imageAction.bilevelThreshold)
+        && Objects.equals(this.widthPixel, imageAction.widthPixel)
+        && Objects.equals(this.heightPixel, imageAction.heightPixel)
+        && Objects.equals(this.widthPoint, imageAction.widthPoint)
+        && Objects.equals(this.heightPoint, imageAction.heightPoint)
+        && Objects.equals(this.renderOptions, imageAction.renderOptions)
+        && Objects.equals(this.rotateMode, imageAction.rotateMode)
+        && Objects.equals(this.preserveAspectRatio, imageAction.preserveAspectRatio)
+        && Objects.equals(this.imageQuality, imageAction.imageQuality)
+        && Objects.equals(this.cmsEngine, imageAction.cmsEngine)
+        && Objects.equals(this.customCMSConfig, imageAction.customCMSConfig)
+        && Objects.equals(this.dithering, imageAction.dithering) && Objects.equals(this.dpi, imageAction.dpi)
+        && Objects.equals(this.fillOrder, imageAction.fillOrder)
+        && Objects.equals(this.filterRatio, imageAction.filterRatio)
+        && Objects.equals(this.imageExtension, imageAction.imageExtension)
+        && Objects.equals(this.colorSpace, imageAction.colorSpace)
+        && Objects.equals(this.compression, imageAction.compression)
+        && Objects.equals(this.actionId, imageAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSelection, center, fitPage, bitsPerPixel, bilevelThreshold, widthPixel, heightPixel, widthPoint, heightPoint, renderOptions, rotateMode, preserveAspectRatio, imageQuality, cmsEngine, customCMSConfig, dithering, dpi, fillOrder, filterRatio, imageExtension, colorSpace, compression);
+    return Objects.hash(pageSelection, center, fitPage, bitsPerPixel, bilevelThreshold, widthPixel, heightPixel,
+        widthPoint, heightPoint, renderOptions, rotateMode, preserveAspectRatio, imageQuality, cmsEngine,
+        customCMSConfig, dithering, dpi, fillOrder, filterRatio, imageExtension, colorSpace, compression, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageAction {\n");
-    
+
     sb.append("    pageSelection: ").append(toIndentedString(pageSelection)).append("\n");
     sb.append("    center: ").append(toIndentedString(center)).append("\n");
     sb.append("    fitPage: ").append(toIndentedString(fitPage)).append("\n");
@@ -1027,6 +1116,7 @@ public class ImageAction {
     sb.append("    imageExtension: ").append(toIndentedString(imageExtension)).append("\n");
     sb.append("    colorSpace: ").append(toIndentedString(colorSpace)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1043,4 +1133,3 @@ public class ImageAction {
   }
 
 }
-

@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VersionRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class VersionRes {
   @SerializedName("version")
   private String version = null;
@@ -36,10 +36,11 @@ public class VersionRes {
     return this;
   }
 
-   /**
+  /**
    * Get version
+   * 
    * @return version
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getVersion() {
     return version;
@@ -48,7 +49,6 @@ public class VersionRes {
   public void setVersion(String version) {
     this.version = version;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -67,12 +67,11 @@ public class VersionRes {
     return Objects.hash(version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VersionRes {\n");
-    
+
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -90,4 +89,3 @@ public class VersionRes {
   }
 
 }
-

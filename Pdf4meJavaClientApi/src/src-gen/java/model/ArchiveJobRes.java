@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import java.util.UUID;
 /**
  * ArchiveJobRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ArchiveJobRes {
   @SerializedName("jobId")
   private UUID jobId = null;
@@ -40,10 +40,11 @@ public class ArchiveJobRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public UUID getJobId() {
     return jobId;
@@ -58,10 +59,11 @@ public class ArchiveJobRes {
     return this;
   }
 
-   /**
+  /**
    * Get createdSuccessfully
+   * 
    * @return createdSuccessfully
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Boolean isCreatedSuccessfully() {
     return createdSuccessfully;
@@ -70,7 +72,6 @@ public class ArchiveJobRes {
   public void setCreatedSuccessfully(Boolean createdSuccessfully) {
     this.createdSuccessfully = createdSuccessfully;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,8 +82,8 @@ public class ArchiveJobRes {
       return false;
     }
     ArchiveJobRes archiveJobRes = (ArchiveJobRes) o;
-    return Objects.equals(this.jobId, archiveJobRes.jobId) &&
-        Objects.equals(this.createdSuccessfully, archiveJobRes.createdSuccessfully);
+    return Objects.equals(this.jobId, archiveJobRes.jobId)
+        && Objects.equals(this.createdSuccessfully, archiveJobRes.createdSuccessfully);
   }
 
   @Override
@@ -90,12 +91,11 @@ public class ArchiveJobRes {
     return Objects.hash(jobId, createdSuccessfully);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArchiveJobRes {\n");
-    
+
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    createdSuccessfully: ").append(toIndentedString(createdSuccessfully)).append("\n");
     sb.append("}");
@@ -114,4 +114,3 @@ public class ArchiveJobRes {
   }
 
 }
-

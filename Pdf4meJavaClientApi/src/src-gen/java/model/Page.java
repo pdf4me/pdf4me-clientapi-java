@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Page
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Page {
   @SerializedName("documentId")
   private String documentId = null;
@@ -49,15 +49,22 @@ public class Page {
   @SerializedName("imageFormat")
   private String imageFormat = null;
 
+  @SerializedName("pageWidth")
+  private Integer pageWidth = null;
+
+  @SerializedName("pageHeight")
+  private Integer pageHeight = null;
+
   public Page documentId(String documentId) {
     this.documentId = documentId;
     return this;
   }
 
-   /**
+  /**
    * Get documentId
+   * 
    * @return documentId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getDocumentId() {
     return documentId;
@@ -72,10 +79,11 @@ public class Page {
     return this;
   }
 
-   /**
+  /**
    * Get pageId
+   * 
    * @return pageId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getPageId() {
     return pageId;
@@ -90,10 +98,11 @@ public class Page {
     return this;
   }
 
-   /**
+  /**
    * Get pageNumber
+   * 
    * @return pageNumber
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getPageNumber() {
     return pageNumber;
@@ -108,10 +117,11 @@ public class Page {
     return this;
   }
 
-   /**
+  /**
    * Get rotate
+   * 
    * @return rotate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getRotate() {
     return rotate;
@@ -126,10 +136,11 @@ public class Page {
     return this;
   }
 
-   /**
+  /**
    * Get thumbnail
+   * 
    * @return thumbnail
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getThumbnail() {
     return thumbnail;
@@ -144,10 +155,11 @@ public class Page {
     return this;
   }
 
-   /**
+  /**
    * Get pageUrl
+   * 
    * @return pageUrl
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getPageUrl() {
     return pageUrl;
@@ -162,10 +174,11 @@ public class Page {
     return this;
   }
 
-   /**
+  /**
    * Get imageFormat
+   * 
    * @return imageFormat
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getImageFormat() {
     return imageFormat;
@@ -175,6 +188,43 @@ public class Page {
     this.imageFormat = imageFormat;
   }
 
+  public Page pageWidth(Integer pageWidth) {
+    this.pageWidth = pageWidth;
+    return this;
+  }
+
+  /**
+   * Get pageWidth
+   * 
+   * @return pageWidth
+   **/
+  @ApiModelProperty(value = "")
+  public Integer getPageWidth() {
+    return pageWidth;
+  }
+
+  public void setPageWidth(Integer pageWidth) {
+    this.pageWidth = pageWidth;
+  }
+
+  public Page pageHeight(Integer pageHeight) {
+    this.pageHeight = pageHeight;
+    return this;
+  }
+
+  /**
+   * Get pageHeight
+   * 
+   * @return pageHeight
+   **/
+  @ApiModelProperty(value = "")
+  public Integer getPageHeight() {
+    return pageHeight;
+  }
+
+  public void setPageHeight(Integer pageHeight) {
+    this.pageHeight = pageHeight;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -185,26 +235,24 @@ public class Page {
       return false;
     }
     Page page = (Page) o;
-    return Objects.equals(this.documentId, page.documentId) &&
-        Objects.equals(this.pageId, page.pageId) &&
-        Objects.equals(this.pageNumber, page.pageNumber) &&
-        Objects.equals(this.rotate, page.rotate) &&
-        Objects.equals(this.thumbnail, page.thumbnail) &&
-        Objects.equals(this.pageUrl, page.pageUrl) &&
-        Objects.equals(this.imageFormat, page.imageFormat);
+    return Objects.equals(this.documentId, page.documentId) && Objects.equals(this.pageId, page.pageId)
+        && Objects.equals(this.pageNumber, page.pageNumber) && Objects.equals(this.rotate, page.rotate)
+        && Arrays.equals(this.thumbnail, page.thumbnail) && Objects.equals(this.pageUrl, page.pageUrl)
+        && Objects.equals(this.imageFormat, page.imageFormat) && Objects.equals(this.pageWidth, page.pageWidth)
+        && Objects.equals(this.pageHeight, page.pageHeight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, pageId, pageNumber, rotate, thumbnail, pageUrl, imageFormat);
+    return Objects.hash(documentId, pageId, pageNumber, rotate, Arrays.hashCode(thumbnail), pageUrl, imageFormat,
+        pageWidth, pageHeight);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Page {\n");
-    
+
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    pageId: ").append(toIndentedString(pageId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
@@ -212,6 +260,8 @@ public class Page {
     sb.append("    thumbnail: ").append(toIndentedString(thumbnail)).append("\n");
     sb.append("    pageUrl: ").append(toIndentedString(pageUrl)).append("\n");
     sb.append("    imageFormat: ").append(toIndentedString(imageFormat)).append("\n");
+    sb.append("    pageWidth: ").append(toIndentedString(pageWidth)).append("\n");
+    sb.append("    pageHeight: ").append(toIndentedString(pageHeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -228,4 +278,3 @@ public class Page {
   }
 
 }
-

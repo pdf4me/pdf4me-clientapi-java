@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,11 +25,12 @@ import java.io.IOException;
 import model.DocMetadata;
 import model.Document;
 import model.PdfValidation;
+import model.SubscriptionUsage;
 
 /**
  * RepairRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class RepairRes {
   @SerializedName("pdfValidation")
   private PdfValidation pdfValidation = null;
@@ -46,15 +47,19 @@ public class RepairRes {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public RepairRes pdfValidation(PdfValidation pdfValidation) {
     this.pdfValidation = pdfValidation;
     return this;
   }
 
-   /**
+  /**
    * Get pdfValidation
+   * 
    * @return pdfValidation
-  **/
+   **/
   @ApiModelProperty(value = "")
   public PdfValidation getPdfValidation() {
     return pdfValidation;
@@ -69,10 +74,11 @@ public class RepairRes {
     return this;
   }
 
-   /**
+  /**
    * Get document
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Document getDocument() {
     return document;
@@ -87,10 +93,11 @@ public class RepairRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadata
+   * 
    * @return inDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getInDocMetadata() {
     return inDocMetadata;
@@ -105,10 +112,11 @@ public class RepairRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -123,10 +131,11 @@ public class RepairRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -136,6 +145,24 @@ public class RepairRes {
     this.jobId = jobId;
   }
 
+  public RepairRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,29 +173,29 @@ public class RepairRes {
       return false;
     }
     RepairRes repairRes = (RepairRes) o;
-    return Objects.equals(this.pdfValidation, repairRes.pdfValidation) &&
-        Objects.equals(this.document, repairRes.document) &&
-        Objects.equals(this.inDocMetadata, repairRes.inDocMetadata) &&
-        Objects.equals(this.traceId, repairRes.traceId) &&
-        Objects.equals(this.jobId, repairRes.jobId);
+    return Objects.equals(this.pdfValidation, repairRes.pdfValidation)
+        && Objects.equals(this.document, repairRes.document)
+        && Objects.equals(this.inDocMetadata, repairRes.inDocMetadata)
+        && Objects.equals(this.traceId, repairRes.traceId) && Objects.equals(this.jobId, repairRes.jobId)
+        && Objects.equals(this.subscriptionUsage, repairRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pdfValidation, document, inDocMetadata, traceId, jobId);
+    return Objects.hash(pdfValidation, document, inDocMetadata, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepairRes {\n");
-    
+
     sb.append("    pdfValidation: ").append(toIndentedString(pdfValidation)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -185,4 +212,3 @@ public class RepairRes {
   }
 
 }
-

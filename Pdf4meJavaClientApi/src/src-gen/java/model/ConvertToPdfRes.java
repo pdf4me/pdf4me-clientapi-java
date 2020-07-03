@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,12 +24,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.DocMetadata;
 import model.Document;
+import model.SubscriptionUsage;
 
 /**
  * Converted Result
  */
 @ApiModel(description = "Converted Result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ConvertToPdfRes {
   @SerializedName("document")
   private Document document = null;
@@ -43,15 +44,19 @@ public class ConvertToPdfRes {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public ConvertToPdfRes document(Document document) {
     this.document = document;
     return this;
   }
 
-   /**
+  /**
    * Converted Document
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "Converted Document")
   public Document getDocument() {
     return document;
@@ -66,10 +71,11 @@ public class ConvertToPdfRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadata
+   * 
    * @return inDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getInDocMetadata() {
     return inDocMetadata;
@@ -84,10 +90,11 @@ public class ConvertToPdfRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -102,10 +109,11 @@ public class ConvertToPdfRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -115,6 +123,24 @@ public class ConvertToPdfRes {
     this.jobId = jobId;
   }
 
+  public ConvertToPdfRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -125,27 +151,27 @@ public class ConvertToPdfRes {
       return false;
     }
     ConvertToPdfRes convertToPdfRes = (ConvertToPdfRes) o;
-    return Objects.equals(this.document, convertToPdfRes.document) &&
-        Objects.equals(this.inDocMetadata, convertToPdfRes.inDocMetadata) &&
-        Objects.equals(this.traceId, convertToPdfRes.traceId) &&
-        Objects.equals(this.jobId, convertToPdfRes.jobId);
+    return Objects.equals(this.document, convertToPdfRes.document)
+        && Objects.equals(this.inDocMetadata, convertToPdfRes.inDocMetadata)
+        && Objects.equals(this.traceId, convertToPdfRes.traceId) && Objects.equals(this.jobId, convertToPdfRes.jobId)
+        && Objects.equals(this.subscriptionUsage, convertToPdfRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, inDocMetadata, traceId, jobId);
+    return Objects.hash(document, inDocMetadata, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertToPdfRes {\n");
-    
+
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -162,4 +188,3 @@ public class ConvertToPdfRes {
   }
 
 }
-

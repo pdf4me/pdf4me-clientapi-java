@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * KeyValuePairStringString
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class KeyValuePairStringString {
   @SerializedName("key")
   private String key = null;
@@ -34,24 +34,25 @@ public class KeyValuePairStringString {
   @SerializedName("value")
   private String value = null;
 
-   /**
+  /**
    * Get key
+   * 
    * @return key
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getKey() {
     return key;
   }
 
-   /**
+  /**
    * Get value
+   * 
    * @return value
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getValue() {
     return value;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,8 +63,8 @@ public class KeyValuePairStringString {
       return false;
     }
     KeyValuePairStringString keyValuePairStringString = (KeyValuePairStringString) o;
-    return Objects.equals(this.key, keyValuePairStringString.key) &&
-        Objects.equals(this.value, keyValuePairStringString.value);
+    return Objects.equals(this.key, keyValuePairStringString.key)
+        && Objects.equals(this.value, keyValuePairStringString.value);
   }
 
   @Override
@@ -71,12 +72,11 @@ public class KeyValuePairStringString {
     return Objects.hash(key, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyValuePairStringString {\n");
-    
+
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -95,4 +95,3 @@ public class KeyValuePairStringString {
   }
 
 }
-

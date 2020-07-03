@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * ValidateAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ValidateAction {
   /**
    * Gets or Sets pdfConformance
@@ -34,19 +35,19 @@ public class ValidateAction {
   @JsonAdapter(PdfConformanceEnum.Adapter.class)
   public enum PdfConformanceEnum {
     PDFA1B("pdfA1b"),
-    
+
     PDFA1A("pdfA1a"),
-    
+
     PDFA2B("pdfA2b"),
-    
+
     PDFA2U("pdfA2u"),
-    
+
     PDFA2A("pdfA2a"),
-    
+
     PDFA3B("pdfA3b"),
-    
+
     PDFA3U("pdfA3u"),
-    
+
     PDFA3A("pdfA3a");
 
     private String value;
@@ -90,15 +91,19 @@ public class ValidateAction {
   @SerializedName("pdfConformance")
   private PdfConformanceEnum pdfConformance = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public ValidateAction pdfConformance(PdfConformanceEnum pdfConformance) {
     this.pdfConformance = pdfConformance;
     return this;
   }
 
-   /**
+  /**
    * Get pdfConformance
+   * 
    * @return pdfConformance
-  **/
+   **/
   @ApiModelProperty(value = "")
   public PdfConformanceEnum getPdfConformance() {
     return pdfConformance;
@@ -108,6 +113,24 @@ public class ValidateAction {
     this.pdfConformance = pdfConformance;
   }
 
+  public ValidateAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -118,21 +141,22 @@ public class ValidateAction {
       return false;
     }
     ValidateAction validateAction = (ValidateAction) o;
-    return Objects.equals(this.pdfConformance, validateAction.pdfConformance);
+    return Objects.equals(this.pdfConformance, validateAction.pdfConformance)
+        && Objects.equals(this.actionId, validateAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pdfConformance);
+    return Objects.hash(pdfConformance, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateAction {\n");
-    
+
     sb.append("    pdfConformance: ").append(toIndentedString(pdfConformance)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,4 +173,3 @@ public class ValidateAction {
   }
 
 }
-

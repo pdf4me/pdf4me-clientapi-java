@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,13 +31,16 @@ import model.ExtractResourcesAction;
  * extract Resources
  */
 @ApiModel(description = "extract Resources")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ExtractResources {
   @SerializedName("document")
   private Document document = null;
 
   @SerializedName("extractResourcesAction")
   private ExtractResourcesAction extractResourcesAction = null;
+
+  @SerializedName("ipAddress")
+  private String ipAddress = null;
 
   @SerializedName("jobId")
   private String jobId = null;
@@ -53,10 +56,11 @@ public class ExtractResources {
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public Document getDocument() {
     return document;
@@ -71,10 +75,11 @@ public class ExtractResources {
     return this;
   }
 
-   /**
+  /**
    * MrcAction configuration
+   * 
    * @return extractResourcesAction
-  **/
+   **/
   @ApiModelProperty(value = "MrcAction configuration")
   public ExtractResourcesAction getExtractResourcesAction() {
     return extractResourcesAction;
@@ -84,15 +89,35 @@ public class ExtractResources {
     this.extractResourcesAction = extractResourcesAction;
   }
 
+  public ExtractResources ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+  /**
+   * Get ipAddress
+   * 
+   * @return ipAddress
+   **/
+  @ApiModelProperty(value = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
   public ExtractResources jobId(String jobId) {
     this.jobId = jobId;
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -107,10 +132,11 @@ public class ExtractResources {
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -133,10 +159,11 @@ public class ExtractResources {
     return this;
   }
 
-   /**
+  /**
    * Get integrations
+   * 
    * @return integrations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getIntegrations() {
     return integrations;
@@ -145,7 +172,6 @@ public class ExtractResources {
   public void setIntegrations(List<String> integrations) {
     this.integrations = integrations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,26 +182,27 @@ public class ExtractResources {
       return false;
     }
     ExtractResources extractResources = (ExtractResources) o;
-    return Objects.equals(this.document, extractResources.document) &&
-        Objects.equals(this.extractResourcesAction, extractResources.extractResourcesAction) &&
-        Objects.equals(this.jobId, extractResources.jobId) &&
-        Objects.equals(this.jobIdExt, extractResources.jobIdExt) &&
-        Objects.equals(this.integrations, extractResources.integrations);
+    return Objects.equals(this.document, extractResources.document)
+        && Objects.equals(this.extractResourcesAction, extractResources.extractResourcesAction)
+        && Objects.equals(this.ipAddress, extractResources.ipAddress)
+        && Objects.equals(this.jobId, extractResources.jobId)
+        && Objects.equals(this.jobIdExt, extractResources.jobIdExt)
+        && Objects.equals(this.integrations, extractResources.integrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, extractResourcesAction, jobId, jobIdExt, integrations);
+    return Objects.hash(document, extractResourcesAction, ipAddress, jobId, jobIdExt, integrations);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExtractResources {\n");
-    
+
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    extractResourcesAction: ").append(toIndentedString(extractResourcesAction)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIdExt: ").append(toIndentedString(jobIdExt)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
@@ -195,4 +222,3 @@ public class ExtractResources {
   }
 
 }
-

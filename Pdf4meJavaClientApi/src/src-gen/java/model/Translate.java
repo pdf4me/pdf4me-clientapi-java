@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Translate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Translate {
   @SerializedName("offsetX")
   private Integer offsetX = null;
@@ -39,10 +39,11 @@ public class Translate {
     return this;
   }
 
-   /**
+  /**
    * Get offsetX
+   * 
    * @return offsetX
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getOffsetX() {
     return offsetX;
@@ -57,10 +58,11 @@ public class Translate {
     return this;
   }
 
-   /**
+  /**
    * Get offsetY
+   * 
    * @return offsetY
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getOffsetY() {
     return offsetY;
@@ -69,7 +71,6 @@ public class Translate {
   public void setOffsetY(Integer offsetY) {
     this.offsetY = offsetY;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,8 +81,7 @@ public class Translate {
       return false;
     }
     Translate translate = (Translate) o;
-    return Objects.equals(this.offsetX, translate.offsetX) &&
-        Objects.equals(this.offsetY, translate.offsetY);
+    return Objects.equals(this.offsetX, translate.offsetX) && Objects.equals(this.offsetY, translate.offsetY);
   }
 
   @Override
@@ -89,12 +89,11 @@ public class Translate {
     return Objects.hash(offsetX, offsetY);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Translate {\n");
-    
+
     sb.append("    offsetX: ").append(toIndentedString(offsetX)).append("\n");
     sb.append("    offsetY: ").append(toIndentedString(offsetY)).append("\n");
     sb.append("}");
@@ -113,4 +112,3 @@ public class Translate {
   }
 
 }
-

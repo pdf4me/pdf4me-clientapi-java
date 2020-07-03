@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +29,7 @@ import model.PdfOutline;
 /**
  * PdfOutline
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PdfOutline {
   @SerializedName("childs")
   private List<PdfOutline> childs = null;
@@ -77,10 +77,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get childs
+   * 
    * @return childs
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<PdfOutline> getChilds() {
     return childs;
@@ -95,10 +96,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get count
+   * 
    * @return count
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getCount() {
     return count;
@@ -113,10 +115,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get level
+   * 
    * @return level
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getLevel() {
     return level;
@@ -131,10 +134,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get title
+   * 
    * @return title
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
@@ -149,10 +153,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get bottom
+   * 
    * @return bottom
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getBottom() {
     return bottom;
@@ -167,10 +172,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get left
+   * 
    * @return left
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getLeft() {
     return left;
@@ -185,10 +191,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get pageNo
+   * 
    * @return pageNo
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getPageNo() {
     return pageNo;
@@ -203,10 +210,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get right
+   * 
    * @return right
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getRight() {
     return right;
@@ -221,10 +229,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get top
+   * 
    * @return top
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getTop() {
     return top;
@@ -239,10 +248,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get type
+   * 
    * @return type
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getType() {
     return type;
@@ -257,10 +267,11 @@ public class PdfOutline {
     return this;
   }
 
-   /**
+  /**
    * Get zoom
+   * 
    * @return zoom
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getZoom() {
     return zoom;
@@ -269,7 +280,6 @@ public class PdfOutline {
   public void setZoom(Double zoom) {
     this.zoom = zoom;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -280,17 +290,12 @@ public class PdfOutline {
       return false;
     }
     PdfOutline pdfOutline = (PdfOutline) o;
-    return Objects.equals(this.childs, pdfOutline.childs) &&
-        Objects.equals(this.count, pdfOutline.count) &&
-        Objects.equals(this.level, pdfOutline.level) &&
-        Objects.equals(this.title, pdfOutline.title) &&
-        Objects.equals(this.bottom, pdfOutline.bottom) &&
-        Objects.equals(this.left, pdfOutline.left) &&
-        Objects.equals(this.pageNo, pdfOutline.pageNo) &&
-        Objects.equals(this.right, pdfOutline.right) &&
-        Objects.equals(this.top, pdfOutline.top) &&
-        Objects.equals(this.type, pdfOutline.type) &&
-        Objects.equals(this.zoom, pdfOutline.zoom);
+    return Objects.equals(this.childs, pdfOutline.childs) && Objects.equals(this.count, pdfOutline.count)
+        && Objects.equals(this.level, pdfOutline.level) && Objects.equals(this.title, pdfOutline.title)
+        && Objects.equals(this.bottom, pdfOutline.bottom) && Objects.equals(this.left, pdfOutline.left)
+        && Objects.equals(this.pageNo, pdfOutline.pageNo) && Objects.equals(this.right, pdfOutline.right)
+        && Objects.equals(this.top, pdfOutline.top) && Objects.equals(this.type, pdfOutline.type)
+        && Objects.equals(this.zoom, pdfOutline.zoom);
   }
 
   @Override
@@ -298,12 +303,11 @@ public class PdfOutline {
     return Objects.hash(childs, count, level, title, bottom, left, pageNo, right, top, type, zoom);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfOutline {\n");
-    
+
     sb.append("    childs: ").append(toIndentedString(childs)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
@@ -331,4 +335,3 @@ public class PdfOutline {
   }
 
 }
-

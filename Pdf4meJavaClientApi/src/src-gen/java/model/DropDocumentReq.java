@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,13 +32,10 @@ import model.Pdf4meDocument;
 /**
  * DropDocumentReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class DropDocumentReq {
   @SerializedName("notification")
   private Notification notification = null;
-
-  @SerializedName("jobId")
-  private UUID jobId = null;
 
   @SerializedName("documentId")
   private UUID documentId = null;
@@ -61,17 +58,17 @@ public class DropDocumentReq {
   @JsonAdapter(CloudStorageProviderEnum.Adapter.class)
   public enum CloudStorageProviderEnum {
     UNDEF("undef"),
-    
+
     LOCAL("local"),
-    
+
     URL("url"),
-    
+
     ONEDRIVE("oneDrive"),
-    
+
     DROPBOX("dropbox"),
-    
+
     GOOGLEDRIVE("googleDrive"),
-    
+
     KLOUDLESS("kloudless");
 
     private String value;
@@ -121,6 +118,12 @@ public class DropDocumentReq {
   @SerializedName("cloudStorageFilesDesc")
   private String cloudStorageFilesDesc = null;
 
+  @SerializedName("tenantId")
+  private UUID tenantId = null;
+
+  @SerializedName("subscriptionId")
+  private UUID subscriptionId = null;
+
   @SerializedName("traceId")
   private UUID traceId = null;
 
@@ -130,21 +133,28 @@ public class DropDocumentReq {
   @SerializedName("integrationSetting")
   private IntegrationSetting integrationSetting = null;
 
+  @SerializedName("jobId")
+  private UUID jobId = null;
+
   @SerializedName("jobIdExt")
   private String jobIdExt = null;
 
   @SerializedName("documents")
   private List<Pdf4meDocument> documents = null;
 
+  @SerializedName("withoutMetadata")
+  private Boolean withoutMetadata = null;
+
   public DropDocumentReq notification(Notification notification) {
     this.notification = notification;
     return this;
   }
 
-   /**
+  /**
    * Get notification
+   * 
    * @return notification
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Notification getNotification() {
     return notification;
@@ -154,33 +164,16 @@ public class DropDocumentReq {
     this.notification = notification;
   }
 
-  public DropDocumentReq jobId(UUID jobId) {
-    this.jobId = jobId;
-    return this;
-  }
-
-   /**
-   * Get jobId
-   * @return jobId
-  **/
-  @ApiModelProperty(value = "")
-  public UUID getJobId() {
-    return jobId;
-  }
-
-  public void setJobId(UUID jobId) {
-    this.jobId = jobId;
-  }
-
   public DropDocumentReq documentId(UUID documentId) {
     this.documentId = documentId;
     return this;
   }
 
-   /**
+  /**
    * Get documentId
+   * 
    * @return documentId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getDocumentId() {
     return documentId;
@@ -195,10 +188,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get userId
+   * 
    * @return userId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getUserId() {
     return userId;
@@ -213,10 +207,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get url
+   * 
    * @return url
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;
@@ -231,10 +226,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get document
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getDocument() {
     return document;
@@ -249,10 +245,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get fileName
+   * 
    * @return fileName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFileName() {
     return fileName;
@@ -267,10 +264,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get cloudStorageProvider
+   * 
    * @return cloudStorageProvider
-  **/
+   **/
   @ApiModelProperty(value = "")
   public CloudStorageProviderEnum getCloudStorageProvider() {
     return cloudStorageProvider;
@@ -293,10 +291,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get cloudStorageFiles
+   * 
    * @return cloudStorageFiles
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getCloudStorageFiles() {
     return cloudStorageFiles;
@@ -311,10 +310,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get cloudStorageFilesDesc
+   * 
    * @return cloudStorageFilesDesc
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getCloudStorageFilesDesc() {
     return cloudStorageFilesDesc;
@@ -324,15 +324,54 @@ public class DropDocumentReq {
     this.cloudStorageFilesDesc = cloudStorageFilesDesc;
   }
 
+  public DropDocumentReq tenantId(UUID tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+  /**
+   * Get tenantId
+   * 
+   * @return tenantId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getTenantId() {
+    return tenantId;
+  }
+
+  public void setTenantId(UUID tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public DropDocumentReq subscriptionId(UUID subscriptionId) {
+    this.subscriptionId = subscriptionId;
+    return this;
+  }
+
+  /**
+   * Get subscriptionId
+   * 
+   * @return subscriptionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getSubscriptionId() {
+    return subscriptionId;
+  }
+
+  public void setSubscriptionId(UUID subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+
   public DropDocumentReq traceId(UUID traceId) {
     this.traceId = traceId;
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getTraceId() {
     return traceId;
@@ -347,10 +386,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get requestId
+   * 
    * @return requestId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getRequestId() {
     return requestId;
@@ -365,10 +405,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get integrationSetting
+   * 
    * @return integrationSetting
-  **/
+   **/
   @ApiModelProperty(value = "")
   public IntegrationSetting getIntegrationSetting() {
     return integrationSetting;
@@ -378,15 +419,35 @@ public class DropDocumentReq {
     this.integrationSetting = integrationSetting;
   }
 
+  public DropDocumentReq jobId(UUID jobId) {
+    this.jobId = jobId;
+    return this;
+  }
+
+  /**
+   * Get jobId
+   * 
+   * @return jobId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getJobId() {
+    return jobId;
+  }
+
+  public void setJobId(UUID jobId) {
+    this.jobId = jobId;
+  }
+
   public DropDocumentReq jobIdExt(String jobIdExt) {
     this.jobIdExt = jobIdExt;
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -409,10 +470,11 @@ public class DropDocumentReq {
     return this;
   }
 
-   /**
+  /**
    * Get documents
+   * 
    * @return documents
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Pdf4meDocument> getDocuments() {
     return documents;
@@ -422,6 +484,24 @@ public class DropDocumentReq {
     this.documents = documents;
   }
 
+  public DropDocumentReq withoutMetadata(Boolean withoutMetadata) {
+    this.withoutMetadata = withoutMetadata;
+    return this;
+  }
+
+  /**
+   * Get withoutMetadata
+   * 
+   * @return withoutMetadata
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean isWithoutMetadata() {
+    return withoutMetadata;
+  }
+
+  public void setWithoutMetadata(Boolean withoutMetadata) {
+    this.withoutMetadata = withoutMetadata;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -432,36 +512,37 @@ public class DropDocumentReq {
       return false;
     }
     DropDocumentReq dropDocumentReq = (DropDocumentReq) o;
-    return Objects.equals(this.notification, dropDocumentReq.notification) &&
-        Objects.equals(this.jobId, dropDocumentReq.jobId) &&
-        Objects.equals(this.documentId, dropDocumentReq.documentId) &&
-        Objects.equals(this.userId, dropDocumentReq.userId) &&
-        Objects.equals(this.url, dropDocumentReq.url) &&
-        Objects.equals(this.document, dropDocumentReq.document) &&
-        Objects.equals(this.fileName, dropDocumentReq.fileName) &&
-        Objects.equals(this.cloudStorageProvider, dropDocumentReq.cloudStorageProvider) &&
-        Objects.equals(this.cloudStorageFiles, dropDocumentReq.cloudStorageFiles) &&
-        Objects.equals(this.cloudStorageFilesDesc, dropDocumentReq.cloudStorageFilesDesc) &&
-        Objects.equals(this.traceId, dropDocumentReq.traceId) &&
-        Objects.equals(this.requestId, dropDocumentReq.requestId) &&
-        Objects.equals(this.integrationSetting, dropDocumentReq.integrationSetting) &&
-        Objects.equals(this.jobIdExt, dropDocumentReq.jobIdExt) &&
-        Objects.equals(this.documents, dropDocumentReq.documents);
+    return Objects.equals(this.notification, dropDocumentReq.notification)
+        && Objects.equals(this.documentId, dropDocumentReq.documentId)
+        && Objects.equals(this.userId, dropDocumentReq.userId) && Objects.equals(this.url, dropDocumentReq.url)
+        && Arrays.equals(this.document, dropDocumentReq.document)
+        && Objects.equals(this.fileName, dropDocumentReq.fileName)
+        && Objects.equals(this.cloudStorageProvider, dropDocumentReq.cloudStorageProvider)
+        && Objects.equals(this.cloudStorageFiles, dropDocumentReq.cloudStorageFiles)
+        && Objects.equals(this.cloudStorageFilesDesc, dropDocumentReq.cloudStorageFilesDesc)
+        && Objects.equals(this.tenantId, dropDocumentReq.tenantId)
+        && Objects.equals(this.subscriptionId, dropDocumentReq.subscriptionId)
+        && Objects.equals(this.traceId, dropDocumentReq.traceId)
+        && Objects.equals(this.requestId, dropDocumentReq.requestId)
+        && Objects.equals(this.integrationSetting, dropDocumentReq.integrationSetting)
+        && Objects.equals(this.jobId, dropDocumentReq.jobId) && Objects.equals(this.jobIdExt, dropDocumentReq.jobIdExt)
+        && Objects.equals(this.documents, dropDocumentReq.documents)
+        && Objects.equals(this.withoutMetadata, dropDocumentReq.withoutMetadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(notification, jobId, documentId, userId, url, document, fileName, cloudStorageProvider, cloudStorageFiles, cloudStorageFilesDesc, traceId, requestId, integrationSetting, jobIdExt, documents);
+    return Objects.hash(notification, documentId, userId, url, Arrays.hashCode(document), fileName,
+        cloudStorageProvider, cloudStorageFiles, cloudStorageFilesDesc, tenantId, subscriptionId, traceId, requestId,
+        integrationSetting, jobId, jobIdExt, documents, withoutMetadata);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DropDocumentReq {\n");
-    
+
     sb.append("    notification: ").append(toIndentedString(notification)).append("\n");
-    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -470,11 +551,15 @@ public class DropDocumentReq {
     sb.append("    cloudStorageProvider: ").append(toIndentedString(cloudStorageProvider)).append("\n");
     sb.append("    cloudStorageFiles: ").append(toIndentedString(cloudStorageFiles)).append("\n");
     sb.append("    cloudStorageFilesDesc: ").append(toIndentedString(cloudStorageFilesDesc)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    integrationSetting: ").append(toIndentedString(integrationSetting)).append("\n");
+    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIdExt: ").append(toIndentedString(jobIdExt)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    withoutMetadata: ").append(toIndentedString(withoutMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -491,4 +576,3 @@ public class DropDocumentReq {
   }
 
 }
-

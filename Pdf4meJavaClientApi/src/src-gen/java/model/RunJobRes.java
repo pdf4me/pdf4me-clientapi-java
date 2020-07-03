@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,12 +25,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Document;
+import model.SubscriptionUsage;
 
 /**
  * Run Job
  */
 @ApiModel(description = "Run Job")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class RunJobRes {
   @SerializedName("documents")
   private List<Document> documents = null;
@@ -40,6 +41,9 @@ public class RunJobRes {
 
   @SerializedName("jobId")
   private String jobId = null;
+
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
 
   public RunJobRes documents(List<Document> documents) {
     this.documents = documents;
@@ -54,10 +58,11 @@ public class RunJobRes {
     return this;
   }
 
-   /**
+  /**
    * List of Document Result
+   * 
    * @return documents
-  **/
+   **/
   @ApiModelProperty(value = "List of Document Result")
   public List<Document> getDocuments() {
     return documents;
@@ -72,10 +77,11 @@ public class RunJobRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -90,10 +96,11 @@ public class RunJobRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -103,6 +110,24 @@ public class RunJobRes {
     this.jobId = jobId;
   }
 
+  public RunJobRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -113,25 +138,25 @@ public class RunJobRes {
       return false;
     }
     RunJobRes runJobRes = (RunJobRes) o;
-    return Objects.equals(this.documents, runJobRes.documents) &&
-        Objects.equals(this.traceId, runJobRes.traceId) &&
-        Objects.equals(this.jobId, runJobRes.jobId);
+    return Objects.equals(this.documents, runJobRes.documents) && Objects.equals(this.traceId, runJobRes.traceId)
+        && Objects.equals(this.jobId, runJobRes.jobId)
+        && Objects.equals(this.subscriptionUsage, runJobRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documents, traceId, jobId);
+    return Objects.hash(documents, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunJobRes {\n");
-    
+
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,4 +173,3 @@ public class RunJobRes {
   }
 
 }
-

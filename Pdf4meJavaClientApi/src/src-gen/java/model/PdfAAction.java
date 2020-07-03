@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,36 +24,49 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import model.PdfFont;
 
 /**
- * The CreatePdfA accepts files from many different applications and automatically   converts them into PDF/A. The level of conformity can be set to level A, U, or B. ICC color profiles for   device-dependent color profiles and font types are embedded in the document.There is an option to provide   the entire character set for fonts (no subsetting) to facilitate editing at a later stage. Missing fonts   are reproduced as close to the original as possible via font recognition. Metadata can be generated   automatically or added from external sources. The tool also detects and automatically repairs problems   typical of the PDF format.A digital signature can be applied and a conformity check carried out at the   end of the process.
+ * The CreatePdfA accepts files from many different applications and
+ * automatically converts them into PDF/A. The level of conformity can be set to
+ * level A, U, or B. ICC color profiles for device-dependent color profiles and
+ * font types are embedded in the document.There is an option to provide the
+ * entire character set for fonts (no subsetting) to facilitate editing at a
+ * later stage. Missing fonts are reproduced as close to the original as
+ * possible via font recognition. Metadata can be generated automatically or
+ * added from external sources. The tool also detects and automatically repairs
+ * problems typical of the PDF format.A digital signature can be applied and a
+ * conformity check carried out at the end of the process.
  */
 @ApiModel(description = "The CreatePdfA accepts files from many different applications and automatically   converts them into PDF/A. The level of conformity can be set to level A, U, or B. ICC color profiles for   device-dependent color profiles and font types are embedded in the document.There is an option to provide   the entire character set for fonts (no subsetting) to facilitate editing at a later stage. Missing fonts   are reproduced as close to the original as possible via font recognition. Metadata can be generated   automatically or added from external sources. The tool also detects and automatically repairs problems   typical of the PDF format.A digital signature can be applied and a conformity check carried out at the   end of the process.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PdfAAction {
   @SerializedName("fontsToSubset")
   private List<PdfFont> fontsToSubset = null;
 
   /**
-   * Other listed entries (e.g. ePDF10, ePDF11, .. .ePDF17, ePDFUnk) are not supported as output compliance   level.  Some files cannot be converted to the compliance requested. This will be  detected and up- (AllowUpgrade) or downgrade (AllowDowngrade) the compliance automatically.
+   * Other listed entries (e.g. ePDF10, ePDF11, .. .ePDF17, ePDFUnk) are not
+   * supported as output compliance level. Some files cannot be converted to the
+   * compliance requested. This will be detected and up- (AllowUpgrade) or
+   * downgrade (AllowDowngrade) the compliance automatically.
    */
   @JsonAdapter(ComplianceEnum.Adapter.class)
   public enum ComplianceEnum {
     PDFA1B("pdfA1b"),
-    
+
     PDFA1A("pdfA1a"),
-    
+
     PDFA2B("pdfA2b"),
-    
+
     PDFA2U("pdfA2u"),
-    
+
     PDFA2A("pdfA2a"),
-    
+
     PDFA3B("pdfA3b"),
-    
+
     PDFA3U("pdfA3u"),
-    
+
     PDFA3A("pdfA3a");
 
     private String value;
@@ -104,12 +117,14 @@ public class PdfAAction {
   private Boolean allowUpgrade = null;
 
   /**
-   * &lt;para&gt;              Set or get the path to the ICC profile for the output intent.              &lt;/para&gt;  &lt;para&gt;              The given profile is embedded only if the input file does not contain a PDF/A output intent already              &lt;/para&gt;
+   * &lt;para&gt; Set or get the path to the ICC profile for the output intent.
+   * &lt;/para&gt; &lt;para&gt; The given profile is embedded only if the input
+   * file does not contain a PDF/A output intent already &lt;/para&gt;
    */
   @JsonAdapter(OutputIntentProfileEnum.Adapter.class)
   public enum OutputIntentProfileEnum {
     NOTSET("notSet"),
-    
+
     SRGBCOLORSPACE("sRGBColorSpace");
 
     private String value;
@@ -156,6 +171,9 @@ public class PdfAAction {
   @SerializedName("linearize")
   private Boolean linearize = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public PdfAAction fontsToSubset(List<PdfFont> fontsToSubset) {
     this.fontsToSubset = fontsToSubset;
     return this;
@@ -169,10 +187,16 @@ public class PdfAAction {
     return this;
   }
 
-   /**
-   * By default, fonts that are embedded are automatically subset to minimize the file size.   If for any reason, e.g. postprocessing, fonts shall not be subset, set the property   SubsetFonts to false. Whether fonts are subset or not is irrelevant with respect to   the compliance with PDF/A. (Relevant is only that all used glyphs are contained in the font program.)   Additionals Fonts can be given in this FontsToSubset List
+  /**
+   * By default, fonts that are embedded are automatically subset to minimize the
+   * file size. If for any reason, e.g. postprocessing, fonts shall not be subset,
+   * set the property SubsetFonts to false. Whether fonts are subset or not is
+   * irrelevant with respect to the compliance with PDF/A. (Relevant is only that
+   * all used glyphs are contained in the font program.) Additionals Fonts can be
+   * given in this FontsToSubset List
+   * 
    * @return fontsToSubset
-  **/
+   **/
   @ApiModelProperty(value = "By default, fonts that are embedded are automatically subset to minimize the file size.   If for any reason, e.g. postprocessing, fonts shall not be subset, set the property   SubsetFonts to false. Whether fonts are subset or not is irrelevant with respect to   the compliance with PDF/A. (Relevant is only that all used glyphs are contained in the font program.)   Additionals Fonts can be given in this FontsToSubset List")
   public List<PdfFont> getFontsToSubset() {
     return fontsToSubset;
@@ -187,10 +211,14 @@ public class PdfAAction {
     return this;
   }
 
-   /**
-   * Other listed entries (e.g. ePDF10, ePDF11, .. .ePDF17, ePDFUnk) are not supported as output compliance   level.  Some files cannot be converted to the compliance requested. This will be  detected and up- (AllowUpgrade) or downgrade (AllowDowngrade) the compliance automatically.
+  /**
+   * Other listed entries (e.g. ePDF10, ePDF11, .. .ePDF17, ePDFUnk) are not
+   * supported as output compliance level. Some files cannot be converted to the
+   * compliance requested. This will be detected and up- (AllowUpgrade) or
+   * downgrade (AllowDowngrade) the compliance automatically.
+   * 
    * @return compliance
-  **/
+   **/
   @ApiModelProperty(value = "Other listed entries (e.g. ePDF10, ePDF11, .. .ePDF17, ePDFUnk) are not supported as output compliance   level.  Some files cannot be converted to the compliance requested. This will be  detected and up- (AllowUpgrade) or downgrade (AllowDowngrade) the compliance automatically.")
   public ComplianceEnum getCompliance() {
     return compliance;
@@ -205,10 +233,30 @@ public class PdfAAction {
     return this;
   }
 
-   /**
-   * If set to True, automatic downgrade of the PDF/A conformance level is allowed, e.g. from PDF/A-1a to PDF/A-1b.  If this property is set to True, the level is downgraded under the following conditions:    - Downgrade to level B: If a file contains text that is not extractable (i.e.missing ToUnicode information).  Example: Downgrade PDF/A-2u to PDF/A-2b.  - Downgrade to level U (PDF/A-2 and PDF/A-3) or B(PDF/A-1): Level A requires logical structure information and  “tagging” information, so if a file contains no such information, its level is downgraded.  &lt;para&gt;  Logical structure information in a PDF defines the structure of content, such as titles, paragraphs, figures, reading order, tables or articles.Logical structure elements can be “tagged” with descriptions or alternative text.  “Tagging” allows the contents of an image to be described to the visually impaired.  It is not possible for Pdf/A converter to add meaningful tagging information. Adding  tagging information without prior knowledge about the input file’s structure and content is neither possible nor  allowed by the PDF/A standard. For that reason, the conformance level is automatically downgraded to level B or U.  Example: Downgrade PDF/A-1a to PDF/A-1b.  &lt;/para&gt;&lt;para&gt;  If set to False and an input file cannot be converted to the requested standard, e.g.because of missing “tagging”  information, the conversion is aborted and the ErrorCode set to PDF_E_DOWNGRADE.  &lt;/para&gt;
+  /**
+   * If set to True, automatic downgrade of the PDF/A conformance level is
+   * allowed, e.g. from PDF/A-1a to PDF/A-1b. If this property is set to True, the
+   * level is downgraded under the following conditions: - Downgrade to level B:
+   * If a file contains text that is not extractable (i.e.missing ToUnicode
+   * information). Example: Downgrade PDF/A-2u to PDF/A-2b. - Downgrade to level U
+   * (PDF/A-2 and PDF/A-3) or B(PDF/A-1): Level A requires logical structure
+   * information and “tagging” information, so if a file contains no such
+   * information, its level is downgraded. &lt;para&gt; Logical structure
+   * information in a PDF defines the structure of content, such as titles,
+   * paragraphs, figures, reading order, tables or articles.Logical structure
+   * elements can be “tagged” with descriptions or alternative text. “Tagging”
+   * allows the contents of an image to be described to the visually impaired. It
+   * is not possible for Pdf/A converter to add meaningful tagging information.
+   * Adding tagging information without prior knowledge about the input file’s
+   * structure and content is neither possible nor allowed by the PDF/A standard.
+   * For that reason, the conformance level is automatically downgraded to level B
+   * or U. Example: Downgrade PDF/A-1a to PDF/A-1b. &lt;/para&gt;&lt;para&gt; If
+   * set to False and an input file cannot be converted to the requested standard,
+   * e.g.because of missing “tagging” information, the conversion is aborted and
+   * the ErrorCode set to PDF_E_DOWNGRADE. &lt;/para&gt;
+   * 
    * @return allowDowngrade
-  **/
+   **/
   @ApiModelProperty(value = "If set to True, automatic downgrade of the PDF/A conformance level is allowed, e.g. from PDF/A-1a to PDF/A-1b.  If this property is set to True, the level is downgraded under the following conditions:    - Downgrade to level B: If a file contains text that is not extractable (i.e.missing ToUnicode information).  Example: Downgrade PDF/A-2u to PDF/A-2b.  - Downgrade to level U (PDF/A-2 and PDF/A-3) or B(PDF/A-1): Level A requires logical structure information and  “tagging” information, so if a file contains no such information, its level is downgraded.  <para>  Logical structure information in a PDF defines the structure of content, such as titles, paragraphs, figures, reading order, tables or articles.Logical structure elements can be “tagged” with descriptions or alternative text.  “Tagging” allows the contents of an image to be described to the visually impaired.  It is not possible for Pdf/A converter to add meaningful tagging information. Adding  tagging information without prior knowledge about the input file’s structure and content is neither possible nor  allowed by the PDF/A standard. For that reason, the conformance level is automatically downgraded to level B or U.  Example: Downgrade PDF/A-1a to PDF/A-1b.  </para><para>  If set to False and an input file cannot be converted to the requested standard, e.g.because of missing “tagging”  information, the conversion is aborted and the ErrorCode set to PDF_E_DOWNGRADE.  </para>")
   public Boolean isAllowDowngrade() {
     return allowDowngrade;
@@ -223,10 +271,20 @@ public class PdfAAction {
     return this;
   }
 
-   /**
-   *  If set to True, automatic upgrade of the PDF/A version is allowed. If the target standard is PDF/A-1 and a file  contains elements that cannot be converted to PDF/A-1, the target standard is upgraded to PDF/A-2. This avoids  significant visual differences in the output file.  For example, the following elements may lead to an automatic upgrade:  - Transpanrecy  - Optional content groups(OCG, layers)  - Real values that exceed the implementation limit of PDF/A-1  - Embedded OpenType font files  - Predefined CMap encodings in Type0 fonts     If set to False, the compliance is not upgraded.Depeding on the value of the ConversionErrorMask the  conversion this will fail with a conversion error PDF_E_CONVERSION
+  /**
+   * If set to True, automatic upgrade of the PDF/A version is allowed. If the
+   * target standard is PDF/A-1 and a file contains elements that cannot be
+   * converted to PDF/A-1, the target standard is upgraded to PDF/A-2. This avoids
+   * significant visual differences in the output file. For example, the following
+   * elements may lead to an automatic upgrade: - Transpanrecy - Optional content
+   * groups(OCG, layers) - Real values that exceed the implementation limit of
+   * PDF/A-1 - Embedded OpenType font files - Predefined CMap encodings in Type0
+   * fonts If set to False, the compliance is not upgraded.Depeding on the value
+   * of the ConversionErrorMask the conversion this will fail with a conversion
+   * error PDF_E_CONVERSION
+   * 
    * @return allowUpgrade
-  **/
+   **/
   @ApiModelProperty(value = " If set to True, automatic upgrade of the PDF/A version is allowed. If the target standard is PDF/A-1 and a file  contains elements that cannot be converted to PDF/A-1, the target standard is upgraded to PDF/A-2. This avoids  significant visual differences in the output file.  For example, the following elements may lead to an automatic upgrade:  - Transpanrecy  - Optional content groups(OCG, layers)  - Real values that exceed the implementation limit of PDF/A-1  - Embedded OpenType font files  - Predefined CMap encodings in Type0 fonts     If set to False, the compliance is not upgraded.Depeding on the value of the ConversionErrorMask the  conversion this will fail with a conversion error PDF_E_CONVERSION")
   public Boolean isAllowUpgrade() {
     return allowUpgrade;
@@ -241,10 +299,13 @@ public class PdfAAction {
     return this;
   }
 
-   /**
-   * &lt;para&gt;              Set or get the path to the ICC profile for the output intent.              &lt;/para&gt;  &lt;para&gt;              The given profile is embedded only if the input file does not contain a PDF/A output intent already              &lt;/para&gt;
+  /**
+   * &lt;para&gt; Set or get the path to the ICC profile for the output intent.
+   * &lt;/para&gt; &lt;para&gt; The given profile is embedded only if the input
+   * file does not contain a PDF/A output intent already &lt;/para&gt;
+   * 
    * @return outputIntentProfile
-  **/
+   **/
   @ApiModelProperty(value = "<para>              Set or get the path to the ICC profile for the output intent.              </para>  <para>              The given profile is embedded only if the input file does not contain a PDF/A output intent already              </para>")
   public OutputIntentProfileEnum getOutputIntentProfile() {
     return outputIntentProfile;
@@ -259,10 +320,21 @@ public class PdfAAction {
     return this;
   }
 
-   /**
-   * &lt;para&gt;              Get or set whether to linearize the PDF output file, i.e. optimize file for fast web access.              A linearized document has a slightly larger file size than a non-linearized file and provides the following main features:              - When a document is opened in a PDF viewer of a web browser, the first page can be viewed without downloading the entire               PDF file.In contrast, a non-linearized PDF file must be downloaded completely before the firstpage can be displayed.              - When another page is requested by the user, that page is displayed as quickly as possible and incrementally as              data arrives, without downloading the entire PDF file.              &lt;/para&gt;  &lt;para&gt;              Signed files cannot be linearizes.So this property must be set to False if              a digital signature is applied.              &lt;/para&gt;
+  /**
+   * &lt;para&gt; Get or set whether to linearize the PDF output file, i.e.
+   * optimize file for fast web access. A linearized document has a slightly
+   * larger file size than a non-linearized file and provides the following main
+   * features: - When a document is opened in a PDF viewer of a web browser, the
+   * first page can be viewed without downloading the entire PDF file.In contrast,
+   * a non-linearized PDF file must be downloaded completely before the firstpage
+   * can be displayed. - When another page is requested by the user, that page is
+   * displayed as quickly as possible and incrementally as data arrives, without
+   * downloading the entire PDF file. &lt;/para&gt; &lt;para&gt; Signed files
+   * cannot be linearizes.So this property must be set to False if a digital
+   * signature is applied. &lt;/para&gt;
+   * 
    * @return linearize
-  **/
+   **/
   @ApiModelProperty(value = "<para>              Get or set whether to linearize the PDF output file, i.e. optimize file for fast web access.              A linearized document has a slightly larger file size than a non-linearized file and provides the following main features:              - When a document is opened in a PDF viewer of a web browser, the first page can be viewed without downloading the entire               PDF file.In contrast, a non-linearized PDF file must be downloaded completely before the firstpage can be displayed.              - When another page is requested by the user, that page is displayed as quickly as possible and incrementally as              data arrives, without downloading the entire PDF file.              </para>  <para>              Signed files cannot be linearizes.So this property must be set to False if              a digital signature is applied.              </para>")
   public Boolean isLinearize() {
     return linearize;
@@ -272,6 +344,24 @@ public class PdfAAction {
     this.linearize = linearize;
   }
 
+  public PdfAAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -282,31 +372,32 @@ public class PdfAAction {
       return false;
     }
     PdfAAction pdfAAction = (PdfAAction) o;
-    return Objects.equals(this.fontsToSubset, pdfAAction.fontsToSubset) &&
-        Objects.equals(this.compliance, pdfAAction.compliance) &&
-        Objects.equals(this.allowDowngrade, pdfAAction.allowDowngrade) &&
-        Objects.equals(this.allowUpgrade, pdfAAction.allowUpgrade) &&
-        Objects.equals(this.outputIntentProfile, pdfAAction.outputIntentProfile) &&
-        Objects.equals(this.linearize, pdfAAction.linearize);
+    return Objects.equals(this.fontsToSubset, pdfAAction.fontsToSubset)
+        && Objects.equals(this.compliance, pdfAAction.compliance)
+        && Objects.equals(this.allowDowngrade, pdfAAction.allowDowngrade)
+        && Objects.equals(this.allowUpgrade, pdfAAction.allowUpgrade)
+        && Objects.equals(this.outputIntentProfile, pdfAAction.outputIntentProfile)
+        && Objects.equals(this.linearize, pdfAAction.linearize) && Objects.equals(this.actionId, pdfAAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fontsToSubset, compliance, allowDowngrade, allowUpgrade, outputIntentProfile, linearize);
+    return Objects.hash(fontsToSubset, compliance, allowDowngrade, allowUpgrade, outputIntentProfile, linearize,
+        actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfAAction {\n");
-    
+
     sb.append("    fontsToSubset: ").append(toIndentedString(fontsToSubset)).append("\n");
     sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
     sb.append("    allowDowngrade: ").append(toIndentedString(allowDowngrade)).append("\n");
     sb.append("    allowUpgrade: ").append(toIndentedString(allowUpgrade)).append("\n");
     sb.append("    outputIntentProfile: ").append(toIndentedString(outputIntentProfile)).append("\n");
     sb.append("    linearize: ").append(toIndentedString(linearize)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -323,4 +414,3 @@ public class PdfAAction {
   }
 
 }
-

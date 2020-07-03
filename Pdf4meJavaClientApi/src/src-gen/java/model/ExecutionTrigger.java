@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ExecutionTrigger
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ExecutionTrigger {
   @SerializedName("startTime")
   private OffsetDateTime startTime = null;
@@ -43,10 +43,11 @@ public class ExecutionTrigger {
     return this;
   }
 
-   /**
+  /**
    * Get startTime
+   * 
    * @return startTime
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getStartTime() {
     return startTime;
@@ -61,10 +62,11 @@ public class ExecutionTrigger {
     return this;
   }
 
-   /**
+  /**
    * Get cronTrigger
+   * 
    * @return cronTrigger
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getCronTrigger() {
     return cronTrigger;
@@ -79,10 +81,11 @@ public class ExecutionTrigger {
     return this;
   }
 
-   /**
+  /**
    * Get continues
+   * 
    * @return continues
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isContinues() {
     return continues;
@@ -91,7 +94,6 @@ public class ExecutionTrigger {
   public void setContinues(Boolean continues) {
     this.continues = continues;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,9 +104,9 @@ public class ExecutionTrigger {
       return false;
     }
     ExecutionTrigger executionTrigger = (ExecutionTrigger) o;
-    return Objects.equals(this.startTime, executionTrigger.startTime) &&
-        Objects.equals(this.cronTrigger, executionTrigger.cronTrigger) &&
-        Objects.equals(this.continues, executionTrigger.continues);
+    return Objects.equals(this.startTime, executionTrigger.startTime)
+        && Objects.equals(this.cronTrigger, executionTrigger.cronTrigger)
+        && Objects.equals(this.continues, executionTrigger.continues);
   }
 
   @Override
@@ -112,12 +114,11 @@ public class ExecutionTrigger {
     return Objects.hash(startTime, cronTrigger, continues);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutionTrigger {\n");
-    
+
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    cronTrigger: ").append(toIndentedString(cronTrigger)).append("\n");
     sb.append("    continues: ").append(toIndentedString(continues)).append("\n");
@@ -137,4 +138,3 @@ public class ExecutionTrigger {
   }
 
 }
-

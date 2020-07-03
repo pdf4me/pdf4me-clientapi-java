@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * KeyValuePairStringObject
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class KeyValuePairStringObject {
   @SerializedName("key")
   private String key = null;
@@ -34,33 +34,25 @@ public class KeyValuePairStringObject {
   @SerializedName("value")
   private Object value = null;
 
-   /**
+  /**
    * Get key
+   * 
    * @return key
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getKey() {
     return key;
   }
 
-  public KeyValuePairStringObject value(Object value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
+  /**
    * Get value
+   * 
    * @return value
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Object getValue() {
     return value;
   }
-
-  public void setValue(Object value) {
-    this.value = value;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,8 +63,8 @@ public class KeyValuePairStringObject {
       return false;
     }
     KeyValuePairStringObject keyValuePairStringObject = (KeyValuePairStringObject) o;
-    return Objects.equals(this.key, keyValuePairStringObject.key) &&
-        Objects.equals(this.value, keyValuePairStringObject.value);
+    return Objects.equals(this.key, keyValuePairStringObject.key)
+        && Objects.equals(this.value, keyValuePairStringObject.value);
   }
 
   @Override
@@ -80,12 +72,11 @@ public class KeyValuePairStringObject {
     return Objects.hash(key, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyValuePairStringObject {\n");
-    
+
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -104,4 +95,3 @@ public class KeyValuePairStringObject {
   }
 
 }
-

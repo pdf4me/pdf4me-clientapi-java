@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * PdfValidationEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PdfValidationEvent {
   @SerializedName("pageNr")
   private Integer pageNr = null;
@@ -45,10 +45,11 @@ public class PdfValidationEvent {
     return this;
   }
 
-   /**
+  /**
    * Get pageNr
+   * 
    * @return pageNr
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getPageNr() {
     return pageNr;
@@ -63,10 +64,11 @@ public class PdfValidationEvent {
     return this;
   }
 
-   /**
+  /**
    * Get objectNr
+   * 
    * @return objectNr
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getObjectNr() {
     return objectNr;
@@ -81,10 +83,11 @@ public class PdfValidationEvent {
     return this;
   }
 
-   /**
+  /**
    * Get errorCode
+   * 
    * @return errorCode
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorCode() {
     return errorCode;
@@ -99,10 +102,11 @@ public class PdfValidationEvent {
     return this;
   }
 
-   /**
+  /**
    * Get errorMessage
+   * 
    * @return errorMessage
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorMessage() {
     return errorMessage;
@@ -111,7 +115,6 @@ public class PdfValidationEvent {
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -122,10 +125,10 @@ public class PdfValidationEvent {
       return false;
     }
     PdfValidationEvent pdfValidationEvent = (PdfValidationEvent) o;
-    return Objects.equals(this.pageNr, pdfValidationEvent.pageNr) &&
-        Objects.equals(this.objectNr, pdfValidationEvent.objectNr) &&
-        Objects.equals(this.errorCode, pdfValidationEvent.errorCode) &&
-        Objects.equals(this.errorMessage, pdfValidationEvent.errorMessage);
+    return Objects.equals(this.pageNr, pdfValidationEvent.pageNr)
+        && Objects.equals(this.objectNr, pdfValidationEvent.objectNr)
+        && Objects.equals(this.errorCode, pdfValidationEvent.errorCode)
+        && Objects.equals(this.errorMessage, pdfValidationEvent.errorMessage);
   }
 
   @Override
@@ -133,12 +136,11 @@ public class PdfValidationEvent {
     return Objects.hash(pageNr, objectNr, errorCode, errorMessage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfValidationEvent {\n");
-    
+
     sb.append("    pageNr: ").append(toIndentedString(pageNr)).append("\n");
     sb.append("    objectNr: ").append(toIndentedString(objectNr)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
@@ -159,4 +161,3 @@ public class PdfValidationEvent {
   }
 
 }
-

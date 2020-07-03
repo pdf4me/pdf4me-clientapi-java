@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * StorageFolder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class StorageFolder {
   /**
    * Gets or Sets storageType
@@ -34,7 +34,7 @@ public class StorageFolder {
   @JsonAdapter(StorageTypeEnum.Adapter.class)
   public enum StorageTypeEnum {
     UNDEF("undef"),
-    
+
     LOCALSYSTEM("localSystem");
 
     private String value;
@@ -89,10 +89,11 @@ public class StorageFolder {
     return this;
   }
 
-   /**
+  /**
    * Get storageType
+   * 
    * @return storageType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public StorageTypeEnum getStorageType() {
     return storageType;
@@ -107,10 +108,11 @@ public class StorageFolder {
     return this;
   }
 
-   /**
+  /**
    * Get folderName
+   * 
    * @return folderName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFolderName() {
     return folderName;
@@ -125,10 +127,11 @@ public class StorageFolder {
     return this;
   }
 
-   /**
+  /**
    * Get host
+   * 
    * @return host
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getHost() {
     return host;
@@ -137,7 +140,6 @@ public class StorageFolder {
   public void setHost(String host) {
     this.host = host;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,9 +150,8 @@ public class StorageFolder {
       return false;
     }
     StorageFolder storageFolder = (StorageFolder) o;
-    return Objects.equals(this.storageType, storageFolder.storageType) &&
-        Objects.equals(this.folderName, storageFolder.folderName) &&
-        Objects.equals(this.host, storageFolder.host);
+    return Objects.equals(this.storageType, storageFolder.storageType)
+        && Objects.equals(this.folderName, storageFolder.folderName) && Objects.equals(this.host, storageFolder.host);
   }
 
   @Override
@@ -158,12 +159,11 @@ public class StorageFolder {
     return Objects.hash(storageType, folderName, host);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageFolder {\n");
-    
+
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    folderName: ").append(toIndentedString(folderName)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
@@ -183,4 +183,3 @@ public class StorageFolder {
   }
 
 }
-

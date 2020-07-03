@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import java.util.UUID;
 /**
  * JobConfigRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class JobConfigRes {
   @SerializedName("jobConfigId")
   private UUID jobConfigId = null;
@@ -37,10 +37,11 @@ public class JobConfigRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobConfigId
+   * 
    * @return jobConfigId
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public UUID getJobConfigId() {
     return jobConfigId;
@@ -49,7 +50,6 @@ public class JobConfigRes {
   public void setJobConfigId(UUID jobConfigId) {
     this.jobConfigId = jobConfigId;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -68,12 +68,11 @@ public class JobConfigRes {
     return Objects.hash(jobConfigId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobConfigRes {\n");
-    
+
     sb.append("    jobConfigId: ").append(toIndentedString(jobConfigId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -91,4 +90,3 @@ public class JobConfigRes {
   }
 
 }
-

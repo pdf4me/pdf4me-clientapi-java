@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetDocumentUrlRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class GetDocumentUrlRes {
   @SerializedName("url")
   private String url = null;
@@ -36,10 +36,11 @@ public class GetDocumentUrlRes {
     return this;
   }
 
-   /**
+  /**
    * Get url
+   * 
    * @return url
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;
@@ -48,7 +49,6 @@ public class GetDocumentUrlRes {
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -67,12 +67,11 @@ public class GetDocumentUrlRes {
     return Objects.hash(url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDocumentUrlRes {\n");
-    
+
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -90,4 +89,3 @@ public class GetDocumentUrlRes {
   }
 
 }
-

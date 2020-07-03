@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,11 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * ProtectAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ProtectAction {
   @SerializedName("userPassword")
   private String userPassword = null;
@@ -45,23 +46,23 @@ public class ProtectAction {
   @JsonAdapter(PermissionsEnum.Adapter.class)
   public enum PermissionsEnum {
     ALL("all"),
-    
+
     NONE("none"),
-    
+
     COPY("copy"),
-    
+
     ANNOTATE("annotate"),
-    
+
     FILLFORMS("fillForms"),
-    
+
     SUPPORTDISABILITIES("supportDisabilities"),
-    
+
     ASSEMBLE("assemble"),
-    
+
     DIGITALPRINT("digitalPrint"),
-    
+
     PRINT("print"),
-    
+
     MODIFY("modify");
 
     private String value;
@@ -105,15 +106,19 @@ public class ProtectAction {
   @SerializedName("permissions")
   private List<PermissionsEnum> permissions = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public ProtectAction userPassword(String userPassword) {
     this.userPassword = userPassword;
     return this;
   }
 
-   /**
+  /**
    * Get userPassword
+   * 
    * @return userPassword
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getUserPassword() {
     return userPassword;
@@ -128,10 +133,11 @@ public class ProtectAction {
     return this;
   }
 
-   /**
+  /**
    * Get ownerPassword
+   * 
    * @return ownerPassword
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getOwnerPassword() {
     return ownerPassword;
@@ -146,10 +152,11 @@ public class ProtectAction {
     return this;
   }
 
-   /**
+  /**
    * Get unlock
+   * 
    * @return unlock
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isUnlock() {
     return unlock;
@@ -172,10 +179,11 @@ public class ProtectAction {
     return this;
   }
 
-   /**
+  /**
    * Get permissions
+   * 
    * @return permissions
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<PermissionsEnum> getPermissions() {
     return permissions;
@@ -185,6 +193,24 @@ public class ProtectAction {
     this.permissions = permissions;
   }
 
+  public ProtectAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -195,27 +221,28 @@ public class ProtectAction {
       return false;
     }
     ProtectAction protectAction = (ProtectAction) o;
-    return Objects.equals(this.userPassword, protectAction.userPassword) &&
-        Objects.equals(this.ownerPassword, protectAction.ownerPassword) &&
-        Objects.equals(this.unlock, protectAction.unlock) &&
-        Objects.equals(this.permissions, protectAction.permissions);
+    return Objects.equals(this.userPassword, protectAction.userPassword)
+        && Objects.equals(this.ownerPassword, protectAction.ownerPassword)
+        && Objects.equals(this.unlock, protectAction.unlock)
+        && Objects.equals(this.permissions, protectAction.permissions)
+        && Objects.equals(this.actionId, protectAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userPassword, ownerPassword, unlock, permissions);
+    return Objects.hash(userPassword, ownerPassword, unlock, permissions, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectAction {\n");
-    
+
     sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
     sb.append("    ownerPassword: ").append(toIndentedString(ownerPassword)).append("\n");
     sb.append("    unlock: ").append(toIndentedString(unlock)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -232,4 +259,3 @@ public class ProtectAction {
   }
 
 }
-

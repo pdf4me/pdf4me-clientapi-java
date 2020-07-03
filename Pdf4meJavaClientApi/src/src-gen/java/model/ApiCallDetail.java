@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ApiCallDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ApiCallDetail {
   @SerializedName("jobId")
   private String jobId = null;
@@ -108,10 +108,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -126,10 +127,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get applicationId
+   * 
    * @return applicationId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getApplicationId() {
     return applicationId;
@@ -144,10 +146,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get applicationName
+   * 
    * @return applicationName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getApplicationName() {
     return applicationName;
@@ -162,10 +165,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -188,10 +192,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get integrationCalls
+   * 
    * @return integrationCalls
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<IntegrationCall> getIntegrationCalls() {
     return integrationCalls;
@@ -206,10 +211,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get feature
+   * 
    * @return feature
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFeature() {
     return feature;
@@ -224,10 +230,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get status
+   * 
    * @return status
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStatus() {
     return status;
@@ -242,10 +249,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get errorCode
+   * 
    * @return errorCode
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorCode() {
     return errorCode;
@@ -260,10 +268,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get ipAddress
+   * 
    * @return ipAddress
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getIpAddress() {
     return ipAddress;
@@ -278,10 +287,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get apiCost
+   * 
    * @return apiCost
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getApiCost() {
     return apiCost;
@@ -296,10 +306,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get callType
+   * 
    * @return callType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getCallType() {
     return callType;
@@ -314,10 +325,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get userAgent
+   * 
    * @return userAgent
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getUserAgent() {
     return userAgent;
@@ -340,10 +352,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get inDocuments
+   * 
    * @return inDocuments
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Document> getInDocuments() {
     return inDocuments;
@@ -366,10 +379,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get outDocuments
+   * 
    * @return outDocuments
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Document> getOutDocuments() {
     return outDocuments;
@@ -384,10 +398,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get pages
+   * 
    * @return pages
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getPages() {
     return pages;
@@ -402,10 +417,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get docSize
+   * 
    * @return docSize
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDocSize() {
     return docSize;
@@ -420,10 +436,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get durationMS
+   * 
    * @return durationMS
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDurationMS() {
     return durationMS;
@@ -438,10 +455,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get startTime
+   * 
    * @return startTime
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getStartTime() {
     return startTime;
@@ -456,10 +474,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get endTime
+   * 
    * @return endTime
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getEndTime() {
     return endTime;
@@ -474,10 +493,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get actionReqJson
+   * 
    * @return actionReqJson
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getActionReqJson() {
     return actionReqJson;
@@ -492,10 +512,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get actionResJson
+   * 
    * @return actionResJson
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getActionResJson() {
     return actionResJson;
@@ -510,10 +531,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get errorDetails
+   * 
    * @return errorDetails
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorDetails() {
     return errorDetails;
@@ -536,10 +558,11 @@ public class ApiCallDetail {
     return this;
   }
 
-   /**
+  /**
    * Get docLogs
+   * 
    * @return docLogs
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<DocLog> getDocLogs() {
     return docLogs;
@@ -548,7 +571,6 @@ public class ApiCallDetail {
   public void setDocLogs(List<DocLog> docLogs) {
     this.docLogs = docLogs;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -559,42 +581,40 @@ public class ApiCallDetail {
       return false;
     }
     ApiCallDetail apiCallDetail = (ApiCallDetail) o;
-    return Objects.equals(this.jobId, apiCallDetail.jobId) &&
-        Objects.equals(this.applicationId, apiCallDetail.applicationId) &&
-        Objects.equals(this.applicationName, apiCallDetail.applicationName) &&
-        Objects.equals(this.jobIdExt, apiCallDetail.jobIdExt) &&
-        Objects.equals(this.integrationCalls, apiCallDetail.integrationCalls) &&
-        Objects.equals(this.feature, apiCallDetail.feature) &&
-        Objects.equals(this.status, apiCallDetail.status) &&
-        Objects.equals(this.errorCode, apiCallDetail.errorCode) &&
-        Objects.equals(this.ipAddress, apiCallDetail.ipAddress) &&
-        Objects.equals(this.apiCost, apiCallDetail.apiCost) &&
-        Objects.equals(this.callType, apiCallDetail.callType) &&
-        Objects.equals(this.userAgent, apiCallDetail.userAgent) &&
-        Objects.equals(this.inDocuments, apiCallDetail.inDocuments) &&
-        Objects.equals(this.outDocuments, apiCallDetail.outDocuments) &&
-        Objects.equals(this.pages, apiCallDetail.pages) &&
-        Objects.equals(this.docSize, apiCallDetail.docSize) &&
-        Objects.equals(this.durationMS, apiCallDetail.durationMS) &&
-        Objects.equals(this.startTime, apiCallDetail.startTime) &&
-        Objects.equals(this.endTime, apiCallDetail.endTime) &&
-        Objects.equals(this.actionReqJson, apiCallDetail.actionReqJson) &&
-        Objects.equals(this.actionResJson, apiCallDetail.actionResJson) &&
-        Objects.equals(this.errorDetails, apiCallDetail.errorDetails) &&
-        Objects.equals(this.docLogs, apiCallDetail.docLogs);
+    return Objects.equals(this.jobId, apiCallDetail.jobId)
+        && Objects.equals(this.applicationId, apiCallDetail.applicationId)
+        && Objects.equals(this.applicationName, apiCallDetail.applicationName)
+        && Objects.equals(this.jobIdExt, apiCallDetail.jobIdExt)
+        && Objects.equals(this.integrationCalls, apiCallDetail.integrationCalls)
+        && Objects.equals(this.feature, apiCallDetail.feature) && Objects.equals(this.status, apiCallDetail.status)
+        && Objects.equals(this.errorCode, apiCallDetail.errorCode)
+        && Objects.equals(this.ipAddress, apiCallDetail.ipAddress)
+        && Objects.equals(this.apiCost, apiCallDetail.apiCost) && Objects.equals(this.callType, apiCallDetail.callType)
+        && Objects.equals(this.userAgent, apiCallDetail.userAgent)
+        && Objects.equals(this.inDocuments, apiCallDetail.inDocuments)
+        && Objects.equals(this.outDocuments, apiCallDetail.outDocuments)
+        && Objects.equals(this.pages, apiCallDetail.pages) && Objects.equals(this.docSize, apiCallDetail.docSize)
+        && Objects.equals(this.durationMS, apiCallDetail.durationMS)
+        && Objects.equals(this.startTime, apiCallDetail.startTime)
+        && Objects.equals(this.endTime, apiCallDetail.endTime)
+        && Objects.equals(this.actionReqJson, apiCallDetail.actionReqJson)
+        && Objects.equals(this.actionResJson, apiCallDetail.actionResJson)
+        && Objects.equals(this.errorDetails, apiCallDetail.errorDetails)
+        && Objects.equals(this.docLogs, apiCallDetail.docLogs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobId, applicationId, applicationName, jobIdExt, integrationCalls, feature, status, errorCode, ipAddress, apiCost, callType, userAgent, inDocuments, outDocuments, pages, docSize, durationMS, startTime, endTime, actionReqJson, actionResJson, errorDetails, docLogs);
+    return Objects.hash(jobId, applicationId, applicationName, jobIdExt, integrationCalls, feature, status, errorCode,
+        ipAddress, apiCost, callType, userAgent, inDocuments, outDocuments, pages, docSize, durationMS, startTime,
+        endTime, actionReqJson, actionResJson, errorDetails, docLogs);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiCallDetail {\n");
-    
+
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
@@ -634,4 +654,3 @@ public class ApiCallDetail {
   }
 
 }
-

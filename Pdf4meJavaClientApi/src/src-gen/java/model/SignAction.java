@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,13 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.UUID;
 import model.SigningProvider;
 
 /**
  * Define Stamp to place on Document
  */
 @ApiModel(description = "Define Stamp to place on Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class SignAction {
   @SerializedName("signingProvider")
   private SigningProvider signingProvider = null;
@@ -36,15 +37,19 @@ public class SignAction {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public SignAction signingProvider(SigningProvider signingProvider) {
     this.signingProvider = signingProvider;
     return this;
   }
 
-   /**
+  /**
    * Get signingProvider
+   * 
    * @return signingProvider
-  **/
+   **/
   @ApiModelProperty(value = "")
   public SigningProvider getSigningProvider() {
     return signingProvider;
@@ -59,10 +64,11 @@ public class SignAction {
     return this;
   }
 
-   /**
+  /**
    * Get name
+   * 
    * @return name
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getName() {
     return name;
@@ -72,6 +78,24 @@ public class SignAction {
     this.name = name;
   }
 
+  public SignAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,23 +106,23 @@ public class SignAction {
       return false;
     }
     SignAction signAction = (SignAction) o;
-    return Objects.equals(this.signingProvider, signAction.signingProvider) &&
-        Objects.equals(this.name, signAction.name);
+    return Objects.equals(this.signingProvider, signAction.signingProvider)
+        && Objects.equals(this.name, signAction.name) && Objects.equals(this.actionId, signAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signingProvider, name);
+    return Objects.hash(signingProvider, name, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignAction {\n");
-    
+
     sb.append("    signingProvider: ").append(toIndentedString(signingProvider)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -115,4 +139,3 @@ public class SignAction {
   }
 
 }
-

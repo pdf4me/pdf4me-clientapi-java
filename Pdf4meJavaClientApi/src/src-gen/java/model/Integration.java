@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Integration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Integration {
   @SerializedName("integrationId")
   private String integrationId = null;
@@ -49,34 +49,36 @@ public class Integration {
   @JsonAdapter(IntegrationTypeEnum.Adapter.class)
   public enum IntegrationTypeEnum {
     NONE("none"),
-    
+
     AZURESTORAGE("azureStorage"),
-    
+
     ONEDRIVE("oneDrive"),
-    
+
     SFTP("sFTP"),
-    
+
     FTP("fTP"),
-    
+
     AMAZONS3("amazonS3"),
-    
+
     AMAZONGLACIER("amazonGlacier"),
-    
+
     GOOGLECLOUD("googleCloud"),
-    
+
     GOOGLEDRIVE("googleDrive"),
-    
+
     WEBHOOK("webHook"),
-    
+
     DROPBOX("dropbox"),
-    
+
     AZUREBUS("azureBus"),
-    
+
     AWSSQS("awsSQS"),
-    
+
     AWSSNS("awsSNS"),
-    
-    AZUREEVENTHUB("azureEventHub");
+
+    AZUREEVENTHUB("azureEventHub"),
+
+    SIGNINGSWISSQUOVADISSEALSIGN("signingSwissQuoVadisSealsign");
 
     private String value;
 
@@ -146,9 +148,9 @@ public class Integration {
   @JsonAdapter(RequestTypeEnum.Adapter.class)
   public enum RequestTypeEnum {
     NONE("none"),
-    
+
     ALL("all"),
-    
+
     ONREQUEST("onRequest");
 
     private String value;
@@ -200,10 +202,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get integrationId
+   * 
    * @return integrationId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getIntegrationId() {
     return integrationId;
@@ -218,10 +221,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get folder
+   * 
    * @return folder
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFolder() {
     return folder;
@@ -236,10 +240,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get integrationAlias
+   * 
    * @return integrationAlias
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getIntegrationAlias() {
     return integrationAlias;
@@ -254,10 +259,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get name
+   * 
    * @return name
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getName() {
     return name;
@@ -272,10 +278,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get integrationType
+   * 
    * @return integrationType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public IntegrationTypeEnum getIntegrationType() {
     return integrationType;
@@ -290,10 +297,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get integrationConfig
+   * 
    * @return integrationConfig
-  **/
+   **/
   @ApiModelProperty(value = "")
   public IntegrationConfig getIntegrationConfig() {
     return integrationConfig;
@@ -308,10 +316,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get applicationId
+   * 
    * @return applicationId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getApplicationId() {
     return applicationId;
@@ -326,10 +335,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get enabled
+   * 
    * @return enabled
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isEnabled() {
     return enabled;
@@ -344,10 +354,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get basicToken
+   * 
    * @return basicToken
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getBasicToken() {
     return basicToken;
@@ -362,10 +373,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get modDate
+   * 
    * @return modDate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getModDate() {
     return modDate;
@@ -380,10 +392,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get modName
+   * 
    * @return modName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getModName() {
     return modName;
@@ -398,10 +411,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get url
+   * 
    * @return url
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;
@@ -416,10 +430,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get requestType
+   * 
    * @return requestType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RequestTypeEnum getRequestType() {
     return requestType;
@@ -434,10 +449,11 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Get executionOrder
+   * 
    * @return executionOrder
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getExecutionOrder() {
     return executionOrder;
@@ -446,7 +462,6 @@ public class Integration {
   public void setExecutionOrder(Integer executionOrder) {
     this.executionOrder = executionOrder;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -457,33 +472,30 @@ public class Integration {
       return false;
     }
     Integration integration = (Integration) o;
-    return Objects.equals(this.integrationId, integration.integrationId) &&
-        Objects.equals(this.folder, integration.folder) &&
-        Objects.equals(this.integrationAlias, integration.integrationAlias) &&
-        Objects.equals(this.name, integration.name) &&
-        Objects.equals(this.integrationType, integration.integrationType) &&
-        Objects.equals(this.integrationConfig, integration.integrationConfig) &&
-        Objects.equals(this.applicationId, integration.applicationId) &&
-        Objects.equals(this.enabled, integration.enabled) &&
-        Objects.equals(this.basicToken, integration.basicToken) &&
-        Objects.equals(this.modDate, integration.modDate) &&
-        Objects.equals(this.modName, integration.modName) &&
-        Objects.equals(this.url, integration.url) &&
-        Objects.equals(this.requestType, integration.requestType) &&
-        Objects.equals(this.executionOrder, integration.executionOrder);
+    return Objects.equals(this.integrationId, integration.integrationId)
+        && Objects.equals(this.folder, integration.folder)
+        && Objects.equals(this.integrationAlias, integration.integrationAlias)
+        && Objects.equals(this.name, integration.name)
+        && Objects.equals(this.integrationType, integration.integrationType)
+        && Objects.equals(this.integrationConfig, integration.integrationConfig)
+        && Objects.equals(this.applicationId, integration.applicationId)
+        && Objects.equals(this.enabled, integration.enabled) && Objects.equals(this.basicToken, integration.basicToken)
+        && Objects.equals(this.modDate, integration.modDate) && Objects.equals(this.modName, integration.modName)
+        && Objects.equals(this.url, integration.url) && Objects.equals(this.requestType, integration.requestType)
+        && Objects.equals(this.executionOrder, integration.executionOrder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(integrationId, folder, integrationAlias, name, integrationType, integrationConfig, applicationId, enabled, basicToken, modDate, modName, url, requestType, executionOrder);
+    return Objects.hash(integrationId, folder, integrationAlias, name, integrationType, integrationConfig,
+        applicationId, enabled, basicToken, modDate, modName, url, requestType, executionOrder);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Integration {\n");
-    
+
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
     sb.append("    integrationAlias: ").append(toIndentedString(integrationAlias)).append("\n");
@@ -514,4 +526,3 @@ public class Integration {
   }
 
 }
-

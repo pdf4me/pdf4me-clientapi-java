@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,11 +27,12 @@ import java.util.List;
 import model.DocLog;
 import model.DocMetadata;
 import model.Page;
+import model.ScanPage;
 
 /**
  * Document
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Document {
   @SerializedName("documentId")
   private String documentId = null;
@@ -63,15 +64,22 @@ public class Document {
   @SerializedName("documentUrl")
   private String documentUrl = null;
 
+  @SerializedName("scanPages")
+  private List<ScanPage> scanPages = null;
+
+  @SerializedName("order")
+  private Integer order = null;
+
   public Document documentId(String documentId) {
     this.documentId = documentId;
     return this;
   }
 
-   /**
+  /**
    * DocumentId
+   * 
    * @return documentId
-  **/
+   **/
   @ApiModelProperty(value = "DocumentId")
   public String getDocumentId() {
     return documentId;
@@ -86,10 +94,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Give filename inlcuding filetype
+   * 
    * @return name
-  **/
+   **/
   @ApiModelProperty(value = "Give filename inlcuding filetype")
   public String getName() {
     return name;
@@ -104,10 +113,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Get fileName
+   * 
    * @return fileName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFileName() {
     return fileName;
@@ -122,10 +132,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Get fileExtension
+   * 
    * @return fileExtension
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFileExtension() {
     return fileExtension;
@@ -140,10 +151,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Returns the Status of the Document
+   * 
    * @return docStatus
-  **/
+   **/
   @ApiModelProperty(value = "Returns the Status of the Document")
   public String getDocStatus() {
     return docStatus;
@@ -166,10 +178,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Description of pages
+   * 
    * @return pages
-  **/
+   **/
   @ApiModelProperty(value = "Description of pages")
   public List<Page> getPages() {
     return pages;
@@ -184,10 +197,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Get docData
+   * 
    * @return docData
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getDocData() {
     return docData;
@@ -202,10 +216,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Get docMetadata
+   * 
    * @return docMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getDocMetadata() {
     return docMetadata;
@@ -228,10 +243,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Get docLogs
+   * 
    * @return docLogs
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<DocLog> getDocLogs() {
     return docLogs;
@@ -246,10 +262,11 @@ public class Document {
     return this;
   }
 
-   /**
+  /**
    * Get documentUrl
+   * 
    * @return documentUrl
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getDocumentUrl() {
     return documentUrl;
@@ -259,6 +276,51 @@ public class Document {
     this.documentUrl = documentUrl;
   }
 
+  public Document scanPages(List<ScanPage> scanPages) {
+    this.scanPages = scanPages;
+    return this;
+  }
+
+  public Document addScanPagesItem(ScanPage scanPagesItem) {
+    if (this.scanPages == null) {
+      this.scanPages = new ArrayList<ScanPage>();
+    }
+    this.scanPages.add(scanPagesItem);
+    return this;
+  }
+
+  /**
+   * Get scanPages
+   * 
+   * @return scanPages
+   **/
+  @ApiModelProperty(value = "")
+  public List<ScanPage> getScanPages() {
+    return scanPages;
+  }
+
+  public void setScanPages(List<ScanPage> scanPages) {
+    this.scanPages = scanPages;
+  }
+
+  public Document order(Integer order) {
+    this.order = order;
+    return this;
+  }
+
+  /**
+   * Get order
+   * 
+   * @return order
+   **/
+  @ApiModelProperty(value = "")
+  public Integer getOrder() {
+    return order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -269,29 +331,26 @@ public class Document {
       return false;
     }
     Document document = (Document) o;
-    return Objects.equals(this.documentId, document.documentId) &&
-        Objects.equals(this.name, document.name) &&
-        Objects.equals(this.fileName, document.fileName) &&
-        Objects.equals(this.fileExtension, document.fileExtension) &&
-        Objects.equals(this.docStatus, document.docStatus) &&
-        Objects.equals(this.pages, document.pages) &&
-        Objects.equals(this.docData, document.docData) &&
-        Objects.equals(this.docMetadata, document.docMetadata) &&
-        Objects.equals(this.docLogs, document.docLogs) &&
-        Objects.equals(this.documentUrl, document.documentUrl);
+    return Objects.equals(this.documentId, document.documentId) && Objects.equals(this.name, document.name)
+        && Objects.equals(this.fileName, document.fileName)
+        && Objects.equals(this.fileExtension, document.fileExtension)
+        && Objects.equals(this.docStatus, document.docStatus) && Objects.equals(this.pages, document.pages)
+        && Arrays.equals(this.docData, document.docData) && Objects.equals(this.docMetadata, document.docMetadata)
+        && Objects.equals(this.docLogs, document.docLogs) && Objects.equals(this.documentUrl, document.documentUrl)
+        && Objects.equals(this.scanPages, document.scanPages) && Objects.equals(this.order, document.order);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, name, fileName, fileExtension, docStatus, pages, docData, docMetadata, docLogs, documentUrl);
+    return Objects.hash(documentId, name, fileName, fileExtension, docStatus, pages, Arrays.hashCode(docData),
+        docMetadata, docLogs, documentUrl, scanPages, order);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
-    
+
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
@@ -302,6 +361,8 @@ public class Document {
     sb.append("    docMetadata: ").append(toIndentedString(docMetadata)).append("\n");
     sb.append("    docLogs: ").append(toIndentedString(docLogs)).append("\n");
     sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
+    sb.append("    scanPages: ").append(toIndentedString(scanPages)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -318,4 +379,3 @@ public class Document {
   }
 
 }
-

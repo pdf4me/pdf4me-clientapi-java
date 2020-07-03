@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,92 +21,92 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.KeyValuePairStringObject;
+import model.ValueType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.KeyValuePairStringObject;
-import model.ValueType;
 
 /**
  * ScanBarcode
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ScanBarcode {
   @SerializedName("barcodeDataType")
   private String barcodeDataType = null;
 
   /**
-   * Gets or Sets barcodeType
+   * Gets or Sets barcodeReadType
    */
-  @JsonAdapter(BarcodeTypeEnum.Adapter.class)
-  public enum BarcodeTypeEnum {
+  @JsonAdapter(BarcodeReadTypeEnum.Adapter.class)
+  public enum BarcodeReadTypeEnum {
     ALL("all"),
-    
+
     UNKNOWN("unknown"),
-    
+
     CODE11("code11"),
-    
+
     CODE39("code39"),
-    
+
     CODE93("code93"),
-    
+
     CODE128("code128"),
-    
+
     CODABAR("codabar"),
-    
+
     INTER2OF5("inter2of5"),
-    
+
     PATCHCODE("patchCode"),
-    
+
     EAN8("ean8"),
-    
+
     UPCE("upce"),
-    
+
     EAN13("ean13"),
-    
+
     UPCA("upca"),
-    
+
     PLUS2("plus2"),
-    
+
     PLUS5("plus5"),
-    
+
     PDF417("pdf417"),
-    
+
     DATAMATRIX("dataMatrix"),
-    
+
     QRCODE("qrCode"),
-    
+
     POSTNET("postnet"),
-    
+
     PLANET("planet"),
-    
+
     RM4SCC("rm4SCC"),
-    
+
     AUSTRALIAPOST("australiaPost"),
-    
+
     INTELLIGENTMAIL("intelligentMail"),
-    
+
     CODE39EXTENDED("code39Extended"),
-    
+
     MICROQRCODE("microQRCode"),
-    
+
     ALL_2D("all_2D"),
-    
+
     PHARMACODE("pharmaCode"),
-    
+
     UCC128("ucc128"),
-    
+
     RSS14("rss14"),
-    
+
     RSSLIMITED("rssLimited"),
-    
+
     RSSEXPANDED("rssExpanded"),
-    
+
     ALL_1D("all_1D");
 
     private String value;
 
-    BarcodeTypeEnum(String value) {
+    BarcodeReadTypeEnum(String value) {
       this.value = value;
     }
 
@@ -119,8 +119,8 @@ public class ScanBarcode {
       return String.valueOf(value);
     }
 
-    public static BarcodeTypeEnum fromValue(String text) {
-      for (BarcodeTypeEnum b : BarcodeTypeEnum.values()) {
+    public static BarcodeReadTypeEnum fromValue(String text) {
+      for (BarcodeReadTypeEnum b : BarcodeReadTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -128,22 +128,22 @@ public class ScanBarcode {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<BarcodeTypeEnum> {
+    public static class Adapter extends TypeAdapter<BarcodeReadTypeEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final BarcodeTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final BarcodeReadTypeEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public BarcodeTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public BarcodeReadTypeEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return BarcodeTypeEnum.fromValue(String.valueOf(value));
+        return BarcodeReadTypeEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName("barcodeType")
-  private BarcodeTypeEnum barcodeType = null;
+  @SerializedName("barcodeReadType")
+  private BarcodeReadTypeEnum barcodeReadType = null;
 
   @SerializedName("barcodeDataLen")
   private Integer barcodeDataLen = null;
@@ -202,67 +202,67 @@ public class ScanBarcode {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     ALL("all"),
-    
+
     UNKNOWN("unknown"),
-    
+
     CODE11("code11"),
-    
+
     CODE39("code39"),
-    
+
     CODE93("code93"),
-    
+
     CODE128("code128"),
-    
+
     CODABAR("codabar"),
-    
+
     INTER2OF5("inter2of5"),
-    
+
     PATCHCODE("patchCode"),
-    
+
     EAN8("ean8"),
-    
+
     UPCE("upce"),
-    
+
     EAN13("ean13"),
-    
+
     UPCA("upca"),
-    
+
     PLUS2("plus2"),
-    
+
     PLUS5("plus5"),
-    
+
     PDF417("pdf417"),
-    
+
     DATAMATRIX("dataMatrix"),
-    
+
     QRCODE("qrCode"),
-    
+
     POSTNET("postnet"),
-    
+
     PLANET("planet"),
-    
+
     RM4SCC("rm4SCC"),
-    
+
     AUSTRALIAPOST("australiaPost"),
-    
+
     INTELLIGENTMAIL("intelligentMail"),
-    
+
     CODE39EXTENDED("code39Extended"),
-    
+
     MICROQRCODE("microQRCode"),
-    
+
     ALL_2D("all_2D"),
-    
+
     PHARMACODE("pharmaCode"),
-    
+
     UCC128("ucc128"),
-    
+
     RSS14("rss14"),
-    
+
     RSSLIMITED("rssLimited"),
-    
+
     RSSEXPANDED("rssExpanded"),
-    
+
     ALL_1D("all_1D");
 
     private String value;
@@ -321,15 +321,15 @@ public class ScanBarcode {
   @JsonAdapter(OrientationEnum.Adapter.class)
   public enum OrientationEnum {
     UNKNOWN("unknown"),
-    
+
     LEFTTORIGHT("leftToRight"),
-    
+
     RIGHTTOLEFT("rightToLeft"),
-    
+
     TOPTOBOTTOM("topToBottom"),
-    
+
     BOTTOMTOTOP("bottomToTop"),
-    
+
     ALL("all");
 
     private String value;
@@ -414,10 +414,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeDataType
+   * 
    * @return barcodeDataType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getBarcodeDataType() {
     return barcodeDataType;
@@ -427,22 +428,23 @@ public class ScanBarcode {
     this.barcodeDataType = barcodeDataType;
   }
 
-  public ScanBarcode barcodeType(BarcodeTypeEnum barcodeType) {
-    this.barcodeType = barcodeType;
+  public ScanBarcode barcodeReadType(BarcodeReadTypeEnum barcodeReadType) {
+    this.barcodeReadType = barcodeReadType;
     return this;
   }
 
-   /**
-   * Get barcodeType
-   * @return barcodeType
-  **/
+  /**
+   * Get barcodeReadType
+   * 
+   * @return barcodeReadType
+   **/
   @ApiModelProperty(value = "")
-  public BarcodeTypeEnum getBarcodeType() {
-    return barcodeType;
+  public BarcodeReadTypeEnum getBarcodeReadType() {
+    return barcodeReadType;
   }
 
-  public void setBarcodeType(BarcodeTypeEnum barcodeType) {
-    this.barcodeType = barcodeType;
+  public void setBarcodeReadType(BarcodeReadTypeEnum barcodeReadType) {
+    this.barcodeReadType = barcodeReadType;
   }
 
   public ScanBarcode barcodeDataLen(Integer barcodeDataLen) {
@@ -450,10 +452,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeDataLen
+   * 
    * @return barcodeDataLen
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBarcodeDataLen() {
     return barcodeDataLen;
@@ -468,10 +471,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get angle
+   * 
    * @return angle
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getAngle() {
     return angle;
@@ -486,10 +490,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderEndX1
+   * 
    * @return borderEndX1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderEndX1() {
     return borderEndX1;
@@ -504,10 +509,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderEndX2
+   * 
    * @return borderEndX2
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderEndX2() {
     return borderEndX2;
@@ -522,10 +528,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderEndY1
+   * 
    * @return borderEndY1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderEndY1() {
     return borderEndY1;
@@ -540,10 +547,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderEndY2
+   * 
    * @return borderEndY2
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderEndY2() {
     return borderEndY2;
@@ -558,10 +566,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderStartX1
+   * 
    * @return borderStartX1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderStartX1() {
     return borderStartX1;
@@ -576,10 +585,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderStartX2
+   * 
    * @return borderStartX2
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderStartX2() {
     return borderStartX2;
@@ -594,10 +604,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderStartY1
+   * 
    * @return borderStartY1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderStartY1() {
     return borderStartY1;
@@ -612,10 +623,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get borderStartY2
+   * 
    * @return borderStartY2
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBorderStartY2() {
     return borderStartY2;
@@ -630,10 +642,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get top
+   * 
    * @return top
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getTop() {
     return top;
@@ -648,10 +661,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get left
+   * 
    * @return left
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getLeft() {
     return left;
@@ -666,10 +680,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get right
+   * 
    * @return right
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getRight() {
     return right;
@@ -684,10 +699,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get bottom
+   * 
    * @return bottom
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getBottom() {
     return bottom;
@@ -702,10 +718,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get boundingRectangle
+   * 
    * @return boundingRectangle
-  **/
+   **/
   @ApiModelProperty(value = "")
   public ValueType getBoundingRectangle() {
     return boundingRectangle;
@@ -720,10 +737,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get checksum
+   * 
    * @return checksum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getChecksum() {
     return checksum;
@@ -738,10 +756,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get rssExpandedStacked
+   * 
    * @return rssExpandedStacked
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getRssExpandedStacked() {
     return rssExpandedStacked;
@@ -756,10 +775,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get type
+   * 
    * @return type
-  **/
+   **/
   @ApiModelProperty(value = "")
   public TypeEnum getType() {
     return type;
@@ -774,10 +794,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get threshold
+   * 
    * @return threshold
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getThreshold() {
     return threshold;
@@ -792,10 +813,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get page
+   * 
    * @return page
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getPage() {
     return page;
@@ -810,10 +832,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get orientationString
+   * 
    * @return orientationString
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getOrientationString() {
     return orientationString;
@@ -828,10 +851,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get orientation
+   * 
    * @return orientation
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OrientationEnum getOrientation() {
     return orientation;
@@ -846,10 +870,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeInfoString
+   * 
    * @return barcodeInfoString
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getBarcodeInfoString() {
     return barcodeInfoString;
@@ -864,10 +889,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeData
+   * 
    * @return barcodeData
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getBarcodeData() {
     return barcodeData;
@@ -882,10 +908,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get qrVersion
+   * 
    * @return qrVersion
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getQrVersion() {
     return qrVersion;
@@ -900,10 +927,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get numErrorsCorrected
+   * 
    * @return numErrorsCorrected
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getNumErrorsCorrected() {
     return numErrorsCorrected;
@@ -918,10 +946,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get dim2
+   * 
    * @return dim2
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getDim2() {
     return dim2;
@@ -936,10 +965,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get dim1
+   * 
    * @return dim1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getDim1() {
     return dim1;
@@ -954,10 +984,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get dataMatrixNumErrorsCorrected
+   * 
    * @return dataMatrixNumErrorsCorrected
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getDataMatrixNumErrorsCorrected() {
     return dataMatrixNumErrorsCorrected;
@@ -972,10 +1003,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get dataMatrixDim2
+   * 
    * @return dataMatrixDim2
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getDataMatrixDim2() {
     return dataMatrixDim2;
@@ -990,10 +1022,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get dataMatrixDim1
+   * 
    * @return dataMatrixDim1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getDataMatrixDim1() {
     return dataMatrixDim1;
@@ -1008,10 +1041,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get errorCorrectionLevel
+   * 
    * @return errorCorrectionLevel
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getErrorCorrectionLevel() {
     return errorCorrectionLevel;
@@ -1026,10 +1060,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeString
+   * 
    * @return barcodeString
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getBarcodeString() {
     return barcodeString;
@@ -1052,10 +1087,11 @@ public class ScanBarcode {
     return this;
   }
 
-   /**
+  /**
    * Get properties
+   * 
    * @return properties
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<KeyValuePairStringObject> getProperties() {
     return properties;
@@ -1064,7 +1100,6 @@ public class ScanBarcode {
   public void setProperties(List<KeyValuePairStringObject> properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1075,57 +1110,55 @@ public class ScanBarcode {
       return false;
     }
     ScanBarcode scanBarcode = (ScanBarcode) o;
-    return Objects.equals(this.barcodeDataType, scanBarcode.barcodeDataType) &&
-        Objects.equals(this.barcodeType, scanBarcode.barcodeType) &&
-        Objects.equals(this.barcodeDataLen, scanBarcode.barcodeDataLen) &&
-        Objects.equals(this.angle, scanBarcode.angle) &&
-        Objects.equals(this.borderEndX1, scanBarcode.borderEndX1) &&
-        Objects.equals(this.borderEndX2, scanBarcode.borderEndX2) &&
-        Objects.equals(this.borderEndY1, scanBarcode.borderEndY1) &&
-        Objects.equals(this.borderEndY2, scanBarcode.borderEndY2) &&
-        Objects.equals(this.borderStartX1, scanBarcode.borderStartX1) &&
-        Objects.equals(this.borderStartX2, scanBarcode.borderStartX2) &&
-        Objects.equals(this.borderStartY1, scanBarcode.borderStartY1) &&
-        Objects.equals(this.borderStartY2, scanBarcode.borderStartY2) &&
-        Objects.equals(this.top, scanBarcode.top) &&
-        Objects.equals(this.left, scanBarcode.left) &&
-        Objects.equals(this.right, scanBarcode.right) &&
-        Objects.equals(this.bottom, scanBarcode.bottom) &&
-        Objects.equals(this.boundingRectangle, scanBarcode.boundingRectangle) &&
-        Objects.equals(this.checksum, scanBarcode.checksum) &&
-        Objects.equals(this.rssExpandedStacked, scanBarcode.rssExpandedStacked) &&
-        Objects.equals(this.type, scanBarcode.type) &&
-        Objects.equals(this.threshold, scanBarcode.threshold) &&
-        Objects.equals(this.page, scanBarcode.page) &&
-        Objects.equals(this.orientationString, scanBarcode.orientationString) &&
-        Objects.equals(this.orientation, scanBarcode.orientation) &&
-        Objects.equals(this.barcodeInfoString, scanBarcode.barcodeInfoString) &&
-        Objects.equals(this.barcodeData, scanBarcode.barcodeData) &&
-        Objects.equals(this.qrVersion, scanBarcode.qrVersion) &&
-        Objects.equals(this.numErrorsCorrected, scanBarcode.numErrorsCorrected) &&
-        Objects.equals(this.dim2, scanBarcode.dim2) &&
-        Objects.equals(this.dim1, scanBarcode.dim1) &&
-        Objects.equals(this.dataMatrixNumErrorsCorrected, scanBarcode.dataMatrixNumErrorsCorrected) &&
-        Objects.equals(this.dataMatrixDim2, scanBarcode.dataMatrixDim2) &&
-        Objects.equals(this.dataMatrixDim1, scanBarcode.dataMatrixDim1) &&
-        Objects.equals(this.errorCorrectionLevel, scanBarcode.errorCorrectionLevel) &&
-        Objects.equals(this.barcodeString, scanBarcode.barcodeString) &&
-        Objects.equals(this.properties, scanBarcode.properties);
+    return Objects.equals(this.barcodeDataType, scanBarcode.barcodeDataType)
+        && Objects.equals(this.barcodeReadType, scanBarcode.barcodeReadType)
+        && Objects.equals(this.barcodeDataLen, scanBarcode.barcodeDataLen)
+        && Objects.equals(this.angle, scanBarcode.angle) && Objects.equals(this.borderEndX1, scanBarcode.borderEndX1)
+        && Objects.equals(this.borderEndX2, scanBarcode.borderEndX2)
+        && Objects.equals(this.borderEndY1, scanBarcode.borderEndY1)
+        && Objects.equals(this.borderEndY2, scanBarcode.borderEndY2)
+        && Objects.equals(this.borderStartX1, scanBarcode.borderStartX1)
+        && Objects.equals(this.borderStartX2, scanBarcode.borderStartX2)
+        && Objects.equals(this.borderStartY1, scanBarcode.borderStartY1)
+        && Objects.equals(this.borderStartY2, scanBarcode.borderStartY2) && Objects.equals(this.top, scanBarcode.top)
+        && Objects.equals(this.left, scanBarcode.left) && Objects.equals(this.right, scanBarcode.right)
+        && Objects.equals(this.bottom, scanBarcode.bottom)
+        && Objects.equals(this.boundingRectangle, scanBarcode.boundingRectangle)
+        && Objects.equals(this.checksum, scanBarcode.checksum)
+        && Objects.equals(this.rssExpandedStacked, scanBarcode.rssExpandedStacked)
+        && Objects.equals(this.type, scanBarcode.type) && Objects.equals(this.threshold, scanBarcode.threshold)
+        && Objects.equals(this.page, scanBarcode.page)
+        && Objects.equals(this.orientationString, scanBarcode.orientationString)
+        && Objects.equals(this.orientation, scanBarcode.orientation)
+        && Objects.equals(this.barcodeInfoString, scanBarcode.barcodeInfoString)
+        && Arrays.equals(this.barcodeData, scanBarcode.barcodeData)
+        && Objects.equals(this.qrVersion, scanBarcode.qrVersion)
+        && Objects.equals(this.numErrorsCorrected, scanBarcode.numErrorsCorrected)
+        && Objects.equals(this.dim2, scanBarcode.dim2) && Objects.equals(this.dim1, scanBarcode.dim1)
+        && Objects.equals(this.dataMatrixNumErrorsCorrected, scanBarcode.dataMatrixNumErrorsCorrected)
+        && Objects.equals(this.dataMatrixDim2, scanBarcode.dataMatrixDim2)
+        && Objects.equals(this.dataMatrixDim1, scanBarcode.dataMatrixDim1)
+        && Objects.equals(this.errorCorrectionLevel, scanBarcode.errorCorrectionLevel)
+        && Objects.equals(this.barcodeString, scanBarcode.barcodeString)
+        && Objects.equals(this.properties, scanBarcode.properties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcodeDataType, barcodeType, barcodeDataLen, angle, borderEndX1, borderEndX2, borderEndY1, borderEndY2, borderStartX1, borderStartX2, borderStartY1, borderStartY2, top, left, right, bottom, boundingRectangle, checksum, rssExpandedStacked, type, threshold, page, orientationString, orientation, barcodeInfoString, barcodeData, qrVersion, numErrorsCorrected, dim2, dim1, dataMatrixNumErrorsCorrected, dataMatrixDim2, dataMatrixDim1, errorCorrectionLevel, barcodeString, properties);
+    return Objects.hash(barcodeDataType, barcodeReadType, barcodeDataLen, angle, borderEndX1, borderEndX2, borderEndY1,
+        borderEndY2, borderStartX1, borderStartX2, borderStartY1, borderStartY2, top, left, right, bottom,
+        boundingRectangle, checksum, rssExpandedStacked, type, threshold, page, orientationString, orientation,
+        barcodeInfoString, Arrays.hashCode(barcodeData), qrVersion, numErrorsCorrected, dim2, dim1,
+        dataMatrixNumErrorsCorrected, dataMatrixDim2, dataMatrixDim1, errorCorrectionLevel, barcodeString, properties);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScanBarcode {\n");
-    
+
     sb.append("    barcodeDataType: ").append(toIndentedString(barcodeDataType)).append("\n");
-    sb.append("    barcodeType: ").append(toIndentedString(barcodeType)).append("\n");
+    sb.append("    barcodeReadType: ").append(toIndentedString(barcodeReadType)).append("\n");
     sb.append("    barcodeDataLen: ").append(toIndentedString(barcodeDataLen)).append("\n");
     sb.append("    angle: ").append(toIndentedString(angle)).append("\n");
     sb.append("    borderEndX1: ").append(toIndentedString(borderEndX1)).append("\n");
@@ -1176,4 +1209,3 @@ public class ScanBarcode {
   }
 
 }
-

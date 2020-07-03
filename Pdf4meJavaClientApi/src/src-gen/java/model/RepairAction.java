@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * RepairAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class RepairAction {
   @SerializedName("analyzeOnly")
   private Boolean analyzeOnly = null;
@@ -46,15 +47,19 @@ public class RepairAction {
   @SerializedName("rebuildStreams")
   private Boolean rebuildStreams = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public RepairAction analyzeOnly(Boolean analyzeOnly) {
     this.analyzeOnly = analyzeOnly;
     return this;
   }
 
-   /**
+  /**
    * Get analyzeOnly
+   * 
    * @return analyzeOnly
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isAnalyzeOnly() {
     return analyzeOnly;
@@ -69,10 +74,11 @@ public class RepairAction {
     return this;
   }
 
-   /**
+  /**
    * Get recoverPages
+   * 
    * @return recoverPages
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isRecoverPages() {
     return recoverPages;
@@ -87,10 +93,11 @@ public class RepairAction {
     return this;
   }
 
-   /**
+  /**
    * Get recoverXREF
+   * 
    * @return recoverXREF
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isRecoverXREF() {
     return recoverXREF;
@@ -105,10 +112,11 @@ public class RepairAction {
     return this;
   }
 
-   /**
+  /**
    * Get rebuildFonts
+   * 
    * @return rebuildFonts
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isRebuildFonts() {
     return rebuildFonts;
@@ -123,10 +131,11 @@ public class RepairAction {
     return this;
   }
 
-   /**
+  /**
    * Get rebuildFontsAsType1
+   * 
    * @return rebuildFontsAsType1
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isRebuildFontsAsType1() {
     return rebuildFontsAsType1;
@@ -141,10 +150,11 @@ public class RepairAction {
     return this;
   }
 
-   /**
+  /**
    * Get rebuildStreams
+   * 
    * @return rebuildStreams
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isRebuildStreams() {
     return rebuildStreams;
@@ -154,6 +164,24 @@ public class RepairAction {
     this.rebuildStreams = rebuildStreams;
   }
 
+  public RepairAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -164,31 +192,33 @@ public class RepairAction {
       return false;
     }
     RepairAction repairAction = (RepairAction) o;
-    return Objects.equals(this.analyzeOnly, repairAction.analyzeOnly) &&
-        Objects.equals(this.recoverPages, repairAction.recoverPages) &&
-        Objects.equals(this.recoverXREF, repairAction.recoverXREF) &&
-        Objects.equals(this.rebuildFonts, repairAction.rebuildFonts) &&
-        Objects.equals(this.rebuildFontsAsType1, repairAction.rebuildFontsAsType1) &&
-        Objects.equals(this.rebuildStreams, repairAction.rebuildStreams);
+    return Objects.equals(this.analyzeOnly, repairAction.analyzeOnly)
+        && Objects.equals(this.recoverPages, repairAction.recoverPages)
+        && Objects.equals(this.recoverXREF, repairAction.recoverXREF)
+        && Objects.equals(this.rebuildFonts, repairAction.rebuildFonts)
+        && Objects.equals(this.rebuildFontsAsType1, repairAction.rebuildFontsAsType1)
+        && Objects.equals(this.rebuildStreams, repairAction.rebuildStreams)
+        && Objects.equals(this.actionId, repairAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyzeOnly, recoverPages, recoverXREF, rebuildFonts, rebuildFontsAsType1, rebuildStreams);
+    return Objects.hash(analyzeOnly, recoverPages, recoverXREF, rebuildFonts, rebuildFontsAsType1, rebuildStreams,
+        actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepairAction {\n");
-    
+
     sb.append("    analyzeOnly: ").append(toIndentedString(analyzeOnly)).append("\n");
     sb.append("    recoverPages: ").append(toIndentedString(recoverPages)).append("\n");
     sb.append("    recoverXREF: ").append(toIndentedString(recoverXREF)).append("\n");
     sb.append("    rebuildFonts: ").append(toIndentedString(rebuildFonts)).append("\n");
     sb.append("    rebuildFontsAsType1: ").append(toIndentedString(rebuildFontsAsType1)).append("\n");
     sb.append("    rebuildStreams: ").append(toIndentedString(rebuildStreams)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -205,4 +235,3 @@ public class RepairAction {
   }
 
 }
-

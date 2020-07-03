@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +29,7 @@ import model.Integration;
 /**
  * IntegrationSetting
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class IntegrationSetting {
   @SerializedName("integrations")
   private List<Integration> integrations = null;
@@ -47,10 +47,11 @@ public class IntegrationSetting {
     return this;
   }
 
-   /**
+  /**
    * Get integrations
+   * 
    * @return integrations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Integration> getIntegrations() {
     return integrations;
@@ -59,7 +60,6 @@ public class IntegrationSetting {
   public void setIntegrations(List<Integration> integrations) {
     this.integrations = integrations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -78,12 +78,11 @@ public class IntegrationSetting {
     return Objects.hash(integrations);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationSetting {\n");
-    
+
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -101,4 +100,3 @@ public class IntegrationSetting {
   }
 
 }
-

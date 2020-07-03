@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import java.io.IOException;
  * Define Stamp to place on Document
  */
 @ApiModel(description = "Define Stamp to place on Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class SigningProvider {
   /**
    * Gets or Sets signingProviderType
@@ -35,11 +35,11 @@ public class SigningProvider {
   @JsonAdapter(SigningProviderTypeEnum.Adapter.class)
   public enum SigningProviderTypeEnum {
     UNDEF("undef"),
-    
+
     QUOVADISSEALSIGN("quoVadisSealsign"),
-    
+
     SWISSSIGNSUISSEID("swissSignSuisseID"),
-    
+
     SWISSCOMSIGNING("swisscomSigning");
 
     private String value;
@@ -106,10 +106,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get signingProviderType
+   * 
    * @return signingProviderType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public SigningProviderTypeEnum getSigningProviderType() {
     return signingProviderType;
@@ -124,10 +125,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get identity
+   * 
    * @return identity
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getIdentity() {
     return identity;
@@ -142,10 +144,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get profile
+   * 
    * @return profile
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getProfile() {
     return profile;
@@ -160,10 +163,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get secret
+   * 
    * @return secret
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getSecret() {
     return secret;
@@ -178,10 +182,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get clientId
+   * 
    * @return clientId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getClientId() {
     return clientId;
@@ -196,10 +201,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get pin
+   * 
    * @return pin
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getPin() {
     return pin;
@@ -214,10 +220,11 @@ public class SigningProvider {
     return this;
   }
 
-   /**
+  /**
    * Get serviceUrl
+   * 
    * @return serviceUrl
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getServiceUrl() {
     return serviceUrl;
@@ -226,7 +233,6 @@ public class SigningProvider {
   public void setServiceUrl(String serviceUrl) {
     this.serviceUrl = serviceUrl;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -237,13 +243,11 @@ public class SigningProvider {
       return false;
     }
     SigningProvider signingProvider = (SigningProvider) o;
-    return Objects.equals(this.signingProviderType, signingProvider.signingProviderType) &&
-        Objects.equals(this.identity, signingProvider.identity) &&
-        Objects.equals(this.profile, signingProvider.profile) &&
-        Objects.equals(this.secret, signingProvider.secret) &&
-        Objects.equals(this.clientId, signingProvider.clientId) &&
-        Objects.equals(this.pin, signingProvider.pin) &&
-        Objects.equals(this.serviceUrl, signingProvider.serviceUrl);
+    return Objects.equals(this.signingProviderType, signingProvider.signingProviderType)
+        && Objects.equals(this.identity, signingProvider.identity)
+        && Objects.equals(this.profile, signingProvider.profile) && Objects.equals(this.secret, signingProvider.secret)
+        && Objects.equals(this.clientId, signingProvider.clientId) && Objects.equals(this.pin, signingProvider.pin)
+        && Objects.equals(this.serviceUrl, signingProvider.serviceUrl);
   }
 
   @Override
@@ -251,12 +255,11 @@ public class SigningProvider {
     return Objects.hash(signingProviderType, identity, profile, secret, clientId, pin, serviceUrl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SigningProvider {\n");
-    
+
     sb.append("    signingProviderType: ").append(toIndentedString(signingProviderType)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
@@ -280,4 +283,3 @@ public class SigningProvider {
   }
 
 }
-

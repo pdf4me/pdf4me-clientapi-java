@@ -6,12 +6,12 @@
 	<!-- Coordinates -->
 	<groupId>com.pdf4me</groupId>
 	<artifactId>pdf4me</artifactId>
-	<version>0.9.1</version>
+	<version>0.9.2</version>
 
 	<!-- Project Name, Description and URL -->
 	<name>Pdf4me</name>
 	<description>The Pdf4me Client API is a maven library which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS api provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDFs.</description>
-	<url>https://dev-dev.pdf4me.com</url>
+	<url>https://developer.pdf4me.com</url>
 
 	<!-- License Information -->
 	<licenses>

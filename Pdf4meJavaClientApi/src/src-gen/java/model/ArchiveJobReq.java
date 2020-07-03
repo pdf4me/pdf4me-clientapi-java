@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +30,7 @@ import model.StorageFolder;
 /**
  * ArchiveJobReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ArchiveJobReq {
   @SerializedName("jobId")
   private UUID jobId = null;
@@ -52,10 +52,11 @@ public class ArchiveJobReq {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public UUID getJobId() {
     return jobId;
@@ -70,10 +71,11 @@ public class ArchiveJobReq {
     return this;
   }
 
-   /**
+  /**
    * Get sourceFolder
+   * 
    * @return sourceFolder
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public StorageFolder getSourceFolder() {
     return sourceFolder;
@@ -88,10 +90,11 @@ public class ArchiveJobReq {
     return this;
   }
 
-   /**
+  /**
    * Get executionTrigger
+   * 
    * @return executionTrigger
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public ExecutionTrigger getExecutionTrigger() {
     return executionTrigger;
@@ -106,10 +109,11 @@ public class ArchiveJobReq {
     return this;
   }
 
-   /**
+  /**
    * Get archiveConfig
+   * 
    * @return archiveConfig
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public ArchiveConfig getArchiveConfig() {
     return archiveConfig;
@@ -124,10 +128,11 @@ public class ArchiveJobReq {
     return this;
   }
 
-   /**
+  /**
    * Get targetFolder
+   * 
    * @return targetFolder
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public StorageFolder getTargetFolder() {
     return targetFolder;
@@ -136,7 +141,6 @@ public class ArchiveJobReq {
   public void setTargetFolder(StorageFolder targetFolder) {
     this.targetFolder = targetFolder;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,11 +151,11 @@ public class ArchiveJobReq {
       return false;
     }
     ArchiveJobReq archiveJobReq = (ArchiveJobReq) o;
-    return Objects.equals(this.jobId, archiveJobReq.jobId) &&
-        Objects.equals(this.sourceFolder, archiveJobReq.sourceFolder) &&
-        Objects.equals(this.executionTrigger, archiveJobReq.executionTrigger) &&
-        Objects.equals(this.archiveConfig, archiveJobReq.archiveConfig) &&
-        Objects.equals(this.targetFolder, archiveJobReq.targetFolder);
+    return Objects.equals(this.jobId, archiveJobReq.jobId)
+        && Objects.equals(this.sourceFolder, archiveJobReq.sourceFolder)
+        && Objects.equals(this.executionTrigger, archiveJobReq.executionTrigger)
+        && Objects.equals(this.archiveConfig, archiveJobReq.archiveConfig)
+        && Objects.equals(this.targetFolder, archiveJobReq.targetFolder);
   }
 
   @Override
@@ -159,12 +163,11 @@ public class ArchiveJobReq {
     return Objects.hash(jobId, sourceFolder, executionTrigger, archiveConfig, targetFolder);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArchiveJobReq {\n");
-    
+
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    sourceFolder: ").append(toIndentedString(sourceFolder)).append("\n");
     sb.append("    executionTrigger: ").append(toIndentedString(executionTrigger)).append("\n");
@@ -186,4 +189,3 @@ public class ArchiveJobReq {
   }
 
 }
-

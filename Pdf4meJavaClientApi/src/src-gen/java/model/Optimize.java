@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,13 +31,16 @@ import model.OptimizeAction;
  * Stamp Request with core data to stamp
  */
 @ApiModel(description = "Stamp Request with core data to stamp")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Optimize {
   @SerializedName("document")
   private Document document = null;
 
   @SerializedName("optimizeAction")
   private OptimizeAction optimizeAction = null;
+
+  @SerializedName("ipAddress")
+  private String ipAddress = null;
 
   @SerializedName("jobId")
   private String jobId = null;
@@ -53,10 +56,12 @@ public class Optimize {
     return this;
   }
 
-   /**
-   * Give the document to change or use JobId/DocumentId to reference an uploaded document.
+  /**
+   * Give the document to change or use JobId/DocumentId to reference an uploaded
+   * document.
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(required = true, value = "Give the document to change or use JobId/DocumentId to reference an uploaded document.")
   public Document getDocument() {
     return document;
@@ -71,10 +76,11 @@ public class Optimize {
     return this;
   }
 
-   /**
+  /**
    * Give an image stamp
+   * 
    * @return optimizeAction
-  **/
+   **/
   @ApiModelProperty(value = "Give an image stamp")
   public OptimizeAction getOptimizeAction() {
     return optimizeAction;
@@ -84,15 +90,35 @@ public class Optimize {
     this.optimizeAction = optimizeAction;
   }
 
+  public Optimize ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+  /**
+   * Get ipAddress
+   * 
+   * @return ipAddress
+   **/
+  @ApiModelProperty(value = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
   public Optimize jobId(String jobId) {
     this.jobId = jobId;
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -107,10 +133,11 @@ public class Optimize {
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -133,10 +160,11 @@ public class Optimize {
     return this;
   }
 
-   /**
+  /**
    * Get integrations
+   * 
    * @return integrations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getIntegrations() {
     return integrations;
@@ -145,7 +173,6 @@ public class Optimize {
   public void setIntegrations(List<String> integrations) {
     this.integrations = integrations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,26 +183,25 @@ public class Optimize {
       return false;
     }
     Optimize optimize = (Optimize) o;
-    return Objects.equals(this.document, optimize.document) &&
-        Objects.equals(this.optimizeAction, optimize.optimizeAction) &&
-        Objects.equals(this.jobId, optimize.jobId) &&
-        Objects.equals(this.jobIdExt, optimize.jobIdExt) &&
-        Objects.equals(this.integrations, optimize.integrations);
+    return Objects.equals(this.document, optimize.document)
+        && Objects.equals(this.optimizeAction, optimize.optimizeAction)
+        && Objects.equals(this.ipAddress, optimize.ipAddress) && Objects.equals(this.jobId, optimize.jobId)
+        && Objects.equals(this.jobIdExt, optimize.jobIdExt) && Objects.equals(this.integrations, optimize.integrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, optimizeAction, jobId, jobIdExt, integrations);
+    return Objects.hash(document, optimizeAction, ipAddress, jobId, jobIdExt, integrations);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Optimize {\n");
-    
+
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    optimizeAction: ").append(toIndentedString(optimizeAction)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIdExt: ").append(toIndentedString(jobIdExt)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
@@ -195,4 +221,3 @@ public class Optimize {
   }
 
 }
-

@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,25 +24,37 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import model.KeyValuePairStringString;
 
 /**
  * OptimizeAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class OptimizeAction {
   /**
-   * With this property one of the predefined optimization profiles can be set. If a profile is set then all the properties  listed in TPDFOptimizationProfile(table Profile Settings) are set to their respective values.Properties not  listed in this table are left unchanged.  One way of quickly arriving at a specific setting is to first set the Profile and then adapt the configuration by  setting some of the individual properties.
+   * With this property one of the predefined optimization profiles can be set. If
+   * a profile is set then all the properties listed in
+   * TPDFOptimizationProfile(table Profile Settings) are set to their respective
+   * values.Properties not listed in this table are left unchanged. One way of
+   * quickly arriving at a specific setting is to first set the Profile and then
+   * adapt the configuration by setting some of the individual properties.
    */
   @JsonAdapter(ProfileEnum.Adapter.class)
   public enum ProfileEnum {
-    DEFAULT("default"),
-    
+    MAX("max"),
+
     WEB("web"),
-    
+
     PRINT("print"),
-    
-    MAX("max");
+
+    DEFAULT("default"),
+
+    WEBMAX("webMax"),
+
+    PRINTMAX("printMax"),
+
+    PRINTGRAY("printGray");
 
     private String value;
 
@@ -115,27 +127,27 @@ public class OptimizeAction {
   @JsonAdapter(BitonalCompressionsEnum.Adapter.class)
   public enum BitonalCompressionsEnum {
     NONE("none"),
-    
+
     RAW("raw"),
-    
+
     JPEG("jPEG"),
-    
+
     FLATE("flate"),
-    
+
     LZW("lZW"),
-    
+
     GROUP3("group3"),
-    
+
     GROUP3_2D("group3_2D"),
-    
+
     GROUP4("group4"),
-    
+
     JBIG2("jBIG2"),
-    
+
     JPEG2000("jPEG2000"),
-    
+
     MRC("mRC"),
-    
+
     SOURCE("source");
 
     private String value;
@@ -194,27 +206,27 @@ public class OptimizeAction {
   @JsonAdapter(ContinuousCompressionsEnum.Adapter.class)
   public enum ContinuousCompressionsEnum {
     NONE("none"),
-    
+
     RAW("raw"),
-    
+
     JPEG("jPEG"),
-    
+
     FLATE("flate"),
-    
+
     LZW("lZW"),
-    
+
     GROUP3("group3"),
-    
+
     GROUP3_2D("group3_2D"),
-    
+
     GROUP4("group4"),
-    
+
     JBIG2("jBIG2"),
-    
+
     JPEG2000("jPEG2000"),
-    
+
     MRC("mRC"),
-    
+
     SOURCE("source");
 
     private String value;
@@ -270,27 +282,27 @@ public class OptimizeAction {
   @JsonAdapter(IndexedCompressionsEnum.Adapter.class)
   public enum IndexedCompressionsEnum {
     NONE("none"),
-    
+
     RAW("raw"),
-    
+
     JPEG("jPEG"),
-    
+
     FLATE("flate"),
-    
+
     LZW("lZW"),
-    
+
     GROUP3("group3"),
-    
+
     GROUP3_2D("group3_2D"),
-    
+
     GROUP4("group4"),
-    
+
     JBIG2("jBIG2"),
-    
+
     JPEG2000("jPEG2000"),
-    
+
     MRC("mRC"),
-    
+
     SOURCE("source");
 
     private String value;
@@ -335,22 +347,28 @@ public class OptimizeAction {
   private List<IndexedCompressionsEnum> indexedCompressions = null;
 
   /**
-   * This option enables or disables dithering when down-sampling bi-tonal images.  The only values supported are eDitherNone and eDitherFloydSteinberg.  Some bi-tonal images try to evoke the impression of different levels of gray   by randomly setting pixels to black.If dithering is applied during downsampling    then the gray levels of such images are preserved better.If dithering is switched    off then lines (e.g.text glyphs) are preserved better.      {default: DitherNone}
+   * This option enables or disables dithering when down-sampling bi-tonal images.
+   * The only values supported are eDitherNone and eDitherFloydSteinberg. Some
+   * bi-tonal images try to evoke the impression of different levels of gray by
+   * randomly setting pixels to black.If dithering is applied during downsampling
+   * then the gray levels of such images are preserved better.If dithering is
+   * switched off then lines (e.g.text glyphs) are preserved better. {default:
+   * DitherNone}
    */
   @JsonAdapter(DitheringModeEnum.Adapter.class)
   public enum DitheringModeEnum {
     NONE("none"),
-    
+
     FLOYDSTEINBERG("floydSteinberg"),
-    
+
     HALFTONE("halftone"),
-    
+
     PATTERN("pattern"),
-    
+
     G3OPTIMIZED("g3Optimized"),
-    
+
     G4OPTIMIZED("g4Optimized"),
-    
+
     ATKINSON("atkinson");
 
     private String value;
@@ -418,29 +436,29 @@ public class OptimizeAction {
   @JsonAdapter(StripEnum.Adapter.class)
   public enum StripEnum {
     THREADS("threads"),
-    
+
     METADATA("metadata"),
-    
+
     PIECEINFO("pieceInfo"),
-    
+
     STRUCTTREE("structTree"),
-    
+
     THUMB("thumb"),
-    
+
     SPIDER("spider"),
-    
+
     ALTERNATES("alternates"),
-    
+
     FORMS("forms"),
-    
+
     LINKS("links"),
-    
+
     ANNOTS("annots"),
-    
+
     FORMSANNOTS("formsAnnots"),
-    
+
     OUTPUTINTENTS("outputIntents"),
-    
+
     ALL("all");
 
     private String value;
@@ -490,15 +508,24 @@ public class OptimizeAction {
   @SerializedName("flattenSignatureFields")
   private Boolean flattenSignatureFields = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public OptimizeAction profile(ProfileEnum profile) {
     this.profile = profile;
     return this;
   }
 
-   /**
-   * With this property one of the predefined optimization profiles can be set. If a profile is set then all the properties  listed in TPDFOptimizationProfile(table Profile Settings) are set to their respective values.Properties not  listed in this table are left unchanged.  One way of quickly arriving at a specific setting is to first set the Profile and then adapt the configuration by  setting some of the individual properties.
+  /**
+   * With this property one of the predefined optimization profiles can be set. If
+   * a profile is set then all the properties listed in
+   * TPDFOptimizationProfile(table Profile Settings) are set to their respective
+   * values.Properties not listed in this table are left unchanged. One way of
+   * quickly arriving at a specific setting is to first set the Profile and then
+   * adapt the configuration by setting some of the individual properties.
+   * 
    * @return profile
-  **/
+   **/
   @ApiModelProperty(value = "With this property one of the predefined optimization profiles can be set. If a profile is set then all the properties  listed in TPDFOptimizationProfile(table Profile Settings) are set to their respective values.Properties not  listed in this table are left unchanged.  One way of quickly arriving at a specific setting is to first set the Profile and then adapt the configuration by  setting some of the individual properties.")
   public ProfileEnum getProfile() {
     return profile;
@@ -513,10 +540,11 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
+  /**
    * Get useProfile
+   * 
    * @return useProfile
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Boolean isUseProfile() {
     return useProfile;
@@ -531,10 +559,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set whether redundant objects should be removed. If this property is  set to True, duplicate objects are removed in order to reduce the file size.    {default: false}
+  /**
+   * Get or set whether redundant objects should be removed. If this property is
+   * set to True, duplicate objects are removed in order to reduce the file size.
+   * {default: false}
+   * 
    * @return removeRedundantObjects
-  **/
+   **/
   @ApiModelProperty(value = "Get or set whether redundant objects should be removed. If this property is  set to True, duplicate objects are removed in order to reduce the file size.    {default: false}")
   public Boolean isRemoveRedundantObjects() {
     return removeRedundantObjects;
@@ -549,10 +580,15 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * This property influences two optimizations related to subsetted fonts:  - Subset embedded fonts.  - Merge embedded font programs of different subsets of the same font, granted they can be merged.   &lt;para&gt;  Sub-setting refers to removing those glyphs in a font that are not actually  used in any text contained in the PDF.   &lt;/para&gt;{default: false}
+  /**
+   * This property influences two optimizations related to subsetted fonts: -
+   * Subset embedded fonts. - Merge embedded font programs of different subsets of
+   * the same font, granted they can be merged. &lt;para&gt; Sub-setting refers to
+   * removing those glyphs in a font that are not actually used in any text
+   * contained in the PDF. &lt;/para&gt;{default: false}
+   * 
    * @return subsetFonts
-  **/
+   **/
   @ApiModelProperty(value = "This property influences two optimizations related to subsetted fonts:  - Subset embedded fonts.  - Merge embedded font programs of different subsets of the same font, granted they can be merged.   <para>  Sub-setting refers to removing those glyphs in a font that are not actually  used in any text contained in the PDF.   </para>{default: false}")
   public Boolean isSubsetFonts() {
     return subsetFonts;
@@ -567,10 +603,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set whether resources should be optimized. If set, unused resources  such as images, fonts, and color spaces are removed.Also content streams  are re-built.    {default: false}
+  /**
+   * Get or set whether resources should be optimized. If set, unused resources
+   * such as images, fonts, and color spaces are removed.Also content streams are
+   * re-built. {default: false}
+   * 
    * @return optimizeResources
-  **/
+   **/
   @ApiModelProperty(value = "Get or set whether resources should be optimized. If set, unused resources  such as images, fonts, and color spaces are removed.Also content streams  are re-built.    {default: false}")
   public Boolean isOptimizeResources() {
     return optimizeResources;
@@ -585,10 +624,15 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * If this option is set, then re-compression of images is forced if an image in the  input PDF has a compression type that differs from the compression types  given in ContinuousCompressions, BitonalCompressions, or IndexedCompressions. Use this option if you want to allow only the given  compression types for images in the output PDF.  {default: false}
+  /**
+   * If this option is set, then re-compression of images is forced if an image in
+   * the input PDF has a compression type that differs from the compression types
+   * given in ContinuousCompressions, BitonalCompressions, or IndexedCompressions.
+   * Use this option if you want to allow only the given compression types for
+   * images in the output PDF. {default: false}
+   * 
    * @return forceCompressionTypes
-  **/
+   **/
   @ApiModelProperty(value = "If this option is set, then re-compression of images is forced if an image in the  input PDF has a compression type that differs from the compression types  given in ContinuousCompressions, BitonalCompressions, or IndexedCompressions. Use this option if you want to allow only the given  compression types for images in the output PDF.  {default: false}")
   public Boolean isForceCompressionTypes() {
     return forceCompressionTypes;
@@ -603,10 +647,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * If set, all images are always recompressed.If not set (default), images are only  recompressed if the resulting image is smaller than the original, i.e.requires  less bytes to store in the file.    {default: false}
+  /**
+   * If set, all images are always recompressed.If not set (default), images are
+   * only recompressed if the resulting image is smaller than the original,
+   * i.e.requires less bytes to store in the file. {default: false}
+   * 
    * @return forceRecompression
-  **/
+   **/
   @ApiModelProperty(value = "If set, all images are always recompressed.If not set (default), images are only  recompressed if the resulting image is smaller than the original, i.e.requires  less bytes to store in the file.    {default: false}")
   public Boolean isForceRecompression() {
     return forceRecompression;
@@ -621,10 +668,22 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * This property is used to enable color complexity reduction of images. (See  also Provided Features for Optimizing Images.)  If enabled then images with device color spaces(DeviceRGB, DeviceCMYK,  or DeviceGray) and indexed images with a device color space as base color  space are analyzed and if possible converted as follows:  - An image with DeviceRGB or DeviceCMYK color space in which all pixels  are gray is converted to a grayscale image with DeviceGray color space.  - An image that contains only black and white pixels is converted into a bitonal image.  - An image in which all the pixels have the same color is down-sampled to one pixel.  Furthermore, images’ masks and soft masks are optimized as follows:  - A soft mask that contains only black and white pixels is converted to a mask.  - A (soft) mask that is opaque is removed.    {default: false}
+  /**
+   * This property is used to enable color complexity reduction of images. (See
+   * also Provided Features for Optimizing Images.) If enabled then images with
+   * device color spaces(DeviceRGB, DeviceCMYK, or DeviceGray) and indexed images
+   * with a device color space as base color space are analyzed and if possible
+   * converted as follows: - An image with DeviceRGB or DeviceCMYK color space in
+   * which all pixels are gray is converted to a grayscale image with DeviceGray
+   * color space. - An image that contains only black and white pixels is
+   * converted into a bitonal image. - An image in which all the pixels have the
+   * same color is down-sampled to one pixel. Furthermore, images’ masks and soft
+   * masks are optimized as follows: - A soft mask that contains only black and
+   * white pixels is converted to a mask. - A (soft) mask that is opaque is
+   * removed. {default: false}
+   * 
    * @return reduceColorComplexity
-  **/
+   **/
   @ApiModelProperty(value = "This property is used to enable color complexity reduction of images. (See  also Provided Features for Optimizing Images.)  If enabled then images with device color spaces(DeviceRGB, DeviceCMYK,  or DeviceGray) and indexed images with a device color space as base color  space are analyzed and if possible converted as follows:  - An image with DeviceRGB or DeviceCMYK color space in which all pixels  are gray is converted to a grayscale image with DeviceGray color space.  - An image that contains only black and white pixels is converted into a bitonal image.  - An image in which all the pixels have the same color is down-sampled to one pixel.  Furthermore, images’ masks and soft masks are optimized as follows:  - A soft mask that contains only black and white pixels is converted to a mask.  - A (soft) mask that is opaque is removed.    {default: false}")
   public Boolean isReduceColorComplexity() {
     return reduceColorComplexity;
@@ -639,10 +698,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Merge embedded font programs. Font programs can be merged, if they  originate from the same font, e.g.they are of the same type, have the same  name and encoding.Merging of Type1(PostScript) and TrueType fonts is supported.
+  /**
+   * Merge embedded font programs. Font programs can be merged, if they originate
+   * from the same font, e.g.they are of the same type, have the same name and
+   * encoding.Merging of Type1(PostScript) and TrueType fonts is supported.
+   * 
    * @return mergeEmbeddedFonts
-  **/
+   **/
   @ApiModelProperty(value = "Merge embedded font programs. Font programs can be merged, if they  originate from the same font, e.g.they are of the same type, have the same  name and encoding.Merging of Type1(PostScript) and TrueType fonts is supported.")
   public Boolean isMergeEmbeddedFonts() {
     return mergeEmbeddedFonts;
@@ -665,10 +727,20 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the compression types for bi-tonal images.  Several values can be combined.The following values are allowed:  ComprAttemptNone  ComprAttemptRaw  ComprAttemptFlate  ComprAttemptLZW  ComprAttemptGroup3  ComprAttemptGroup4  ComprAttemptSource  ComprAttemptJBIG2  Other values are ignored.   &lt;para&gt;  During optimization, all set compression types are tried and the one resulting in the least memory footprint is taken.  Typically, CCITT Group 4 or JBIG2 is used for bi-tonal compression. Due to the simpler algorithm CCITT Group 4 has  the advantage of being faster. JBIG2 can achieve compression ratios that are up to twice as high as CCITT Group 4  at the cost of longer computation time.   &lt;/para&gt;{default: ComprAttemptNone}
+  /**
+   * Get or set the compression types for bi-tonal images. Several values can be
+   * combined.The following values are allowed: ComprAttemptNone ComprAttemptRaw
+   * ComprAttemptFlate ComprAttemptLZW ComprAttemptGroup3 ComprAttemptGroup4
+   * ComprAttemptSource ComprAttemptJBIG2 Other values are ignored. &lt;para&gt;
+   * During optimization, all set compression types are tried and the one
+   * resulting in the least memory footprint is taken. Typically, CCITT Group 4 or
+   * JBIG2 is used for bi-tonal compression. Due to the simpler algorithm CCITT
+   * Group 4 has the advantage of being faster. JBIG2 can achieve compression
+   * ratios that are up to twice as high as CCITT Group 4 at the cost of longer
+   * computation time. &lt;/para&gt;{default: ComprAttemptNone}
+   * 
    * @return bitonalCompressions
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the compression types for bi-tonal images.  Several values can be combined.The following values are allowed:  ComprAttemptNone  ComprAttemptRaw  ComprAttemptFlate  ComprAttemptLZW  ComprAttemptGroup3  ComprAttemptGroup4  ComprAttemptSource  ComprAttemptJBIG2  Other values are ignored.   <para>  During optimization, all set compression types are tried and the one resulting in the least memory footprint is taken.  Typically, CCITT Group 4 or JBIG2 is used for bi-tonal compression. Due to the simpler algorithm CCITT Group 4 has  the advantage of being faster. JBIG2 can achieve compression ratios that are up to twice as high as CCITT Group 4  at the cost of longer computation time.   </para>{default: ComprAttemptNone}")
   public List<BitonalCompressionsEnum> getBitonalCompressions() {
     return bitonalCompressions;
@@ -683,10 +755,12 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the target resolution in dots per inch (DPI) after re-sampling images  for bi-tonal images.See also ResolutionDPI.    {default: 200}
+  /**
+   * Get or set the target resolution in dots per inch (DPI) after re-sampling
+   * images for bi-tonal images.See also ResolutionDPI. {default: 200}
+   * 
    * @return bitonalResolutionDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the target resolution in dots per inch (DPI) after re-sampling images  for bi-tonal images.See also ResolutionDPI.    {default: 200}")
   public Double getBitonalResolutionDPI() {
     return bitonalResolutionDPI;
@@ -701,10 +775,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the threshold resolution in dots per inch (DPI) to selectively activate  re-sampling for bi-tonal images.The value -1 deactivates re-sampling for bitonal images. See also ThresholdDPI.    {default: -1}
+  /**
+   * Get or set the threshold resolution in dots per inch (DPI) to selectively
+   * activate re-sampling for bi-tonal images.The value -1 deactivates re-sampling
+   * for bitonal images. See also ThresholdDPI. {default: -1}
+   * 
    * @return bitonalThresholdDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the threshold resolution in dots per inch (DPI) to selectively activate  re-sampling for bi-tonal images.The value -1 deactivates re-sampling for bitonal images. See also ThresholdDPI.    {default: -1}")
   public Double getBitonalThresholdDPI() {
     return bitonalThresholdDPI;
@@ -719,10 +796,15 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the option to clip images. When enabled, then invisible parts of images are clipped (cropped).   While this does not affect visual parts of images, it may have a minor visual impact because clipped   images are re-compressed. Pre-blended images are not clipped. Enabling this property will also   enable the OptimizeResources property.                {default: false}
+  /**
+   * Get or set the option to clip images. When enabled, then invisible parts of
+   * images are clipped (cropped). While this does not affect visual parts of
+   * images, it may have a minor visual impact because clipped images are
+   * re-compressed. Pre-blended images are not clipped. Enabling this property
+   * will also enable the OptimizeResources property. {default: false}
+   * 
    * @return clipImages
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the option to clip images. When enabled, then invisible parts of images are clipped (cropped).   While this does not affect visual parts of images, it may have a minor visual impact because clipped   images are re-compressed. Pre-blended images are not clipped. Enabling this property will also   enable the OptimizeResources property.                {default: false}")
   public Boolean isClipImages() {
     return clipImages;
@@ -745,10 +827,15 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the compression types to be tried for continuous images, i.e. RGB, CMYK, and grayscale images.  See also TPDFComprAttempt. Several values can be combined with bitwise or operators.  Other values are ignored. During optimization, all set compression types are tried and the one resulting in   the least memory footprint is taken.    {default: ComprAttemptNone}
+  /**
+   * Get or set the compression types to be tried for continuous images, i.e. RGB,
+   * CMYK, and grayscale images. See also TPDFComprAttempt. Several values can be
+   * combined with bitwise or operators. Other values are ignored. During
+   * optimization, all set compression types are tried and the one resulting in
+   * the least memory footprint is taken. {default: ComprAttemptNone}
+   * 
    * @return continuousCompressions
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the compression types to be tried for continuous images, i.e. RGB, CMYK, and grayscale images.  See also TPDFComprAttempt. Several values can be combined with bitwise or operators.  Other values are ignored. During optimization, all set compression types are tried and the one resulting in   the least memory footprint is taken.    {default: ComprAttemptNone}")
   public List<ContinuousCompressionsEnum> getContinuousCompressions() {
     return continuousCompressions;
@@ -763,10 +850,21 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set whether to linearize the PDF output file, i.e. optimize file for fast web access.   A linearized document has a slightly larger file size than a non-linearized file and provides the following main features:   - When a document is opened in a PDF viewer of a web browser, the first page can be viewed without downloading the entire   PDF file.In contrast, a non-linearized PDF file must be downloaded completely before the first page can be displayed.  - When another page is requested by the user, that page is displayed as quickly as possible and incrementally as   data arrives, without downloading the entire PDF file.   &lt;para&gt;  Signed files cannot be linearizes. So this property must be set to False if a digital signature is applied.   &lt;/para&gt;{default: false}
+  /**
+   * Get or set whether to linearize the PDF output file, i.e. optimize file for
+   * fast web access. A linearized document has a slightly larger file size than a
+   * non-linearized file and provides the following main features: - When a
+   * document is opened in a PDF viewer of a web browser, the first page can be
+   * viewed without downloading the entire PDF file.In contrast, a non-linearized
+   * PDF file must be downloaded completely before the first page can be
+   * displayed. - When another page is requested by the user, that page is
+   * displayed as quickly as possible and incrementally as data arrives, without
+   * downloading the entire PDF file. &lt;para&gt; Signed files cannot be
+   * linearizes. So this property must be set to False if a digital signature is
+   * applied. &lt;/para&gt;{default: false}
+   * 
    * @return linearize
-  **/
+   **/
   @ApiModelProperty(value = "Get or set whether to linearize the PDF output file, i.e. optimize file for fast web access.   A linearized document has a slightly larger file size than a non-linearized file and provides the following main features:   - When a document is opened in a PDF viewer of a web browser, the first page can be viewed without downloading the entire   PDF file.In contrast, a non-linearized PDF file must be downloaded completely before the first page can be displayed.  - When another page is requested by the user, that page is displayed as quickly as possible and incrementally as   data arrives, without downloading the entire PDF file.   <para>  Signed files cannot be linearizes. So this property must be set to False if a digital signature is applied.   </para>{default: false}")
   public Boolean isLinearize() {
     return linearize;
@@ -781,10 +879,14 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the quality index of lossy compression types. This value ranges   from 1 to 100 and is applied to JPEG and JPEG2000 compression.For  JPEG2000, a quality index of 100 means lossless compression.JPEG compression is always lossy.    {default: 75}
+  /**
+   * Get or set the quality index of lossy compression types. This value ranges
+   * from 1 to 100 and is applied to JPEG and JPEG2000 compression.For JPEG2000, a
+   * quality index of 100 means lossless compression.JPEG compression is always
+   * lossy. {default: 75}
+   * 
    * @return imageQuality
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the quality index of lossy compression types. This value ranges   from 1 to 100 and is applied to JPEG and JPEG2000 compression.For  JPEG2000, a quality index of 100 means lossless compression.JPEG compression is always lossy.    {default: 75}")
   public Integer getImageQuality() {
     return imageQuality;
@@ -807,10 +909,17 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the compression types for images that have an indexed (“palette”)  color space.See also TPDFComprAttempt.  Several values can be combined with bitwise or operators.The following values are allowed:  - ComprAttemptNone  - ComprAttemptRaw  - ComprAttemptFlate  - ComprAttemptLZW  - ComprAttemptSource  Other values are ignored.   &lt;para&gt;  During optimization, all set compression types are tried and the one resulting in the least memory footprint is taken.   &lt;/para&gt;{default: ComprAttemptFlate}
+  /**
+   * Get or set the compression types for images that have an indexed (“palette”)
+   * color space.See also TPDFComprAttempt. Several values can be combined with
+   * bitwise or operators.The following values are allowed: - ComprAttemptNone -
+   * ComprAttemptRaw - ComprAttemptFlate - ComprAttemptLZW - ComprAttemptSource
+   * Other values are ignored. &lt;para&gt; During optimization, all set
+   * compression types are tried and the one resulting in the least memory
+   * footprint is taken. &lt;/para&gt;{default: ComprAttemptFlate}
+   * 
    * @return indexedCompressions
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the compression types for images that have an indexed (“palette”)  color space.See also TPDFComprAttempt.  Several values can be combined with bitwise or operators.The following values are allowed:  - ComprAttemptNone  - ComprAttemptRaw  - ComprAttemptFlate  - ComprAttemptLZW  - ComprAttemptSource  Other values are ignored.   <para>  During optimization, all set compression types are tried and the one resulting in the least memory footprint is taken.   </para>{default: ComprAttemptFlate}")
   public List<IndexedCompressionsEnum> getIndexedCompressions() {
     return indexedCompressions;
@@ -825,10 +934,17 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * This option enables or disables dithering when down-sampling bi-tonal images.  The only values supported are eDitherNone and eDitherFloydSteinberg.  Some bi-tonal images try to evoke the impression of different levels of gray   by randomly setting pixels to black.If dithering is applied during downsampling    then the gray levels of such images are preserved better.If dithering is switched    off then lines (e.g.text glyphs) are preserved better.      {default: DitherNone}
+  /**
+   * This option enables or disables dithering when down-sampling bi-tonal images.
+   * The only values supported are eDitherNone and eDitherFloydSteinberg. Some
+   * bi-tonal images try to evoke the impression of different levels of gray by
+   * randomly setting pixels to black.If dithering is applied during downsampling
+   * then the gray levels of such images are preserved better.If dithering is
+   * switched off then lines (e.g.text glyphs) are preserved better. {default:
+   * DitherNone}
+   * 
    * @return ditheringMode
-  **/
+   **/
   @ApiModelProperty(value = "This option enables or disables dithering when down-sampling bi-tonal images.  The only values supported are eDitherNone and eDitherFloydSteinberg.  Some bi-tonal images try to evoke the impression of different levels of gray   by randomly setting pixels to black.If dithering is applied during downsampling    then the gray levels of such images are preserved better.If dithering is switched    off then lines (e.g.text glyphs) are preserved better.      {default: DitherNone}")
   public DitheringModeEnum getDitheringMode() {
     return ditheringMode;
@@ -843,10 +959,12 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the target resolution in dots per inch (DPI) after re-sampling images  for color images.See also ResolutionDPI.    {default: 150}
+  /**
+   * Get or set the target resolution in dots per inch (DPI) after re-sampling
+   * images for color images.See also ResolutionDPI. {default: 150}
+   * 
    * @return colorResolutionDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the target resolution in dots per inch (DPI) after re-sampling images  for color images.See also ResolutionDPI.    {default: 150}")
   public Double getColorResolutionDPI() {
     return colorResolutionDPI;
@@ -861,10 +979,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the threshold resolution in dots per inch (DPI) to selectively activate  re-sampling for color images.The value -1 deactivates re-sampling for color  images. See also ThresholdDPI.    {default: -1}
+  /**
+   * Get or set the threshold resolution in dots per inch (DPI) to selectively
+   * activate re-sampling for color images.The value -1 deactivates re-sampling
+   * for color images. See also ThresholdDPI. {default: -1}
+   * 
    * @return colorThresholdDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the threshold resolution in dots per inch (DPI) to selectively activate  re-sampling for color images.The value -1 deactivates re-sampling for color  images. See also ThresholdDPI.    {default: -1}")
   public Double getColorThresholdDPI() {
     return colorThresholdDPI;
@@ -879,10 +1000,12 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set target resolution in dots per inch (DPI) after re-sampling images  for monochrome images.See also ResolutionDPI.    {default: 150}
+  /**
+   * Get or set target resolution in dots per inch (DPI) after re-sampling images
+   * for monochrome images.See also ResolutionDPI. {default: 150}
+   * 
    * @return monochromeResolutionDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set target resolution in dots per inch (DPI) after re-sampling images  for monochrome images.See also ResolutionDPI.    {default: 150}")
   public Double getMonochromeResolutionDPI() {
     return monochromeResolutionDPI;
@@ -897,10 +1020,13 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the threshold resolution in dots per inch (DPI) to selectively activate  re-sampling for monochrome images.The value -1 deactivates re-sampling  for monochrome images. See also ThresholdDPI.    {default: -1}
+  /**
+   * Get or set the threshold resolution in dots per inch (DPI) to selectively
+   * activate re-sampling for monochrome images.The value -1 deactivates
+   * re-sampling for monochrome images. See also ThresholdDPI. {default: -1}
+   * 
    * @return monochromeThresholdDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the threshold resolution in dots per inch (DPI) to selectively activate  re-sampling for monochrome images.The value -1 deactivates re-sampling  for monochrome images. See also ThresholdDPI.    {default: -1}")
   public Double getMonochromeThresholdDPI() {
     return monochromeThresholdDPI;
@@ -915,10 +1041,18 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Get or set the resolution in DPI (dots per inch) after re-sampling images.  This property affects all three image compression types(BitonalResolutionDPI, ColorResolutionDPI, MonochromeResolutionDPI).  A typical value for the resolution when optimizing for the web is 150 DPI.For  printing typically no re-sampling is applied(see property ThresholdDPI).  Pre-blended images, images with a color key mask, mask, and soft mask images are not re-sampled.  When getting ResolutionDPI, the property returns the target resolution in DPI for color images.    {default: Different defaults apply to different image types}
+  /**
+   * Get or set the resolution in DPI (dots per inch) after re-sampling images.
+   * This property affects all three image compression types(BitonalResolutionDPI,
+   * ColorResolutionDPI, MonochromeResolutionDPI). A typical value for the
+   * resolution when optimizing for the web is 150 DPI.For printing typically no
+   * re-sampling is applied(see property ThresholdDPI). Pre-blended images, images
+   * with a color key mask, mask, and soft mask images are not re-sampled. When
+   * getting ResolutionDPI, the property returns the target resolution in DPI for
+   * color images. {default: Different defaults apply to different image types}
+   * 
    * @return resolutionDPI
-  **/
+   **/
   @ApiModelProperty(value = "Get or set the resolution in DPI (dots per inch) after re-sampling images.  This property affects all three image compression types(BitonalResolutionDPI, ColorResolutionDPI, MonochromeResolutionDPI).  A typical value for the resolution when optimizing for the web is 150 DPI.For  printing typically no re-sampling is applied(see property ThresholdDPI).  Pre-blended images, images with a color key mask, mask, and soft mask images are not re-sampled.  When getting ResolutionDPI, the property returns the target resolution in DPI for color images.    {default: Different defaults apply to different image types}")
   public Integer getResolutionDPI() {
     return resolutionDPI;
@@ -933,10 +1067,15 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * Set the threshold in DPI (dots per inch) to selectively activate re-sampling.  Only images with a resolution above the threshold DPI will be re-sampled.  This property affects all three image compression types(BitonalThresholdDPI, ColorThresholdDPI, MonochromeThresholdDPI). The  value -1 deactivates re-sampling.    {default: -1}
+  /**
+   * Set the threshold in DPI (dots per inch) to selectively activate re-sampling.
+   * Only images with a resolution above the threshold DPI will be re-sampled.
+   * This property affects all three image compression types(BitonalThresholdDPI,
+   * ColorThresholdDPI, MonochromeThresholdDPI). The value -1 deactivates
+   * re-sampling. {default: -1}
+   * 
    * @return thresholdDPI
-  **/
+   **/
   @ApiModelProperty(value = "Set the threshold in DPI (dots per inch) to selectively activate re-sampling.  Only images with a resolution above the threshold DPI will be re-sampled.  This property affects all three image compression types(BitonalThresholdDPI, ColorThresholdDPI, MonochromeThresholdDPI). The  value -1 deactivates re-sampling.    {default: -1}")
   public Integer getThresholdDPI() {
     return thresholdDPI;
@@ -959,10 +1098,16 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   *  Get or set the stripping mode. This mode can be configured to remove unneeded data of a PDF document such as Threads, Metadata, the PieceInfo,  the StructTreeRoot entry, embedded Thumbs and the SpiderInfo entry.Also  this mode is used to indicate whether to flatten form fields, links, and other  annotations.Multiple values of TPDFStripType can be combined with the  bitwise or operator.     {default: StripThreads}
+  /**
+   * Get or set the stripping mode. This mode can be configured to remove unneeded
+   * data of a PDF document such as Threads, Metadata, the PieceInfo, the
+   * StructTreeRoot entry, embedded Thumbs and the SpiderInfo entry.Also this mode
+   * is used to indicate whether to flatten form fields, links, and other
+   * annotations.Multiple values of TPDFStripType can be combined with the bitwise
+   * or operator. {default: StripThreads}
+   * 
    * @return strip
-  **/
+   **/
   @ApiModelProperty(value = " Get or set the stripping mode. This mode can be configured to remove unneeded data of a PDF document such as Threads, Metadata, the PieceInfo,  the StructTreeRoot entry, embedded Thumbs and the SpiderInfo entry.Also  this mode is used to indicate whether to flatten form fields, links, and other  annotations.Multiple values of TPDFStripType can be combined with the  bitwise or operator.     {default: StripThreads}")
   public List<StripEnum> getStrip() {
     return strip;
@@ -985,10 +1130,16 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   *  Set a key-value pair in the document info dictionary. Values of predefined keys are also stored in the XMP metadata.  Popular entries specified in the PDF Reference 1.7 and accepted by most PDF viewers are \&quot;Title\&quot;, \&quot;Author\&quot;,  \&quot;Subject\&quot;, \&quot;Creator\&quot; (sometimes referred to as Application), and \&quot;Producer\&quot; (sometimes referred to as   PDF Creator).
+  /**
+   * Set a key-value pair in the document info dictionary. Values of predefined
+   * keys are also stored in the XMP metadata. Popular entries specified in the
+   * PDF Reference 1.7 and accepted by most PDF viewers are \&quot;Title\&quot;,
+   * \&quot;Author\&quot;, \&quot;Subject\&quot;, \&quot;Creator\&quot; (sometimes
+   * referred to as Application), and \&quot;Producer\&quot; (sometimes referred
+   * to as PDF Creator).
+   * 
    * @return infoEntries
-  **/
+   **/
   @ApiModelProperty(value = " Set a key-value pair in the document info dictionary. Values of predefined keys are also stored in the XMP metadata.  Popular entries specified in the PDF Reference 1.7 and accepted by most PDF viewers are \"Title\", \"Author\",  \"Subject\", \"Creator\" (sometimes referred to as Application), and \"Producer\" (sometimes referred to as   PDF Creator).")
   public List<KeyValuePairStringString> getInfoEntries() {
     return infoEntries;
@@ -1003,10 +1154,24 @@ public class OptimizeAction {
     return this;
   }
 
-   /**
-   * A signature in a PDF consist of two parts:  a.The invisible digital signature in the PDF.  b.The visual appearance that was attributed to the signature.  Part (a) can be used by a viewing application, to verify that a document has not changed since it has been signed  and report this to the user.Part(b) is merely a “decorative” element on the page without further significance.  When optimizing a PDF, the PDF is altered and hence the digital signature is broken.Therefore, all signatures are removed  , including parts(a) and(b).  When the property FlattenSignatureFields is set to True, then digital signatures(parts (a)) are still removed,  but their visual appearances(parts (b)) are flattened.I.e.the latter are retained and drawn as non-editable graphic  onto the page.  &lt;para&gt;  Note: The resulting PDF can be misleading as it visually appears to be signed,  but it has no digital signature and hence, a viewer application does not report any  broken signature.In most cases, such a behavior is undesirable&lt;/para&gt;
+  /**
+   * A signature in a PDF consist of two parts: a.The invisible digital signature
+   * in the PDF. b.The visual appearance that was attributed to the signature.
+   * Part (a) can be used by a viewing application, to verify that a document has
+   * not changed since it has been signed and report this to the user.Part(b) is
+   * merely a “decorative” element on the page without further significance. When
+   * optimizing a PDF, the PDF is altered and hence the digital signature is
+   * broken.Therefore, all signatures are removed , including parts(a) and(b).
+   * When the property FlattenSignatureFields is set to True, then digital
+   * signatures(parts (a)) are still removed, but their visual appearances(parts
+   * (b)) are flattened.I.e.the latter are retained and drawn as non-editable
+   * graphic onto the page. &lt;para&gt; Note: The resulting PDF can be misleading
+   * as it visually appears to be signed, but it has no digital signature and
+   * hence, a viewer application does not report any broken signature.In most
+   * cases, such a behavior is undesirable&lt;/para&gt;
+   * 
    * @return flattenSignatureFields
-  **/
+   **/
   @ApiModelProperty(value = "A signature in a PDF consist of two parts:  a.The invisible digital signature in the PDF.  b.The visual appearance that was attributed to the signature.  Part (a) can be used by a viewing application, to verify that a document has not changed since it has been signed  and report this to the user.Part(b) is merely a “decorative” element on the page without further significance.  When optimizing a PDF, the PDF is altered and hence the digital signature is broken.Therefore, all signatures are removed  , including parts(a) and(b).  When the property FlattenSignatureFields is set to True, then digital signatures(parts (a)) are still removed,  but their visual appearances(parts (b)) are flattened.I.e.the latter are retained and drawn as non-editable graphic  onto the page.  <para>  Note: The resulting PDF can be misleading as it visually appears to be signed,  but it has no digital signature and hence, a viewer application does not report any  broken signature.In most cases, such a behavior is undesirable</para>")
   public Boolean isFlattenSignatureFields() {
     return flattenSignatureFields;
@@ -1016,6 +1181,24 @@ public class OptimizeAction {
     this.flattenSignatureFields = flattenSignatureFields;
   }
 
+  public OptimizeAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1026,46 +1209,50 @@ public class OptimizeAction {
       return false;
     }
     OptimizeAction optimizeAction = (OptimizeAction) o;
-    return Objects.equals(this.profile, optimizeAction.profile) &&
-        Objects.equals(this.useProfile, optimizeAction.useProfile) &&
-        Objects.equals(this.removeRedundantObjects, optimizeAction.removeRedundantObjects) &&
-        Objects.equals(this.subsetFonts, optimizeAction.subsetFonts) &&
-        Objects.equals(this.optimizeResources, optimizeAction.optimizeResources) &&
-        Objects.equals(this.forceCompressionTypes, optimizeAction.forceCompressionTypes) &&
-        Objects.equals(this.forceRecompression, optimizeAction.forceRecompression) &&
-        Objects.equals(this.reduceColorComplexity, optimizeAction.reduceColorComplexity) &&
-        Objects.equals(this.mergeEmbeddedFonts, optimizeAction.mergeEmbeddedFonts) &&
-        Objects.equals(this.bitonalCompressions, optimizeAction.bitonalCompressions) &&
-        Objects.equals(this.bitonalResolutionDPI, optimizeAction.bitonalResolutionDPI) &&
-        Objects.equals(this.bitonalThresholdDPI, optimizeAction.bitonalThresholdDPI) &&
-        Objects.equals(this.clipImages, optimizeAction.clipImages) &&
-        Objects.equals(this.continuousCompressions, optimizeAction.continuousCompressions) &&
-        Objects.equals(this.linearize, optimizeAction.linearize) &&
-        Objects.equals(this.imageQuality, optimizeAction.imageQuality) &&
-        Objects.equals(this.indexedCompressions, optimizeAction.indexedCompressions) &&
-        Objects.equals(this.ditheringMode, optimizeAction.ditheringMode) &&
-        Objects.equals(this.colorResolutionDPI, optimizeAction.colorResolutionDPI) &&
-        Objects.equals(this.colorThresholdDPI, optimizeAction.colorThresholdDPI) &&
-        Objects.equals(this.monochromeResolutionDPI, optimizeAction.monochromeResolutionDPI) &&
-        Objects.equals(this.monochromeThresholdDPI, optimizeAction.monochromeThresholdDPI) &&
-        Objects.equals(this.resolutionDPI, optimizeAction.resolutionDPI) &&
-        Objects.equals(this.thresholdDPI, optimizeAction.thresholdDPI) &&
-        Objects.equals(this.strip, optimizeAction.strip) &&
-        Objects.equals(this.infoEntries, optimizeAction.infoEntries) &&
-        Objects.equals(this.flattenSignatureFields, optimizeAction.flattenSignatureFields);
+    return Objects.equals(this.profile, optimizeAction.profile)
+        && Objects.equals(this.useProfile, optimizeAction.useProfile)
+        && Objects.equals(this.removeRedundantObjects, optimizeAction.removeRedundantObjects)
+        && Objects.equals(this.subsetFonts, optimizeAction.subsetFonts)
+        && Objects.equals(this.optimizeResources, optimizeAction.optimizeResources)
+        && Objects.equals(this.forceCompressionTypes, optimizeAction.forceCompressionTypes)
+        && Objects.equals(this.forceRecompression, optimizeAction.forceRecompression)
+        && Objects.equals(this.reduceColorComplexity, optimizeAction.reduceColorComplexity)
+        && Objects.equals(this.mergeEmbeddedFonts, optimizeAction.mergeEmbeddedFonts)
+        && Objects.equals(this.bitonalCompressions, optimizeAction.bitonalCompressions)
+        && Objects.equals(this.bitonalResolutionDPI, optimizeAction.bitonalResolutionDPI)
+        && Objects.equals(this.bitonalThresholdDPI, optimizeAction.bitonalThresholdDPI)
+        && Objects.equals(this.clipImages, optimizeAction.clipImages)
+        && Objects.equals(this.continuousCompressions, optimizeAction.continuousCompressions)
+        && Objects.equals(this.linearize, optimizeAction.linearize)
+        && Objects.equals(this.imageQuality, optimizeAction.imageQuality)
+        && Objects.equals(this.indexedCompressions, optimizeAction.indexedCompressions)
+        && Objects.equals(this.ditheringMode, optimizeAction.ditheringMode)
+        && Objects.equals(this.colorResolutionDPI, optimizeAction.colorResolutionDPI)
+        && Objects.equals(this.colorThresholdDPI, optimizeAction.colorThresholdDPI)
+        && Objects.equals(this.monochromeResolutionDPI, optimizeAction.monochromeResolutionDPI)
+        && Objects.equals(this.monochromeThresholdDPI, optimizeAction.monochromeThresholdDPI)
+        && Objects.equals(this.resolutionDPI, optimizeAction.resolutionDPI)
+        && Objects.equals(this.thresholdDPI, optimizeAction.thresholdDPI)
+        && Objects.equals(this.strip, optimizeAction.strip)
+        && Objects.equals(this.infoEntries, optimizeAction.infoEntries)
+        && Objects.equals(this.flattenSignatureFields, optimizeAction.flattenSignatureFields)
+        && Objects.equals(this.actionId, optimizeAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profile, useProfile, removeRedundantObjects, subsetFonts, optimizeResources, forceCompressionTypes, forceRecompression, reduceColorComplexity, mergeEmbeddedFonts, bitonalCompressions, bitonalResolutionDPI, bitonalThresholdDPI, clipImages, continuousCompressions, linearize, imageQuality, indexedCompressions, ditheringMode, colorResolutionDPI, colorThresholdDPI, monochromeResolutionDPI, monochromeThresholdDPI, resolutionDPI, thresholdDPI, strip, infoEntries, flattenSignatureFields);
+    return Objects.hash(profile, useProfile, removeRedundantObjects, subsetFonts, optimizeResources,
+        forceCompressionTypes, forceRecompression, reduceColorComplexity, mergeEmbeddedFonts, bitonalCompressions,
+        bitonalResolutionDPI, bitonalThresholdDPI, clipImages, continuousCompressions, linearize, imageQuality,
+        indexedCompressions, ditheringMode, colorResolutionDPI, colorThresholdDPI, monochromeResolutionDPI,
+        monochromeThresholdDPI, resolutionDPI, thresholdDPI, strip, infoEntries, flattenSignatureFields, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OptimizeAction {\n");
-    
+
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    useProfile: ").append(toIndentedString(useProfile)).append("\n");
     sb.append("    removeRedundantObjects: ").append(toIndentedString(removeRedundantObjects)).append("\n");
@@ -1093,6 +1280,7 @@ public class OptimizeAction {
     sb.append("    strip: ").append(toIndentedString(strip)).append("\n");
     sb.append("    infoEntries: ").append(toIndentedString(infoEntries)).append("\n");
     sb.append("    flattenSignatureFields: ").append(toIndentedString(flattenSignatureFields)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1109,4 +1297,3 @@ public class OptimizeAction {
   }
 
 }
-

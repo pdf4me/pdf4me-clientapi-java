@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,15 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import model.PdfValidationEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.PdfValidationEvent;
 
 /**
  * PdfValidation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PdfValidation {
   @SerializedName("validations")
   private List<PdfValidationEvent> validations = null;
@@ -56,10 +56,11 @@ public class PdfValidation {
     return this;
   }
 
-   /**
+  /**
    * Get validations
+   * 
    * @return validations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<PdfValidationEvent> getValidations() {
     return validations;
@@ -82,10 +83,11 @@ public class PdfValidation {
     return this;
   }
 
-   /**
+  /**
    * Get conformanceCodes
+   * 
    * @return conformanceCodes
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getConformanceCodes() {
     return conformanceCodes;
@@ -100,10 +102,11 @@ public class PdfValidation {
     return this;
   }
 
-   /**
+  /**
    * Get errorCode
+   * 
    * @return errorCode
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorCode() {
     return errorCode;
@@ -118,10 +121,11 @@ public class PdfValidation {
     return this;
   }
 
-   /**
+  /**
    * Get errorMessage
+   * 
    * @return errorMessage
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorMessage() {
     return errorMessage;
@@ -130,7 +134,6 @@ public class PdfValidation {
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -141,10 +144,10 @@ public class PdfValidation {
       return false;
     }
     PdfValidation pdfValidation = (PdfValidation) o;
-    return Objects.equals(this.validations, pdfValidation.validations) &&
-        Objects.equals(this.conformanceCodes, pdfValidation.conformanceCodes) &&
-        Objects.equals(this.errorCode, pdfValidation.errorCode) &&
-        Objects.equals(this.errorMessage, pdfValidation.errorMessage);
+    return Objects.equals(this.validations, pdfValidation.validations)
+        && Objects.equals(this.conformanceCodes, pdfValidation.conformanceCodes)
+        && Objects.equals(this.errorCode, pdfValidation.errorCode)
+        && Objects.equals(this.errorMessage, pdfValidation.errorMessage);
   }
 
   @Override
@@ -152,12 +155,11 @@ public class PdfValidation {
     return Objects.hash(validations, conformanceCodes, errorCode, errorMessage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfValidation {\n");
-    
+
     sb.append("    validations: ").append(toIndentedString(validations)).append("\n");
     sb.append("    conformanceCodes: ").append(toIndentedString(conformanceCodes)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
@@ -178,4 +180,3 @@ public class PdfValidation {
   }
 
 }
-

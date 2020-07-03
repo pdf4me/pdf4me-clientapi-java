@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,12 +24,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.SubscriptionUsage;
 import model.UsageSubscription;
 
 /**
  * UsageSubscriptionRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class UsageSubscriptionRes {
   @SerializedName("usageSubscriptionList")
   private List<UsageSubscription> usageSubscriptionList = null;
@@ -39,6 +40,9 @@ public class UsageSubscriptionRes {
 
   @SerializedName("jobId")
   private String jobId = null;
+
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
 
   public UsageSubscriptionRes usageSubscriptionList(List<UsageSubscription> usageSubscriptionList) {
     this.usageSubscriptionList = usageSubscriptionList;
@@ -53,10 +57,11 @@ public class UsageSubscriptionRes {
     return this;
   }
 
-   /**
+  /**
    * Get usageSubscriptionList
+   * 
    * @return usageSubscriptionList
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<UsageSubscription> getUsageSubscriptionList() {
     return usageSubscriptionList;
@@ -71,10 +76,11 @@ public class UsageSubscriptionRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -89,10 +95,11 @@ public class UsageSubscriptionRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -102,6 +109,24 @@ public class UsageSubscriptionRes {
     this.jobId = jobId;
   }
 
+  public UsageSubscriptionRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -112,25 +137,26 @@ public class UsageSubscriptionRes {
       return false;
     }
     UsageSubscriptionRes usageSubscriptionRes = (UsageSubscriptionRes) o;
-    return Objects.equals(this.usageSubscriptionList, usageSubscriptionRes.usageSubscriptionList) &&
-        Objects.equals(this.traceId, usageSubscriptionRes.traceId) &&
-        Objects.equals(this.jobId, usageSubscriptionRes.jobId);
+    return Objects.equals(this.usageSubscriptionList, usageSubscriptionRes.usageSubscriptionList)
+        && Objects.equals(this.traceId, usageSubscriptionRes.traceId)
+        && Objects.equals(this.jobId, usageSubscriptionRes.jobId)
+        && Objects.equals(this.subscriptionUsage, usageSubscriptionRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usageSubscriptionList, traceId, jobId);
+    return Objects.hash(usageSubscriptionList, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSubscriptionRes {\n");
-    
+
     sb.append("    usageSubscriptionList: ").append(toIndentedString(usageSubscriptionList)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -147,4 +173,3 @@ public class UsageSubscriptionRes {
   }
 
 }
-

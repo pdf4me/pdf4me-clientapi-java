@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,14 +24,21 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * ExtractAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ExtractAction {
   @SerializedName("extractPages")
   private List<Integer> extractPages = new ArrayList<Integer>();
+
+  @SerializedName("deleteSelectedPages")
+  private Boolean deleteSelectedPages = null;
+
+  @SerializedName("actionId")
+  private UUID actionId = null;
 
   public ExtractAction extractPages(List<Integer> extractPages) {
     this.extractPages = extractPages;
@@ -43,10 +50,11 @@ public class ExtractAction {
     return this;
   }
 
-   /**
+  /**
    * Get extractPages
+   * 
    * @return extractPages
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public List<Integer> getExtractPages() {
     return extractPages;
@@ -56,6 +64,43 @@ public class ExtractAction {
     this.extractPages = extractPages;
   }
 
+  public ExtractAction deleteSelectedPages(Boolean deleteSelectedPages) {
+    this.deleteSelectedPages = deleteSelectedPages;
+    return this;
+  }
+
+  /**
+   * Get deleteSelectedPages
+   * 
+   * @return deleteSelectedPages
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean isDeleteSelectedPages() {
+    return deleteSelectedPages;
+  }
+
+  public void setDeleteSelectedPages(Boolean deleteSelectedPages) {
+    this.deleteSelectedPages = deleteSelectedPages;
+  }
+
+  public ExtractAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,21 +111,24 @@ public class ExtractAction {
       return false;
     }
     ExtractAction extractAction = (ExtractAction) o;
-    return Objects.equals(this.extractPages, extractAction.extractPages);
+    return Objects.equals(this.extractPages, extractAction.extractPages)
+        && Objects.equals(this.deleteSelectedPages, extractAction.deleteSelectedPages)
+        && Objects.equals(this.actionId, extractAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(extractPages);
+    return Objects.hash(extractPages, deleteSelectedPages, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExtractAction {\n");
-    
+
     sb.append("    extractPages: ").append(toIndentedString(extractPages)).append("\n");
+    sb.append("    deleteSelectedPages: ").append(toIndentedString(deleteSelectedPages)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -97,4 +145,3 @@ public class ExtractAction {
   }
 
 }
-

@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +29,7 @@ import model.KeyValuePairStringObject;
 /**
  * IntegrationConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class IntegrationConfig {
   @SerializedName("configParams")
   private List<KeyValuePairStringObject> configParams = null;
@@ -47,10 +47,11 @@ public class IntegrationConfig {
     return this;
   }
 
-   /**
+  /**
    * Get configParams
+   * 
    * @return configParams
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<KeyValuePairStringObject> getConfigParams() {
     return configParams;
@@ -59,7 +60,6 @@ public class IntegrationConfig {
   public void setConfigParams(List<KeyValuePairStringObject> configParams) {
     this.configParams = configParams;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -78,12 +78,11 @@ public class IntegrationConfig {
     return Objects.hash(configParams);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationConfig {\n");
-    
+
     sb.append("    configParams: ").append(toIndentedString(configParams)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -101,4 +100,3 @@ public class IntegrationConfig {
   }
 
 }
-

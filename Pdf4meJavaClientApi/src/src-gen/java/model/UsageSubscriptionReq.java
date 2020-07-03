@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +23,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
+import model.SubscriptionUsage;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * UsageSubscriptionReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class UsageSubscriptionReq {
   @SerializedName("subscriptionId")
   private UUID subscriptionId = null;
@@ -42,15 +43,19 @@ public class UsageSubscriptionReq {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public UsageSubscriptionReq subscriptionId(UUID subscriptionId) {
     this.subscriptionId = subscriptionId;
     return this;
   }
 
-   /**
+  /**
    * Get subscriptionId
+   * 
    * @return subscriptionId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getSubscriptionId() {
     return subscriptionId;
@@ -65,10 +70,11 @@ public class UsageSubscriptionReq {
     return this;
   }
 
-   /**
+  /**
    * Get dateFrom
+   * 
    * @return dateFrom
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getDateFrom() {
     return dateFrom;
@@ -83,10 +89,11 @@ public class UsageSubscriptionReq {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -101,10 +108,11 @@ public class UsageSubscriptionReq {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -114,6 +122,24 @@ public class UsageSubscriptionReq {
     this.jobId = jobId;
   }
 
+  public UsageSubscriptionReq subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,27 +150,28 @@ public class UsageSubscriptionReq {
       return false;
     }
     UsageSubscriptionReq usageSubscriptionReq = (UsageSubscriptionReq) o;
-    return Objects.equals(this.subscriptionId, usageSubscriptionReq.subscriptionId) &&
-        Objects.equals(this.dateFrom, usageSubscriptionReq.dateFrom) &&
-        Objects.equals(this.traceId, usageSubscriptionReq.traceId) &&
-        Objects.equals(this.jobId, usageSubscriptionReq.jobId);
+    return Objects.equals(this.subscriptionId, usageSubscriptionReq.subscriptionId)
+        && Objects.equals(this.dateFrom, usageSubscriptionReq.dateFrom)
+        && Objects.equals(this.traceId, usageSubscriptionReq.traceId)
+        && Objects.equals(this.jobId, usageSubscriptionReq.jobId)
+        && Objects.equals(this.subscriptionUsage, usageSubscriptionReq.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subscriptionId, dateFrom, traceId, jobId);
+    return Objects.hash(subscriptionId, dateFrom, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSubscriptionReq {\n");
-    
+
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    dateFrom: ").append(toIndentedString(dateFrom)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -161,4 +188,3 @@ public class UsageSubscriptionReq {
   }
 
 }
-

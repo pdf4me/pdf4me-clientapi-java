@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,12 +28,14 @@ import java.util.UUID;
 import model.DocAction;
 import model.DocLog;
 import model.DocMetadata;
+import model.MergeData;
 import model.Page;
+import model.ScanPage;
 
 /**
  * Pdf4meDocument
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Pdf4meDocument {
   /**
    * Gets or Sets documentType
@@ -41,17 +43,17 @@ public class Pdf4meDocument {
   @JsonAdapter(DocumentTypeEnum.Adapter.class)
   public enum DocumentTypeEnum {
     UPLOADDOC("uploadDoc"),
-    
+
     CONVERTED("converted"),
-    
+
     STAMPED("stamped"),
-    
+
     OCR("ocr"),
-    
+
     SPLIT("split"),
-    
+
     OPTIMIZE("optimize"),
-    
+
     MERGE("merge");
 
     private String value;
@@ -110,6 +112,9 @@ public class Pdf4meDocument {
   @SerializedName("documentId")
   private UUID documentId = null;
 
+  @SerializedName("docIdExt")
+  private String docIdExt = null;
+
   @SerializedName("userId")
   private UUID userId = null;
 
@@ -131,37 +136,37 @@ public class Pdf4meDocument {
   @JsonAdapter(DocStatusEnum.Adapter.class)
   public enum DocStatusEnum {
     UNDEF("undef"),
-    
+
     ERROR("error"),
-    
+
     FINISHED("finished"),
-    
+
     UPLOADED("uploaded"),
-    
+
     LOADING("loading"),
-    
+
     LOADED("loaded"),
-    
+
     CONVERTING("converting"),
-    
+
     CONVERTED("converted"),
-    
+
     OPTIMIZING("optimizing"),
-    
+
     OPTIMIZED("optimized"),
-    
+
     DOINGOCR("doingOcr"),
-    
+
     OCRED("ocred"),
-    
+
     DOINGZIP("doingZip"),
-    
+
     STAMPING("stamping"),
-    
+
     STAMPED("stamped"),
-    
+
     PROCESSING("processing"),
-    
+
     SIGNED("signed");
 
     private String value;
@@ -205,6 +210,12 @@ public class Pdf4meDocument {
   @SerializedName("docStatus")
   private DocStatusEnum docStatus = null;
 
+  @SerializedName("errCode")
+  private String errCode = null;
+
+  @SerializedName("errMsg")
+  private String errMsg = null;
+
   @SerializedName("inExecution")
   private Boolean inExecution = null;
 
@@ -241,7 +252,7 @@ public class Pdf4meDocument {
   @JsonAdapter(StorageProviderBrokerEnum.Adapter.class)
   public enum StorageProviderBrokerEnum {
     UNDEF("undef"),
-    
+
     KLOUDLESS("kloudless");
 
     private String value;
@@ -291,17 +302,17 @@ public class Pdf4meDocument {
   @JsonAdapter(StorageProviderEnum.Adapter.class)
   public enum StorageProviderEnum {
     UNDEF("undef"),
-    
+
     LOCAL("local"),
-    
+
     URL("url"),
-    
+
     ONEDRIVE("oneDrive"),
-    
+
     DROPBOX("dropbox"),
-    
+
     GOOGLEDRIVE("googleDrive"),
-    
+
     KLOUDLESS("kloudless");
 
     private String value;
@@ -357,15 +368,80 @@ public class Pdf4meDocument {
   @SerializedName("documentUrl")
   private String documentUrl = null;
 
+  @SerializedName("scanPages")
+  private List<ScanPage> scanPages = null;
+
+  @SerializedName("allowOCR")
+  private Boolean allowOCR = null;
+
+  @SerializedName("mergeData")
+  private MergeData mergeData = null;
+
+  @SerializedName("paper")
+  private String paper = null;
+
+  /**
+   * Gets or Sets printMode
+   */
+  @JsonAdapter(PrintModeEnum.Adapter.class)
+  public enum PrintModeEnum {
+    UNDEF("undef"),
+
+    SIMPLEX("simplex"),
+
+    DUPLEX("duplex");
+
+    private String value;
+
+    PrintModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PrintModeEnum fromValue(String text) {
+      for (PrintModeEnum b : PrintModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PrintModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PrintModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PrintModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PrintModeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("printMode")
+  private PrintModeEnum printMode = null;
+
   public Pdf4meDocument documentType(DocumentTypeEnum documentType) {
     this.documentType = documentType;
     return this;
   }
 
-   /**
+  /**
    * Get documentType
+   * 
    * @return documentType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocumentTypeEnum getDocumentType() {
     return documentType;
@@ -380,10 +456,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get blobRef
+   * 
    * @return blobRef
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getBlobRef() {
     return blobRef;
@@ -398,10 +475,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getJobId() {
     return jobId;
@@ -416,10 +494,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get refDocumentId
+   * 
    * @return refDocumentId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getRefDocumentId() {
     return refDocumentId;
@@ -434,10 +513,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get refDocAction
+   * 
    * @return refDocAction
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocAction getRefDocAction() {
     return refDocAction;
@@ -452,10 +532,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get documentId
+   * 
    * @return documentId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getDocumentId() {
     return documentId;
@@ -465,15 +546,35 @@ public class Pdf4meDocument {
     this.documentId = documentId;
   }
 
+  public Pdf4meDocument docIdExt(String docIdExt) {
+    this.docIdExt = docIdExt;
+    return this;
+  }
+
+  /**
+   * Get docIdExt
+   * 
+   * @return docIdExt
+   **/
+  @ApiModelProperty(value = "")
+  public String getDocIdExt() {
+    return docIdExt;
+  }
+
+  public void setDocIdExt(String docIdExt) {
+    this.docIdExt = docIdExt;
+  }
+
   public Pdf4meDocument userId(UUID userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Get userId
+   * 
    * @return userId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getUserId() {
     return userId;
@@ -488,10 +589,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get name
+   * 
    * @return name
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getName() {
     return name;
@@ -506,10 +608,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get fileName
+   * 
    * @return fileName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFileName() {
     return fileName;
@@ -524,10 +627,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get fileExtension
+   * 
    * @return fileExtension
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFileExtension() {
     return fileExtension;
@@ -542,10 +646,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get ratio
+   * 
    * @return ratio
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getRatio() {
     return ratio;
@@ -560,10 +665,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get docStatus
+   * 
    * @return docStatus
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocStatusEnum getDocStatus() {
     return docStatus;
@@ -573,15 +679,54 @@ public class Pdf4meDocument {
     this.docStatus = docStatus;
   }
 
+  public Pdf4meDocument errCode(String errCode) {
+    this.errCode = errCode;
+    return this;
+  }
+
+  /**
+   * Get errCode
+   * 
+   * @return errCode
+   **/
+  @ApiModelProperty(value = "")
+  public String getErrCode() {
+    return errCode;
+  }
+
+  public void setErrCode(String errCode) {
+    this.errCode = errCode;
+  }
+
+  public Pdf4meDocument errMsg(String errMsg) {
+    this.errMsg = errMsg;
+    return this;
+  }
+
+  /**
+   * Get errMsg
+   * 
+   * @return errMsg
+   **/
+  @ApiModelProperty(value = "")
+  public String getErrMsg() {
+    return errMsg;
+  }
+
+  public void setErrMsg(String errMsg) {
+    this.errMsg = errMsg;
+  }
+
   public Pdf4meDocument inExecution(Boolean inExecution) {
     this.inExecution = inExecution;
     return this;
   }
 
-   /**
+  /**
    * Get inExecution
+   * 
    * @return inExecution
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isInExecution() {
     return inExecution;
@@ -596,10 +741,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get order
+   * 
    * @return order
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getOrder() {
     return order;
@@ -614,10 +760,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get showDoc
+   * 
    * @return showDoc
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isShowDoc() {
     return showDoc;
@@ -632,10 +779,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get docData
+   * 
    * @return docData
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getDocData() {
     return docData;
@@ -650,10 +798,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get thumbnail
+   * 
    * @return thumbnail
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getThumbnail() {
     return thumbnail;
@@ -676,10 +825,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get pages
+   * 
    * @return pages
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Page> getPages() {
     return pages;
@@ -702,10 +852,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get thumbnails
+   * 
    * @return thumbnails
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<byte[]> getThumbnails() {
     return thumbnails;
@@ -728,10 +879,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get docLogs
+   * 
    * @return docLogs
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<DocLog> getDocLogs() {
     return docLogs;
@@ -746,10 +898,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get docMetadata
+   * 
    * @return docMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getDocMetadata() {
     return docMetadata;
@@ -764,10 +917,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get originalDocMetadata
+   * 
    * @return originalDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getOriginalDocMetadata() {
     return originalDocMetadata;
@@ -782,10 +936,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get storageProviderBroker
+   * 
    * @return storageProviderBroker
-  **/
+   **/
   @ApiModelProperty(value = "")
   public StorageProviderBrokerEnum getStorageProviderBroker() {
     return storageProviderBroker;
@@ -800,10 +955,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get storageProvider
+   * 
    * @return storageProvider
-  **/
+   **/
   @ApiModelProperty(value = "")
   public StorageProviderEnum getStorageProvider() {
     return storageProvider;
@@ -818,10 +974,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get storageAccountId
+   * 
    * @return storageAccountId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStorageAccountId() {
     return storageAccountId;
@@ -836,10 +993,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get storageProviderId
+   * 
    * @return storageProviderId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStorageProviderId() {
     return storageProviderId;
@@ -854,10 +1012,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get storageProviderFolderId
+   * 
    * @return storageProviderFolderId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStorageProviderFolderId() {
     return storageProviderFolderId;
@@ -872,10 +1031,11 @@ public class Pdf4meDocument {
     return this;
   }
 
-   /**
+  /**
    * Get documentUrl
+   * 
    * @return documentUrl
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getDocumentUrl() {
     return documentUrl;
@@ -885,6 +1045,108 @@ public class Pdf4meDocument {
     this.documentUrl = documentUrl;
   }
 
+  public Pdf4meDocument scanPages(List<ScanPage> scanPages) {
+    this.scanPages = scanPages;
+    return this;
+  }
+
+  public Pdf4meDocument addScanPagesItem(ScanPage scanPagesItem) {
+    if (this.scanPages == null) {
+      this.scanPages = new ArrayList<ScanPage>();
+    }
+    this.scanPages.add(scanPagesItem);
+    return this;
+  }
+
+  /**
+   * Get scanPages
+   * 
+   * @return scanPages
+   **/
+  @ApiModelProperty(value = "")
+  public List<ScanPage> getScanPages() {
+    return scanPages;
+  }
+
+  public void setScanPages(List<ScanPage> scanPages) {
+    this.scanPages = scanPages;
+  }
+
+  public Pdf4meDocument allowOCR(Boolean allowOCR) {
+    this.allowOCR = allowOCR;
+    return this;
+  }
+
+  /**
+   * Get allowOCR
+   * 
+   * @return allowOCR
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean isAllowOCR() {
+    return allowOCR;
+  }
+
+  public void setAllowOCR(Boolean allowOCR) {
+    this.allowOCR = allowOCR;
+  }
+
+  public Pdf4meDocument mergeData(MergeData mergeData) {
+    this.mergeData = mergeData;
+    return this;
+  }
+
+  /**
+   * Get mergeData
+   * 
+   * @return mergeData
+   **/
+  @ApiModelProperty(value = "")
+  public MergeData getMergeData() {
+    return mergeData;
+  }
+
+  public void setMergeData(MergeData mergeData) {
+    this.mergeData = mergeData;
+  }
+
+  public Pdf4meDocument paper(String paper) {
+    this.paper = paper;
+    return this;
+  }
+
+  /**
+   * Get paper
+   * 
+   * @return paper
+   **/
+  @ApiModelProperty(value = "")
+  public String getPaper() {
+    return paper;
+  }
+
+  public void setPaper(String paper) {
+    this.paper = paper;
+  }
+
+  public Pdf4meDocument printMode(PrintModeEnum printMode) {
+    this.printMode = printMode;
+    return this;
+  }
+
+  /**
+   * Get printMode
+   * 
+   * @return printMode
+   **/
+  @ApiModelProperty(value = "")
+  public PrintModeEnum getPrintMode() {
+    return printMode;
+  }
+
+  public void setPrintMode(PrintModeEnum printMode) {
+    this.printMode = printMode;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -895,59 +1157,65 @@ public class Pdf4meDocument {
       return false;
     }
     Pdf4meDocument pdf4meDocument = (Pdf4meDocument) o;
-    return Objects.equals(this.documentType, pdf4meDocument.documentType) &&
-        Objects.equals(this.blobRef, pdf4meDocument.blobRef) &&
-        Objects.equals(this.jobId, pdf4meDocument.jobId) &&
-        Objects.equals(this.refDocumentId, pdf4meDocument.refDocumentId) &&
-        Objects.equals(this.refDocAction, pdf4meDocument.refDocAction) &&
-        Objects.equals(this.documentId, pdf4meDocument.documentId) &&
-        Objects.equals(this.userId, pdf4meDocument.userId) &&
-        Objects.equals(this.name, pdf4meDocument.name) &&
-        Objects.equals(this.fileName, pdf4meDocument.fileName) &&
-        Objects.equals(this.fileExtension, pdf4meDocument.fileExtension) &&
-        Objects.equals(this.ratio, pdf4meDocument.ratio) &&
-        Objects.equals(this.docStatus, pdf4meDocument.docStatus) &&
-        Objects.equals(this.inExecution, pdf4meDocument.inExecution) &&
-        Objects.equals(this.order, pdf4meDocument.order) &&
-        Objects.equals(this.showDoc, pdf4meDocument.showDoc) &&
-        Objects.equals(this.docData, pdf4meDocument.docData) &&
-        Objects.equals(this.thumbnail, pdf4meDocument.thumbnail) &&
-        Objects.equals(this.pages, pdf4meDocument.pages) &&
-        Objects.equals(this.thumbnails, pdf4meDocument.thumbnails) &&
-        Objects.equals(this.docLogs, pdf4meDocument.docLogs) &&
-        Objects.equals(this.docMetadata, pdf4meDocument.docMetadata) &&
-        Objects.equals(this.originalDocMetadata, pdf4meDocument.originalDocMetadata) &&
-        Objects.equals(this.storageProviderBroker, pdf4meDocument.storageProviderBroker) &&
-        Objects.equals(this.storageProvider, pdf4meDocument.storageProvider) &&
-        Objects.equals(this.storageAccountId, pdf4meDocument.storageAccountId) &&
-        Objects.equals(this.storageProviderId, pdf4meDocument.storageProviderId) &&
-        Objects.equals(this.storageProviderFolderId, pdf4meDocument.storageProviderFolderId) &&
-        Objects.equals(this.documentUrl, pdf4meDocument.documentUrl);
+    return Objects.equals(this.documentType, pdf4meDocument.documentType)
+        && Objects.equals(this.blobRef, pdf4meDocument.blobRef) && Objects.equals(this.jobId, pdf4meDocument.jobId)
+        && Objects.equals(this.refDocumentId, pdf4meDocument.refDocumentId)
+        && Objects.equals(this.refDocAction, pdf4meDocument.refDocAction)
+        && Objects.equals(this.documentId, pdf4meDocument.documentId)
+        && Objects.equals(this.docIdExt, pdf4meDocument.docIdExt) && Objects.equals(this.userId, pdf4meDocument.userId)
+        && Objects.equals(this.name, pdf4meDocument.name) && Objects.equals(this.fileName, pdf4meDocument.fileName)
+        && Objects.equals(this.fileExtension, pdf4meDocument.fileExtension)
+        && Objects.equals(this.ratio, pdf4meDocument.ratio) && Objects.equals(this.docStatus, pdf4meDocument.docStatus)
+        && Objects.equals(this.errCode, pdf4meDocument.errCode) && Objects.equals(this.errMsg, pdf4meDocument.errMsg)
+        && Objects.equals(this.inExecution, pdf4meDocument.inExecution)
+        && Objects.equals(this.order, pdf4meDocument.order) && Objects.equals(this.showDoc, pdf4meDocument.showDoc)
+        && Arrays.equals(this.docData, pdf4meDocument.docData)
+        && Arrays.equals(this.thumbnail, pdf4meDocument.thumbnail) && Objects.equals(this.pages, pdf4meDocument.pages)
+        && Objects.equals(this.thumbnails, pdf4meDocument.thumbnails)
+        && Objects.equals(this.docLogs, pdf4meDocument.docLogs)
+        && Objects.equals(this.docMetadata, pdf4meDocument.docMetadata)
+        && Objects.equals(this.originalDocMetadata, pdf4meDocument.originalDocMetadata)
+        && Objects.equals(this.storageProviderBroker, pdf4meDocument.storageProviderBroker)
+        && Objects.equals(this.storageProvider, pdf4meDocument.storageProvider)
+        && Objects.equals(this.storageAccountId, pdf4meDocument.storageAccountId)
+        && Objects.equals(this.storageProviderId, pdf4meDocument.storageProviderId)
+        && Objects.equals(this.storageProviderFolderId, pdf4meDocument.storageProviderFolderId)
+        && Objects.equals(this.documentUrl, pdf4meDocument.documentUrl)
+        && Objects.equals(this.scanPages, pdf4meDocument.scanPages)
+        && Objects.equals(this.allowOCR, pdf4meDocument.allowOCR)
+        && Objects.equals(this.mergeData, pdf4meDocument.mergeData) && Objects.equals(this.paper, pdf4meDocument.paper)
+        && Objects.equals(this.printMode, pdf4meDocument.printMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentType, blobRef, jobId, refDocumentId, refDocAction, documentId, userId, name, fileName, fileExtension, ratio, docStatus, inExecution, order, showDoc, docData, thumbnail, pages, thumbnails, docLogs, docMetadata, originalDocMetadata, storageProviderBroker, storageProvider, storageAccountId, storageProviderId, storageProviderFolderId, documentUrl);
+    return Objects.hash(documentType, blobRef, jobId, refDocumentId, refDocAction, documentId, docIdExt, userId, name,
+        fileName, fileExtension, ratio, docStatus, errCode, errMsg, inExecution, order, showDoc,
+        Arrays.hashCode(docData), Arrays.hashCode(thumbnail), pages, thumbnails, docLogs, docMetadata,
+        originalDocMetadata, storageProviderBroker, storageProvider, storageAccountId, storageProviderId,
+        storageProviderFolderId, documentUrl, scanPages, allowOCR, mergeData, paper, printMode);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pdf4meDocument {\n");
-    
+
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    blobRef: ").append(toIndentedString(blobRef)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    refDocumentId: ").append(toIndentedString(refDocumentId)).append("\n");
     sb.append("    refDocAction: ").append(toIndentedString(refDocAction)).append("\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
+    sb.append("    docIdExt: ").append(toIndentedString(docIdExt)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    fileExtension: ").append(toIndentedString(fileExtension)).append("\n");
     sb.append("    ratio: ").append(toIndentedString(ratio)).append("\n");
     sb.append("    docStatus: ").append(toIndentedString(docStatus)).append("\n");
+    sb.append("    errCode: ").append(toIndentedString(errCode)).append("\n");
+    sb.append("    errMsg: ").append(toIndentedString(errMsg)).append("\n");
     sb.append("    inExecution: ").append(toIndentedString(inExecution)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    showDoc: ").append(toIndentedString(showDoc)).append("\n");
@@ -964,6 +1232,11 @@ public class Pdf4meDocument {
     sb.append("    storageProviderId: ").append(toIndentedString(storageProviderId)).append("\n");
     sb.append("    storageProviderFolderId: ").append(toIndentedString(storageProviderFolderId)).append("\n");
     sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
+    sb.append("    scanPages: ").append(toIndentedString(scanPages)).append("\n");
+    sb.append("    allowOCR: ").append(toIndentedString(allowOCR)).append("\n");
+    sb.append("    mergeData: ").append(toIndentedString(mergeData)).append("\n");
+    sb.append("    paper: ").append(toIndentedString(paper)).append("\n");
+    sb.append("    printMode: ").append(toIndentedString(printMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -980,4 +1253,3 @@ public class Pdf4meDocument {
   }
 
 }
-

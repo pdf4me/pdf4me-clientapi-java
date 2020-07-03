@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Rectangle
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Rectangle {
   @SerializedName("x")
   private Integer x = null;
@@ -45,10 +45,11 @@ public class Rectangle {
     return this;
   }
 
-   /**
+  /**
    * Get x
+   * 
    * @return x
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getX() {
     return x;
@@ -63,10 +64,11 @@ public class Rectangle {
     return this;
   }
 
-   /**
+  /**
    * Get y
+   * 
    * @return y
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getY() {
     return y;
@@ -81,10 +83,11 @@ public class Rectangle {
     return this;
   }
 
-   /**
+  /**
    * Get width
+   * 
    * @return width
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getWidth() {
     return width;
@@ -99,10 +102,11 @@ public class Rectangle {
     return this;
   }
 
-   /**
+  /**
    * Get height
+   * 
    * @return height
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getHeight() {
     return height;
@@ -111,7 +115,6 @@ public class Rectangle {
   public void setHeight(Integer height) {
     this.height = height;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -122,10 +125,8 @@ public class Rectangle {
       return false;
     }
     Rectangle rectangle = (Rectangle) o;
-    return Objects.equals(this.x, rectangle.x) &&
-        Objects.equals(this.y, rectangle.y) &&
-        Objects.equals(this.width, rectangle.width) &&
-        Objects.equals(this.height, rectangle.height);
+    return Objects.equals(this.x, rectangle.x) && Objects.equals(this.y, rectangle.y)
+        && Objects.equals(this.width, rectangle.width) && Objects.equals(this.height, rectangle.height);
   }
 
   @Override
@@ -133,12 +134,11 @@ public class Rectangle {
     return Objects.hash(x, y, width, height);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Rectangle {\n");
-    
+
     sb.append("    x: ").append(toIndentedString(x)).append("\n");
     sb.append("    y: ").append(toIndentedString(y)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
@@ -159,4 +159,3 @@ public class Rectangle {
   }
 
 }
-

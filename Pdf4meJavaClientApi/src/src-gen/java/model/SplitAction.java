@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,11 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * SplitAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class SplitAction {
   @SerializedName("splitAfterPage")
   private Integer splitAfterPage = null;
@@ -42,15 +43,19 @@ public class SplitAction {
   @SerializedName("barcodeStartsWith")
   private String barcodeStartsWith = null;
 
+  @SerializedName("actionId")
+  private UUID actionId = null;
+
   public SplitAction splitAfterPage(Integer splitAfterPage) {
     this.splitAfterPage = splitAfterPage;
     return this;
   }
 
-   /**
+  /**
    * Get splitAfterPage
+   * 
    * @return splitAfterPage
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getSplitAfterPage() {
     return splitAfterPage;
@@ -73,10 +78,11 @@ public class SplitAction {
     return this;
   }
 
-   /**
+  /**
    * Get splitSequence
+   * 
    * @return splitSequence
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Integer> getSplitSequence() {
     return splitSequence;
@@ -91,10 +97,11 @@ public class SplitAction {
     return this;
   }
 
-   /**
+  /**
    * Get recurringSplitAfterPage
+   * 
    * @return recurringSplitAfterPage
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getRecurringSplitAfterPage() {
     return recurringSplitAfterPage;
@@ -109,10 +116,11 @@ public class SplitAction {
     return this;
   }
 
-   /**
+  /**
    * Get barcodeStartsWith
+   * 
    * @return barcodeStartsWith
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getBarcodeStartsWith() {
     return barcodeStartsWith;
@@ -122,6 +130,24 @@ public class SplitAction {
     this.barcodeStartsWith = barcodeStartsWith;
   }
 
+  public SplitAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,27 +158,28 @@ public class SplitAction {
       return false;
     }
     SplitAction splitAction = (SplitAction) o;
-    return Objects.equals(this.splitAfterPage, splitAction.splitAfterPage) &&
-        Objects.equals(this.splitSequence, splitAction.splitSequence) &&
-        Objects.equals(this.recurringSplitAfterPage, splitAction.recurringSplitAfterPage) &&
-        Objects.equals(this.barcodeStartsWith, splitAction.barcodeStartsWith);
+    return Objects.equals(this.splitAfterPage, splitAction.splitAfterPage)
+        && Objects.equals(this.splitSequence, splitAction.splitSequence)
+        && Objects.equals(this.recurringSplitAfterPage, splitAction.recurringSplitAfterPage)
+        && Objects.equals(this.barcodeStartsWith, splitAction.barcodeStartsWith)
+        && Objects.equals(this.actionId, splitAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(splitAfterPage, splitSequence, recurringSplitAfterPage, barcodeStartsWith);
+    return Objects.hash(splitAfterPage, splitSequence, recurringSplitAfterPage, barcodeStartsWith, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitAction {\n");
-    
+
     sb.append("    splitAfterPage: ").append(toIndentedString(splitAfterPage)).append("\n");
     sb.append("    splitSequence: ").append(toIndentedString(splitSequence)).append("\n");
     sb.append("    recurringSplitAfterPage: ").append(toIndentedString(recurringSplitAfterPage)).append("\n");
     sb.append("    barcodeStartsWith: ").append(toIndentedString(barcodeStartsWith)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -169,4 +196,3 @@ public class SplitAction {
   }
 
 }
-

@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import model.RGBSet;
 /**
  * CustomCMSConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class CustomCMSConfig {
   @SerializedName("white")
   private RGBSet white = null;
@@ -82,10 +82,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get white
+   * 
    * @return white
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getWhite() {
     return white;
@@ -100,10 +101,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get c
+   * 
    * @return c
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getC() {
     return c;
@@ -118,10 +120,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get m
+   * 
    * @return m
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getM() {
     return m;
@@ -136,10 +139,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get y
+   * 
    * @return y
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getY() {
     return y;
@@ -154,10 +158,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get k
+   * 
    * @return k
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getK() {
     return k;
@@ -172,10 +177,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get cm
+   * 
    * @return cm
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCm() {
     return cm;
@@ -190,10 +196,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get cy
+   * 
    * @return cy
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCy() {
     return cy;
@@ -208,10 +215,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get ck
+   * 
    * @return ck
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCk() {
     return ck;
@@ -226,10 +234,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get my
+   * 
    * @return my
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getMy() {
     return my;
@@ -244,10 +253,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get mk
+   * 
    * @return mk
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getMk() {
     return mk;
@@ -262,10 +272,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get yk
+   * 
    * @return yk
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getYk() {
     return yk;
@@ -280,10 +291,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get cmy
+   * 
    * @return cmy
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCmy() {
     return cmy;
@@ -298,10 +310,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get cmk
+   * 
    * @return cmk
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCmk() {
     return cmk;
@@ -316,10 +329,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get cyk
+   * 
    * @return cyk
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCyk() {
     return cyk;
@@ -334,10 +348,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get myk
+   * 
    * @return myk
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getMyk() {
     return myk;
@@ -352,10 +367,11 @@ public class CustomCMSConfig {
     return this;
   }
 
-   /**
+  /**
    * Get cmyk
+   * 
    * @return cmyk
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RGBSet getCmyk() {
     return cmyk;
@@ -364,7 +380,6 @@ public class CustomCMSConfig {
   public void setCmyk(RGBSet cmyk) {
     this.cmyk = cmyk;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -375,22 +390,14 @@ public class CustomCMSConfig {
       return false;
     }
     CustomCMSConfig customCMSConfig = (CustomCMSConfig) o;
-    return Objects.equals(this.white, customCMSConfig.white) &&
-        Objects.equals(this.c, customCMSConfig.c) &&
-        Objects.equals(this.m, customCMSConfig.m) &&
-        Objects.equals(this.y, customCMSConfig.y) &&
-        Objects.equals(this.k, customCMSConfig.k) &&
-        Objects.equals(this.cm, customCMSConfig.cm) &&
-        Objects.equals(this.cy, customCMSConfig.cy) &&
-        Objects.equals(this.ck, customCMSConfig.ck) &&
-        Objects.equals(this.my, customCMSConfig.my) &&
-        Objects.equals(this.mk, customCMSConfig.mk) &&
-        Objects.equals(this.yk, customCMSConfig.yk) &&
-        Objects.equals(this.cmy, customCMSConfig.cmy) &&
-        Objects.equals(this.cmk, customCMSConfig.cmk) &&
-        Objects.equals(this.cyk, customCMSConfig.cyk) &&
-        Objects.equals(this.myk, customCMSConfig.myk) &&
-        Objects.equals(this.cmyk, customCMSConfig.cmyk);
+    return Objects.equals(this.white, customCMSConfig.white) && Objects.equals(this.c, customCMSConfig.c)
+        && Objects.equals(this.m, customCMSConfig.m) && Objects.equals(this.y, customCMSConfig.y)
+        && Objects.equals(this.k, customCMSConfig.k) && Objects.equals(this.cm, customCMSConfig.cm)
+        && Objects.equals(this.cy, customCMSConfig.cy) && Objects.equals(this.ck, customCMSConfig.ck)
+        && Objects.equals(this.my, customCMSConfig.my) && Objects.equals(this.mk, customCMSConfig.mk)
+        && Objects.equals(this.yk, customCMSConfig.yk) && Objects.equals(this.cmy, customCMSConfig.cmy)
+        && Objects.equals(this.cmk, customCMSConfig.cmk) && Objects.equals(this.cyk, customCMSConfig.cyk)
+        && Objects.equals(this.myk, customCMSConfig.myk) && Objects.equals(this.cmyk, customCMSConfig.cmyk);
   }
 
   @Override
@@ -398,12 +405,11 @@ public class CustomCMSConfig {
     return Objects.hash(white, c, m, y, k, cm, cy, ck, my, mk, yk, cmy, cmk, cyk, myk, cmyk);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomCMSConfig {\n");
-    
+
     sb.append("    white: ").append(toIndentedString(white)).append("\n");
     sb.append("    c: ").append(toIndentedString(c)).append("\n");
     sb.append("    m: ").append(toIndentedString(m)).append("\n");
@@ -436,4 +442,3 @@ public class CustomCMSConfig {
   }
 
 }
-

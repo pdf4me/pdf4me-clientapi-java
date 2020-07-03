@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +30,7 @@ import model.KeyValuePairStringObject;
 /**
  * Pdf4meAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Pdf4meAction {
   @SerializedName("actionId")
   private UUID actionId = null;
@@ -41,32 +41,64 @@ public class Pdf4meAction {
   @JsonAdapter(ActionTypeEnum.Adapter.class)
   public enum ActionTypeEnum {
     UNDEF("undef"),
-    
+
     USER("user"),
-    
+
     OPTIMIZE("optimize"),
-    
+
     PDFA("pdfA"),
-    
-    OCRDOCUMENT("ocrDocument"),
-    
-    OCRBUSCARD("ocrBusCard"),
-    
+
+    OCR("ocr"),
+
+    CONVERTER("converter"),
+
     CONVERTTOPDF("convertToPdf"),
-    
+
     STAMP("stamp"),
-    
+
     SPLIT("split"),
-    
+
     MERGE("merge"),
-    
-    SCANMRC("scanMrc"),
-    
-    CREATETHUMBNAIL("createThumbnail"),
-    
-    CREATEIMAGE("createImage"),
-    
-    EXTRACT("extract");
+
+    EXTRACTRESOURCES("extractResources"),
+
+    THUMBNAIL("thumbnail"),
+
+    IMAGE("image"),
+
+    EXTRACT("extract"),
+
+    READBARCODE("readBarcode"),
+
+    CREATEBARCODE("createBarcode"),
+
+    PROTECT("protect"),
+
+    REPAIR("repair"),
+
+    ROTATE("rotate"),
+
+    SIGN("sign"),
+
+    PRODUCE("produce"),
+
+    CONVERTFROMPDF("convertFromPdf"),
+
+    SPLITBYBARCODE("splitByBarcode"),
+
+    JOBFLOW("jobFlow"),
+
+    SWISSQRCODE("swissQRCode"),
+
+    ADDBARCODE("addBarcode"),
+
+    PREPAREFORPRINT("prepareForPrint"),
+
+    URLTOPDF("urlToPdf"),
+
+    HTMLTOPDF("htmlToPdf"),
+
+    MDTOPDF("mdToPdf");
 
     private String value;
 
@@ -123,10 +155,11 @@ public class Pdf4meAction {
     return this;
   }
 
-   /**
+  /**
    * Get actionId
+   * 
    * @return actionId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getActionId() {
     return actionId;
@@ -141,10 +174,11 @@ public class Pdf4meAction {
     return this;
   }
 
-   /**
+  /**
    * Get actionType
+   * 
    * @return actionType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public ActionTypeEnum getActionType() {
     return actionType;
@@ -159,10 +193,11 @@ public class Pdf4meAction {
     return this;
   }
 
-   /**
+  /**
    * Get userAction
+   * 
    * @return userAction
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getUserAction() {
     return userAction;
@@ -177,10 +212,11 @@ public class Pdf4meAction {
     return this;
   }
 
-   /**
+  /**
    * Get actionConfig
+   * 
    * @return actionConfig
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getActionConfig() {
     return actionConfig;
@@ -203,10 +239,11 @@ public class Pdf4meAction {
     return this;
   }
 
-   /**
+  /**
    * Get actionProperties
+   * 
    * @return actionProperties
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<KeyValuePairStringObject> getActionProperties() {
     return actionProperties;
@@ -215,7 +252,6 @@ public class Pdf4meAction {
   public void setActionProperties(List<KeyValuePairStringObject> actionProperties) {
     this.actionProperties = actionProperties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -226,11 +262,11 @@ public class Pdf4meAction {
       return false;
     }
     Pdf4meAction pdf4meAction = (Pdf4meAction) o;
-    return Objects.equals(this.actionId, pdf4meAction.actionId) &&
-        Objects.equals(this.actionType, pdf4meAction.actionType) &&
-        Objects.equals(this.userAction, pdf4meAction.userAction) &&
-        Objects.equals(this.actionConfig, pdf4meAction.actionConfig) &&
-        Objects.equals(this.actionProperties, pdf4meAction.actionProperties);
+    return Objects.equals(this.actionId, pdf4meAction.actionId)
+        && Objects.equals(this.actionType, pdf4meAction.actionType)
+        && Objects.equals(this.userAction, pdf4meAction.userAction)
+        && Objects.equals(this.actionConfig, pdf4meAction.actionConfig)
+        && Objects.equals(this.actionProperties, pdf4meAction.actionProperties);
   }
 
   @Override
@@ -238,12 +274,11 @@ public class Pdf4meAction {
     return Objects.hash(actionId, actionType, userAction, actionConfig, actionProperties);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pdf4meAction {\n");
-    
+
     sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    userAction: ").append(toIndentedString(userAction)).append("\n");
@@ -265,4 +300,3 @@ public class Pdf4meAction {
   }
 
 }
-

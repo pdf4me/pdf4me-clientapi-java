@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * IntegrationCall
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class IntegrationCall {
   @SerializedName("integrationName")
   private String integrationName = null;
@@ -56,10 +56,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get integrationName
+   * 
    * @return integrationName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getIntegrationName() {
     return integrationName;
@@ -74,10 +75,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get integrationType
+   * 
    * @return integrationType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getIntegrationType() {
     return integrationType;
@@ -92,10 +94,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get integrationId
+   * 
    * @return integrationId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getIntegrationId() {
     return integrationId;
@@ -110,10 +113,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get status
+   * 
    * @return status
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStatus() {
     return status;
@@ -128,10 +132,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get errorMessage
+   * 
    * @return errorMessage
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getErrorMessage() {
     return errorMessage;
@@ -146,10 +151,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get retries
+   * 
    * @return retries
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Integer getRetries() {
     return retries;
@@ -164,10 +170,11 @@ public class IntegrationCall {
     return this;
   }
 
-   /**
+  /**
    * Get lastCallTime
+   * 
    * @return lastCallTime
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getLastCallTime() {
     return lastCallTime;
@@ -176,7 +183,6 @@ public class IntegrationCall {
   public void setLastCallTime(OffsetDateTime lastCallTime) {
     this.lastCallTime = lastCallTime;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,13 +193,13 @@ public class IntegrationCall {
       return false;
     }
     IntegrationCall integrationCall = (IntegrationCall) o;
-    return Objects.equals(this.integrationName, integrationCall.integrationName) &&
-        Objects.equals(this.integrationType, integrationCall.integrationType) &&
-        Objects.equals(this.integrationId, integrationCall.integrationId) &&
-        Objects.equals(this.status, integrationCall.status) &&
-        Objects.equals(this.errorMessage, integrationCall.errorMessage) &&
-        Objects.equals(this.retries, integrationCall.retries) &&
-        Objects.equals(this.lastCallTime, integrationCall.lastCallTime);
+    return Objects.equals(this.integrationName, integrationCall.integrationName)
+        && Objects.equals(this.integrationType, integrationCall.integrationType)
+        && Objects.equals(this.integrationId, integrationCall.integrationId)
+        && Objects.equals(this.status, integrationCall.status)
+        && Objects.equals(this.errorMessage, integrationCall.errorMessage)
+        && Objects.equals(this.retries, integrationCall.retries)
+        && Objects.equals(this.lastCallTime, integrationCall.lastCallTime);
   }
 
   @Override
@@ -201,12 +207,11 @@ public class IntegrationCall {
     return Objects.hash(integrationName, integrationType, integrationId, status, errorMessage, retries, lastCallTime);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationCall {\n");
-    
+
     sb.append("    integrationName: ").append(toIndentedString(integrationName)).append("\n");
     sb.append("    integrationType: ").append(toIndentedString(integrationType)).append("\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
@@ -230,4 +235,3 @@ public class IntegrationCall {
   }
 
 }
-

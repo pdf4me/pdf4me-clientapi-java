@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,11 +23,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.Document;
+import model.SubscriptionUsage;
 
 /**
  * RecognizeDocumentRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class RecognizeDocumentRes {
   @SerializedName("document")
   private Document document = null;
@@ -41,15 +42,19 @@ public class RecognizeDocumentRes {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public RecognizeDocumentRes document(Document document) {
     this.document = document;
     return this;
   }
 
-   /**
+  /**
    * Get document
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Document getDocument() {
     return document;
@@ -64,10 +69,11 @@ public class RecognizeDocumentRes {
     return this;
   }
 
-   /**
+  /**
    * Get structuredDataJson
+   * 
    * @return structuredDataJson
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getStructuredDataJson() {
     return structuredDataJson;
@@ -82,10 +88,11 @@ public class RecognizeDocumentRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -100,10 +107,11 @@ public class RecognizeDocumentRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -113,6 +121,24 @@ public class RecognizeDocumentRes {
     this.jobId = jobId;
   }
 
+  public RecognizeDocumentRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,27 +149,28 @@ public class RecognizeDocumentRes {
       return false;
     }
     RecognizeDocumentRes recognizeDocumentRes = (RecognizeDocumentRes) o;
-    return Objects.equals(this.document, recognizeDocumentRes.document) &&
-        Objects.equals(this.structuredDataJson, recognizeDocumentRes.structuredDataJson) &&
-        Objects.equals(this.traceId, recognizeDocumentRes.traceId) &&
-        Objects.equals(this.jobId, recognizeDocumentRes.jobId);
+    return Objects.equals(this.document, recognizeDocumentRes.document)
+        && Objects.equals(this.structuredDataJson, recognizeDocumentRes.structuredDataJson)
+        && Objects.equals(this.traceId, recognizeDocumentRes.traceId)
+        && Objects.equals(this.jobId, recognizeDocumentRes.jobId)
+        && Objects.equals(this.subscriptionUsage, recognizeDocumentRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, structuredDataJson, traceId, jobId);
+    return Objects.hash(document, structuredDataJson, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecognizeDocumentRes {\n");
-    
+
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    structuredDataJson: ").append(toIndentedString(structuredDataJson)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -160,4 +187,3 @@ public class RecognizeDocumentRes {
   }
 
 }
-

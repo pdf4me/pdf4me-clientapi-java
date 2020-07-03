@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * RotateConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class RotateConfig {
   @SerializedName("angle")
   private Double angle = null;
@@ -42,10 +42,11 @@ public class RotateConfig {
     return this;
   }
 
-   /**
+  /**
    * Get angle
+   * 
    * @return angle
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Double getAngle() {
     return angle;
@@ -60,10 +61,11 @@ public class RotateConfig {
     return this;
   }
 
-   /**
+  /**
    * Get originX
+   * 
    * @return originX
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getOriginX() {
     return originX;
@@ -78,10 +80,11 @@ public class RotateConfig {
     return this;
   }
 
-   /**
+  /**
    * Get originY
+   * 
    * @return originY
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Integer getOriginY() {
     return originY;
@@ -90,7 +93,6 @@ public class RotateConfig {
   public void setOriginY(Integer originY) {
     this.originY = originY;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -101,9 +103,8 @@ public class RotateConfig {
       return false;
     }
     RotateConfig rotateConfig = (RotateConfig) o;
-    return Objects.equals(this.angle, rotateConfig.angle) &&
-        Objects.equals(this.originX, rotateConfig.originX) &&
-        Objects.equals(this.originY, rotateConfig.originY);
+    return Objects.equals(this.angle, rotateConfig.angle) && Objects.equals(this.originX, rotateConfig.originX)
+        && Objects.equals(this.originY, rotateConfig.originY);
   }
 
   @Override
@@ -111,12 +112,11 @@ public class RotateConfig {
     return Objects.hash(angle, originX, originY);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateConfig {\n");
-    
+
     sb.append("    angle: ").append(toIndentedString(angle)).append("\n");
     sb.append("    originX: ").append(toIndentedString(originX)).append("\n");
     sb.append("    originY: ").append(toIndentedString(originY)).append("\n");
@@ -136,4 +136,3 @@ public class RotateConfig {
   }
 
 }
-

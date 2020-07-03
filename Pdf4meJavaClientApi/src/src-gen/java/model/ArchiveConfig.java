@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +32,7 @@ import model.StampAction;
  * ArchiveConfig
  */
 @ApiModel(description = "ArchiveConfig")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ArchiveConfig {
   @SerializedName("archiveMetadata")
   private List<KeyValuePairStringString> archiveMetadata = new ArrayList<KeyValuePairStringString>();
@@ -56,10 +56,11 @@ public class ArchiveConfig {
     return this;
   }
 
-   /**
+  /**
    * Give the documents metadata for archiving.
+   * 
    * @return archiveMetadata
-  **/
+   **/
   @ApiModelProperty(required = true, value = "Give the documents metadata for archiving.")
   public List<KeyValuePairStringString> getArchiveMetadata() {
     return archiveMetadata;
@@ -74,10 +75,11 @@ public class ArchiveConfig {
     return this;
   }
 
-   /**
+  /**
    * Place a signature stamp on to the document.
+   * 
    * @return stampAction
-  **/
+   **/
   @ApiModelProperty(value = "Place a signature stamp on to the document.")
   public StampAction getStampAction() {
     return stampAction;
@@ -92,10 +94,11 @@ public class ArchiveConfig {
     return this;
   }
 
-   /**
+  /**
    * Give your Signature Configure to get the electronical Identity.
+   * 
    * @return signatureConfig
-  **/
+   **/
   @ApiModelProperty(value = "Give your Signature Configure to get the electronical Identity.")
   public SignatureConfig getSignatureConfig() {
     return signatureConfig;
@@ -110,10 +113,11 @@ public class ArchiveConfig {
     return this;
   }
 
-   /**
+  /**
    * To guarantee the time of change use a Time Stamp Service.
+   * 
    * @return useTSA
-  **/
+   **/
   @ApiModelProperty(value = "To guarantee the time of change use a Time Stamp Service.")
   public Boolean isUseTSA() {
     return useTSA;
@@ -122,7 +126,6 @@ public class ArchiveConfig {
   public void setUseTSA(Boolean useTSA) {
     this.useTSA = useTSA;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,10 +136,10 @@ public class ArchiveConfig {
       return false;
     }
     ArchiveConfig archiveConfig = (ArchiveConfig) o;
-    return Objects.equals(this.archiveMetadata, archiveConfig.archiveMetadata) &&
-        Objects.equals(this.stampAction, archiveConfig.stampAction) &&
-        Objects.equals(this.signatureConfig, archiveConfig.signatureConfig) &&
-        Objects.equals(this.useTSA, archiveConfig.useTSA);
+    return Objects.equals(this.archiveMetadata, archiveConfig.archiveMetadata)
+        && Objects.equals(this.stampAction, archiveConfig.stampAction)
+        && Objects.equals(this.signatureConfig, archiveConfig.signatureConfig)
+        && Objects.equals(this.useTSA, archiveConfig.useTSA);
   }
 
   @Override
@@ -144,12 +147,11 @@ public class ArchiveConfig {
     return Objects.hash(archiveMetadata, stampAction, signatureConfig, useTSA);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArchiveConfig {\n");
-    
+
     sb.append("    archiveMetadata: ").append(toIndentedString(archiveMetadata)).append("\n");
     sb.append("    stampAction: ").append(toIndentedString(stampAction)).append("\n");
     sb.append("    signatureConfig: ").append(toIndentedString(signatureConfig)).append("\n");
@@ -170,4 +172,3 @@ public class ArchiveConfig {
   }
 
 }
-

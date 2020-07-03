@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,13 +30,16 @@ import model.Translate;
 /**
  * Image
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Image {
   @SerializedName("rectangle")
   private Rectangle rectangle = null;
 
   @SerializedName("imageData")
   private byte[] imageData = null;
+
+  @SerializedName("docBlobRef")
+  private String docBlobRef = null;
 
   @SerializedName("imageType")
   private String imageType = null;
@@ -50,9 +53,9 @@ public class Image {
   @JsonAdapter(CompressionEnum.Adapter.class)
   public enum CompressionEnum {
     CCITTFAX("cCITTFax"),
-    
+
     FLATE("flate"),
-    
+
     DCT("dCT");
 
     private String value;
@@ -110,10 +113,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get rectangle
+   * 
    * @return rectangle
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Rectangle getRectangle() {
     return rectangle;
@@ -128,10 +132,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get imageData
+   * 
    * @return imageData
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getImageData() {
     return imageData;
@@ -141,15 +146,35 @@ public class Image {
     this.imageData = imageData;
   }
 
+  public Image docBlobRef(String docBlobRef) {
+    this.docBlobRef = docBlobRef;
+    return this;
+  }
+
+  /**
+   * Get docBlobRef
+   * 
+   * @return docBlobRef
+   **/
+  @ApiModelProperty(value = "")
+  public String getDocBlobRef() {
+    return docBlobRef;
+  }
+
+  public void setDocBlobRef(String docBlobRef) {
+    this.docBlobRef = docBlobRef;
+  }
+
   public Image imageType(String imageType) {
     this.imageType = imageType;
     return this;
   }
 
-   /**
+  /**
    * Get imageType
+   * 
    * @return imageType
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getImageType() {
     return imageType;
@@ -164,10 +189,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get fileName
+   * 
    * @return fileName
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFileName() {
     return fileName;
@@ -182,10 +208,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get compression
+   * 
    * @return compression
-  **/
+   **/
   @ApiModelProperty(value = "")
   public CompressionEnum getCompression() {
     return compression;
@@ -200,10 +227,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get rotate
+   * 
    * @return rotate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public RotateConfig getRotate() {
     return rotate;
@@ -218,10 +246,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get translate
+   * 
    * @return translate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Translate getTranslate() {
     return translate;
@@ -236,10 +265,11 @@ public class Image {
     return this;
   }
 
-   /**
+  /**
    * Get transform
+   * 
    * @return transform
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Transform getTransform() {
     return transform;
@@ -248,7 +278,6 @@ public class Image {
   public void setTransform(Transform transform) {
     this.transform = transform;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -259,29 +288,27 @@ public class Image {
       return false;
     }
     Image image = (Image) o;
-    return Objects.equals(this.rectangle, image.rectangle) &&
-        Objects.equals(this.imageData, image.imageData) &&
-        Objects.equals(this.imageType, image.imageType) &&
-        Objects.equals(this.fileName, image.fileName) &&
-        Objects.equals(this.compression, image.compression) &&
-        Objects.equals(this.rotate, image.rotate) &&
-        Objects.equals(this.translate, image.translate) &&
-        Objects.equals(this.transform, image.transform);
+    return Objects.equals(this.rectangle, image.rectangle) && Arrays.equals(this.imageData, image.imageData)
+        && Objects.equals(this.docBlobRef, image.docBlobRef) && Objects.equals(this.imageType, image.imageType)
+        && Objects.equals(this.fileName, image.fileName) && Objects.equals(this.compression, image.compression)
+        && Objects.equals(this.rotate, image.rotate) && Objects.equals(this.translate, image.translate)
+        && Objects.equals(this.transform, image.transform);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rectangle, imageData, imageType, fileName, compression, rotate, translate, transform);
+    return Objects.hash(rectangle, Arrays.hashCode(imageData), docBlobRef, imageType, fileName, compression, rotate,
+        translate, transform);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Image {\n");
-    
+
     sb.append("    rectangle: ").append(toIndentedString(rectangle)).append("\n");
     sb.append("    imageData: ").append(toIndentedString(imageData)).append("\n");
+    sb.append("    docBlobRef: ").append(toIndentedString(docBlobRef)).append("\n");
     sb.append("    imageType: ").append(toIndentedString(imageType)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
@@ -304,4 +331,3 @@ public class Image {
   }
 
 }
-

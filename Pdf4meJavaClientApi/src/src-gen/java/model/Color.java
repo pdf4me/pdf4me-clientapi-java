@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Color
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Color {
   @SerializedName("red")
   private Double red = null;
@@ -42,10 +42,11 @@ public class Color {
     return this;
   }
 
-   /**
+  /**
    * Get red
+   * 
    * @return red
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getRed() {
     return red;
@@ -60,10 +61,11 @@ public class Color {
     return this;
   }
 
-   /**
+  /**
    * Get green
+   * 
    * @return green
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getGreen() {
     return green;
@@ -78,10 +80,11 @@ public class Color {
     return this;
   }
 
-   /**
+  /**
    * Get blue
+   * 
    * @return blue
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Double getBlue() {
     return blue;
@@ -90,7 +93,6 @@ public class Color {
   public void setBlue(Double blue) {
     this.blue = blue;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -101,9 +103,8 @@ public class Color {
       return false;
     }
     Color color = (Color) o;
-    return Objects.equals(this.red, color.red) &&
-        Objects.equals(this.green, color.green) &&
-        Objects.equals(this.blue, color.blue);
+    return Objects.equals(this.red, color.red) && Objects.equals(this.green, color.green)
+        && Objects.equals(this.blue, color.blue);
   }
 
   @Override
@@ -111,12 +112,11 @@ public class Color {
     return Objects.hash(red, green, blue);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Color {\n");
-    
+
     sb.append("    red: ").append(toIndentedString(red)).append("\n");
     sb.append("    green: ").append(toIndentedString(green)).append("\n");
     sb.append("    blue: ").append(toIndentedString(blue)).append("\n");
@@ -136,4 +136,3 @@ public class Color {
   }
 
 }
-

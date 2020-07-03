@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * UsageApplication
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class UsageApplication {
   @SerializedName("id")
   private String id = null;
@@ -103,10 +103,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get id
+   * 
    * @return id
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getId() {
     return id;
@@ -121,10 +122,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get subscriptionId
+   * 
    * @return subscriptionId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getSubscriptionId() {
     return subscriptionId;
@@ -139,10 +141,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get applicationId
+   * 
    * @return applicationId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getApplicationId() {
     return applicationId;
@@ -157,10 +160,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get subCostTotal
+   * 
    * @return subCostTotal
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getSubCostTotal() {
     return subCostTotal;
@@ -175,10 +179,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get subCostCurrent
+   * 
    * @return subCostCurrent
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getSubCostCurrent() {
     return subCostCurrent;
@@ -193,10 +198,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get apiCostTotal
+   * 
    * @return apiCostTotal
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getApiCostTotal() {
     return apiCostTotal;
@@ -211,10 +217,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get apiCostCurrent
+   * 
    * @return apiCostCurrent
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getApiCostCurrent() {
     return apiCostCurrent;
@@ -229,10 +236,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get apiCallCnt
+   * 
    * @return apiCallCnt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getApiCallCnt() {
     return apiCallCnt;
@@ -247,10 +255,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get feature
+   * 
    * @return feature
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getFeature() {
     return feature;
@@ -265,10 +274,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get featureCallCnt
+   * 
    * @return featureCallCnt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getFeatureCallCnt() {
     return featureCallCnt;
@@ -283,10 +293,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get durationMsAvg
+   * 
    * @return durationMsAvg
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDurationMsAvg() {
     return durationMsAvg;
@@ -301,10 +312,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get durationMsMin
+   * 
    * @return durationMsMin
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDurationMsMin() {
     return durationMsMin;
@@ -319,10 +331,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get durationMsMax
+   * 
    * @return durationMsMax
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDurationMsMax() {
     return durationMsMax;
@@ -337,10 +350,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get pagesAvg
+   * 
    * @return pagesAvg
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getPagesAvg() {
     return pagesAvg;
@@ -355,10 +369,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get pagesMin
+   * 
    * @return pagesMin
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getPagesMin() {
     return pagesMin;
@@ -373,10 +388,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get pagesMax
+   * 
    * @return pagesMax
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getPagesMax() {
     return pagesMax;
@@ -391,10 +407,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get pagesSum
+   * 
    * @return pagesSum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getPagesSum() {
     return pagesSum;
@@ -409,10 +426,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get docSizeAvg
+   * 
    * @return docSizeAvg
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDocSizeAvg() {
     return docSizeAvg;
@@ -427,10 +445,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get docSizeMin
+   * 
    * @return docSizeMin
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDocSizeMin() {
     return docSizeMin;
@@ -445,10 +464,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get docSizeMax
+   * 
    * @return docSizeMax
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDocSizeMax() {
     return docSizeMax;
@@ -463,10 +483,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get docSizeSum
+   * 
    * @return docSizeSum
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getDocSizeSum() {
     return docSizeSum;
@@ -481,10 +502,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get timeStampFrom
+   * 
    * @return timeStampFrom
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getTimeStampFrom() {
     return timeStampFrom;
@@ -499,10 +521,11 @@ public class UsageApplication {
     return this;
   }
 
-   /**
+  /**
    * Get timeStampTo
+   * 
    * @return timeStampTo
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getTimeStampTo() {
     return timeStampTo;
@@ -511,7 +534,6 @@ public class UsageApplication {
   public void setTimeStampTo(OffsetDateTime timeStampTo) {
     this.timeStampTo = timeStampTo;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -522,42 +544,43 @@ public class UsageApplication {
       return false;
     }
     UsageApplication usageApplication = (UsageApplication) o;
-    return Objects.equals(this.id, usageApplication.id) &&
-        Objects.equals(this.subscriptionId, usageApplication.subscriptionId) &&
-        Objects.equals(this.applicationId, usageApplication.applicationId) &&
-        Objects.equals(this.subCostTotal, usageApplication.subCostTotal) &&
-        Objects.equals(this.subCostCurrent, usageApplication.subCostCurrent) &&
-        Objects.equals(this.apiCostTotal, usageApplication.apiCostTotal) &&
-        Objects.equals(this.apiCostCurrent, usageApplication.apiCostCurrent) &&
-        Objects.equals(this.apiCallCnt, usageApplication.apiCallCnt) &&
-        Objects.equals(this.feature, usageApplication.feature) &&
-        Objects.equals(this.featureCallCnt, usageApplication.featureCallCnt) &&
-        Objects.equals(this.durationMsAvg, usageApplication.durationMsAvg) &&
-        Objects.equals(this.durationMsMin, usageApplication.durationMsMin) &&
-        Objects.equals(this.durationMsMax, usageApplication.durationMsMax) &&
-        Objects.equals(this.pagesAvg, usageApplication.pagesAvg) &&
-        Objects.equals(this.pagesMin, usageApplication.pagesMin) &&
-        Objects.equals(this.pagesMax, usageApplication.pagesMax) &&
-        Objects.equals(this.pagesSum, usageApplication.pagesSum) &&
-        Objects.equals(this.docSizeAvg, usageApplication.docSizeAvg) &&
-        Objects.equals(this.docSizeMin, usageApplication.docSizeMin) &&
-        Objects.equals(this.docSizeMax, usageApplication.docSizeMax) &&
-        Objects.equals(this.docSizeSum, usageApplication.docSizeSum) &&
-        Objects.equals(this.timeStampFrom, usageApplication.timeStampFrom) &&
-        Objects.equals(this.timeStampTo, usageApplication.timeStampTo);
+    return Objects.equals(this.id, usageApplication.id)
+        && Objects.equals(this.subscriptionId, usageApplication.subscriptionId)
+        && Objects.equals(this.applicationId, usageApplication.applicationId)
+        && Objects.equals(this.subCostTotal, usageApplication.subCostTotal)
+        && Objects.equals(this.subCostCurrent, usageApplication.subCostCurrent)
+        && Objects.equals(this.apiCostTotal, usageApplication.apiCostTotal)
+        && Objects.equals(this.apiCostCurrent, usageApplication.apiCostCurrent)
+        && Objects.equals(this.apiCallCnt, usageApplication.apiCallCnt)
+        && Objects.equals(this.feature, usageApplication.feature)
+        && Objects.equals(this.featureCallCnt, usageApplication.featureCallCnt)
+        && Objects.equals(this.durationMsAvg, usageApplication.durationMsAvg)
+        && Objects.equals(this.durationMsMin, usageApplication.durationMsMin)
+        && Objects.equals(this.durationMsMax, usageApplication.durationMsMax)
+        && Objects.equals(this.pagesAvg, usageApplication.pagesAvg)
+        && Objects.equals(this.pagesMin, usageApplication.pagesMin)
+        && Objects.equals(this.pagesMax, usageApplication.pagesMax)
+        && Objects.equals(this.pagesSum, usageApplication.pagesSum)
+        && Objects.equals(this.docSizeAvg, usageApplication.docSizeAvg)
+        && Objects.equals(this.docSizeMin, usageApplication.docSizeMin)
+        && Objects.equals(this.docSizeMax, usageApplication.docSizeMax)
+        && Objects.equals(this.docSizeSum, usageApplication.docSizeSum)
+        && Objects.equals(this.timeStampFrom, usageApplication.timeStampFrom)
+        && Objects.equals(this.timeStampTo, usageApplication.timeStampTo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, subscriptionId, applicationId, subCostTotal, subCostCurrent, apiCostTotal, apiCostCurrent, apiCallCnt, feature, featureCallCnt, durationMsAvg, durationMsMin, durationMsMax, pagesAvg, pagesMin, pagesMax, pagesSum, docSizeAvg, docSizeMin, docSizeMax, docSizeSum, timeStampFrom, timeStampTo);
+    return Objects.hash(id, subscriptionId, applicationId, subCostTotal, subCostCurrent, apiCostTotal, apiCostCurrent,
+        apiCallCnt, feature, featureCallCnt, durationMsAvg, durationMsMin, durationMsMax, pagesAvg, pagesMin, pagesMax,
+        pagesSum, docSizeAvg, docSizeMin, docSizeMax, docSizeSum, timeStampFrom, timeStampTo);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageApplication {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
@@ -597,4 +620,3 @@ public class UsageApplication {
   }
 
 }
-

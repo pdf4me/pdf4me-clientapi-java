@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +27,7 @@ import model.DocMetadata;
 /**
  * CheckAvailabilityRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class CheckAvailabilityRes {
   @SerializedName("traceId")
   private String traceId = null;
@@ -43,10 +43,11 @@ public class CheckAvailabilityRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -61,10 +62,11 @@ public class CheckAvailabilityRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadata
+   * 
    * @return inDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getInDocMetadata() {
     return inDocMetadata;
@@ -79,10 +81,11 @@ public class CheckAvailabilityRes {
     return this;
   }
 
-   /**
+  /**
    * Get status
+   * 
    * @return status
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isStatus() {
     return status;
@@ -91,7 +94,6 @@ public class CheckAvailabilityRes {
   public void setStatus(Boolean status) {
     this.status = status;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,9 +104,9 @@ public class CheckAvailabilityRes {
       return false;
     }
     CheckAvailabilityRes checkAvailabilityRes = (CheckAvailabilityRes) o;
-    return Objects.equals(this.traceId, checkAvailabilityRes.traceId) &&
-        Objects.equals(this.inDocMetadata, checkAvailabilityRes.inDocMetadata) &&
-        Objects.equals(this.status, checkAvailabilityRes.status);
+    return Objects.equals(this.traceId, checkAvailabilityRes.traceId)
+        && Objects.equals(this.inDocMetadata, checkAvailabilityRes.inDocMetadata)
+        && Objects.equals(this.status, checkAvailabilityRes.status);
   }
 
   @Override
@@ -112,12 +114,11 @@ public class CheckAvailabilityRes {
     return Objects.hash(traceId, inDocMetadata, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckAvailabilityRes {\n");
-    
+
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    inDocMetadata: ").append(toIndentedString(inDocMetadata)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -137,4 +138,3 @@ public class CheckAvailabilityRes {
   }
 
 }
-

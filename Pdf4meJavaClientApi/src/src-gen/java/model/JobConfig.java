@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * JobConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class JobConfig {
   @SerializedName("jobConfigId")
   private UUID jobConfigId = null;
@@ -74,10 +74,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get jobConfigId
+   * 
    * @return jobConfigId
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public UUID getJobConfigId() {
     return jobConfigId;
@@ -92,10 +93,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get enabled
+   * 
    * @return enabled
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Boolean isEnabled() {
     return enabled;
@@ -110,10 +112,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get active
+   * 
    * @return active
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isActive() {
     return active;
@@ -128,10 +131,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get creationDate
+   * 
    * @return creationDate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getCreationDate() {
     return creationDate;
@@ -146,10 +150,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get modDate
+   * 
    * @return modDate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getModDate() {
     return modDate;
@@ -164,10 +169,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get name
+   * 
    * @return name
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
@@ -182,10 +188,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get userId
+   * 
    * @return userId
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public UUID getUserId() {
     return userId;
@@ -200,10 +207,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get tenantId
+   * 
    * @return tenantId
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public UUID getTenantId() {
     return tenantId;
@@ -218,10 +226,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get sourceFolder
+   * 
    * @return sourceFolder
-  **/
+   **/
   @ApiModelProperty(value = "")
   public StorageFolder getSourceFolder() {
     return sourceFolder;
@@ -236,10 +245,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get executionTrigger
+   * 
    * @return executionTrigger
-  **/
+   **/
   @ApiModelProperty(value = "")
   public ExecutionTrigger getExecutionTrigger() {
     return executionTrigger;
@@ -254,10 +264,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get actionFlow
+   * 
    * @return actionFlow
-  **/
+   **/
   @ApiModelProperty(value = "")
   public ActionFlow getActionFlow() {
     return actionFlow;
@@ -272,10 +283,11 @@ public class JobConfig {
     return this;
   }
 
-   /**
+  /**
    * Get targetFolder
+   * 
    * @return targetFolder
-  **/
+   **/
   @ApiModelProperty(value = "")
   public StorageFolder getTargetFolder() {
     return targetFolder;
@@ -284,7 +296,6 @@ public class JobConfig {
   public void setTargetFolder(StorageFolder targetFolder) {
     this.targetFolder = targetFolder;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -295,31 +306,27 @@ public class JobConfig {
       return false;
     }
     JobConfig jobConfig = (JobConfig) o;
-    return Objects.equals(this.jobConfigId, jobConfig.jobConfigId) &&
-        Objects.equals(this.enabled, jobConfig.enabled) &&
-        Objects.equals(this.active, jobConfig.active) &&
-        Objects.equals(this.creationDate, jobConfig.creationDate) &&
-        Objects.equals(this.modDate, jobConfig.modDate) &&
-        Objects.equals(this.name, jobConfig.name) &&
-        Objects.equals(this.userId, jobConfig.userId) &&
-        Objects.equals(this.tenantId, jobConfig.tenantId) &&
-        Objects.equals(this.sourceFolder, jobConfig.sourceFolder) &&
-        Objects.equals(this.executionTrigger, jobConfig.executionTrigger) &&
-        Objects.equals(this.actionFlow, jobConfig.actionFlow) &&
-        Objects.equals(this.targetFolder, jobConfig.targetFolder);
+    return Objects.equals(this.jobConfigId, jobConfig.jobConfigId) && Objects.equals(this.enabled, jobConfig.enabled)
+        && Objects.equals(this.active, jobConfig.active) && Objects.equals(this.creationDate, jobConfig.creationDate)
+        && Objects.equals(this.modDate, jobConfig.modDate) && Objects.equals(this.name, jobConfig.name)
+        && Objects.equals(this.userId, jobConfig.userId) && Objects.equals(this.tenantId, jobConfig.tenantId)
+        && Objects.equals(this.sourceFolder, jobConfig.sourceFolder)
+        && Objects.equals(this.executionTrigger, jobConfig.executionTrigger)
+        && Objects.equals(this.actionFlow, jobConfig.actionFlow)
+        && Objects.equals(this.targetFolder, jobConfig.targetFolder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobConfigId, enabled, active, creationDate, modDate, name, userId, tenantId, sourceFolder, executionTrigger, actionFlow, targetFolder);
+    return Objects.hash(jobConfigId, enabled, active, creationDate, modDate, name, userId, tenantId, sourceFolder,
+        executionTrigger, actionFlow, targetFolder);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobConfig {\n");
-    
+
     sb.append("    jobConfigId: ").append(toIndentedString(jobConfigId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
@@ -348,4 +355,3 @@ public class JobConfig {
   }
 
 }
-

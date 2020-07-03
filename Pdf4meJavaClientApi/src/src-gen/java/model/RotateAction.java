@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,15 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import model.PdfRotate;
 
 /**
  * RotateAction
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class RotateAction {
   @SerializedName("rotationList")
   private List<PdfRotate> rotationList = null;
+
+  @SerializedName("actionId")
+  private UUID actionId = null;
 
   public RotateAction rotationList(List<PdfRotate> rotationList) {
     this.rotationList = rotationList;
@@ -47,10 +51,11 @@ public class RotateAction {
     return this;
   }
 
-   /**
+  /**
    * Get rotationList
+   * 
    * @return rotationList
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<PdfRotate> getRotationList() {
     return rotationList;
@@ -60,6 +65,24 @@ public class RotateAction {
     this.rotationList = rotationList;
   }
 
+  public RotateAction actionId(UUID actionId) {
+    this.actionId = actionId;
+    return this;
+  }
+
+  /**
+   * Get actionId
+   * 
+   * @return actionId
+   **/
+  @ApiModelProperty(value = "")
+  public UUID getActionId() {
+    return actionId;
+  }
+
+  public void setActionId(UUID actionId) {
+    this.actionId = actionId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -70,21 +93,22 @@ public class RotateAction {
       return false;
     }
     RotateAction rotateAction = (RotateAction) o;
-    return Objects.equals(this.rotationList, rotateAction.rotationList);
+    return Objects.equals(this.rotationList, rotateAction.rotationList)
+        && Objects.equals(this.actionId, rotateAction.actionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rotationList);
+    return Objects.hash(rotationList, actionId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotateAction {\n");
-    
+
     sb.append("    rotationList: ").append(toIndentedString(rotationList)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -101,4 +125,3 @@ public class RotateAction {
   }
 
 }
-

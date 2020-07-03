@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * PageSelection
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PageSelection {
   @SerializedName("pageNrs")
   private List<Integer> pageNrs = null;
@@ -42,17 +42,17 @@ public class PageSelection {
   @JsonAdapter(PageSequenceEnum.Adapter.class)
   public enum PageSequenceEnum {
     ALL("all"),
-    
+
     FIRST("first"),
-    
+
     LAST("last"),
-    
+
     ODD("odd"),
-    
+
     EVEN("even"),
-    
+
     NOTFIRST("notFirst"),
-    
+
     NOTLAST("notLast");
 
     private String value;
@@ -109,10 +109,12 @@ public class PageSelection {
     return this;
   }
 
-   /**
-   * Give a list of PageNrs to apply the action.&lt;br /&gt;  PageNrs overruels PageIds and PageSequence
+  /**
+   * Give a list of PageNrs to apply the action.&lt;br /&gt; PageNrs overruels
+   * PageIds and PageSequence
+   * 
    * @return pageNrs
-  **/
+   **/
   @ApiModelProperty(value = "Give a list of PageNrs to apply the action.<br />  PageNrs overruels PageIds and PageSequence")
   public List<Integer> getPageNrs() {
     return pageNrs;
@@ -135,10 +137,12 @@ public class PageSelection {
     return this;
   }
 
-   /**
-   * Give a List of PagesIds to apply the action.&lt;br /&gt;  PageIds overrules the PageSequence
+  /**
+   * Give a List of PagesIds to apply the action.&lt;br /&gt; PageIds overrules
+   * the PageSequence
+   * 
    * @return pageIds
-  **/
+   **/
   @ApiModelProperty(value = "Give a List of PagesIds to apply the action.<br />  PageIds overrules the PageSequence")
   public List<String> getPageIds() {
     return pageIds;
@@ -153,10 +157,11 @@ public class PageSelection {
     return this;
   }
 
-   /**
+  /**
    * {default: PageSelection.All}
+   * 
    * @return pageSequence
-  **/
+   **/
   @ApiModelProperty(value = "{default: PageSelection.All}")
   public PageSequenceEnum getPageSequence() {
     return pageSequence;
@@ -165,7 +170,6 @@ public class PageSelection {
   public void setPageSequence(PageSequenceEnum pageSequence) {
     this.pageSequence = pageSequence;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,9 +180,8 @@ public class PageSelection {
       return false;
     }
     PageSelection pageSelection = (PageSelection) o;
-    return Objects.equals(this.pageNrs, pageSelection.pageNrs) &&
-        Objects.equals(this.pageIds, pageSelection.pageIds) &&
-        Objects.equals(this.pageSequence, pageSelection.pageSequence);
+    return Objects.equals(this.pageNrs, pageSelection.pageNrs) && Objects.equals(this.pageIds, pageSelection.pageIds)
+        && Objects.equals(this.pageSequence, pageSelection.pageSequence);
   }
 
   @Override
@@ -186,12 +189,11 @@ public class PageSelection {
     return Objects.hash(pageNrs, pageIds, pageSequence);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageSelection {\n");
-    
+
     sb.append("    pageNrs: ").append(toIndentedString(pageNrs)).append("\n");
     sb.append("    pageIds: ").append(toIndentedString(pageIds)).append("\n");
     sb.append("    pageSequence: ").append(toIndentedString(pageSequence)).append("\n");
@@ -211,4 +213,3 @@ public class PageSelection {
   }
 
 }
-

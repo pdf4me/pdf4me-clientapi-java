@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * PdfFont
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PdfFont {
   @SerializedName("name")
   private String name = null;
@@ -39,10 +39,11 @@ public class PdfFont {
     return this;
   }
 
-   /**
+  /**
    * Get name
+   * 
    * @return name
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getName() {
     return name;
@@ -57,10 +58,11 @@ public class PdfFont {
     return this;
   }
 
-   /**
+  /**
    * Get fontContent
+   * 
    * @return fontContent
-  **/
+   **/
   @ApiModelProperty(value = "")
   public byte[] getFontContent() {
     return fontContent;
@@ -69,7 +71,6 @@ public class PdfFont {
   public void setFontContent(byte[] fontContent) {
     this.fontContent = fontContent;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,21 +81,19 @@ public class PdfFont {
       return false;
     }
     PdfFont pdfFont = (PdfFont) o;
-    return Objects.equals(this.name, pdfFont.name) &&
-        Objects.equals(this.fontContent, pdfFont.fontContent);
+    return Objects.equals(this.name, pdfFont.name) && Arrays.equals(this.fontContent, pdfFont.fontContent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, fontContent);
+    return Objects.hash(name, Arrays.hashCode(fontContent));
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfFont {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    fontContent: ").append(toIndentedString(fontContent)).append("\n");
     sb.append("}");
@@ -113,4 +112,3 @@ public class PdfFont {
   }
 
 }
-

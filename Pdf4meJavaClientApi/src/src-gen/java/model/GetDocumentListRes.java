@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +32,7 @@ import model.Pdf4meDocument;
 /**
  * GetDocumentListRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class GetDocumentListRes {
   @SerializedName("jobId")
   private UUID jobId = null;
@@ -60,10 +60,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getJobId() {
     return jobId;
@@ -78,10 +79,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -104,10 +106,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get docLogs
+   * 
    * @return docLogs
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<DocLog> getDocLogs() {
     return docLogs;
@@ -130,10 +133,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get documentList
+   * 
    * @return documentList
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<Pdf4meDocument> getDocumentList() {
     return documentList;
@@ -148,10 +152,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get document
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Pdf4meDocument getDocument() {
     return document;
@@ -166,10 +171,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadata
+   * 
    * @return inDocMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getInDocMetadata() {
     return inDocMetadata;
@@ -192,10 +198,11 @@ public class GetDocumentListRes {
     return this;
   }
 
-   /**
+  /**
    * Get inDocMetadataList
+   * 
    * @return inDocMetadataList
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<DocMetadata> getInDocMetadataList() {
     return inDocMetadataList;
@@ -204,7 +211,6 @@ public class GetDocumentListRes {
   public void setInDocMetadataList(List<DocMetadata> inDocMetadataList) {
     this.inDocMetadataList = inDocMetadataList;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -215,13 +221,13 @@ public class GetDocumentListRes {
       return false;
     }
     GetDocumentListRes getDocumentListRes = (GetDocumentListRes) o;
-    return Objects.equals(this.jobId, getDocumentListRes.jobId) &&
-        Objects.equals(this.jobIdExt, getDocumentListRes.jobIdExt) &&
-        Objects.equals(this.docLogs, getDocumentListRes.docLogs) &&
-        Objects.equals(this.documentList, getDocumentListRes.documentList) &&
-        Objects.equals(this.document, getDocumentListRes.document) &&
-        Objects.equals(this.inDocMetadata, getDocumentListRes.inDocMetadata) &&
-        Objects.equals(this.inDocMetadataList, getDocumentListRes.inDocMetadataList);
+    return Objects.equals(this.jobId, getDocumentListRes.jobId)
+        && Objects.equals(this.jobIdExt, getDocumentListRes.jobIdExt)
+        && Objects.equals(this.docLogs, getDocumentListRes.docLogs)
+        && Objects.equals(this.documentList, getDocumentListRes.documentList)
+        && Objects.equals(this.document, getDocumentListRes.document)
+        && Objects.equals(this.inDocMetadata, getDocumentListRes.inDocMetadata)
+        && Objects.equals(this.inDocMetadataList, getDocumentListRes.inDocMetadataList);
   }
 
   @Override
@@ -229,12 +235,11 @@ public class GetDocumentListRes {
     return Objects.hash(jobId, jobIdExt, docLogs, documentList, document, inDocMetadata, inDocMetadataList);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDocumentListRes {\n");
-    
+
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIdExt: ").append(toIndentedString(jobIdExt)).append("\n");
     sb.append("    docLogs: ").append(toIndentedString(docLogs)).append("\n");
@@ -258,4 +263,3 @@ public class GetDocumentListRes {
   }
 
 }
-

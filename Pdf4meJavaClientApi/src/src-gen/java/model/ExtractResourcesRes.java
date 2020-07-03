@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +23,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.PdfResources;
+import model.SubscriptionUsage;
 
 /**
  * MRC document
  */
 @ApiModel(description = "MRC document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ExtractResourcesRes {
   @SerializedName("pdfResources")
   private PdfResources pdfResources = null;
@@ -39,15 +40,19 @@ public class ExtractResourcesRes {
   @SerializedName("jobId")
   private String jobId = null;
 
+  @SerializedName("subscriptionUsage")
+  private SubscriptionUsage subscriptionUsage = null;
+
   public ExtractResourcesRes pdfResources(PdfResources pdfResources) {
     this.pdfResources = pdfResources;
     return this;
   }
 
-   /**
+  /**
    * Get pdfResources
+   * 
    * @return pdfResources
-  **/
+   **/
   @ApiModelProperty(value = "")
   public PdfResources getPdfResources() {
     return pdfResources;
@@ -62,10 +67,11 @@ public class ExtractResourcesRes {
     return this;
   }
 
-   /**
+  /**
    * Get traceId
+   * 
    * @return traceId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTraceId() {
     return traceId;
@@ -80,10 +86,11 @@ public class ExtractResourcesRes {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -93,6 +100,24 @@ public class ExtractResourcesRes {
     this.jobId = jobId;
   }
 
+  public ExtractResourcesRes subscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+    return this;
+  }
+
+  /**
+   * Get subscriptionUsage
+   * 
+   * @return subscriptionUsage
+   **/
+  @ApiModelProperty(value = "")
+  public SubscriptionUsage getSubscriptionUsage() {
+    return subscriptionUsage;
+  }
+
+  public void setSubscriptionUsage(SubscriptionUsage subscriptionUsage) {
+    this.subscriptionUsage = subscriptionUsage;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,25 +128,26 @@ public class ExtractResourcesRes {
       return false;
     }
     ExtractResourcesRes extractResourcesRes = (ExtractResourcesRes) o;
-    return Objects.equals(this.pdfResources, extractResourcesRes.pdfResources) &&
-        Objects.equals(this.traceId, extractResourcesRes.traceId) &&
-        Objects.equals(this.jobId, extractResourcesRes.jobId);
+    return Objects.equals(this.pdfResources, extractResourcesRes.pdfResources)
+        && Objects.equals(this.traceId, extractResourcesRes.traceId)
+        && Objects.equals(this.jobId, extractResourcesRes.jobId)
+        && Objects.equals(this.subscriptionUsage, extractResourcesRes.subscriptionUsage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pdfResources, traceId, jobId);
+    return Objects.hash(pdfResources, traceId, jobId, subscriptionUsage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExtractResourcesRes {\n");
-    
+
     sb.append("    pdfResources: ").append(toIndentedString(pdfResources)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    subscriptionUsage: ").append(toIndentedString(subscriptionUsage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,4 +164,3 @@ public class ExtractResourcesRes {
   }
 
 }
-

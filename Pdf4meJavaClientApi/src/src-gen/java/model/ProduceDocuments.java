@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,7 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import model.Document;
 import model.OcrAction;
 import model.OptimizeAction;
@@ -35,11 +34,8 @@ import model.ProduceOutput;
  * Produce a Documents with the given Document Content and its actions
  */
 @ApiModel(description = "Produce a Documents with the given Document Content and its actions")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class ProduceDocuments {
-  @SerializedName("jobId")
-  private UUID jobId = null;
-
   @SerializedName("documents")
   private List<Document> documents = null;
 
@@ -55,29 +51,17 @@ public class ProduceDocuments {
   @SerializedName("produceOutput")
   private ProduceOutput produceOutput = null;
 
+  @SerializedName("ipAddress")
+  private String ipAddress = null;
+
+  @SerializedName("jobId")
+  private String jobId = null;
+
   @SerializedName("jobIdExt")
   private String jobIdExt = null;
 
   @SerializedName("integrations")
   private List<String> integrations = null;
-
-  public ProduceDocuments jobId(UUID jobId) {
-    this.jobId = jobId;
-    return this;
-  }
-
-   /**
-   * Document containing the data
-   * @return jobId
-  **/
-  @ApiModelProperty(value = "Document containing the data")
-  public UUID getJobId() {
-    return jobId;
-  }
-
-  public void setJobId(UUID jobId) {
-    this.jobId = jobId;
-  }
 
   public ProduceDocuments documents(List<Document> documents) {
     this.documents = documents;
@@ -92,10 +76,11 @@ public class ProduceDocuments {
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return documents
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public List<Document> getDocuments() {
     return documents;
@@ -110,10 +95,11 @@ public class ProduceDocuments {
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return ocrAction
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public OcrAction getOcrAction() {
     return ocrAction;
@@ -128,10 +114,11 @@ public class ProduceDocuments {
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return pdfAAction
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public PdfAAction getPdfAAction() {
     return pdfAAction;
@@ -146,10 +133,11 @@ public class ProduceDocuments {
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return optimizeAction
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public OptimizeAction getOptimizeAction() {
     return optimizeAction;
@@ -164,10 +152,11 @@ public class ProduceDocuments {
     return this;
   }
 
-   /**
+  /**
    * Document containing the data
+   * 
    * @return produceOutput
-  **/
+   **/
   @ApiModelProperty(value = "Document containing the data")
   public ProduceOutput getProduceOutput() {
     return produceOutput;
@@ -177,15 +166,54 @@ public class ProduceDocuments {
     this.produceOutput = produceOutput;
   }
 
+  public ProduceDocuments ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+  /**
+   * Get ipAddress
+   * 
+   * @return ipAddress
+   **/
+  @ApiModelProperty(value = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
+  public ProduceDocuments jobId(String jobId) {
+    this.jobId = jobId;
+    return this;
+  }
+
+  /**
+   * Get jobId
+   * 
+   * @return jobId
+   **/
+  @ApiModelProperty(value = "")
+  public String getJobId() {
+    return jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
   public ProduceDocuments jobIdExt(String jobIdExt) {
     this.jobIdExt = jobIdExt;
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -208,10 +236,11 @@ public class ProduceDocuments {
     return this;
   }
 
-   /**
+  /**
    * Get integrations
+   * 
    * @return integrations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getIntegrations() {
     return integrations;
@@ -220,7 +249,6 @@ public class ProduceDocuments {
   public void setIntegrations(List<String> integrations) {
     this.integrations = integrations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -231,33 +259,35 @@ public class ProduceDocuments {
       return false;
     }
     ProduceDocuments produceDocuments = (ProduceDocuments) o;
-    return Objects.equals(this.jobId, produceDocuments.jobId) &&
-        Objects.equals(this.documents, produceDocuments.documents) &&
-        Objects.equals(this.ocrAction, produceDocuments.ocrAction) &&
-        Objects.equals(this.pdfAAction, produceDocuments.pdfAAction) &&
-        Objects.equals(this.optimizeAction, produceDocuments.optimizeAction) &&
-        Objects.equals(this.produceOutput, produceDocuments.produceOutput) &&
-        Objects.equals(this.jobIdExt, produceDocuments.jobIdExt) &&
-        Objects.equals(this.integrations, produceDocuments.integrations);
+    return Objects.equals(this.documents, produceDocuments.documents)
+        && Objects.equals(this.ocrAction, produceDocuments.ocrAction)
+        && Objects.equals(this.pdfAAction, produceDocuments.pdfAAction)
+        && Objects.equals(this.optimizeAction, produceDocuments.optimizeAction)
+        && Objects.equals(this.produceOutput, produceDocuments.produceOutput)
+        && Objects.equals(this.ipAddress, produceDocuments.ipAddress)
+        && Objects.equals(this.jobId, produceDocuments.jobId)
+        && Objects.equals(this.jobIdExt, produceDocuments.jobIdExt)
+        && Objects.equals(this.integrations, produceDocuments.integrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobId, documents, ocrAction, pdfAAction, optimizeAction, produceOutput, jobIdExt, integrations);
+    return Objects.hash(documents, ocrAction, pdfAAction, optimizeAction, produceOutput, ipAddress, jobId, jobIdExt,
+        integrations);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProduceDocuments {\n");
-    
-    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("    ocrAction: ").append(toIndentedString(ocrAction)).append("\n");
     sb.append("    pdfAAction: ").append(toIndentedString(pdfAAction)).append("\n");
     sb.append("    optimizeAction: ").append(toIndentedString(optimizeAction)).append("\n");
     sb.append("    produceOutput: ").append(toIndentedString(produceOutput)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIdExt: ").append(toIndentedString(jobIdExt)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("}");
@@ -276,4 +306,3 @@ public class ProduceDocuments {
   }
 
 }
-

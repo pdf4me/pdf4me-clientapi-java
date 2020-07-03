@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,13 +30,16 @@ import model.SplitAction;
 /**
  * Split
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class Split {
   @SerializedName("document")
   private Document document = null;
 
   @SerializedName("splitAction")
   private SplitAction splitAction = null;
+
+  @SerializedName("ipAddress")
+  private String ipAddress = null;
 
   @SerializedName("jobId")
   private String jobId = null;
@@ -52,10 +55,11 @@ public class Split {
     return this;
   }
 
-   /**
+  /**
    * Get document
+   * 
    * @return document
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public Document getDocument() {
     return document;
@@ -70,10 +74,11 @@ public class Split {
     return this;
   }
 
-   /**
+  /**
    * Get splitAction
+   * 
    * @return splitAction
-  **/
+   **/
   @ApiModelProperty(required = true, value = "")
   public SplitAction getSplitAction() {
     return splitAction;
@@ -83,15 +88,35 @@ public class Split {
     this.splitAction = splitAction;
   }
 
+  public Split ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+  /**
+   * Get ipAddress
+   * 
+   * @return ipAddress
+   **/
+  @ApiModelProperty(value = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
   public Split jobId(String jobId) {
     this.jobId = jobId;
     return this;
   }
 
-   /**
+  /**
    * Get jobId
+   * 
    * @return jobId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
@@ -106,10 +131,11 @@ public class Split {
     return this;
   }
 
-   /**
+  /**
    * Get jobIdExt
+   * 
    * @return jobIdExt
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getJobIdExt() {
     return jobIdExt;
@@ -132,10 +158,11 @@ public class Split {
     return this;
   }
 
-   /**
+  /**
    * Get integrations
+   * 
    * @return integrations
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<String> getIntegrations() {
     return integrations;
@@ -144,7 +171,6 @@ public class Split {
   public void setIntegrations(List<String> integrations) {
     this.integrations = integrations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -155,26 +181,24 @@ public class Split {
       return false;
     }
     Split split = (Split) o;
-    return Objects.equals(this.document, split.document) &&
-        Objects.equals(this.splitAction, split.splitAction) &&
-        Objects.equals(this.jobId, split.jobId) &&
-        Objects.equals(this.jobIdExt, split.jobIdExt) &&
-        Objects.equals(this.integrations, split.integrations);
+    return Objects.equals(this.document, split.document) && Objects.equals(this.splitAction, split.splitAction)
+        && Objects.equals(this.ipAddress, split.ipAddress) && Objects.equals(this.jobId, split.jobId)
+        && Objects.equals(this.jobIdExt, split.jobIdExt) && Objects.equals(this.integrations, split.integrations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, splitAction, jobId, jobIdExt, integrations);
+    return Objects.hash(document, splitAction, ipAddress, jobId, jobIdExt, integrations);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Split {\n");
-    
+
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    splitAction: ").append(toIndentedString(splitAction)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIdExt: ").append(toIndentedString(jobIdExt)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
@@ -194,4 +218,3 @@ public class Split {
   }
 
 }
-

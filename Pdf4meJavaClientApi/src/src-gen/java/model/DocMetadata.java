@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * DocMetadata
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class DocMetadata {
   @SerializedName("title")
   private String title = null;
@@ -77,10 +77,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get title
+   * 
    * @return title
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
@@ -95,10 +96,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get subject
+   * 
    * @return subject
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getSubject() {
     return subject;
@@ -113,10 +115,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get pageCount
+   * 
    * @return pageCount
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getPageCount() {
     return pageCount;
@@ -131,10 +134,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get author
+   * 
    * @return author
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getAuthor() {
     return author;
@@ -149,10 +153,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get creator
+   * 
    * @return creator
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getCreator() {
     return creator;
@@ -167,10 +172,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get producer
+   * 
    * @return producer
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getProducer() {
     return producer;
@@ -185,10 +191,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get creationDate
+   * 
    * @return creationDate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getCreationDate() {
     return creationDate;
@@ -203,10 +210,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get modDate
+   * 
    * @return modDate
-  **/
+   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getModDate() {
     return modDate;
@@ -221,10 +229,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get size
+   * 
    * @return size
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Long getSize() {
     return size;
@@ -239,10 +248,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get isEncrypted
+   * 
    * @return isEncrypted
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isIsEncrypted() {
     return isEncrypted;
@@ -257,10 +267,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get isLinearized
+   * 
    * @return isLinearized
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isIsLinearized() {
     return isLinearized;
@@ -275,10 +286,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get pdfCompliance
+   * 
    * @return pdfCompliance
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getPdfCompliance() {
     return pdfCompliance;
@@ -293,10 +305,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get isSigned
+   * 
    * @return isSigned
-  **/
+   **/
   @ApiModelProperty(value = "")
   public Boolean isIsSigned() {
     return isSigned;
@@ -311,10 +324,11 @@ public class DocMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get documentId
+   * 
    * @return documentId
-  **/
+   **/
   @ApiModelProperty(value = "")
   public UUID getDocumentId() {
     return documentId;
@@ -323,7 +337,6 @@ public class DocMetadata {
   public void setDocumentId(UUID documentId) {
     this.documentId = documentId;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -334,33 +347,29 @@ public class DocMetadata {
       return false;
     }
     DocMetadata docMetadata = (DocMetadata) o;
-    return Objects.equals(this.title, docMetadata.title) &&
-        Objects.equals(this.subject, docMetadata.subject) &&
-        Objects.equals(this.pageCount, docMetadata.pageCount) &&
-        Objects.equals(this.author, docMetadata.author) &&
-        Objects.equals(this.creator, docMetadata.creator) &&
-        Objects.equals(this.producer, docMetadata.producer) &&
-        Objects.equals(this.creationDate, docMetadata.creationDate) &&
-        Objects.equals(this.modDate, docMetadata.modDate) &&
-        Objects.equals(this.size, docMetadata.size) &&
-        Objects.equals(this.isEncrypted, docMetadata.isEncrypted) &&
-        Objects.equals(this.isLinearized, docMetadata.isLinearized) &&
-        Objects.equals(this.pdfCompliance, docMetadata.pdfCompliance) &&
-        Objects.equals(this.isSigned, docMetadata.isSigned) &&
-        Objects.equals(this.documentId, docMetadata.documentId);
+    return Objects.equals(this.title, docMetadata.title) && Objects.equals(this.subject, docMetadata.subject)
+        && Objects.equals(this.pageCount, docMetadata.pageCount) && Objects.equals(this.author, docMetadata.author)
+        && Objects.equals(this.creator, docMetadata.creator) && Objects.equals(this.producer, docMetadata.producer)
+        && Objects.equals(this.creationDate, docMetadata.creationDate)
+        && Objects.equals(this.modDate, docMetadata.modDate) && Objects.equals(this.size, docMetadata.size)
+        && Objects.equals(this.isEncrypted, docMetadata.isEncrypted)
+        && Objects.equals(this.isLinearized, docMetadata.isLinearized)
+        && Objects.equals(this.pdfCompliance, docMetadata.pdfCompliance)
+        && Objects.equals(this.isSigned, docMetadata.isSigned)
+        && Objects.equals(this.documentId, docMetadata.documentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, subject, pageCount, author, creator, producer, creationDate, modDate, size, isEncrypted, isLinearized, pdfCompliance, isSigned, documentId);
+    return Objects.hash(title, subject, pageCount, author, creator, producer, creationDate, modDate, size, isEncrypted,
+        isLinearized, pdfCompliance, isSigned, documentId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocMetadata {\n");
-    
+
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
@@ -391,4 +400,3 @@ public class DocMetadata {
   }
 
 }
-

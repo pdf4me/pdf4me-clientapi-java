@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,12 +25,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import model.DocMetadata;
+import model.Document;
 import model.PdfOutline;
 
 /**
  * PdfResources
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-25T12:07:57.015+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-02T11:08:16.145Z")
 public class PdfResources {
   @SerializedName("DocMetadata")
   private DocMetadata docMetadata = null;
@@ -41,15 +42,22 @@ public class PdfResources {
   @SerializedName("xmpMetadata")
   private String xmpMetadata = null;
 
+  @SerializedName("images")
+  private List<Document> images = null;
+
+  @SerializedName("text")
+  private List<Document> text = null;
+
   public PdfResources docMetadata(DocMetadata docMetadata) {
     this.docMetadata = docMetadata;
     return this;
   }
 
-   /**
+  /**
    * Get docMetadata
+   * 
    * @return docMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public DocMetadata getDocMetadata() {
     return docMetadata;
@@ -72,10 +80,11 @@ public class PdfResources {
     return this;
   }
 
-   /**
+  /**
    * Get outlines
+   * 
    * @return outlines
-  **/
+   **/
   @ApiModelProperty(value = "")
   public List<PdfOutline> getOutlines() {
     return outlines;
@@ -90,10 +99,11 @@ public class PdfResources {
     return this;
   }
 
-   /**
+  /**
    * Get xmpMetadata
+   * 
    * @return xmpMetadata
-  **/
+   **/
   @ApiModelProperty(value = "")
   public String getXmpMetadata() {
     return xmpMetadata;
@@ -103,6 +113,59 @@ public class PdfResources {
     this.xmpMetadata = xmpMetadata;
   }
 
+  public PdfResources images(List<Document> images) {
+    this.images = images;
+    return this;
+  }
+
+  public PdfResources addImagesItem(Document imagesItem) {
+    if (this.images == null) {
+      this.images = new ArrayList<Document>();
+    }
+    this.images.add(imagesItem);
+    return this;
+  }
+
+  /**
+   * Get images
+   * 
+   * @return images
+   **/
+  @ApiModelProperty(value = "")
+  public List<Document> getImages() {
+    return images;
+  }
+
+  public void setImages(List<Document> images) {
+    this.images = images;
+  }
+
+  public PdfResources text(List<Document> text) {
+    this.text = text;
+    return this;
+  }
+
+  public PdfResources addTextItem(Document textItem) {
+    if (this.text == null) {
+      this.text = new ArrayList<Document>();
+    }
+    this.text.add(textItem);
+    return this;
+  }
+
+  /**
+   * Get text
+   * 
+   * @return text
+   **/
+  @ApiModelProperty(value = "")
+  public List<Document> getText() {
+    return text;
+  }
+
+  public void setText(List<Document> text) {
+    this.text = text;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -113,25 +176,27 @@ public class PdfResources {
       return false;
     }
     PdfResources pdfResources = (PdfResources) o;
-    return Objects.equals(this.docMetadata, pdfResources.docMetadata) &&
-        Objects.equals(this.outlines, pdfResources.outlines) &&
-        Objects.equals(this.xmpMetadata, pdfResources.xmpMetadata);
+    return Objects.equals(this.docMetadata, pdfResources.docMetadata)
+        && Objects.equals(this.outlines, pdfResources.outlines)
+        && Objects.equals(this.xmpMetadata, pdfResources.xmpMetadata)
+        && Objects.equals(this.images, pdfResources.images) && Objects.equals(this.text, pdfResources.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(docMetadata, outlines, xmpMetadata);
+    return Objects.hash(docMetadata, outlines, xmpMetadata, images, text);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfResources {\n");
-    
+
     sb.append("    docMetadata: ").append(toIndentedString(docMetadata)).append("\n");
     sb.append("    outlines: ").append(toIndentedString(outlines)).append("\n");
     sb.append("    xmpMetadata: ").append(toIndentedString(xmpMetadata)).append("\n");
+    sb.append("    images: ").append(toIndentedString(images)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,4 +213,3 @@ public class PdfResources {
   }
 
 }
-
